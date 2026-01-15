@@ -1,69 +1,36 @@
-import React from 'react';
-import { TouchableOpacity, Text, StyleSheet, ActivityIndicator } from 'react-native';
+// components/Button.js
 
-export const Button = ({
-  title,
-  onPress,
-  variant = 'primary',
-  disabled = false,
-  loading = false,
-  style,
-}) => {
-  return (
-    <TouchableOpacity
-      style={[
-        styles.button,
-        styles[variant],
-        disabled && styles.disabled,
-        style,
-      ]}
-      onPress={onPress}
-      disabled={disabled || loading}
-      activeOpacity={0.7}
-    >
-      {loading ? (
-        <ActivityIndicator color={variant === 'outline' ? '#2563eb' : '#ffffff'} />
-      ) : (
-        <Text style={[styles.text, styles[`${variant}Text`]]}>{title}</Text>
-      )}
-    </TouchableOpacity>
-  );
-};
+import React from 'react';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { COLORS, RADIUS } from '../theme';
+
+export const Button = ({ title, onPress, variant = 'primary', style }) => (
+  <TouchableOpacity
+    style={[
+      styles.button,
+      variant === 'secondary' && styles.secondary,
+      style,
+    ]}
+    onPress={onPress}
+    activeOpacity={0.85}
+  >
+    <Text style={styles.text}>{title}</Text>
+  </TouchableOpacity>
+);
 
 const styles = StyleSheet.create({
   button: {
-    paddingVertical: 14,
-    paddingHorizontal: 24,
-    borderRadius: 8,
+    backgroundColor: COLORS.primary,
+    paddingVertical: 16,
+    borderRadius: RADIUS.card,
     alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: 48,
-  },
-  primary: {
-    backgroundColor: '#2563eb',
   },
   secondary: {
-    backgroundColor: '#64748b',
-  },
-  outline: {
-    backgroundColor: 'transparent',
-    borderWidth: 1,
-    borderColor: '#2563eb',
-  },
-  disabled: {
-    opacity: 0.5,
+    backgroundColor: COLORS.secondary,
   },
   text: {
+    color: '#fff',
     fontSize: 16,
-    fontWeight: '600',
-  },
-  primaryText: {
-    color: '#ffffff',
-  },
-  secondaryText: {
-    color: '#ffffff',
-  },
-  outlineText: {
-    color: '#2563eb',
+    fontWeight: '700',
   },
 });

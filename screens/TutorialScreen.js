@@ -1,4 +1,4 @@
-// TutorialScreen.js
+// screens/TutorialScreen.js
 import React, { useState } from 'react';
 import {
   View,
@@ -18,27 +18,24 @@ const { width } = Dimensions.get('window');
 const TUTORIAL_STEPS = [
   {
     icon: 'sparkles',
-    title: 'Welcome to DilliDarshan',
+    title: 'Your AI Concierge',
     description:
-      'Your AI-powered tourism companion for Delhi. Discover hidden gems, plan perfect visits, and experience Delhi like a local.',
+      'DilliDarshan AI plans your day based on your interests, the weather, and current crowd levels.',
+    color: '#FF8C00'
   },
   {
-    icon: 'chatbubbles',
-    title: 'How the AI Chat Works',
+    icon: 'people',
+    title: 'Avoid the Rush',
     description:
-      'Ask questions just like you would on ixigo. “What should I do next?” or “Less crowded places nearby?” Get instant, personalized recommendations.',
+      'Our live crowd-tracking helps you discover heritage spots when they are most peaceful.',
+    color: '#0284c7'
   },
   {
-    icon: 'trophy',
-    title: 'Earn Points & Unlock Stories',
+    icon: 'book',
+    title: 'Unlock History',
     description:
-      "Every interaction earns you points. Use them to unlock immersive cultural stories that bring Delhi's monuments to life.",
-  },
-  {
-    icon: 'compass',
-    title: 'Explore Delhi Like a Local',
-    description:
-      'Get crowd-aware suggestions, local transport tips, and cultural insights. Contribute your knowledge and help others discover Delhi.',
+      "Earn points as you explore to unlock immersive, audio-guided stories of Delhi's monuments.",
+    color: '#84593C'
   },
 ];
 
@@ -56,17 +53,16 @@ const TutorialScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Header */}
+      {/* SKIP BUTTON */}
       <View style={styles.header}>
         <TouchableOpacity
-          style={styles.skipButton}
           onPress={() => navigation.navigate('PreferenceSetup')}
         >
           <Text style={styles.skipText}>Skip</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Slides */}
+      {/* CONTENT SLIDER */}
       <ScrollView
         horizontal
         pagingEnabled
@@ -79,8 +75,8 @@ const TutorialScreen = () => {
       >
         {TUTORIAL_STEPS.map((step, index) => (
           <View key={index} style={styles.stepContainer}>
-            <View style={styles.iconContainer}>
-              <Ionicons name={step.icon} size={64} color="#2563eb" />
+            <View style={[styles.iconPorthole, { backgroundColor: `${step.color}15` }]}>
+              <Ionicons name={step.icon} size={80} color={step.color} />
             </View>
 
             <Text style={styles.title}>{step.title}</Text>
@@ -89,28 +85,24 @@ const TutorialScreen = () => {
         ))}
       </ScrollView>
 
-      {/* Footer */}
+      {/* FOOTER ACTIONS */}
       <View style={styles.footer}>
-        <View style={styles.dots}>
+        <View style={styles.dotsRow}>
           {TUTORIAL_STEPS.map((_, index) => (
             <View
               key={index}
               style={[
                 styles.dot,
-                index === currentStep && styles.activeDot,
+                index === currentStep ? styles.activeDot : styles.inactiveDot,
               ]}
             />
           ))}
         </View>
 
         <Button
-          title={
-            currentStep === TUTORIAL_STEPS.length - 1
-              ? 'Get Started'
-              : 'Next'
-          }
+          title={currentStep === TUTORIAL_STEPS.length - 1 ? "Let's Begin" : "Next"}
           onPress={handleNext}
-          style={styles.button}
+          style={styles.mainBtn}
         />
       </View>
     </SafeAreaView>
@@ -118,69 +110,47 @@ const TutorialScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ffffff',
+  container: { flex: 1, backgroundColor: '#FEFBF6' },
+  header: { padding: 20, alignItems: 'flex-end' },
+  skipText: { color: '#84593C', fontSize: 16, fontWeight: '700' },
+  
+  scrollView: { flex: 1 },
+  stepContainer: { width, padding: 40, alignItems: 'center', justifyContent: 'center' },
+  
+  iconPorthole: { 
+    width: 180, 
+    height: 180, 
+    borderRadius: 90, 
+    alignItems: 'center', 
+    justifyContent: 'center', 
+    marginBottom: 50,
+    borderWidth: 2,
+    borderColor: '#F0E4D3',
+    borderStyle: 'dashed'
   },
-  header: {
-    paddingHorizontal: 20,
-    paddingTop: 10,
-    alignItems: 'flex-end',
-  },
-  skipButton: {
-    padding: 10,
-  },
-  skipText: {
-    color: '#64748b',
-    fontSize: 16,
-  },
-  scrollView: {
-    flex: 1,
-  },
-  stepContainer: {
-    width,
-    padding: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  iconContainer: {
-    marginBottom: 40,
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: '#1e293b',
-    textAlign: 'center',
+  
+  title: { 
+    fontSize: 28, 
+    fontWeight: '800', 
+    color: '#2D241E', 
+    textAlign: 'center', 
     marginBottom: 20,
+    letterSpacing: -0.5
   },
-  description: {
-    fontSize: 16,
-    color: '#64748b',
-    textAlign: 'center',
-    lineHeight: 24,
+  description: { 
+    fontSize: 16, 
+    color: '#84593C', 
+    textAlign: 'center', 
+    lineHeight: 26,
+    fontWeight: '500'
   },
-  footer: {
-    padding: 20,
-  },
-  dots: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginBottom: 30,
-  },
-  dot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: '#cbd5e1',
-    marginHorizontal: 4,
-  },
-  activeDot: {
-    backgroundColor: '#2563eb',
-    width: 24,
-  },
-  button: {
-    width: '100%',
-  },
+
+  footer: { padding: 30, paddingBottom: 50 },
+  dotsRow: { flexDirection: 'row', justifyContent: 'center', marginBottom: 40, gap: 8 },
+  dot: { height: 8, borderRadius: 4 },
+  inactiveDot: { width: 8, backgroundColor: '#F0E4D3' },
+  activeDot: { width: 24, backgroundColor: '#FF8C00' },
+  mainBtn: { height: 56, borderRadius: 18 }
 });
 
 export default TutorialScreen;

@@ -1,41 +1,44 @@
-// HomeScreen.js
+// screens/HomeScreen.js
 import React from "react";
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
+  Image,
   TouchableOpacity,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
-import { Card } from "../components/Card";
+import { useNavigation } from "@react-navigation/native";
 import { Button } from "../components/Button";
-import { usePoints } from "../context/PointsContext";
+import { Card } from "../components/Card";
 import SOSButton from "../components/SOSButton";
-import { Image } from "react-native";
+import { usePoints } from "../context/PointsContext";
+import { COLORS } from "../theme";
 
-const FEATURES = [
+const QUICK_ACTIONS = [
+  { icon: "map-outline", label: "Nearby Places", route: "Explore" },
+  { icon: "chatbubble-ellipses-outline", label: "Ask AI", route: "Chat" },
+  { icon: "bus-outline", label: "Transport", route: "Explore" },
+  { icon: "calendar-outline", label: "Events", route: "Events" },
+];
+
+const FEATURE_CARDS = [
   {
     icon: "sparkles",
-    title: "Smart Planning",
-    description: "AI-powered itinerary based on your time and interests",
+    title: "AI Travel Guide",
+    desc: "Smart suggestions based on time, crowd & location",
   },
   {
     icon: "people",
-    title: "Crowd-Aware Suggestions",
-    description: "Avoid crowds and discover quieter alternatives",
+    title: "Crowd-Aware Planning",
+    desc: "Avoid rush & discover calmer heritage spots",
   },
   {
     icon: "book",
-    title: "Cultural Storytelling",
-    description: "Unlock immersive stories about Delhi's monuments",
-  },
-  {
-    icon: "bulb",
-    title: "Local Insights",
-    description: "Get tips from locals and contribute your own",
+    title: "Cultural Stories",
+    desc: "Unlock immersive audio & local narratives",
   },
 ];
 
@@ -43,51 +46,103 @@ const HomeScreen = () => {
   const navigation = useNavigation();
   const { points } = usePoints();
 
+  const handleFeaturePress = (title) => {
+    if (title === "Smart Plan") {
+      navigation.navigate("PersonalizedPlan", { places: ["1", "2", "4"] });
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {/* HEADER */}
         <View style={styles.header}>
           <Image source={require("../assets/icon.png")} style={styles.logo} />
-
           <Text style={styles.appName}>DilliDarshan</Text>
           <Text style={styles.tagline}>
-            Explore Delhi like a local - intelligently, culturally, comfortably
+            Explore Delhi like a local — smartly & safely
           </Text>
-          <View style={styles.pointsContainer}>
+          <View style={styles.pointsBadge}>
             <Ionicons name="star" size={16} color="#92400e" />
             <Text style={styles.pointsText}>{points} points</Text>
           </View>
         </View>
 
-        <View style={styles.buttonContainer}>
+        {/* CTA BUTTONS */}
+        <View style={styles.ctaSection}>
           <Button
             title="Start Exploring"
             onPress={() => navigation.navigate("Explore")}
-            style={styles.button}
           />
           <Button
-            title="Ask AI Assistant"
-            onPress={() => navigation.navigate("Chat")}
+            title="Ask AI Guide"
             variant="secondary"
-            style={styles.button}
+            onPress={() => navigation.navigate("Chat")}
           />
         </View>
 
-        <View style={styles.featuresSection}>
-          <Text style={styles.sectionTitle}>Features</Text>
-          {FEATURES.map((feature, index) => (
-            <Card key={index} style={styles.featureCard}>
-              <View style={styles.featureIcon}>
-                <Ionicons name={feature.icon} size={24} color="#2563eb" />
+        {/* QUICK ACTIONS */}
+        <View style={styles.quickActionsContainer}>
+          <Text style={styles.sectionTitle}>Quick Links</Text>
+          <View style={styles.quickActionsGrid}>
+            {QUICK_ACTIONS.map((item, index) => (
+              <TouchableOpacity
+                key={index}
+                style={styles.quickCard}
+                onPress={() => navigation.navigate(item.route)}
+              >
+                <View style={styles.quickIconCircle}>
+                  <Ionicons name={item.icon} size={22} color={COLORS.primary} />
+                </View>
+                <Text style={styles.quickText}>{item.label}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </View>
+
+        {/* SMART TOOLS SECTION */}
+        <View style={styles.sectionContainer}>
+          <Text style={styles.sectionTitle}>Smart Tools</Text>
+          <Card 
+            style={styles.smartPlanCard} 
+            onPress={() => handleFeaturePress("Smart Plan")}
+          >
+            <View style={styles.featureRow}>
+              <View style={[styles.featureIcon, { backgroundColor: '#FFF2E0' }]}>
+                <Ionicons name="sparkles" size={24} color="#FF8C00" />
               </View>
-              <Text style={styles.featureTitle}>{feature.title}</Text>
-              <Text style={styles.featureDescription}>
-                {feature.description}
-              </Text>
+              <View style={{ flex: 1 }}>
+                <Text style={styles.featureTitle}>Generate Smart Plan</Text>
+                <Text style={styles.featureDesc}>AI-powered itinerary for your day</Text>
+              </View>
+              <Ionicons name="chevron-forward" size={20} color="#84593C" />
+            </View>
+          </Card>
+        </View>
+
+        {/* WHY DILLIDARSHAN FEATURES */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Why DilliDarshan?</Text>
+          {FEATURE_CARDS.map((f, index) => (
+            <Card key={index} style={styles.featureCardMargin}>
+              <View style={styles.featureRow}>
+                <View style={styles.featureIcon}>
+                  <Ionicons name={f.icon} size={24} color={COLORS.primary} />
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.featureTitle}>{f.title}</Text>
+                  <Text style={styles.featureDesc}>{f.desc}</Text>
+                </View>
+              </View>
             </Card>
           ))}
         </View>
+        
+        {/* BOTTOM SPACER */}
+        <View style={{ height: 100 }} />
       </ScrollView>
+
+      {/* FLOATING SOS */}
       <SOSButton />
     </SafeAreaView>
   );
@@ -96,88 +151,130 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ffffff",
-  },
-  scrollView: {
-    flex: 1,
+    backgroundColor: COLORS.bg,
   },
   header: {
-    padding: 20,
-    paddingTop: 40,
     alignItems: "center",
+    paddingTop: 40,
+    paddingBottom: 24,
+    paddingHorizontal: 20,
+    backgroundColor: '#FFFFFF',
+    borderBottomWidth: 1,
+    borderBottomColor: '#F0E4D3',
   },
   logo: {
-    width: 80,
-    height: 80,
-    marginBottom: 12,
+    width: 70,
+    height: 70,
     resizeMode: "contain",
-  },
-
-  appName: {
-    fontSize: 36,
-    fontWeight: "700",
-    color: "#1e293b",
     marginBottom: 10,
   },
-  tagline: {
-    fontSize: 16,
-    color: "#64748b",
-    textAlign: "center",
-    lineHeight: 24,
-    marginBottom: 20,
+  appName: {
+    fontSize: 32,
+    fontWeight: "800",
+    color: "#2D241E",
   },
-  pointsContainer: {
+  tagline: {
+    fontSize: 14,
+    color: "#84593C",
+    marginTop: 4,
+    textAlign: "center",
+    fontWeight: "500",
+  },
+  pointsBadge: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#fef3c7",
+    backgroundColor: "#FEF3C7",
     paddingHorizontal: 16,
     paddingVertical: 8,
-    borderRadius: 20,
+    borderRadius: 24,
+    marginTop: 16,
+    borderWidth: 1,
+    borderColor: '#FDE68A',
   },
   pointsText: {
-    fontSize: 16,
-    fontWeight: "600",
+    marginLeft: 6,
+    fontWeight: "800",
     color: "#92400e",
-    marginLeft: 8,
   },
-  buttonContainer: {
-    padding: 20,
+  ctaSection: {
+    paddingHorizontal: 20,
+    marginTop: 24,
     gap: 12,
   },
-  button: {
-    width: "100%",
+  quickActionsContainer: {
+    paddingHorizontal: 20,
+    marginTop: 32,
   },
-  featuresSection: {
-    padding: 20,
-    paddingTop: 0,
+  quickActionsGrid: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 12,
+  },
+  quickCard: {
+    width: "23%",
+    alignItems: "center",
+  },
+  quickIconCircle: {
+    width: 50,
+    height: 50,
+    borderRadius: 15,
+    backgroundColor: '#FFF',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#F0E4D3',
+    marginBottom: 8,
+  },
+  quickText: {
+    fontSize: 11,
+    fontWeight: "700",
+    color: "#84593C",
+    textAlign: "center",
+  },
+  sectionContainer: {
+    marginTop: 32,
+    paddingHorizontal: 20,
+  },
+  section: {
+    paddingHorizontal: 20,
+    marginTop: 32,
   },
   sectionTitle: {
-    fontSize: 22,
-    fontWeight: "700",
-    color: "#1e293b",
-    marginBottom: 16,
+    fontSize: 18,
+    fontWeight: "800",
+    color: "#2D241E",
+    marginBottom: 12,
   },
-  featureCard: {
-    position: "relative",
-    paddingLeft: 60,
+  smartPlanCard: {
+    backgroundColor: '#FFF9F1',
+    borderColor: '#FDE68A',
+  },
+  featureCardMargin: {
+    marginVertical: 6, 
+  },
+  featureRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 14,
   },
   featureIcon: {
-    position: "absolute",
-    left: 16,
-    top: 16,
+    width: 48,
+    height: 48,
+    borderRadius: 16,
+    backgroundColor: "#FFF3E8",
+    alignItems: "center",
+    justifyContent: "center",
   },
   featureTitle: {
     fontSize: 16,
-    fontWeight: "600",
-    color: "#1e293b",
-    marginBottom: 4,
-    marginLeft: 44,
+    fontWeight: "700",
+    color: "#2D241E",
   },
-  featureDescription: {
-    fontSize: 14,
-    color: "#64748b",
-    lineHeight: 20,
-    marginLeft: 44,
+  featureDesc: {
+    fontSize: 13,
+    color: "#84593C",
+    marginTop: 2,
+    lineHeight: 18,
   },
 });
 

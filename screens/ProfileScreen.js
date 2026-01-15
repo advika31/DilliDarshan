@@ -1,4 +1,4 @@
-// ProfileScreen.js
+// screens/ProfileScreen.js
 import React from "react";
 import {
   View,
@@ -8,8 +8,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 import { usePoints } from "../context/PointsContext";
 import { usePreferences } from "../context/PreferencesContext";
 import { Card } from "../components/Card";
@@ -20,272 +20,201 @@ const ProfileScreen = () => {
   const { points } = usePoints();
   const { preferences, setHasCompletedOnboarding } = usePreferences();
 
-  const nextUnlockThreshold = 50;
-  const progress = Math.min((points / nextUnlockThreshold) * 100, 100);
-
-  const handleViewTutorial = async () => {
+  const handleResetTutorial = async () => {
     await setHasCompletedOnboarding(false);
     navigation.navigate("Tutorial");
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
-        {/* Header */}
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {/* HEADER & POINTS */}
         <View style={styles.header}>
           <View style={styles.avatar}>
-            <Ionicons name="person" size={40} color="#2563eb" />
+            <Ionicons name="person" size={40} color="#84593C" />
           </View>
-
-          <Text style={styles.name}>Guest User</Text>
-
-          <View style={styles.pointsContainer}>
-            <Ionicons name="star" size={20} color="#92400e" />
-            <Text style={styles.pointsText}>{points} points</Text>
+          <Text style={styles.userName}>Dilli Traveler</Text>
+          <View style={styles.pointsBadge}>
+            <Ionicons name="star" size={16} color="#92400E" />
+            <Text style={styles.pointsText}>{points} Points</Text>
           </View>
         </View>
 
-        {/* Progress */}
-        <View style={styles.progressSection}>
-          <Text style={styles.progressLabel}>
-            Progress to next unlock ({nextUnlockThreshold} points)
-          </Text>
-
-          <View style={styles.progressBar}>
-            <View style={[styles.progressFill, { width: `${progress}%` }]} />
-          </View>
-
-          <Text style={styles.progressText}>
-            {points} / {nextUnlockThreshold} points
-          </Text>
+        {/* FULL PREFERENCES LIST */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Your Travel DNA</Text>
+          <Card style={styles.prefCard}>
+            <PrefRow
+              label="Traveler Type"
+              value={preferences?.userType || "N/A"}
+            />
+            <PrefRow
+              label="Interests"
+              value={preferences?.interests?.join(", ") || "N/A"}
+            />
+            <PrefRow
+              label="Vibe"
+              value={preferences?.crowdPreference || "N/A"}
+            />
+            <PrefRow label="Language" value={preferences?.language || "N/A"} />
+            <PrefRow
+              label="Accessibility"
+              value={preferences?.accessibilityMode ? "Enabled" : "Disabled"}
+            />
+          </Card>
         </View>
 
-        {/* Preferences */}
-        <Card style={styles.card}>
-          {preferences ? (
-            <View style={styles.preferencesList}>
-              <View style={styles.preferenceItem}>
-                <Text style={styles.preferenceLabel}>User Type</Text>
-                <Text style={styles.preferenceValue}>
-                  {preferences.userType}
-                </Text>
-              </View>
-
-              <View style={styles.preferenceItem}>
-                <Text style={styles.preferenceLabel}>Time Available</Text>
-                <Text style={styles.preferenceValue}>
-                  {preferences.timeAvailable}
-                </Text>
-              </View>
-
-              <View style={styles.preferenceItem}>
-                <Text style={styles.preferenceLabel}>Interests</Text>
-                <Text style={styles.preferenceValue}>
-                  {preferences.interests.join(", ")}
-                </Text>
-              </View>
-
-              <View style={styles.preferenceItem}>
-                <Text style={styles.preferenceLabel}>Crowd Preference</Text>
-                <Text style={styles.preferenceValue}>
-                  {preferences.crowdPreference}
-                </Text>
-              </View>
-
-              <View style={styles.preferenceItem}>
-                <Text style={styles.preferenceLabel}>Language</Text>
-                <Text style={styles.preferenceValue}>
-                  {preferences.language}
-                </Text>
-              </View>
-
-              <View style={styles.preferenceItem}>
-                <Text style={styles.preferenceLabel}>Accessibility Mode</Text>
-                <Text style={styles.preferenceValue}>
-                  {preferences.accessibilityMode ? "Enabled" : "Disabled"}
-                </Text>
-              </View>
-            </View>
-          ) : (
-            <Text style={styles.noPreferences}>No preferences saved</Text>
-          )}
-        </Card>
-
-        {/* Actions */}
-        <View style={styles.actionsSection}>
-          <TouchableOpacity
-            style={styles.actionButton}
-            onPress={() => navigation.navigate("SafetyUtility")}
-          >
-            <Ionicons name="shield-outline" size={22} color="#2563eb" />
-            <Text style={styles.actionText}>Safety & Utilities</Text>
-          </TouchableOpacity>
-          
-          <TouchableOpacity
-            style={styles.actionButton}
-            onPress={() => navigation.navigate("Contribution")}
-          >
-            <Ionicons name="time-outline" size={22} color="#2563eb" />
-            <Text style={styles.actionText}>Contribution History</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.actionButton}
-            onPress={() => navigation.navigate("FoodRecommendation")}
-          >
-            <Ionicons name="restaurant-outline" size={22} color="#2563eb" />
-            <Text style={styles.actionText}>Food Recommendations</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.actionButton}
-            onPress={() => navigation.navigate("Events")}
-          >
-            <Ionicons name="calendar-outline" size={22} color="#2563eb" />
-            <Text style={styles.actionText}>Events & Culture</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.actionButton}
-            onPress={() => navigation.navigate("AdminDashboard")}
-          >
-            <Ionicons name="analytics-outline" size={22} color="#2563eb" />
-            <Text style={styles.actionText}>Admin Dashboard</Text>
-          </TouchableOpacity>
+        {/* TOOLBOX LINKS */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Explore Tools</Text>
+          <Card style={styles.menuList}>
+            <MenuBtn
+              label="Safety & SOS"
+              icon="shield-checkmark"
+              color="#ef4444"
+              onPress={() => navigation.navigate("SafetyUtility")}
+            />
+            <MenuBtn
+              label="Food Recommendations"
+              icon="restaurant"
+              color="#FF8C00"
+              onPress={() => navigation.navigate("FoodRecommendation")}
+            />
+            <MenuBtn
+              label="Events & Culture"
+              icon="calendar"
+              color="#0284c7"
+              onPress={() => navigation.navigate("Events")}
+            />
+            <MenuBtn
+              label="Contribute"
+              icon="add-circle"
+              color="#10b981"
+              onPress={() => navigation.navigate("Contribution")}
+            />
+            <MenuBtn
+              label="Admin Insights"
+              icon="stats-chart"
+              color="#84593C"
+              onPress={() => navigation.navigate("AdminDashboard")}
+            />
+          </Card>
         </View>
 
-        {/* Footer */}
+        {/* TUTORIAL ACTION */}
         <View style={styles.footer}>
-          <Button title="View Tutorial" onPress={handleViewTutorial} />
+          <Button
+            variant="outline"
+            title="View Tutorial Again"
+            onPress={handleResetTutorial}
+            style={styles.tutorialBtn} 
+          />
+          <Text style={styles.versionText}>DilliDarshan v1.2.0</Text>
         </View>
+
+        {/* Extra spacer for scroll */}
+        <View style={{ height: 40 }} />
       </ScrollView>
     </SafeAreaView>
   );
 };
 
+const PrefRow = ({ label, value }) => (
+  <View style={styles.prefRow}>
+    <Text style={styles.prefLabel}>{label}</Text>
+    <Text style={styles.prefValue}>{value}</Text>
+  </View>
+);
+
+const MenuBtn = ({ label, icon, color, onPress }) => (
+  <TouchableOpacity style={styles.menuItem} onPress={onPress}>
+    <Ionicons name={icon} size={20} color={color} style={{ width: 30 }} />
+    <Text style={styles.menuLabel}>{label}</Text>
+    <Ionicons name="chevron-forward" size={16} color="#F0E4D3" />
+  </TouchableOpacity>
+);
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f8fafc",
-  },
-  scrollView: {
-    flex: 1,
-  },
+  container: { flex: 1, backgroundColor: "#FEFBF6" },
   header: {
-    backgroundColor: "#ffffff",
-    padding: 24,
     alignItems: "center",
+    padding: 30,
+    backgroundColor: "#FFF",
     borderBottomWidth: 1,
-    borderBottomColor: "#e2e8f0",
+    borderBottomColor: "#F0E4D3",
   },
   avatar: {
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: "#dbeafe",
+    backgroundColor: "#F8F1E7",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 12,
   },
-  name: {
-    fontSize: 24,
-    fontWeight: "700",
-    color: "#1e293b",
-    marginBottom: 12,
-  },
-  pointsContainer: {
+  userName: { fontSize: 22, fontWeight: "800", color: "#2D241E" },
+  pointsBadge: {
     flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#fef3c7",
-    paddingHorizontal: 16,
-    paddingVertical: 8,
+    backgroundColor: "#FEF3C7",
+    paddingHorizontal: 12,
+    paddingVertical: 6,
     borderRadius: 20,
+    marginTop: 10,
   },
   pointsText: {
-    fontSize: 18,
-    fontWeight: "600",
-    color: "#92400e",
-    marginLeft: 8,
+    color: "#92400E",
+    fontWeight: "800",
+    fontSize: 13,
+    marginLeft: 5,
   },
-  progressSection: {
-    backgroundColor: "#ffffff",
-    padding: 20,
-    marginTop: 16,
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderColor: "#e2e8f0",
-  },
-  progressLabel: {
+  section: { paddingHorizontal: 20, marginTop: 25 },
+  sectionTitle: {
     fontSize: 14,
-    color: "#64748b",
-    marginBottom: 8,
+    fontWeight: "800",
+    color: "#84593C",
+    marginBottom: 12,
+    textTransform: "uppercase",
   },
-  progressBar: {
-    height: 8,
-    backgroundColor: "#e2e8f0",
-    borderRadius: 4,
-    overflow: "hidden",
-    marginBottom: 8,
-  },
-  progressFill: {
-    height: "100%",
-    backgroundColor: "#2563eb",
-  },
-  progressText: {
-    fontSize: 12,
-    color: "#64748b",
-    textAlign: "center",
-  },
-  card: {
-    margin: 16,
-  },
-  preferencesList: {
-    gap: 12,
-  },
-  preferenceItem: {
+  prefCard: { padding: 15 },
+  prefRow: {
     flexDirection: "row",
     justifyContent: "space-between",
     paddingVertical: 8,
-    borderBottomWidth: 1,
-    borderBottomColor: "#f1f5f9",
+    borderBottomWidth: 0.5,
+    borderBottomColor: "#F0E4D3",
   },
-  preferenceLabel: {
-    fontSize: 14,
-    color: "#64748b",
+  prefLabel: { color: "#84593C", fontWeight: "600", fontSize: 13 },
+  prefValue: {
+    color: "#2D241E",
+    fontWeight: "700",
+    fontSize: 13,
+    textTransform: "capitalize",
   },
-  preferenceValue: {
-    fontSize: 14,
-    color: "#1e293b",
-    fontWeight: "600",
-  },
-  noPreferences: {
-    fontSize: 14,
-    color: "#64748b",
-    fontStyle: "italic",
-  },
-  actionsSection: {
-    backgroundColor: "#ffffff",
-    marginTop: 16,
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderColor: "#e2e8f0",
-  },
-  actionButton: {
+  menuList: { padding: 5 },
+  menuItem: {
     flexDirection: "row",
     alignItems: "center",
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: "#f1f5f9",
+    padding: 15,
+    borderBottomWidth: 0.5,
+    borderBottomColor: "#F0E4D3",
   },
-  actionText: {
-    flex: 1,
-    fontSize: 16,
-    color: "#1e293b",
-    marginLeft: 12,
-  },
+  menuLabel: { flex: 1, fontSize: 15, fontWeight: "600", color: "#2D241E" },
   footer: {
-    padding: 16,
-    paddingBottom: 32,
+    paddingHorizontal: 25,
+    paddingVertical: 40, 
+    alignItems: "center",
+    width: "100%",
+  },
+  tutorialBtn: {
+    marginTop: 10,
+    width: "100%", 
+  },
+  versionText: {
+    marginTop: 20,
+    color: "#84593C",
+    fontSize: 12,
+    fontWeight: "700",
+    opacity: 0.6,
   },
 });
 

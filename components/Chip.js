@@ -1,42 +1,39 @@
-import React from 'react';
+// components/Chip.jsimport React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { COLORS, RADIUS } from '../theme';
 
-export const Chip = ({
-  label,
-  onPress,
-  selected = false,
-  style,
-}) => {
-  return (
-    <TouchableOpacity
-      style={[styles.chip, selected && styles.selected, style]}
-      onPress={onPress}
-      activeOpacity={0.7}
-    >
-      <Text style={[styles.text, selected && styles.selectedText]}>
-        {label}
-      </Text>
-    </TouchableOpacity>
-  );
-};
+export const Chip = ({ label, selected, onPress }) => (
+  <TouchableOpacity
+    onPress={onPress}
+    style={[
+      styles.chip,
+      selected && styles.active,
+    ]}
+  >
+    <Text style={[styles.text, selected && styles.activeText]}>
+      {label}
+    </Text>
+  </TouchableOpacity>
+);
 
 const styles = StyleSheet.create({
   chip: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 20,
-    backgroundColor: '#f1f5f9',
-    marginRight: 8,
-    marginBottom: 8,
+    paddingHorizontal: 18,
+    paddingVertical: 10,
+    borderRadius: RADIUS.pill,
+    backgroundColor: '#EEE',
+    marginRight: 10,
+    marginBottom: 10,
   },
-  selected: {
-    backgroundColor: '#2563eb',
+  active: {
+    backgroundColor: COLORS.primary,
   },
   text: {
     fontSize: 14,
-    color: '#64748b',
+    color: COLORS.secondary,
+    fontWeight: '600',
   },
-  selectedText: {
-    color: '#ffffff',
+  activeText: {
+    color: '#fff',
   },
 });

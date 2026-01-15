@@ -1,3 +1,4 @@
+// constants/stories.js
 export const STORY_MODES = [
   {
     id: 'quick',
