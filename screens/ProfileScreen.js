@@ -1,18 +1,19 @@
-import React from 'react';
+// ProfileScreen.js
+import React from "react";
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useNavigation } from '@react-navigation/native';
-import { Ionicons } from '@expo/vector-icons';
-import { usePoints } from '../context/PointsContext';
-import { usePreferences } from '../context/PreferencesContext';
-import { Card } from '../components/Card';
-import { Button } from '../components/Button';
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useNavigation } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
+import { usePoints } from "../context/PointsContext";
+import { usePreferences } from "../context/PreferencesContext";
+import { Card } from "../components/Card";
+import { Button } from "../components/Button";
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
@@ -24,13 +25,12 @@ const ProfileScreen = () => {
 
   const handleViewTutorial = async () => {
     await setHasCompletedOnboarding(false);
-    navigation.navigate('Tutorial');
+    navigation.navigate("Tutorial");
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-
         {/* Header */}
         <View style={styles.header}>
           <View style={styles.avatar}>
@@ -81,7 +81,7 @@ const ProfileScreen = () => {
               <View style={styles.preferenceItem}>
                 <Text style={styles.preferenceLabel}>Interests</Text>
                 <Text style={styles.preferenceValue}>
-                  {preferences.interests.join(', ')}
+                  {preferences.interests.join(", ")}
                 </Text>
               </View>
 
@@ -102,7 +102,7 @@ const ProfileScreen = () => {
               <View style={styles.preferenceItem}>
                 <Text style={styles.preferenceLabel}>Accessibility Mode</Text>
                 <Text style={styles.preferenceValue}>
-                  {preferences.accessibilityMode ? 'Enabled' : 'Disabled'}
+                  {preferences.accessibilityMode ? "Enabled" : "Disabled"}
                 </Text>
               </View>
             </View>
@@ -115,7 +115,15 @@ const ProfileScreen = () => {
         <View style={styles.actionsSection}>
           <TouchableOpacity
             style={styles.actionButton}
-            onPress={() => navigation.navigate('Contribution')}
+            onPress={() => navigation.navigate("SafetyUtility")}
+          >
+            <Ionicons name="shield-outline" size={22} color="#2563eb" />
+            <Text style={styles.actionText}>Safety & Utilities</Text>
+          </TouchableOpacity>
+          
+          <TouchableOpacity
+            style={styles.actionButton}
+            onPress={() => navigation.navigate("Contribution")}
           >
             <Ionicons name="time-outline" size={22} color="#2563eb" />
             <Text style={styles.actionText}>Contribution History</Text>
@@ -123,7 +131,7 @@ const ProfileScreen = () => {
 
           <TouchableOpacity
             style={styles.actionButton}
-            onPress={() => navigation.navigate('FoodRecommendation')}
+            onPress={() => navigation.navigate("FoodRecommendation")}
           >
             <Ionicons name="restaurant-outline" size={22} color="#2563eb" />
             <Text style={styles.actionText}>Food Recommendations</Text>
@@ -131,7 +139,7 @@ const ProfileScreen = () => {
 
           <TouchableOpacity
             style={styles.actionButton}
-            onPress={() => navigation.navigate('Events')}
+            onPress={() => navigation.navigate("Events")}
           >
             <Ionicons name="calendar-outline" size={22} color="#2563eb" />
             <Text style={styles.actionText}>Events & Culture</Text>
@@ -139,7 +147,7 @@ const ProfileScreen = () => {
 
           <TouchableOpacity
             style={styles.actionButton}
-            onPress={() => navigation.navigate('AdminDashboard')}
+            onPress={() => navigation.navigate("AdminDashboard")}
           >
             <Ionicons name="analytics-outline" size={22} color="#2563eb" />
             <Text style={styles.actionText}>Admin Dashboard</Text>
@@ -150,7 +158,6 @@ const ProfileScreen = () => {
         <View style={styles.footer}>
           <Button title="View Tutorial" onPress={handleViewTutorial} />
         </View>
-
       </ScrollView>
     </SafeAreaView>
   );
@@ -159,75 +166,75 @@ const ProfileScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8fafc',
+    backgroundColor: "#f8fafc",
   },
   scrollView: {
     flex: 1,
   },
   header: {
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
     padding: 24,
-    alignItems: 'center',
+    alignItems: "center",
     borderBottomWidth: 1,
-    borderBottomColor: '#e2e8f0',
+    borderBottomColor: "#e2e8f0",
   },
   avatar: {
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: '#dbeafe',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#dbeafe",
+    alignItems: "center",
+    justifyContent: "center",
     marginBottom: 12,
   },
   name: {
     fontSize: 24,
-    fontWeight: '700',
-    color: '#1e293b',
+    fontWeight: "700",
+    color: "#1e293b",
     marginBottom: 12,
   },
   pointsContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#fef3c7',
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#fef3c7",
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,
   },
   pointsText: {
     fontSize: 18,
-    fontWeight: '600',
-    color: '#92400e',
+    fontWeight: "600",
+    color: "#92400e",
     marginLeft: 8,
   },
   progressSection: {
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
     padding: 20,
     marginTop: 16,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor: '#e2e8f0',
+    borderColor: "#e2e8f0",
   },
   progressLabel: {
     fontSize: 14,
-    color: '#64748b',
+    color: "#64748b",
     marginBottom: 8,
   },
   progressBar: {
     height: 8,
-    backgroundColor: '#e2e8f0',
+    backgroundColor: "#e2e8f0",
     borderRadius: 4,
-    overflow: 'hidden',
+    overflow: "hidden",
     marginBottom: 8,
   },
   progressFill: {
-    height: '100%',
-    backgroundColor: '#2563eb',
+    height: "100%",
+    backgroundColor: "#2563eb",
   },
   progressText: {
     fontSize: 12,
-    color: '#64748b',
-    textAlign: 'center',
+    color: "#64748b",
+    textAlign: "center",
   },
   card: {
     margin: 16,
@@ -236,44 +243,44 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   preferenceItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     paddingVertical: 8,
     borderBottomWidth: 1,
-    borderBottomColor: '#f1f5f9',
+    borderBottomColor: "#f1f5f9",
   },
   preferenceLabel: {
     fontSize: 14,
-    color: '#64748b',
+    color: "#64748b",
   },
   preferenceValue: {
     fontSize: 14,
-    color: '#1e293b',
-    fontWeight: '600',
+    color: "#1e293b",
+    fontWeight: "600",
   },
   noPreferences: {
     fontSize: 14,
-    color: '#64748b',
-    fontStyle: 'italic',
+    color: "#64748b",
+    fontStyle: "italic",
   },
   actionsSection: {
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
     marginTop: 16,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor: '#e2e8f0',
+    borderColor: "#e2e8f0",
   },
   actionButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     padding: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#f1f5f9',
+    borderBottomColor: "#f1f5f9",
   },
   actionText: {
     flex: 1,
     fontSize: 16,
-    color: '#1e293b',
+    color: "#1e293b",
     marginLeft: 12,
   },
   footer: {
