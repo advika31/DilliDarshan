@@ -1,6 +1,12 @@
-// AdminDashboardScreen.js
+// screens/AdminDashboardScreen.js
 import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { Card } from "../components/Card";
@@ -9,153 +15,220 @@ import VisitorsBarChart from "../components/VisitorsBarChart";
 const AdminDashboardScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
+      <ScrollView showsVerticalScrollIndicator={false}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>Admin Dashboard</Text>
-          <Text style={styles.subtitle}>
-            Tourism insights and analytics
-          </Text>
+          <View>
+            <Text style={styles.headerTitle}>Admin Insights</Text>
+            <Text style={styles.headerSubtitle}>
+              Real-time tourism analytics for Delhi
+            </Text>
+          </View>
+          <TouchableOpacity style={styles.refreshBtn}>
+            <Ionicons name="refresh" size={20} color="#FF8C00" />
+          </TouchableOpacity>
         </View>
 
-        {/* Metrics */}
-        <Card style={styles.card}>
-          <View style={styles.metricContainer}>
-            <View style={styles.metricItem}>
-              <Text style={styles.metricValue}>12,450</Text>
-              <Text style={styles.metricLabel}>Today</Text>
+        {/* Primary Metrics Row */}
+        <View style={styles.metricsRow}>
+          <Card style={styles.metricCard}>
+            <Text style={styles.metricLabel}>Total Visitors</Text>
+            <Text style={styles.metricValue}>12,450</Text>
+            <View style={styles.trendRow}>
+              <Ionicons name="trending-up" size={14} color="#10b981" />
+              <Text style={styles.trendText}>+8.2%</Text>
             </View>
+          </Card>
 
-            <View style={styles.metricItem}>
-              <Text style={styles.metricValue}>+8.2%</Text>
-              <Text style={styles.metricLabel}>vs Last Week</Text>
+          <Card style={styles.metricCard}>
+            <Text style={styles.metricLabel}>Avg. Stay</Text>
+            <Text style={styles.metricValue}>2.4h</Text>
+            <View style={styles.trendRow}>
+              <Ionicons name="time-outline" size={14} color="#84593C" />
+              <Text style={[styles.trendText, { color: "#84593C" }]}>
+                Stable
+              </Text>
             </View>
-          </View>
+          </Card>
+        </View>
 
-          
+        {/* Analytics Chart */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Weekly Footfall Trend</Text>
+          <Card style={styles.chartCard}>
             <VisitorsBarChart />
-          
-        </Card>
+            <View style={styles.chartFooter}>
+              <Text style={styles.chartFooterText}>
+                Peak day: Saturday (120% capacity)
+              </Text>
+            </View>
+          </Card>
+        </View>
 
-        {/* Peak Hours */}
-        <Card style={styles.card}>
+        {/* Crowd Flow Management */}
+        <View style={styles.section}>
           <Text style={styles.sectionTitle}>Peak Visiting Hours</Text>
-
-          <View style={styles.peakHoursList}>
+          <Card style={styles.peakCard}>
             {[
-              { label: "6:00 PM - 8:00 PM", value: "Peak", width: "90%" },
-              { label: "4:00 PM - 6:00 PM", value: "High", width: "70%" },
-              { label: "10:00 AM - 12:00 PM", value: "Moderate", width: "50%" },
-              { label: "8:00 AM - 10:00 AM", value: "Low", width: "30%" },
+              {
+                label: "6:00 PM - 8:00 PM",
+                status: "Peak",
+                val: 0.9,
+                color: "#ef4444",
+              },
+              {
+                label: "4:00 PM - 6:00 PM",
+                status: "High",
+                val: 0.7,
+                color: "#f59e0b",
+              },
+              {
+                label: "10:00 AM - 12:00 PM",
+                status: "Moderate",
+                val: 0.5,
+                color: "#FF8C00",
+              },
+              {
+                label: "8:00 AM - 10:00 AM",
+                status: "Low",
+                val: 0.2,
+                color: "#10b981",
+              },
             ].map((item, index) => (
-              <View key={index} style={styles.peakHourItem}>
-                <View style={styles.peakHourBar}>
-                  <View style={[styles.peakHourFill, { width: item.width }]} />
+              <View key={index} style={styles.peakItem}>
+                <View style={styles.peakMeta}>
+                  <Text style={styles.peakLabel}>{item.label}</Text>
+                  <Text style={[styles.statusText, { color: item.color }]}>
+                    {item.status}
+                  </Text>
                 </View>
-                <Text style={styles.peakHourLabel}>{item.label}</Text>
-                <Text style={styles.peakHourValue}>{item.value}</Text>
+                <View style={styles.progressBg}>
+                  <View
+                    style={[
+                      styles.progressFill,
+                      {
+                        width: `${item.val * 100}%`,
+                        backgroundColor: item.color,
+                      },
+                    ]}
+                  />
+                </View>
               </View>
             ))}
-          </View>
-        </Card>
+          </Card>
+        </View>
 
+        {/* Active Alerts */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Live System Alerts</Text>
+          <Card style={[styles.alertCard, { borderColor: "#FDE68A" }]}>
+            <View style={styles.alertRow}>
+              <Ionicons name="warning" size={20} color="#f59e0b" />
+              <Text style={styles.alertText}>
+                High congestion reported near India Gate metro exit.
+              </Text>
+            </View>
+          </Card>
+        </View>
+
+        <View style={{ height: 40 }} />
       </ScrollView>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f8fafc",
-  },
-  scrollView: {
-    flex: 1,
-  },
+  container: { flex: 1, backgroundColor: "#FEFBF6" },
   header: {
-    backgroundColor: "#ffffff",
-    padding: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: "#e2e8f0",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "700",
-    color: "#1e293b",
-    marginBottom: 4,
-  },
-  subtitle: {
-    fontSize: 14,
-    color: "#64748b",
-  },
-  card: {
-    margin: 16,
-    marginTop: 16,
-  },
-  metricContainer: {
     flexDirection: "row",
-    justifyContent: "space-around",
-    marginBottom: 20,
-  },
-  metricItem: {
+    justifyContent: "space-between",
     alignItems: "center",
+    padding: 20,
+    backgroundColor: "#FFF",
+    borderBottomWidth: 1,
+    borderBottomColor: "#F0E4D3",
+  },
+  headerTitle: { fontSize: 22, fontWeight: "800", color: "#2D241E" },
+  headerSubtitle: { fontSize: 13, color: "#84593C", marginTop: 2 },
+  refreshBtn: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "#FFF2E0",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  metricsRow: {
+    flexDirection: "row",
+    paddingHorizontal: 15,
+    gap: 10,
+    marginTop: 15,
+  },
+  metricCard: { flex: 1, padding: 15, borderRadius: 20 },
+  metricLabel: {
+    fontSize: 12,
+    fontWeight: "700",
+    color: "#84593C",
+    textTransform: "uppercase",
   },
   metricValue: {
-    fontSize: 32,
-    fontWeight: "700",
-    color: "#1e293b",
-    marginBottom: 4,
+    fontSize: 26,
+    fontWeight: "800",
+    color: "#2D241E",
+    marginVertical: 4,
   },
-  metricLabel: {
-    fontSize: 14,
-    color: "#64748b",
-  },
+  trendRow: { flexDirection: "row", alignItems: "center", gap: 4 },
+  trendText: { fontSize: 12, fontWeight: "700", color: "#10b981" },
+
+  section: { marginTop: 25, paddingHorizontal: 20 },
   sectionTitle: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: "#1e293b",
-    marginBottom: 16,
+    fontSize: 18,
+    fontWeight: "700",
+    color: "#2D241E",
+    marginBottom: 12,
   },
-  peakHoursList: {
-    gap: 16,
+
+  chartCard: { padding: 20, alignItems: "center" },
+  chartFooter: {
+    marginTop: 15,
+    paddingTop: 15,
+    borderTopWidth: 1,
+    borderTopColor: "#F0E4D3",
+    width: "100%",
   },
-  peakHourItem: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  peakHourBar: {
-    flex: 1,
-    height: 8,
-    backgroundColor: "#e2e8f0",
-    borderRadius: 4,
-    marginRight: 12,
-  },
-  peakHourFill: {
-    height: "100%",
-    backgroundColor: "#2563eb",
-    borderRadius: 4,
-  },
-  peakHourLabel: {
-    fontSize: 13,
-    color: "#64748b",
-    minWidth: 120,
-  },
-  peakHourValue: {
+  chartFooterText: {
     fontSize: 12,
+    color: "#84593C",
     fontWeight: "600",
-    color: "#1e293b",
-    minWidth: 60,
-  },
-  footer: {
-    padding: 20,
-    paddingBottom: 32,
-    alignItems: "center",
-  },
-  footerText: {
-    fontSize: 12,
-    color: "#94a3b8",
-    fontStyle: "italic",
     textAlign: "center",
+  },
+
+  peakCard: { padding: 20 },
+  peakItem: { marginBottom: 18 },
+  peakMeta: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 8,
+  },
+  peakLabel: { fontSize: 14, fontWeight: "600", color: "#2D241E" },
+  statusText: { fontSize: 12, fontWeight: "800", textTransform: "uppercase" },
+  progressBg: {
+    height: 8,
+    backgroundColor: "#F0E4D3",
+    borderRadius: 4,
+    overflow: "hidden",
+  },
+  progressFill: { height: "100%", borderRadius: 4 },
+
+  alertCard: { backgroundColor: "#FFFBEB", padding: 15 },
+  alertRow: { flexDirection: "row", alignItems: "center", gap: 12 },
+  alertText: {
+    flex: 1,
+    fontSize: 13,
+    color: "#92400E",
+    fontWeight: "600",
+    lineHeight: 18,
   },
 });
 

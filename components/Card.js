@@ -1,13 +1,8 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+// components/Card.js
+import React from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-export const Card = ({
-  title,
-  description,
-  onPress,
-  children,
-  style,
-}) => {
+export const Card = ({ title, description, onPress, children, style }) => {
   const content = (
     <View style={[styles.card, style]}>
       {title && <Text style={styles.title}>{title}</Text>}
@@ -18,7 +13,11 @@ export const Card = ({
 
   if (onPress) {
     return (
-      <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
+      <TouchableOpacity
+        onPress={onPress}
+        activeOpacity={0.85}
+        style={styles.touchable}
+      >
         {content}
       </TouchableOpacity>
     );
@@ -28,26 +27,32 @@ export const Card = ({
 };
 
 const styles = StyleSheet.create({
+  touchable: {
+    marginVertical: 10,
+  },
   card: {
-    backgroundColor: '#ffffff',
-    borderRadius: 12,
+    backgroundColor: "#FFF9F1",
+    borderRadius: 24,
     padding: 16,
-    marginVertical: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    borderWidth: 1,
+    borderColor: "#F0E4D3",
+    shadowColor: "#84593C",
+    shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowRadius: 8,
     elevation: 3,
   },
   title: {
     fontSize: 18,
-    fontWeight: '600',
-    color: '#1e293b',
-    marginBottom: 8,
+    fontWeight: "700",
+    color: "#2D241E",
+    marginBottom: 6,
+    letterSpacing: -0.3,
   },
   description: {
     fontSize: 14,
-    color: '#64748b',
+    color: "#84593C",
     lineHeight: 20,
+    fontWeight: "500",
   },
 });

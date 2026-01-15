@@ -1,5 +1,5 @@
-// ChatScreen.js
-import React, { useState, useRef, useEffect } from 'react';
+// screens/ChatScreen.js
+import React, { useState, useRef, useEffect } from "react";
 import {
   View,
   Text,
@@ -9,223 +9,173 @@ import {
   FlatList,
   KeyboardAvoidingView,
   Platform,
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-import { usePoints } from '../context/PointsContext';
-import { usePreferences } from '../context/PreferencesContext';
-import { PLACES } from '../constants/places';
+  ScrollView,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+import { usePoints } from "../context/PointsContext";
 
 const QUICK_ACTIONS = [
-  'What should I do next?',
-  'Less crowded places nearby',
-  'Food near me',
-  'Tell me a story',
+  "What should I do next?",
+  "Show my itinerary",
+  "Less crowded places",
+  "Food near me",
 ];
 
 const ChatScreen = () => {
   const navigation = useNavigation();
   const { addPoints } = usePoints();
-  const { preferences } = usePreferences();
+  const [inputText, setInputText] = useState("");
+  const flatListRef = useRef(null);
 
   const [messages, setMessages] = useState([
     {
-      id: '1',
-      text:
-        "Namaste! I'm DilliDarshan AI. Ask me anything about Delhi — places to visit, food recommendations, transport tips, or cultural stories!",
+      id: "1",
+      text: "Namaste! I'm DilliDarshan AI. Ask me anything about Delhi — I can even build a personalized plan for you!",
       isBot: true,
     },
   ]);
-  const [inputText, setInputText] = useState('');
-  const flatListRef = useRef(null);
-
-  useEffect(() => {
-    setTimeout(() => {
-      flatListRef.current?.scrollToEnd({ animated: true });
-    }, 100);
-  }, [messages]);
 
   const generateBotResponse = (queryText) => {
     const query = queryText.toLowerCase();
-    let text = '';
-    let suggestions = [];
-    let quickActions = [];
+    let text = "";
+    let showPlanButton = false;
 
-    if (query.includes('next')) {
-      text = 'Based on your preferences, here’s what I suggest next:';
-      suggestions = PLACES.slice(0, 3);
-      quickActions = ['Tell me more', 'Less crowded places nearby'];
-    } else if (query.includes('crowd') || query.includes('quiet')) {
-      text = 'Here are some quieter places you might enjoy:';
-      suggestions = PLACES.filter(p => p.crowdLevel === 'low').slice(0, 3);
-      quickActions = ['Food near me'];
-    } else if (query.includes('food')) {
-      text = 'Delhi is a food lover’s paradise! Try these areas:';
-      suggestions = PLACES.slice(0, 2);
-      quickActions = ['Street food', 'Budget options'];
-    } else if (query.includes('story')) {
-      text = 'Visit a monument to unlock immersive cultural stories!';
-      suggestions = PLACES.slice(0, 3);
+    if (
+      query.includes("plan") ||
+      query.includes("next") ||
+      query.includes("itinerary") ||
+      query.includes("do")
+    ) {
+      text =
+        "Based on the time and your interests, I've generated a smart itinerary for you. It starts at Humayun's Tomb to avoid the afternoon rush.";
+      showPlanButton = true;
+    } else if (query.includes("food")) {
+      text =
+        "Delhi is a food paradise! I recommend checking out Paranthe Wali Gali for a local experience.";
     } else {
       text =
-        'I can help you explore Delhi. Ask about places, food, transport, or stories — or tap a quick action below.';
-      suggestions = PLACES.slice(0, 3);
-      quickActions = QUICK_ACTIONS;
+        "I can help with transport tips, monument stories, or planning your route. What's on your mind?";
     }
 
     return {
       id: Date.now().toString(),
       text,
       isBot: true,
-      suggestions,
-      quickActions,
+      showPlanButton,
     };
   };
 
   const sendMessage = (text) => {
-    const userMessage = {
-      id: Date.now().toString(),
-      text,
-      isBot: false,
-    };
-
-    setMessages(prev => [...prev, userMessage]);
-    addPoints(5, 'Chat interaction');
+    if (!text.trim()) return;
+    const userMessage = { id: Date.now().toString(), text, isBot: false };
+    setMessages((prev) => [...prev, userMessage]);
+    addPoints(5, "Chat interaction");
 
     setTimeout(() => {
       const botResponse = generateBotResponse(text);
-      setMessages(prev => [...prev, botResponse]);
-    }, 400);
+      setMessages((prev) => [...prev, botResponse]);
+    }, 600);
   };
 
-  const handleSend = () => {
-    if (!inputText.trim()) return;
-    sendMessage(inputText);
-    setInputText('');
-  };
+  const renderMessage = ({ item }) => (
+    <View
+      style={[
+        styles.msgWrapper,
+        item.isBot ? styles.botAlign : styles.userAlign,
+      ]}
+    >
+      <View
+        style={[
+          styles.bubble,
+          item.isBot ? styles.botBubble : styles.userBubble,
+        ]}
+      >
+        <Text
+          style={[
+            styles.msgText,
+            item.isBot ? styles.botText : styles.userText,
+          ]}
+        >
+          {item.text}
+        </Text>
 
-  const renderMessage = ({ item }) => {
-    if (item.isBot) {
-      return (
-        <View style={styles.botMessageContainer}>
-          <View style={styles.botAvatar}>
-            <Ionicons name="sparkles" size={20} color="#2563eb" />
-          </View>
-
-          <View style={styles.botMessage}>
-            <Text style={styles.botText}>{item.text}</Text>
-
-            {item.suggestions?.length > 0 && (
-              <View style={styles.suggestionsContainer}>
-                {item.suggestions.map(place => (
-                  <TouchableOpacity
-                    key={place.id}
-                    style={styles.suggestionCard}
-                    onPress={() =>
-                      navigation.navigate('PlaceDetails', { placeId: place.id })
-                    }
-                  >
-                    <Text style={styles.suggestionTitle}>{place.name}</Text>
-                    <Text style={styles.suggestionSubtitle}>
-                      {place.culturalHook}
-                    </Text>
-                    <Text style={styles.crowdBadge}>
-                      Crowd: {place.crowdLevel}
-                    </Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            )}
-
-            {item.quickActions?.length > 0 && (
-              <View style={styles.quickActionsContainer}>
-                {item.quickActions.map(action => (
-                  <TouchableOpacity
-                    key={action}
-                    style={styles.quickActionChip}
-                    onPress={() => sendMessage(action)}
-                  >
-                    <Text style={styles.quickActionText}>{action}</Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            )}
-          </View>
-        </View>
-      );
-    }
-
-    return (
-      <View style={styles.userMessageContainer}>
-        <View style={styles.userMessage}>
-          <Text style={styles.userText}>{item.text}</Text>
-        </View>
+        {/* ACTION BUTTON */}
+        {item.isBot && item.showPlanButton && (
+          <TouchableOpacity
+            style={styles.planButton}
+            onPress={() =>
+              navigation.navigate("PersonalizedPlan", {
+                places: ["1", "2", "4"],
+              })
+            }
+          >
+            <Ionicons name="map" size={18} color="#FFF" />
+            <Text style={styles.planButtonText}>Open Smart Plan</Text>
+          </TouchableOpacity>
+        )}
       </View>
-    );
-  };
+    </View>
+  );
 
   return (
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView
-        style={styles.keyboardView}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={{ flex: 1 }}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 20}
       >
-        {/* Header */}
         <View style={styles.header}>
-          <View style={styles.headerContent}>
-            <View style={styles.botAvatar}>
-              <Ionicons name="chatbubbles" size={20} color="#2563eb" />
-            </View>
-            <View>
-              <Text style={styles.headerTitle}>DilliDarshan AI</Text>
-              <Text style={styles.headerSubtitle}>Online</Text>
-            </View>
-          </View>
+          <Text style={styles.headerTitle}>Ask Your Delhi Guide</Text>
         </View>
 
-        {/* Messages */}
         <FlatList
           ref={flatListRef}
           data={messages}
-          keyExtractor={item => item.id}
           renderItem={renderMessage}
-          contentContainerStyle={styles.messagesContent}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={styles.listContent}
+          onContentSizeChange={() =>
+            flatListRef.current?.scrollToEnd({ animated: true })
+          }
         />
 
-        {/* Initial quick actions */}
-        {messages.length === 1 && (
-          <View style={styles.quickActionsInitial}>
-            {QUICK_ACTIONS.map(action => (
+        {/* SUGGESTED QUESTIONS*/}
+        <View style={styles.suggestionsWrapper}>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={styles.suggestionsScroll}
+          >
+            {QUICK_ACTIONS.map((action, index) => (
               <TouchableOpacity
-                key={action}
-                style={styles.quickActionChip}
+                key={index}
+                style={styles.suggestionChip}
                 onPress={() => sendMessage(action)}
               >
-                <Text style={styles.quickActionText}>{action}</Text>
+                <Text style={styles.suggestionText}>{action}</Text>
               </TouchableOpacity>
             ))}
-          </View>
-        )}
+          </ScrollView>
+        </View>
 
-        {/* Input */}
-        <View style={styles.inputContainer}>
+        <View style={styles.inputArea}>
           <TextInput
             style={styles.input}
-            placeholder="Ask me about Delhi..."
+            placeholder="Ask me anything..."
+            placeholderTextColor="#84593C"
             value={inputText}
             onChangeText={setInputText}
-            multiline
           />
           <TouchableOpacity
-            style={[
-              styles.sendButton,
-              !inputText.trim() && styles.sendButtonDisabled,
-            ]}
-            onPress={handleSend}
-            disabled={!inputText.trim()}
+            style={styles.sendBtn}
+            onPress={() => {
+              sendMessage(inputText);
+              setInputText("");
+            }}
           >
-            <Ionicons name="send" size={18} color="#ffffff" />
+            <Ionicons name="send" size={20} color="#FFF" />
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
@@ -234,94 +184,87 @@ const ChatScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f1f5f9' },
-  keyboardView: { flex: 1 },
+  container: { flex: 1, backgroundColor: "#FEFBF6" },
   header: {
-    backgroundColor: '#ffffff',
-    padding: 16,
+    padding: 15,
+    backgroundColor: "#FFF",
     borderBottomWidth: 1,
-    borderBottomColor: '#e2e8f0',
+    borderBottomColor: "#F0E4D3",
+    alignItems: "center",
   },
-  headerContent: { flexDirection: 'row', alignItems: 'center' },
-  botAvatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: '#dbeafe',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: 12,
-  },
-  headerTitle: { fontSize: 18, fontWeight: '600', color: '#1e293b' },
-  headerSubtitle: { fontSize: 12, color: '#64748b' },
-  messagesContent: { padding: 16 },
-  botMessageContainer: { flexDirection: 'row', marginBottom: 16 },
-  botMessage: {
-    backgroundColor: '#ffffff',
-    borderRadius: 12,
-    padding: 12,
-    flex: 1,
-  },
-  botText: { fontSize: 15, color: '#1e293b' },
-  suggestionsContainer: { marginTop: 12 },
-  suggestionCard: {
-    backgroundColor: '#f8fafc',
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 8,
+  headerTitle: { fontSize: 18, fontWeight: "800", color: "#2D241E" },
+  listContent: { padding: 20, paddingBottom: 10 },
+  msgWrapper: { marginBottom: 15, maxWidth: "85%" },
+  botAlign: { alignSelf: "flex-start" },
+  userAlign: { alignSelf: "flex-end" },
+  bubble: { padding: 14, borderRadius: 22 },
+  botBubble: {
+    backgroundColor: "#FFF9F1",
     borderWidth: 1,
-    borderColor: '#e2e8f0',
+    borderColor: "#F0E4D3",
+    borderBottomLeftRadius: 4,
   },
-  suggestionTitle: { fontSize: 16, fontWeight: '600' },
-  suggestionSubtitle: { fontSize: 13, color: '#64748b' },
-  crowdBadge: { fontSize: 12, color: '#64748b' },
-  quickActionsContainer: { flexDirection: 'row', flexWrap: 'wrap', marginTop: 8 },
-  quickActionsInitial: { padding: 16, flexDirection: 'row', flexWrap: 'wrap' },
-  quickActionChip: {
-    backgroundColor: '#2563eb',
+  userBubble: { backgroundColor: "#FF8C00", borderBottomRightRadius: 4 },
+  msgText: { fontSize: 15, lineHeight: 22 },
+  botText: { color: "#2D241E", fontWeight: "500" },
+  userText: { color: "#FFF", fontWeight: "600" },
+
+  // New Plan Button inside Bubble
+  planButton: {
+    marginTop: 12,
+    backgroundColor: "#FF8C00",
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderRadius: 12,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+  },
+  planButtonText: { color: "#FFF", fontWeight: "700", fontSize: 14 },
+
+  // Suggested Questions Styling
+  suggestionsWrapper: { paddingVertical: 10, backgroundColor: "#FEFBF6" },
+  suggestionsScroll: { paddingHorizontal: 15 },
+  suggestionChip: {
+    backgroundColor: "#FFF",
+    borderWidth: 1,
+    borderColor: "#F0E4D3",
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,
     marginRight: 8,
-    marginBottom: 8,
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowRadius: 2,
+    elevation: 1,
   },
-  quickActionText: { color: '#ffffff', fontSize: 13 },
-  userMessageContainer: {
-    alignItems: 'flex-end',
-    marginBottom: 16,
-  },
-  userMessage: {
-    backgroundColor: '#2563eb',
-    borderRadius: 12,
-    padding: 12,
-    maxWidth: '85%',
-  },
-  userText: { color: '#ffffff', fontSize: 15 },
-  inputContainer: {
-    flexDirection: 'row',
-    padding: 12,
-    backgroundColor: '#ffffff',
+  suggestionText: { color: "#84593C", fontSize: 13, fontWeight: "600" },
+
+  inputArea: {
+    flexDirection: "row",
+    padding: 15,
+    backgroundColor: "#FFF",
     borderTopWidth: 1,
-    borderTopColor: '#e2e8f0',
+    borderTopColor: "#F0E4D3",
+    alignItems: "center",
   },
   input: {
     flex: 1,
-    backgroundColor: '#f1f5f9',
-    borderRadius: 20,
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    marginRight: 8,
+    height: 45,
+    backgroundColor: "#F8F1E7",
+    borderRadius: 25,
+    paddingHorizontal: 20,
+    marginRight: 10,
+    color: "#2D241E",
   },
-  sendButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: '#2563eb',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  sendButtonDisabled: {
-    backgroundColor: '#cbd5e1',
+  sendBtn: {
+    width: 45,
+    height: 45,
+    borderRadius: 23,
+    backgroundColor: "#FF8C00",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

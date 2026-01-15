@@ -1,196 +1,267 @@
-// ExploreScreen.js
-import React from 'react';
+// screens/ExploreScreen.js
+import React from "react";
 import {
   View,
   Text,
   StyleSheet,
   FlatList,
   TouchableOpacity,
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useNavigation } from '@react-navigation/native';
-import { Ionicons } from '@expo/vector-icons';
-import { usePoints } from '../context/PointsContext';
-import { PLACES } from '../constants/places';
+  Image,
+  ScrollView,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useNavigation } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
+import { PLACES } from "../constants/places";
+
+const CATEGORIES = [
+  { id: "1", name: "Heritage", icon: "business" },
+  { id: "2", name: "History", icon: "time" },
+  { id: "3", name: "Market", icon: "cart" },
+  { id: "4", name: "Culture", icon: "color-palette" },
+  { id: "5", name: "Food", icon: "restaurant" },
+];
 
 const ExploreScreen = () => {
   const navigation = useNavigation();
-  const { addPoints } = usePoints();
+  const mapImageUrl =
+    "https://static-maps.yandex.ru/1.x/?ll=77.2295,28.6129&z=14&l=map&size=600,300";
 
-  const handlePlacePress = (placeId) => {
-    addPoints(5, 'Viewed place details');
-    navigation.navigate('PlaceDetails', { placeId });
-  };
+  const renderCategory = ({ item }) => (
+    <TouchableOpacity style={styles.catItem}>
+      <View style={styles.catIconWrapper}>
+        <Ionicons name={item.icon} size={22} color="#FF8C00" />
+      </View>
+      <Text style={styles.catText}>{item.name}</Text>
+    </TouchableOpacity>
+  );
 
-  const renderPlace = ({ item }) => {
-    const crowdColor =
-      item.crowdLevel === 'low'
-        ? '#10b981'
-        : item.crowdLevel === 'medium'
-        ? '#f59e0b'
-        : '#ef4444';
-
-    return (
-      <TouchableOpacity
-        style={styles.placeCard}
-        onPress={() => handlePlacePress(item.id)}
-        activeOpacity={0.7}
-      >
+  const renderPlaceItem = ({ item }) => (
+    <TouchableOpacity
+      style={styles.placeCard}
+      onPress={() => navigation.navigate("PlaceDetails", { placeId: item.id })}
+      activeOpacity={0.9}
+    >
+      <Image source={{ uri: item.image }} style={styles.placeImage} />
+      <View style={styles.placeInfo}>
         <View style={styles.placeHeader}>
-          <View style={styles.placeInfo}>
-            <Text style={styles.placeName}>{item.name}</Text>
-            <Text style={styles.placeHook}>{item.culturalHook}</Text>
+          <Text style={styles.placeName}>{item.name}</Text>
+          <View style={styles.distBadge}>
+            <Text style={styles.distText}>{item.distance}</Text>
           </View>
-
+        </View>
+        <Text style={styles.placeHook} numberOfLines={1}>
+          {item.culturalHook}
+        </Text>
+        <View style={styles.crowdRow}>
           <View
             style={[
-              styles.crowdBadge,
-              { backgroundColor: `${crowdColor}20` },
+              styles.dot,
+              {
+                backgroundColor:
+                  item.crowdLevel === "low" ? "#10b981" : "#f59e0b",
+              },
             ]}
-          >
-            <View
-              style={[
-                styles.crowdDot,
-                { backgroundColor: crowdColor },
-              ]}
-            />
-            <Text style={[styles.crowdText, { color: crowdColor }]}>
-              {item.crowdLevel}
-            </Text>
-          </View>
+          />
+          <Text style={styles.crowdText}>{item.crowdLevel} Crowded</Text>
         </View>
-
-        <View style={styles.placeFooter}>
-          <View style={styles.metroInfo}>
-            <Ionicons name="train-outline" size={16} color="#64748b" />
-            <Text style={styles.metroText}>{item.nearestMetro}</Text>
-          </View>
-
-          <View style={styles.distanceInfo}>
-            <Ionicons name="walk-outline" size={16} color="#64748b" />
-            <Text style={styles.distanceText}>{item.walkingDistance}</Text>
-          </View>
-        </View>
-      </TouchableOpacity>
-    );
-  };
+      </View>
+    </TouchableOpacity>
+  );
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Explore Delhi</Text>
-        <Text style={styles.subtitle}>
-          Discover monuments, markets, and cultural sites
-        </Text>
+        <Text style={styles.headerTitle}>Explore Delhi</Text>
+        <TouchableOpacity style={styles.searchBtn}>
+          <Ionicons name="search" size={20} color="#84593C" />
+        </TouchableOpacity>
       </View>
 
-      <FlatList
-        data={PLACES}
-        renderItem={renderPlace}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={styles.listContent}
-        showsVerticalScrollIndicator={false}
-      />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {/* FIXED MAP SECTION */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Delhi at a Glance</Text>
+          <TouchableOpacity
+            style={styles.mapContainer}
+            activeOpacity={0.9}
+            onPress={() => navigation.navigate("SafetyUtility")}
+          >
+            <Image
+              source={{ uri: mapImageUrl }}
+              style={styles.mapPlaceholder}
+              resizeMode="cover"
+            />
+            <View style={styles.mapPin}>
+              <Ionicons name="location" size={36} color="#FF8C00" />
+              <View style={styles.pinShadow} />
+            </View>
+
+            <View style={styles.mapOverlayBtn}>
+              <Ionicons name="expand" size={18} color="#2D241E" />
+              <Text style={styles.mapBtnText}>Expand Map</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        {/* CATEGORY SECTION */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Explore by Category</Text>
+          <FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={CATEGORIES}
+            renderItem={renderCategory}
+            keyExtractor={(item) => item.id}
+            contentContainerStyle={styles.catList}
+          />
+        </View>
+
+        {/* LIST SECTION */}
+        <View style={styles.section}>
+          <View style={styles.listHeader}>
+            <Text style={styles.sectionTitle}>Trending Now</Text>
+            <TouchableOpacity>
+              <Text style={styles.seeAll}>See All</Text>
+            </TouchableOpacity>
+          </View>
+
+          {PLACES.map((item) => (
+            <View key={item.id}>{renderPlaceItem({ item })}</View>
+          ))}
+        </View>
+
+        <View style={{ height: 40 }} />
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f8fafc',
-  },
+  container: { flex: 1, backgroundColor: "#FEFBF6" },
   header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     padding: 20,
-    backgroundColor: '#ffffff',
+    backgroundColor: "#FFF",
     borderBottomWidth: 1,
-    borderBottomColor: '#e2e8f0',
+    borderBottomColor: "#F0E4D3",
   },
-  title: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: '#1e293b',
-    marginBottom: 4,
+  headerTitle: { fontSize: 22, fontWeight: "800", color: "#2D241E" },
+  searchBtn: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "#F8F1E7",
+    alignItems: "center",
+    justifyContent: "center",
   },
-  subtitle: {
-    fontSize: 14,
-    color: '#64748b',
-  },
-  listContent: {
-    padding: 16,
-  },
-  placeCard: {
-    backgroundColor: '#ffffff',
-    borderRadius: 12,
-    padding: 16,
+  section: { marginTop: 20 },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: "700",
+    color: "#2D241E",
+    paddingHorizontal: 20,
     marginBottom: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+  },
+
+  mapContainer: {
+    marginHorizontal: 20,
+    height: 200,
+    borderRadius: 24,
+    overflow: "hidden",
+    borderWidth: 1,
+    borderColor: "#F0E4D3",
+    backgroundColor: "#F8F1E7",
+    justifyContent: "center",
+    alignItems: "center",
     elevation: 3,
+    shadowColor: "#84593C",
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
   },
-  placeHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    marginBottom: 12,
+  mapPlaceholder: { width: "100%", height: "100%" },
+  mapPin: {
+    position: "absolute",
+    alignItems: "center",
+    justifyContent: "center",
+    transform: [{ translateY: -18 }],
   },
-  placeInfo: {
-    flex: 1,
-    marginRight: 12,
+  pinShadow: {
+    width: 10,
+    height: 4,
+    backgroundColor: "rgba(0,0,0,0.2)",
+    borderRadius: 5,
+    marginTop: -2,
   },
-  placeName: {
-    fontSize: 20,
-    fontWeight: '600',
-    color: '#1e293b',
-    marginBottom: 4,
-  },
-  placeHook: {
-    fontSize: 14,
-    color: '#64748b',
-    lineHeight: 20,
-  },
-  crowdBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 10,
-    paddingVertical: 6,
+  mapOverlayBtn: {
+    position: "absolute",
+    bottom: 12,
+    right: 12,
+    backgroundColor: "#FFF",
+    paddingHorizontal: 14,
+    paddingVertical: 8,
     borderRadius: 12,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+    elevation: 4,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
   },
-  crowdDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    marginRight: 6,
+  mapBtnText: { fontSize: 12, fontWeight: "800", color: "#2D241E" },
+
+  catList: { paddingHorizontal: 15 },
+  catItem: { alignItems: "center", marginRight: 20 },
+  catIconWrapper: {
+    width: 56,
+    height: 56,
+    borderRadius: 18,
+    backgroundColor: "#FFF2E0",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 6,
+    borderWidth: 1,
+    borderColor: "#FDE68A",
   },
-  crowdText: {
-    fontSize: 12,
-    fontWeight: '600',
-    textTransform: 'capitalize',
+  catText: { fontSize: 12, fontWeight: "700", color: "#84593C" },
+  listHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingRight: 20,
   },
-  placeFooter: {
-    flexDirection: 'row',
-    gap: 16,
+  seeAll: { color: "#FF8C00", fontWeight: "700", fontSize: 14 },
+  placeCard: {
+    flexDirection: "row",
+    marginHorizontal: 20,
+    marginBottom: 15,
+    backgroundColor: "#FFF9F1",
+    borderRadius: 20,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: "#F0E4D3",
   },
-  metroInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  placeImage: { width: 90, height: 90, borderRadius: 15 },
+  placeInfo: { flex: 1, marginLeft: 15, justifyContent: "center" },
+  placeHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
-  metroText: {
-    fontSize: 13,
-    color: '#64748b',
-    marginLeft: 6,
+  placeName: { fontSize: 16, fontWeight: "700", color: "#2D241E" },
+  distBadge: {
+    backgroundColor: "#FF8C00",
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
   },
-  distanceInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  distanceText: {
-    fontSize: 13,
-    color: '#64748b',
-    marginLeft: 6,
-  },
+  distText: { color: "#FFF", fontSize: 10, fontWeight: "800" },
+  placeHook: { fontSize: 13, color: "#84593C", marginVertical: 4 },
+  crowdRow: { flexDirection: "row", alignItems: "center" },
+  dot: { width: 6, height: 6, borderRadius: 3, marginRight: 6 },
+  crowdText: { fontSize: 11, color: "#84593C", fontWeight: "600" },
 });
 
 export default ExploreScreen;

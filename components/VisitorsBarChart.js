@@ -1,3 +1,4 @@
+//  components/VisitorsBarChart.js
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Svg, { Rect } from 'react-native-svg';
@@ -53,6 +54,8 @@ const VisitorsBarChart = () => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',  
+    justifyContent: 'center',
+    marginTop: 12,
   },
   labels: {
     flexDirection: 'row',

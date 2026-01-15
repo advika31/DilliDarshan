@@ -1,10 +1,11 @@
-// PlaceDetailsScreen.js
-import React, { useState } from "react";
+// screens/PlaceDetailsScreen.js
+import React from "react";
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
+  ImageBackground,
   TouchableOpacity,
   Linking,
 } from "react-native";
@@ -12,29 +13,23 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { usePoints } from "../context/PointsContext";
-import { usePreferences } from "../context/PreferencesContext";
 import { Card } from "../components/Card";
-import { Button } from "../components/Button";
-import { STORY_MODES } from "../constants/stories";
-import { getPlaceById, getNearbyPlaces } from "../constants/places";
+import { getPlaceById } from "../constants/places";
 
 const PlaceDetailsScreen = () => {
   const route = useRoute();
   const navigation = useNavigation();
   const { placeId } = route.params;
   const { points } = usePoints();
-  const { preferences } = usePreferences();
 
   const place = getPlaceById(placeId);
-  const nearbyPlaces = place ? getNearbyPlaces(placeId, 2) : [];
 
-  if (!place) {
+  if (!place)
     return (
       <View style={styles.container}>
         <Text>Place not found</Text>
       </View>
     );
-  }
 
   const crowdColor =
     place.crowdLevel === "low"
@@ -43,390 +38,381 @@ const PlaceDetailsScreen = () => {
       ? "#f59e0b"
       : "#ef4444";
 
-  const canUnlockStory = points >= 50;
-  const quickStoryUnlocked = points >= 20;
-
-  const handleStoryPress = (mode) => {
-    if (mode === "quick" && !quickStoryUnlocked) {
-      return;
-    }
-    if (mode !== "quick" && !canUnlockStory) {
-      return;
-    }
-    navigation.navigate("Storytelling", { placeId, mode });
-  };
-
-  const handleBookTicket = () => {
-    Linking.openURL("https://asi.paygov.org.in");
-  };
-
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
-        {/* Header */}
-        <View style={styles.header}>
-          <Text style={styles.placeName}>{place.name}</Text>
-          <Text style={styles.culturalHook}>{place.culturalHook}</Text>
-          <View
-            style={[styles.crowdBadge, { backgroundColor: `${crowdColor}20` }]}
-          >
-            <View style={[styles.crowdDot, { backgroundColor: crowdColor }]} />
-            <Text style={[styles.crowdText, { color: crowdColor }]}>
-              {place.crowdLevel.toUpperCase()} CROWD
-            </Text>
-          </View>
-        </View>
+    <View style={styles.container}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {/* HERO HEADER */}
+        <ImageBackground source={{ uri: place.image }} style={styles.heroImage}>
+          <SafeAreaView style={styles.heroOverlay}>
+            <TouchableOpacity
+              style={styles.backBtn}
+              onPress={() => navigation.goBack()}
+            >
+              <Ionicons name="arrow-back" size={24} color="#FFF" />
+            </TouchableOpacity>
 
-        {/* Visit Info */}
-        <Card style={styles.card}>
-          <View style={styles.infoRow}>
-            <Ionicons name="time-outline" size={20} color="#64748b" />
-            <View style={styles.infoContent}>
-              <Text style={styles.infoLabel}>Best time to visit</Text>
-              <Text style={styles.infoValue}>{place.bestTimeToVisit}</Text>
-            </View>
-          </View>
-
-          <View style={styles.infoRow}>
-            <Ionicons name="clock-outline" size={20} color="#64748b" />
-            <View style={styles.infoContent}>
-              <Text style={styles.infoLabel}>Opening hours</Text>
-              <Text style={styles.infoValue}>{place.openingHours}</Text>
-            </View>
-          </View>
-
-          <View style={styles.infoRow}>
-            <Ionicons name="cash-outline" size={20} color="#64748b" />
-            <View style={styles.infoContent}>
-              <Text style={styles.infoLabel}>Entry fee</Text>
-              <Text style={styles.infoValue}>{place.entryFee}</Text>
-            </View>
-          </View>
-          {place.entryFee !== "Free" && (
-            <Button
-              title="Book Tickets"
-              onPress={handleBookTicket}
-              style={styles.bookButton}
-            />
-          )}
-        </Card>
-
-        {/* How to Reach */}
-        <Card style={styles.card}>
-          <View style={styles.infoRow}>
-            <Ionicons name="train-outline" size={20} color="#64748b" />
-            <View style={styles.infoContent}>
-              <Text style={styles.infoLabel}>Nearest metro</Text>
-              <Text style={styles.infoValue}>{place.nearestMetro}</Text>
-            </View>
-          </View>
-
-          <View style={styles.infoRow}>
-            <Ionicons name="walk-outline" size={20} color="#64748b" />
-            <View style={styles.infoContent}>
-              <Text style={styles.infoLabel}>Walking distance</Text>
-              <Text style={styles.infoValue}>{place.walkingDistance}</Text>
-            </View>
-          </View>
-
-          <Text style={styles.transportTips}>{place.transportTips}</Text>
-          <TouchableOpacity
-            style={styles.transportButton}
-            onPress={() => navigation.navigate("TransportInfo", { placeId })}
-          >
-            <Text style={styles.transportButtonText}>
-              View detailed transport info
-            </Text>
-            <Ionicons name="chevron-forward" size={16} color="#2563eb" />
-          </TouchableOpacity>
-        </Card>
-
-        {/* Comfort & Utilities */}
-        <Card style={styles.card}>
-          <View style={styles.utilitiesGrid}>
-            <View style={styles.utilityItem}>
-              <Ionicons name="water-outline" size={20} color="#64748b" />
-              <Text style={styles.utilityLabel}>Toilets</Text>
-              <Text style={styles.utilityValue}>
-                {place.toilets === "none"
-                  ? "Not available"
-                  : place.toilets === "public"
-                  ? "Public"
-                  : "Paid"}
-              </Text>
-            </View>
-
-            <View style={styles.utilityItem}>
-              <Ionicons name="cafe-outline" size={20} color="#64748b" />
-              <Text style={styles.utilityLabel}>Seating</Text>
-              <Text style={styles.utilityValue}>
-                {place.seating ? "Available" : "Limited"}
-              </Text>
-            </View>
-
-            <View style={styles.utilityItem}>
-              <Ionicons name="umbrella-outline" size={20} color="#64748b" />
-              <Text style={styles.utilityLabel}>Shade</Text>
-              <Text style={styles.utilityValue}>
-                {place.shade ? "Available" : "Limited"}
-              </Text>
-            </View>
-          </View>
-          <Text style={styles.accessibilityNotes}>
-            {place.accessibilityNotes}
-          </Text>
-        </Card>
-
-        {/* AI Storytelling */}
-        <Card style={styles.card}>
-          <Text style={styles.storyDescription}>
-            Unlock immersive cultural stories about this place
-          </Text>
-
-          <View style={styles.storyModes}>
-            {STORY_MODES.map((mode) => {
-              const unlocked =
-                (mode.id === "quick" && quickStoryUnlocked) ||
-                (mode.id !== "quick" && canUnlockStory);
-              return (
-                <TouchableOpacity
-                  key={mode.id}
-                  style={[
-                    styles.storyModeButton,
-                    !unlocked && styles.storyModeButtonLocked,
-                  ]}
-                  onPress={() => handleStoryPress(mode.id)}
-                  disabled={!unlocked}
-                >
-                  {!unlocked && (
-                    <Ionicons name="lock-closed" size={16} color="#94a3b8" />
-                  )}
-                  <View style={styles.storyModeContent}>
-                    <Text
-                      style={[
-                        styles.storyModeTitle,
-                        !unlocked && styles.storyModeTitleLocked,
-                      ]}
-                    >
-                      {mode.title}
-                    </Text>
-                    <Text style={styles.storyModeDuration}>
-                      {mode.duration}
-                    </Text>
-                  </View>
-                  {!unlocked && (
-                    <Text style={styles.unlockText}>
-                      {mode.pointsRequired} points
-                    </Text>
-                  )}
-                </TouchableOpacity>
-              );
-            })}
-          </View>
-        </Card>
-
-        {/* Smart Nudge */}
-        {place.crowdLevel === "high" && nearbyPlaces.length > 0 && (
-          <Card style={styles.card}>
-            <View style={styles.nudgeContainer}>
-              <Ionicons name="bulb-outline" size={20} color="#f59e0b" />
-              <View style={styles.nudgeContent}>
-                <Text style={styles.nudgeText}>
-                  This place is crowded. You may like {nearbyPlaces[0].name}{" "}
-                  nearby.
+            <View style={styles.heroBottom}>
+              <View
+                style={[styles.crowdStatus, { backgroundColor: crowdColor }]}
+              >
+                <Text style={styles.crowdStatusText}>
+                  {place.crowdLevel.toUpperCase()} CROWD
                 </Text>
-                <TouchableOpacity
-                  onPress={() =>
-                    navigation.navigate("PlaceDetails", {
-                      placeId: nearbyPlaces[0].id,
-                    })
-                  }
-                >
-                  <Text style={styles.nudgeLink}>View details</Text>
-                </TouchableOpacity>
+              </View>
+              <Text style={styles.placeName}>{place.name}</Text>
+              <Text style={styles.placeHook}>{place.culturalHook}</Text>
+            </View>
+          </SafeAreaView>
+        </ImageBackground>
+
+        {/* INFO TILES */}
+        <View style={styles.content}>
+          <View style={styles.infoGrid}>
+            <View style={styles.infoTile}>
+              <Ionicons name="time-outline" size={20} color="#FF8C00" />
+              <Text style={styles.tileLabel}>Best Time</Text>
+              <Text style={styles.tileValue}>
+                {place.bestTimeToVisit.split("(")[0]}
+              </Text>
+            </View>
+            <View style={styles.infoTile}>
+              <Ionicons name="cash-outline" size={20} color="#FF8C00" />
+              <Text style={styles.tileLabel}>Entry Fee</Text>
+              <Text style={styles.tileValue}>
+                {place.entryFee.split("(")[0]}
+              </Text>
+            </View>
+            <View style={styles.infoTile}>
+              <Ionicons name="train-outline" size={20} color="#FF8C00" />
+              <Text style={styles.tileLabel}>Metro</Text>
+              <Text style={styles.tileValue}>
+                {place.nearestMetro.split("(")[0]}
+              </Text>
+            </View>
+          </View>
+
+          {/* AI STORYTELLING UNLOCK - PREMIUM UI */}
+          <Text style={styles.sectionTitle}>AI Storytelling</Text>
+          <Card
+            style={styles.storyCard}
+            onPress={() => navigation.navigate("Storytelling", { placeId })}
+          >
+            <View style={styles.storyRow}>
+              <View style={styles.storyIcon}>
+                <Ionicons name="mic-outline" size={24} color="#FFF" />
+              </View>
+              <View style={styles.storyInfo}>
+                <Text style={styles.storyTitle}>Unlock Cultural Secrets</Text>
+                <Text style={styles.storySub}>
+                  Immersive audio stories & historical facts.
+                </Text>
+              </View>
+              <View style={styles.pointsReq}>
+                <Text style={styles.pointsReqText}>20 pts</Text>
               </View>
             </View>
           </Card>
-        )}
+
+          {/* TRANSPORT & CONNECTIVITY SECTION */}
+          <Text style={styles.sectionTitle}>Transport & Connectivity</Text>
+          <Card style={styles.transportCard}>
+            <View style={styles.transportHeader}>
+              <View style={styles.metroBadge}>
+                <Ionicons name="train" size={16} color="#FFF" />
+                <Text style={styles.metroBadgeText}>Metro Accessible</Text>
+              </View>
+              <Text style={styles.nearestStn}>{place.nearestMetro}</Text>
+            </View>
+
+            <Text style={styles.transportBrief}>
+              Located approximately {place.walkingDistance} from the station.
+              E-rickshaws and Autos are readily available at the exit.
+            </Text>
+
+            <TouchableOpacity
+              style={styles.viewDetailedBtn}
+              onPress={() =>
+                navigation.navigate("TransportInfo", { placeId: place.id })
+              }
+            >
+              <Text style={styles.viewDetailedBtnText}>
+                View Detailed Transport Info
+              </Text>
+              <Ionicons name="chevron-forward" size={18} color="#FF8C00" />
+            </TouchableOpacity>
+          </Card>
+
+          {/* TRAVEL & COMFORT */}
+          <Text style={styles.sectionTitle}>Traveler's Guide</Text>
+          <Card style={styles.guideCard}>
+            <View style={styles.guideItem}>
+              <Ionicons name="walk" size={18} color="#84593C" />
+              <Text style={styles.guideText}>
+                {place.walkingDistance} from {place.nearestMetro}
+              </Text>
+            </View>
+            <View style={styles.guideItem}>
+              <Ionicons name="bus" size={18} color="#84593C" />
+              <Text style={styles.guideText}>{place.transportTips}</Text>
+            </View>
+            <View style={styles.divider} />
+            <View style={styles.utilityRow}>
+              <Utility icon="water" label="Toilets" status={place.toilets} />
+              <Utility
+                icon="cafe"
+                label="Seating"
+                status={place.seating ? "Yes" : "No"}
+              />
+              <Utility
+                icon="umbrella"
+                label="Shade"
+                status={place.shade ? "Yes" : "No"}
+              />
+            </View>
+          </Card>
+
+          <View style={{ height: 100 }} />
+        </View>
       </ScrollView>
-    </SafeAreaView>
+
+      {/* FLOATING ACTION BAR */}
+      <View style={styles.actionBar}>
+        <TouchableOpacity
+          style={styles.navBtn}
+          onPress={() =>
+            Linking.openURL(
+              `https://www.google.com/maps/search/?api=1&query=${place.name}`
+            )
+          }
+        >
+          <Ionicons name="navigate" size={20} color="#FF8C00" />
+          <Text style={styles.navBtnText}>Navigate</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.bookBtn}
+          onPress={() => Linking.openURL("https://asi.paygov.org.in")}
+        >
+          <Text style={styles.bookBtnText}>Book Tickets</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 };
 
+const Utility = ({ icon, label, status }) => (
+  <View style={styles.util}>
+    <Ionicons name={`${icon}-outline`} size={18} color="#84593C" />
+    <Text style={styles.utilLabel}>{label}</Text>
+    <Text style={styles.utilStatus}>{status}</Text>
+  </View>
+);
+
 const styles = StyleSheet.create({
-  container: {
+  container: { flex: 1, backgroundColor: "#FEFBF6" },
+  heroImage: { width: "100%", height: 350 },
+  heroOverlay: {
     flex: 1,
-    backgroundColor: "#f8fafc",
+    backgroundColor: "rgba(0,0,0,0.3)",
+    justifyContent: "space-between",
   },
-  scrollView: {
-    flex: 1,
-  },
-  header: {
-    backgroundColor: "#ffffff",
-    padding: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: "#e2e8f0",
-  },
-  placeName: {
-    fontSize: 28,
-    fontWeight: "700",
-    color: "#1e293b",
-    marginBottom: 8,
-  },
-  culturalHook: {
-    fontSize: 16,
-    color: "#64748b",
-    lineHeight: 24,
-    marginBottom: 16,
-  },
-  crowdBadge: {
-    flexDirection: "row",
+  backBtn: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: "rgba(255,255,255,0.2)",
     alignItems: "center",
+    justifyContent: "center",
+    marginLeft: 20,
+    marginTop: 10,
+  },
+  heroBottom: { padding: 25 },
+  crowdStatus: {
     alignSelf: "flex-start",
     paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 16,
+    paddingVertical: 6,
+    borderRadius: 12,
+    marginBottom: 10,
   },
-  crowdDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    marginRight: 8,
+  crowdStatusText: { color: "#FFF", fontSize: 10, fontWeight: "800" },
+  placeName: {
+    fontSize: 32,
+    fontWeight: "800",
+    color: "#FFF",
+    letterSpacing: -0.5,
   },
-  crowdText: {
-    fontSize: 12,
-    fontWeight: "600",
+  placeHook: { fontSize: 16, color: "#EEE", fontWeight: "500", marginTop: 4 },
+
+  content: {
+    padding: 20,
+    marginTop: -30,
+    backgroundColor: "#FEFBF6",
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
   },
-  card: {
-    margin: 16,
-    marginTop: 16,
-  },
-  infoRow: {
+  infoGrid: {
     flexDirection: "row",
-    marginBottom: 16,
+    justifyContent: "space-between",
+    marginBottom: 25,
   },
-  infoContent: {
-    flex: 1,
-    marginLeft: 12,
-  },
-  infoLabel: {
-    fontSize: 13,
-    color: "#64748b",
-    marginBottom: 4,
-  },
-  infoValue: {
-    fontSize: 15,
-    color: "#1e293b",
-    fontWeight: "600",
-  },
-  bookButton: {
-    marginTop: 8,
-  },
-  transportTips: {
-    fontSize: 14,
-    color: "#64748b",
-    marginTop: 8,
-    lineHeight: 20,
-  },
-  transportButton: {
-    flexDirection: "row",
+  infoTile: {
+    width: "31%",
+    backgroundColor: "#FFF",
+    borderRadius: 20,
+    padding: 15,
     alignItems: "center",
-    marginTop: 12,
-    paddingVertical: 8,
-  },
-  transportButtonText: {
-    flex: 1,
-    fontSize: 14,
-    color: "#2563eb",
-    fontWeight: "600",
-  },
-  utilitiesGrid: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginBottom: 16,
-  },
-  utilityItem: {
-    alignItems: "center",
-  },
-  utilityLabel: {
-    fontSize: 12,
-    color: "#64748b",
-    marginTop: 8,
-    marginBottom: 4,
-  },
-  utilityValue: {
-    fontSize: 12,
-    color: "#1e293b",
-    fontWeight: "600",
-  },
-  accessibilityNotes: {
-    fontSize: 14,
-    color: "#64748b",
-    lineHeight: 20,
-    marginTop: 8,
-  },
-  storyDescription: {
-    fontSize: 14,
-    color: "#64748b",
-    marginBottom: 16,
-    lineHeight: 20,
-  },
-  storyModes: {
-    gap: 12,
-  },
-  storyModeButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#f1f5f9",
-    padding: 12,
-    borderRadius: 8,
     borderWidth: 1,
-    borderColor: "#e2e8f0",
+    borderColor: "#F0E4D3",
   },
-  storyModeButtonLocked: {
-    opacity: 0.6,
+  tileLabel: {
+    fontSize: 11,
+    color: "#84593C",
+    fontWeight: "700",
+    marginTop: 8,
+    textTransform: "uppercase",
   },
-  storyModeContent: {
-    flex: 1,
-    marginLeft: 12,
+  tileValue: {
+    fontSize: 13,
+    color: "#2D241E",
+    fontWeight: "700",
+    marginTop: 2,
+    textAlign: "center",
   },
-  storyModeTitle: {
-    fontSize: 15,
-    fontWeight: "600",
-    color: "#1e293b",
-    marginBottom: 4,
+
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: "700",
+    color: "#2D241E",
+    marginBottom: 15,
+    marginTop: 10,
   },
-  storyModeTitleLocked: {
-    color: "#94a3b8",
+  storyCard: {
+    backgroundColor: "#FFF9F1",
+    borderColor: "#FDE68A",
+    padding: 15,
   },
-  storyModeDuration: {
-    fontSize: 12,
-    color: "#64748b",
+  storyRow: { flexDirection: "row", alignItems: "center" },
+  storyIcon: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: "#FF8C00",
+    alignItems: "center",
+    justifyContent: "center",
   },
-  unlockText: {
-    fontSize: 12,
-    color: "#64748b",
-    fontWeight: "600",
+  storyInfo: { flex: 1, marginLeft: 15 },
+  storyTitle: { fontSize: 16, fontWeight: "800", color: "#2D241E" },
+  storySub: { fontSize: 12, color: "#84593C", marginTop: 2 },
+  pointsReq: {
+    backgroundColor: "#FEF3C7",
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 10,
   },
-  nudgeContainer: {
+  pointsReqText: { color: "#92400E", fontWeight: "800", fontSize: 11 },
+  transportCard: {
+    padding: 20,
+    backgroundColor: "#FFF",
+    borderColor: "#F0E4D3",
+    borderWidth: 1,
+  },
+  transportHeader: {
     flexDirection: "row",
-    alignItems: "flex-start",
+    alignItems: "center",
+    marginBottom: 12,
+    gap: 10,
   },
-  nudgeContent: {
-    flex: 1,
-    marginLeft: 12,
+  metroBadge: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#2563eb",
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
+    gap: 4,
   },
-  nudgeText: {
+  metroBadgeText: {
+    color: "#FFF",
+    fontSize: 10,
+    fontWeight: "800",
+  },
+  nearestStn: {
     fontSize: 14,
-    color: "#1e293b",
+    fontWeight: "700",
+    color: "#2D241E",
+  },
+  transportBrief: {
+    fontSize: 13,
+    color: "#84593C",
     lineHeight: 20,
-    marginBottom: 8,
+    marginBottom: 15,
   },
-  nudgeLink: {
+  viewDetailedBtn: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: "#FFF2E0",
+    padding: 15,
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: "#FDE68A",
+  },
+  viewDetailedBtnText: {
     fontSize: 14,
-    color: "#2563eb",
-    fontWeight: "600",
+    fontWeight: "700",
+    color: "#FF8C00",
   },
+  guideCard: { padding: 20 },
+  guideItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+    marginBottom: 12,
+  },
+  guideText: { fontSize: 14, color: "#2D241E", fontWeight: "500", flex: 1 },
+  divider: { height: 1, backgroundColor: "#F0E4D3", marginVertical: 15 },
+  utilityRow: { flexDirection: "row", justifyContent: "space-between" },
+  util: { alignItems: "center" },
+  utilLabel: { fontSize: 10, color: "#84593C", marginTop: 4 },
+  utilStatus: {
+    fontSize: 11,
+    color: "#2D241E",
+    fontWeight: "700",
+    marginTop: 2,
+  },
+
+  actionBar: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: "#FFF",
+    padding: 20,
+    flexDirection: "row",
+    borderTopWidth: 1,
+    borderTopColor: "#F0E4D3",
+    gap: 15,
+  },
+  navBtn: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#FFF2E0",
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: "#FF8C00",
+    gap: 8,
+  },
+  navBtnText: { color: "#FF8C00", fontWeight: "800", fontSize: 16 },
+  bookBtn: {
+    flex: 1.5,
+    backgroundColor: "#FF8C00",
+    borderRadius: 16,
+    alignItems: "center",
+    justifyContent: "center",
+    height: 56,
+  },
+  bookBtnText: { color: "#FFF", fontWeight: "800", fontSize: 16 },
 });
 
 export default PlaceDetailsScreen;

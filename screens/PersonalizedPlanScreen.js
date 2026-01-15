@@ -1,244 +1,197 @@
-// PersonalizedPlanScreen.js
-import React from 'react';
+// screens/PersonalizedPlanScreen.js
+import React from "react";
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
+  Image,
   TouchableOpacity,
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRoute, useNavigation } from '@react-navigation/native';
-import { Ionicons } from '@expo/vector-icons';
-import { Card } from '../components/Card';
-import { Button } from '../components/Button';
-import { getPlaceById } from '../constants/places';
-
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useRoute, useNavigation } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
+import { Card } from "../components/Card";
+import { getPlaceById } from "../constants/places";
 
 const PersonalizedPlanScreen = () => {
   const route = useRoute();
   const navigation = useNavigation();
-  const { places: placeIds } = route.params;
 
-  const places = placeIds.map((id) => getPlaceById(id)).filter((p) => p !== undefined);
+  const { places: placeIds } = route.params || { places: ["1", "2", "4"] };
+  const places = placeIds
+    .map((id) => getPlaceById(id))
+    .filter((p) => p !== undefined);
 
-  const timelineLabels = ['Now', 'Next', 'Later'];
-
-  if (places.length === 0) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.title}>Your Personalized Plan</Text>
-          <Text style={styles.subtitle}>No places found</Text>
-        </View>
-      </SafeAreaView>
-    );
-  }
+  const timelineSteps = ["Morning", "Afternoon", "Evening"];
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
-        <View style={styles.header}>
-          <Text style={styles.title}>Your Personalized Plan</Text>
-          <Text style={styles.subtitle}>Optimized based on your preferences and current location</Text>
-        </View>
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
+        {places.map((place, index) => (
+          <View key={place.id} style={styles.timelineWrapper}>
+            {/* Timeline Line and Marker */}
+            <View style={styles.timelineSidebar}>
+              <View
+                style={[
+                  styles.dot,
+                  { backgroundColor: index === 0 ? "#FF8C00" : "#84593C" },
+                ]}
+              />
+              {index < places.length - 1 && <View style={styles.line} />}
+            </View>
 
-        {places.map((place, index) => {
-          const timelineLabel = timelineLabels[Math.min(index, timelineLabels.length - 1)];
-          const crowdColor =
-            place.crowdLevel === 'low'
-              ? '#10b981'
-              : place.crowdLevel === 'medium'
-              ? '#f59e0b'
-              : '#ef4444';
-
-          return (
-            <Card key={place.id} style={styles.stopCard}>
-              <View style={styles.timelineHeader}>
-                <View style={styles.timelineLabel}>
-                  <View style={[styles.timelineDot, { backgroundColor: '#2563eb' }]} />
-                  <Text style={styles.timelineText}>{timelineLabel}</Text>
-                </View>
-                {index < places.length - 1 && (
-                  <View style={styles.travelTime}>
-                    <Ionicons name="time-outline" size={14} color="#64748b" />
-                    <Text style={styles.travelTimeText}>
-                      {index === 0 ? '15 min' : '20 min'} travel
-                    </Text>
-                  </View>
-                )}
-              </View>
-
-              <Text style={styles.placeName}>{place.name}</Text>
-              <Text style={styles.whyRecommended}>
-                Why recommended: Perfect timing, matches your interests, and fits your schedule
+            {/* Stop Content */}
+            <View style={styles.stopContent}>
+              <Text style={styles.timeLabel}>
+                {timelineSteps[index] || "Later"}
               </Text>
 
-              <View style={styles.stopFooter}>
-                <View style={styles.crowdBadge}>
-                  <View style={[styles.crowdDot, { backgroundColor: crowdColor }]} />
-                  <Text style={[styles.crowdText, { color: crowdColor }]}>
-                    {place.crowdLevel}
+              <Card
+                style={styles.planCard}
+                onPress={() =>
+                  navigation.navigate("PlaceDetails", { placeId: place.id })
+                }
+              >
+                <Image source={{ uri: place.image }} style={styles.placeImg} />
+                <View style={styles.cardInfo}>
+                  <Text style={styles.placeName}>{place.name}</Text>
+                  <Text style={styles.placeContext}>
+                    Why: {place.crowdLevel} crowds at this hour.
+                  </Text>
+
+                  <View style={styles.cardActions}>
+                    <TouchableOpacity style={styles.actionBtn}>
+                      <Ionicons
+                        name="navigate-outline"
+                        size={16}
+                        color="#FF8C00"
+                      />
+                      <Text style={styles.actionText}>Navigate</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={[styles.actionBtn, { backgroundColor: "#F0E4D3" }]}
+                      onPress={() =>
+                        navigation.navigate("PlaceDetails", {
+                          placeId: place.id,
+                        })
+                      }
+                    >
+                      <Text style={[styles.actionText, { color: "#84593C" }]}>
+                        Details
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </Card>
+
+              {/* Travel Info Indicator */}
+              {index < places.length - 1 && (
+                <View style={styles.travelIndicator}>
+                  <Ionicons name="bus-outline" size={14} color="#84593C" />
+                  <Text style={styles.travelText}>
+                    15 mins via Metro / Auto
                   </Text>
                 </View>
-
-                <View style={styles.stopActions}>
-                  <TouchableOpacity
-                    style={styles.actionButton}
-                    onPress={() => navigation.navigate('PlaceDetails', { placeId: place.id })}
-                  >
-                    <Ionicons name="information-circle-outline" size={16} color="#2563eb" />
-                    <Text style={styles.actionText}>Details</Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity style={styles.actionButton}>
-                    <Ionicons name="swap-horizontal-outline" size={16} color="#2563eb" />
-                    <Text style={styles.actionText}>Swap</Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity style={styles.actionButton}>
-                    <Ionicons name="navigate-outline" size={16} color="#2563eb" />
-                    <Text style={styles.actionText}>Navigate</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </Card>
-          );
-        })}
+              )}
+            </View>
+          </View>
+        ))}
 
         <View style={styles.footer}>
-          <Button
-            title="Start My Journey"
-            onPress={() => navigation.navigate('Explore')}
-            style={styles.footerButton}
-          />
+          <TouchableOpacity
+            style={styles.mainStartBtn}
+            onPress={() => navigation.navigate("Explore")}
+          >
+            <Text style={styles.mainStartBtnText}>Start Journey</Text>
+            <Ionicons name="chevron-forward" size={20} color="#FFF" />
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>
   );
-    
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f8fafc',
+  container: { flex: 1, backgroundColor: "#FEFBF6" },
+  shareBtn: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "#FFF2E0",
+    justifyContent: "center",
+    alignItems: "center",
   },
-  scrollView: {
-    flex: 1,
-  },
-  header: {
-    backgroundColor: '#ffffff',
-    padding: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: '#e2e8f0',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: '#1e293b',
-    marginBottom: 8,
-  },
-  subtitle: {
+
+  scrollContent: { padding: 20 },
+
+  timelineWrapper: { flexDirection: "row" },
+  timelineSidebar: { width: 30, alignItems: "center" },
+  dot: { width: 14, height: 14, borderRadius: 7, marginTop: 5, zIndex: 1 },
+  line: { width: 2, flex: 1, backgroundColor: "#F0E4D3", marginVertical: 4 },
+
+  stopContent: { flex: 1, paddingLeft: 10, paddingBottom: 30 },
+  timeLabel: {
     fontSize: 14,
-    color: '#64748b',
-    lineHeight: 20,
+    fontWeight: "800",
+    color: "#FF8C00",
+    marginBottom: 10,
+    textTransform: "uppercase",
   },
-  stopCard: {
-    margin: 16,
-    marginTop: 16,
+
+  planCard: { padding: 0, overflow: "hidden", borderRadius: 20 },
+  placeImg: { width: "100%", height: 140 },
+  cardInfo: { padding: 15 },
+  placeName: { fontSize: 18, fontWeight: "800", color: "#2D241E" },
+  placeContext: {
+    fontSize: 13,
+    color: "#84593C",
+    marginTop: 4,
+    fontStyle: "italic",
   },
-  timelineHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 12,
+
+  cardActions: { flexDirection: "row", gap: 10, marginTop: 15 },
+  actionBtn: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#FFF2E0",
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 10,
+    gap: 6,
   },
-  timelineLabel: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  timelineDot: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
-    marginRight: 8,
-  },
-  timelineText: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#2563eb',
-  },
-  travelTime: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  travelTimeText: {
-    fontSize: 12,
-    color: '#64748b',
-    marginLeft: 4,
-  },
-  placeName: {
-    fontSize: 20,
-    fontWeight: '600',
-    color: '#1e293b',
-    marginBottom: 8,
-  },
-  whyRecommended: {
-    fontSize: 14,
-    color: '#64748b',
-    lineHeight: 20,
-    marginBottom: 16,
-  },
-  stopFooter: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  crowdBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 10,
+  actionText: { fontSize: 13, fontWeight: "700", color: "#FF8C00" },
+
+  travelIndicator: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 15,
+    backgroundColor: "#FFF",
+    alignSelf: "flex-start",
+    paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "#F0E4D3",
+    gap: 8,
   },
-  crowdDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    marginRight: 6,
+  travelText: { fontSize: 12, color: "#84593C", fontWeight: "600" },
+
+  footer: { marginTop: 10, marginBottom: 30 },
+  mainStartBtn: {
+    backgroundColor: "#FF8C00",
+    height: 56,
+    borderRadius: 18,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 10,
+    elevation: 4,
   },
-  crowdText: {
-    fontSize: 12,
-    fontWeight: '600',
-    textTransform: 'capitalize',
-  },
-  stopActions: {
-    flexDirection: 'row',
-    gap: 12,
-  },
-  actionButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-  },
-  actionText: {
-    fontSize: 12,
-    color: '#2563eb',
-    marginLeft: 4,
-    fontWeight: '600',
-  },
-  footer: {
-    padding: 16,
-    paddingBottom: 32,
-  },
-  footerButton: {
-    width: '100%',
-  },
+  mainStartBtnText: { color: "#FFF", fontSize: 18, fontWeight: "800" },
 });
 
 export default PersonalizedPlanScreen;
-
-
-
