@@ -1,121 +1,213 @@
-# DilliDarshan
+# 🏛️ DilliDarshan
 
-An AI-powered tourism companion for Delhi built with Expo and React Native.
+**DilliDarshan** is an AI-powered, local-first tourism companion for Delhi that helps visitors make **real-time, context-aware decisions** while navigating the city.
+Instead of static listings and generic maps, DilliDarshan acts like a **living local guide**—adapting to time, location, crowd levels, accessibility needs, and user intent.
 
-## Features
+> *Google Maps shows you roads. DilliDarshan shows you the city.*
 
-- **AI Chatbot**: WhatsApp-style conversational interface for travel queries
-- **Personalized Recommendations**: Based on user preferences (time, interests, crowd preference)
-- **Place Details**: Comprehensive information about monuments, transport, utilities
-- **AI Storytelling**: Unlock cultural stories using points
-- **Points System**: Earn points by using the app and contributing knowledge
-- **Explore**: Browse places manually
-- **Food Recommendations**: Filter by mood, budget, and time
-- **Events & Culture**: Discover heritage walks, exhibitions, festivals
-- **Community Contributions**: Share local tips and earn points
-- **Admin Dashboard**: Mock analytics dashboard
+This project was built as part of the **Delhi AI Grind – Tourism, Culture & Food Systems Challenge**.
 
-## Tech Stack
+---
 
-- Expo ~51.0.0
-- React Native 0.74.5
-- TypeScript
-- React Navigation (Stack + Bottom Tabs)
-- AsyncStorage for local data persistence
-- @expo/vector-icons for icons
+## 🌆 Problem Context
 
-## Installation
+Delhi’s tourism ecosystem suffers from:
 
-1. Install dependencies:
+* Fragmented and static information
+* No real-time, on-ground decision support
+* Overcrowding at iconic monuments
+* Under-visibility of nearby heritage and cultural spaces
+* Lack of last-mile transport clarity
+* Minimal representation of local voices and cultural communities
+
+DilliDarshan addresses this by combining **deterministic logic + AI-driven reasoning** to guide users *in the moment*, not just before travel.
+
+---
+
+## ✨ Key Features
+
+### 🤖 AI Travel Chatbot (Core Feature)
+
+* WhatsApp-style conversational interface
+* Handles natural queries like:
+
+  > *“I’m near Connaught Place, it’s hot, and I have 2 hours — what should I do?”*
+* Context-aware responses using:
+
+  * Time of day
+  * Location
+  * Venue hours
+  * Distance & feasibility
+* Provides **clear next actions**, not vague advice
+
+---
+
+### 🧭 Personalized Recommendations
+
+* Based on user preferences collected during onboarding:
+
+  * Time availability
+  * Interests (history, food, culture)
+  * Crowd preference
+  * Language
+  * Accessibility needs
+* Preferences are stored locally (no login required)
+
+---
+
+### 🏛️ Monument & Place Details
+
+Each place acts as a **trusted on-ground utility hub**, including:
+
+* Best time to visit
+* Opening hours & entry fee
+* Ticket booking redirect
+* Nearest metro & last-mile guidance
+* Public toilets & accessibility notes
+* Crowd level indicators
+* Smart nudges to nearby alternatives when crowded
+
+---
+
+### 📖 AI Storytelling (Gamified & Unlockable)
+
+* Cultural stories in:
+
+  * Quick (30s)
+  * Immersive (2–3 min) formats
+* Locked by default
+* Unlocked through **Heritage Points**, not payments
+* Encourages engagement and cultural learning
+
+---
+
+### ⭐ Heritage Points System
+
+Users earn points by:
+
+* Asking chatbot queries (+5)
+* Viewing place details (+5)
+* Contributing local knowledge (+10)
+
+Points unlock:
+
+* Premium storytelling
+* Deeper cultural narratives
+
+All points are stored locally.
+
+---
+
+### 🚇 Local Transport & Utilities
+
+* Metro exit guidance
+* Walking distances & time
+* Auto / e-rickshaw fare ranges
+* Shared auto route awareness
+* Toilets and comfort infrastructure
+
+---
+
+### 🍽️ Food & Mood-Based Recommendations
+
+* Suggestions based on:
+
+  * Time of day
+  * Mood (chill, energetic, street food)
+  * Budget (₹ / ₹₹ / ₹₹₹)
+* Explains *why* a place fits the current moment
+
+---
+
+### 🎭 Events & Cultural Discovery
+
+* Discover:
+
+  * Heritage walks
+  * Exhibitions
+  * Performances
+  * Festivals
+* Filtered by:
+
+  * Location
+  * Time
+  * Accessibility
+* All data is mocked in the current prototype
+
+---
+
+### 🤝 Community Contributions
+
+* Users can:
+
+  * Add local tips
+  * Update transport info
+  * Review places
+  * Share cultural insights
+* Contributions improve system quality and unlock rewards
+
+---
+
+### 🏙️ Admin / Government Dashboard (Mock)
+
+* Read-only analytics view
+* Demonstrates policy and planning value:
+
+  * Footfall trends
+  * Peak hours
+  * Under-visited zones
+  * User satisfaction signals
+
+---
+
+## 🛠️ Tech Stack
+
+* **Expo** (~51.x)
+* **React Native**
+* **React Navigation** (Stack + Bottom Tabs)
+* **AsyncStorage** – local persistence
+* **@expo/vector-icons** – iconography
+* **StyleSheet (react-native)** – no Tailwind, no CSS frameworks
+
+> ⚠️ This is a **frontend-first prototype**.
+> No backend, APIs, authentication, or payments are implemented.
+
+---
+
+## 🚀 Installation & Running Locally
+
+### 1. Install dependencies
+
 ```bash
 npm install
 ```
 
-2. Start the Expo development server:
+### 2. Start Expo
+
 ```bash
 npx expo start
 ```
 
-3. Run on your preferred platform:
-   - Press `i` for iOS simulator
-   - Press `a` for Android emulator
-   - Scan QR code with Expo Go app on your device
+### 3. Run the app
 
-## Project Structure
+* Press `i` → iOS Simulator
+* Press `a` → Android Emulator
+* Or scan QR with **Expo Go** on a physical device
 
-```
-├── App.tsx                 # Root component
-├── navigation/             # Navigation configuration
-│   └── AppNavigator.tsx
-├── screens/                # All app screens
-│   ├── TutorialScreen.tsx
-│   ├── PreferenceSetupScreen.tsx
-│   ├── HomeScreen.tsx
-│   ├── ChatScreen.tsx
-│   ├── ExploreScreen.tsx
-│   ├── ProfileScreen.tsx
-│   ├── PlaceDetailsScreen.tsx
-│   ├── PersonalizedPlanScreen.tsx
-│   ├── StorytellingScreen.tsx
-│   ├── TransportInfoScreen.tsx
-│   ├── FoodRecommendationScreen.tsx
-│   ├── EventsScreen.tsx
-│   ├── ContributionScreen.tsx
-│   └── AdminDashboardScreen.tsx
-├── components/             # Reusable components
-│   ├── Button.tsx
-│   ├── Card.tsx
-│   └── Chip.tsx
-├── context/                # Context providers
-│   ├── PreferencesContext.tsx
-│   └── PointsContext.tsx
-├── types/                  # TypeScript types
-│   └── index.ts
-└── constants/              # Mock data
-    ├── places.ts
-    └── stories.ts
-```
+---
 
-## Key Features Explained
+## 🔮 Future Scope
 
-### Onboarding Flow
-- Tutorial screens on first launch
-- Preference setup (user type, time, interests, language, accessibility)
+* AI-based crowd prediction
+* Crowdsourced gate & utility accuracy
+* Accessibility-first routing
+* Multilingual voice-based guidance
+* City-by-city expansion
+* Integration with tourism boards
+* Anonymized data insights for city planning
 
-### Chat Screen (Core Feature)
-- WhatsApp-style UI with bot avatar
-- Quick action chips
-- Place suggestions with crowd indicators
-- Rule-based responses (no API calls)
+---
 
-### Points System
-- Earn 5 points: Ask chatbot question, View place details
-- Earn 10 points: Add contribution
-- Unlock storytelling at 20 points (quick) and 50 points (immersive)
+## 📄 License
 
-### Place Details
-- Visit info (timing, fees, booking)
-- Transport (metro, walking, auto-rickshaw)
-- Comfort & utilities (toilets, seating, shade, accessibility)
-- AI storytelling (locked/unlocked based on points)
-- Smart nudges for crowded places
-
-## Notes
-
-- All data is mocked/hardcoded (no backend)
-- No authentication required
-- Points stored locally using AsyncStorage
-- Preferences stored locally
-- No API calls - all responses are rule-based
-
-## Development
-
-The app uses:
-- TypeScript for type safety
-- StyleSheet from react-native (no Tailwind)
-- Clean, modular code structure
-- Safe, stable libraries only
-
-## License
-
-Private project
+MIT License
