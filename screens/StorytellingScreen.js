@@ -1,5 +1,5 @@
 // screens/StorytellingScreen.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -11,7 +11,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
-import { MOCK_STORIES } from '../constants/stories';
+// import { MOCK_STORIES } from '../constants/stories';
 import { Card } from '../components/Card';
 import { getPlaceById } from '../constants/places';
 
@@ -20,15 +20,50 @@ const StorytellingScreen = () => {
   const navigation = useNavigation();
   const { placeId } = route.params || {};
 
-  const place = getPlaceById(placeId);
   const [isPlaying, setIsPlaying] = useState(false);
-  
   const [storyMode, setStoryMode] = useState('immersive'); 
   const [language, setLanguage] = useState('English');
-
+  const [storyContent, setStoryContent] = useState('');
+  const [loading, setLoading] = useState(false);  
+  
+  const place = getPlaceById(placeId);
+  
   if (!place) return <View style={styles.container}><Text>Place not found</Text></View>;
 
-  const storyContent = MOCK_STORIES[placeId]?.[storyMode] || MOCK_STORIES[placeId]?.quick;
+const fetchStory = async () => {
+  try {
+    setLoading(true);
+
+    const payload = {
+      placeId: String(place.id),
+      placeName: place.name,
+      mode: storyMode
+    };
+
+    console.log("Sending payload:", payload);
+
+    const res = await fetch("http://192.168.1.9:8000/story/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await res.json();
+    setStoryContent(data.story);
+
+  } catch (err) {
+    console.error("Story fetch failed:", err);
+    setStoryContent("Failed to load story.");
+  } finally {
+    setLoading(false);
+  }
+};
+
+console.log("Requesting story:", placeId, storyMode, language);
+
+useEffect(() => {
+  fetchStory();
+}, [storyMode, language]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -78,8 +113,13 @@ const StorytellingScreen = () => {
 
         {/* TRANSCRIPT AREA */}
         <Card style={styles.storyCard}>
-          <Text style={styles.storyText}>{storyContent}</Text>
-        </Card>
+  {loading ? (
+    <Text style={styles.storyText}>Generating story...</Text>
+  ) : (
+    <Text style={styles.storyText}>{storyContent}</Text>
+  )}
+</Card>
+
 
         {/* LANGUAGE SELECTION */}
         <View style={styles.section}>
