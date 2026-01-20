@@ -1,3 +1,4 @@
+# /backend/llm/local_llm.py
 import subprocess
 import shutil
 
@@ -12,7 +13,9 @@ def generate_with_ollama(prompt: str) -> str:
         input=prompt,
         capture_output=True,
         text=True,
-        shell=False
+        shell=False,
+        encoding='utf-8',
+        errors="ignore"
     )
 
     return result.stdout.strip()

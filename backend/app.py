@@ -8,6 +8,8 @@ from sentence_transformers import SentenceTransformer
 from fastapi import FastAPI
 from pydantic import BaseModel
 from llm.local_llm import generate_with_ollama
+from tts.generate_audio import generate_audio
+from fastapi.staticfiles import StaticFiles
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 index = faiss.read_index("rag/monuments.index")
@@ -16,7 +18,7 @@ with open("rag/metadata.json") as f:
     METADATA = json.load(f)
 
 app = FastAPI()
-
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 class StoryRequest(BaseModel):
     placeId: str
@@ -103,4 +105,15 @@ CONTENT:
         "sources": ["ASI", "Community Archive"],
         "mode": req.mode,
         "fallback": fallback
+    }
+
+@app.post("/story/voice")
+def generate_voice(req: StoryRequest):
+    story_text = generate_story(req)["story"]
+    audio_path = generate_audio(story_text)
+    
+    print("AUDIO PATH RETURNED:", audio_path) 
+    
+    return {
+        "audio_url": audio_path
     }
