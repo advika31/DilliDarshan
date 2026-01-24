@@ -1,0 +1,317 @@
+[
+  {
+    "name": "Qutub Minar",
+    "line": "Yellow Line",
+    "lat": 28.5129,
+    "lng": 77.1866,
+    "exits": [
+      {
+        "gate": "Gate 1",
+        "description": "Towards Qutub Minar Complex"
+      }
+    ]
+  },
+  {
+    "name": "Central Secretariat",
+    "line": "Yellow & Violet Line",
+    "lat": 28.6147,
+    "lng": 77.2126,
+    "exits": [
+      {
+        "gate": "Gate 4",
+        "description": "Towards India Gate"
+      }
+    ]
+  },
+  {
+    "name": "Khan Market",
+    "line": "Violet Line",
+    "lat": 28.6006,
+    "lng": 77.2274,
+    "exits": [
+      {
+        "gate": "Gate 1",
+        "description": "Towards India Gate / Lodhi Road"
+      }
+    ]
+  },
+  {
+    "name": "Rajiv Chowk",
+    "line": "Blue & Yellow Line",
+    "lat": 28.6328,
+    "lng": 77.2197,
+    "exits": [
+      {
+        "gate": "Gate 5",
+        "description": "Inner Circle, Connaught Place"
+      }
+    ]
+  },
+  {
+    "name": "Chandni Chowk",
+    "line": "Yellow Line",
+    "lat": 28.6578,
+    "lng": 77.2304,
+    "exits": [
+      {
+        "gate": "Gate 3",
+        "description": "Towards Red Fort"
+      }
+    ]
+  },
+  {
+    "name": "Jama Masjid",
+    "line": "Violet Line",
+    "lat": 28.6507,
+    "lng": 77.2334,
+    "exits": [
+      {
+        "gate": "Gate 2",
+        "description": "Towards Jama Masjid"
+      }
+    ]
+  },
+  {
+    "name": "JLN Stadium",
+    "line": "Violet Line",
+    "lat": 28.5831,
+    "lng": 77.2335,
+    "exits": [
+      {
+        "gate": "Gate 2",
+        "description": "Towards Humayun’s Tomb"
+      }
+    ]
+  },
+  {
+    "name": "Lajpat Nagar",
+    "line": "Pink & Violet Line",
+    "lat": 28.5708,
+    "lng": 77.2360,
+    "exits": [
+      {
+        "gate": "Gate 3",
+        "description": "Towards Central Market"
+      }
+    ]
+  },
+  {
+    "name": "Kalkaji Mandir",
+    "line": "Magenta & Violet Line",
+    "lat": 28.5492,
+    "lng": 77.2591,
+    "exits": [
+      {
+        "gate": "Gate 2",
+        "description": "Towards Lotus Temple"
+      }
+    ]
+  },
+  {
+    "name": "Akshardham",
+    "line": "Blue Line",
+    "lat": 28.6127,
+    "lng": 77.2773,
+    "exits": [
+      {
+        "gate": "Gate 1",
+        "description": "Towards Akshardham Temple"
+      }
+    ]
+  },
+  {
+    "name": "Hauz Khas",
+    "line": "Yellow Line",
+    "lat": 28.5433,
+    "lng": 77.2067,
+    "exits": [
+      {
+        "gate": "Gate 3",
+        "description": "Towards Hauz Khas Village"
+      }
+    ]
+  },
+  {
+    "name": "Civil Lines",
+    "line": "Yellow Line",
+    "lat": 28.6768,
+    "lng": 77.2241,
+    "exits": [
+      {
+        "gate": "Gate 2",
+        "description": "Towards Civil Lines area"
+      }
+    ]
+  },
+  {
+    "name": "Netaji Subhash Place",
+    "line": "Red & Pink Line",
+    "lat": 28.6950,
+    "lng": 77.1526,
+    "exits": [
+      {
+        "gate": "Gate 4",
+        "description": "Towards Commercial Complex"
+      }
+    ]
+  },
+  {
+    "name": "Mayur Vihar Phase 1",
+    "line": "Blue & Pink Line",
+    "lat": 28.6030,
+    "lng": 77.2897,
+    "exits": [
+      {
+        "gate": "Gate 2",
+        "description": "Towards Sanjay Lake"
+      }
+    ]
+  },
+  
+  {
+    "name": "Rajouri Garden",
+    "line": "Blue & Pink Line",
+    "lat": 28.6415,
+    "lng": 77.1233,
+    "exits": [
+      {
+        "gate": "Gate 7",
+        "description": "Towards Pacific Mall & Main Market"
+      }
+    ]
+  },
+  {
+    "name": "Lajpat Nagar",
+    "line": "Pink & Violet Line",
+    "lat": 28.5708,
+    "lng": 77.2360,
+    "exits": [
+      {
+        "gate": "Gate 3",
+        "description": "Towards Central Market"
+      }
+    ]
+  },
+  {
+    "name": "Karol Bagh",
+    "line": "Blue Line",
+    "lat": 28.6445,
+    "lng": 77.1905,
+    "exits": [
+      {
+        "gate": "Gate 5",
+        "description": "Towards Ajmal Khan Road Market"
+      }
+    ]
+  },
+  {
+    "name": "Chandni Chowk",
+    "line": "Yellow Line",
+    "lat": 28.6578,
+    "lng": 77.2304,
+    "exits": [
+      {
+        "gate": "Gate 3",
+        "description": "Towards Chandni Chowk Market & Red Fort"
+      }
+    ]
+  },
+  {
+    "name": "Hauz Khas",
+    "line": "Yellow Line",
+    "lat": 28.5433,
+    "lng": 77.2067,
+    "exits": [
+      {
+        "gate": "Gate 3",
+        "description": "Towards Hauz Khas Village"
+      }
+    ]
+  },
+  {
+    "name": "INA",
+    "line": "Yellow & Pink Line",
+    "lat": 28.5757,
+    "lng": 77.2090,
+    "exits": [
+      {
+        "gate": "Gate 3",
+        "description": "Towards Dilli Haat INA"
+      }
+    ]
+  },
+  {
+    "name": "Sarojini Nagar",
+    "line": "Pink Line",
+    "lat": 28.5754,
+    "lng": 77.1989,
+    "exits": [
+      {
+        "gate": "Gate 2",
+        "description": "Towards Sarojini Nagar Market"
+      }
+    ]
+  },
+  {
+    "name": "Janpath",
+    "line": "Violet Line",
+    "lat": 28.6250,
+    "lng": 77.2195,
+    "exits": [
+      {
+        "gate": "Gate 4",
+        "description": "Towards Janpath Market"
+      }
+    ]
+  },
+  {
+    "name": "Moolchand",
+    "line": "Violet Line",
+    "lat": 28.5644,
+    "lng": 77.2343,
+    "exits": [
+      {
+        "gate": "Gate 1",
+        "description": "Towards Moolchand Market"
+      }
+    ]
+  },
+  {
+    "name": "Saket",
+    "line": "Yellow Line",
+    "lat": 28.5206,
+    "lng": 77.2011,
+    "exits": [
+      {
+        "gate": "Gate 2",
+        "description": "Towards Select Citywalk Mall"
+      }
+    ]
+  },
+  {
+    "name": "Noida Sector 18",
+    "line": "Blue Line",
+    "lat": 28.5705,
+    "lng": 77.3260,
+    "exits": [
+      {
+        "gate": "Gate 3",
+        "description": "Towards Atta Market & DLF Mall of India"
+      }
+    ]
+  },
+  {
+    "name": "Netaji Subhash Place",
+    "line": "Red & Pink Line",
+    "lat": 28.6950,
+    "lng": 77.1526,
+    "exits": [
+      {
+        "gate": "Gate 4",
+        "description": "Towards Pacific Mall NSP"
+      }
+    ]
+  }
+]
+
+

@@ -1,0 +1,4195 @@
+[
+  {
+    "name": "Base Hospital Delhi Cantt",
+    "type": "hospital",
+    "lat": 28.6082403,
+    "lng": 77.1366732,
+    "address": "Delhi"
+  },
+  {
+    "name": "Saint soham hospital private",
+    "type": "hospital",
+    "lat": 28.7983668,
+    "lng": 77.0352715,
+    "address": "Delhi"
+  },
+  {
+    "name": "Dr. Indra Hospital",
+    "type": "hospital",
+    "lat": 28.7980095,
+    "lng": 77.0354003,
+    "address": "Delhi"
+  },
+  {
+    "name": "Dr. Rajeev Hospital",
+    "type": "hospital",
+    "lat": 28.8006984,
+    "lng": 77.0353788,
+    "address": "Delhi"
+  },
+  {
+    "name": "Government hospital",
+    "type": "hospital",
+    "lat": 28.8012625,
+    "lng": 77.0374388,
+    "address": "Delhi"
+  },
+  {
+    "name": "Delhi Heart and Lung Institute Super Speciality Hospital",
+    "type": "hospital",
+    "lat": 28.6416777,
+    "lng": 77.2052683,
+    "address": "Delhi"
+  },
+  {
+    "name": "Indraprastha Apollo Hospital",
+    "type": "hospital",
+    "lat": 28.5408389,
+    "lng": 77.2834999,
+    "address": "Delhi"
+  },
+  {
+    "name": "Ayushman Hospital",
+    "type": "hospital",
+    "lat": 28.5965201,
+    "lng": 77.0493833,
+    "address": "Plot No. 2, Dwarka, Sector 12"
+  },
+  {
+    "name": "Govt Dispensory",
+    "type": "hospital",
+    "lat": 28.5866431,
+    "lng": 77.0573761,
+    "address": "Sec-10, Dwarka, Golok Dham Mandir"
+  },
+  {
+    "name": "Ayurvedic Mental Hospital",
+    "type": "hospital",
+    "lat": 28.7237864,
+    "lng": 77.1497987,
+    "address": "Delhi"
+  },
+  {
+    "name": "Sukhda Hospital",
+    "type": "hospital",
+    "lat": 28.5469254,
+    "lng": 77.2445375,
+    "address": "Delhi"
+  },
+  {
+    "name": "Ram Lal Kundan Lal Orthopaedic Hospital",
+    "type": "hospital",
+    "lat": 28.6179569,
+    "lng": 77.2866841,
+    "address": "Bunglow Plot no. 8, Pandav Nagar, Mayur Vihar, Patparganj"
+  },
+  {
+    "name": "Dr. Shyama Prasad Mukherjee Chest Hospital",
+    "type": "hospital",
+    "lat": 28.6140205,
+    "lng": 77.2898985,
+    "address": "Delhi"
+  },
+  {
+    "name": "Sujan Mohinder Singh Hospital",
+    "type": "hospital",
+    "lat": 28.5629027,
+    "lng": 77.2685753,
+    "address": "Delhi"
+  },
+  {
+    "name": "PHC Ujjwa",
+    "type": "hospital",
+    "lat": 28.5702527,
+    "lng": 76.9041305,
+    "address": "Village Post Office Ujjwa"
+  },
+  {
+    "name": "Goyal MRI & Diagnostic Centre",
+    "type": "hospital",
+    "lat": 28.5647144,
+    "lng": 77.1893283,
+    "address": "Safdarjung Enclave"
+  },
+  {
+    "name": "MGS Hospital",
+    "type": "hospital",
+    "lat": 28.6739027,
+    "lng": 77.1346394,
+    "address": "Delhi"
+  },
+  {
+    "name": "Maharaja Agrasen Hospital",
+    "type": "hospital",
+    "lat": 28.6740586,
+    "lng": 77.1340566,
+    "address": "Delhi"
+  },
+  {
+    "name": "A One Hospital",
+    "type": "hospital",
+    "lat": 28.67882,
+    "lng": 77.0981158,
+    "address": "Delhi"
+  },
+  {
+    "name": "Majeedia Hospital",
+    "type": "hospital",
+    "lat": 28.5148169,
+    "lng": 77.2518253,
+    "address": "Delhi"
+  },
+  {
+    "name": "Somdatt Medical",
+    "type": "hospital",
+    "lat": 28.6293605,
+    "lng": 77.276622,
+    "address": "Delhi"
+  },
+  {
+    "name": "Krypton Global Health",
+    "type": "hospital",
+    "lat": 28.638646,
+    "lng": 77.0732307,
+    "address": "Guru Virjanand Marg"
+  },
+  {
+    "name": "Surbhi hospital",
+    "type": "hospital",
+    "lat": 28.6491348,
+    "lng": 77.2164415,
+    "address": "Qutab Road"
+  },
+  {
+    "name": "Tamish",
+    "type": "hospital",
+    "lat": 28.699593,
+    "lng": 77.1045409,
+    "address": "Sector 22"
+  },
+  {
+    "name": "Chandiwala Institute of Eye",
+    "type": "hospital",
+    "lat": 28.544205,
+    "lng": 77.2659895,
+    "address": "Delhi"
+  },
+  {
+    "name": "Pushpawati Singhania Hospital and Research Institute",
+    "type": "hospital",
+    "lat": 28.53312,
+    "lng": 77.2254277,
+    "address": "Delhi"
+  },
+  {
+    "name": "Savera Hospital",
+    "type": "hospital",
+    "lat": 28.6884962,
+    "lng": 77.1222079,
+    "address": "3,Sainik Vihar, Pitam Pura"
+  },
+  {
+    "name": "Gamca",
+    "type": "hospital",
+    "lat": 28.5703187,
+    "lng": 77.2369366,
+    "address": "Cinema Road"
+  },
+  {
+    "name": "Asha kiran mental hospital",
+    "type": "hospital",
+    "lat": 28.7028126,
+    "lng": 77.0958863,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "hospital",
+    "lat": 28.6438892,
+    "lng": 77.1387433,
+    "address": "Delhi"
+  },
+  {
+    "name": "Sharp Sight Center",
+    "type": "hospital",
+    "lat": 28.6403964,
+    "lng": 77.2934473,
+    "address": "Vikas Marg"
+  },
+  {
+    "name": "Bhagat Chandra Hospital",
+    "type": "hospital",
+    "lat": 28.5934549,
+    "lng": 77.0816478,
+    "address": "Dabri Road"
+  },
+  {
+    "name": "Adiva Hospital",
+    "type": "hospital",
+    "lat": 28.5583994,
+    "lng": 77.2064208,
+    "address": "Delhi"
+  },
+  {
+    "name": "Guru Harkishan Hospital",
+    "type": "hospital",
+    "lat": 28.5821004,
+    "lng": 77.2641583,
+    "address": "Delhi"
+  },
+  {
+    "name": "Sir Ganga Ram Kolmet Hospital",
+    "type": "hospital",
+    "lat": 28.643492,
+    "lng": 77.187296,
+    "address": "7-B, Pusa Road, Karol Bagh"
+  },
+  {
+    "name": "Cygnus Orthocare Hospital",
+    "type": "hospital",
+    "lat": 28.5460823,
+    "lng": 77.1973263,
+    "address": "Delhi"
+  },
+  {
+    "name": "Rosewalk - Premium Birthing, Feminine care",
+    "type": "hospital",
+    "lat": 28.5436294,
+    "lng": 77.2118358,
+    "address": "Delhi"
+  },
+  {
+    "name": "Apollo Spectra Hospitals",
+    "type": "hospital",
+    "lat": 28.5555937,
+    "lng": 77.2412436,
+    "address": "Delhi"
+  },
+  {
+    "name": "Max Multi Speciality Centre",
+    "type": "hospital",
+    "lat": 28.5434575,
+    "lng": 77.214298,
+    "address": "Delhi"
+  },
+  {
+    "name": "Balhara's Le Cure Hospital",
+    "type": "hospital",
+    "lat": 28.5097683,
+    "lng": 77.2014454,
+    "address": "Delhi"
+  },
+  {
+    "name": "Mangalam Hospital",
+    "type": "hospital",
+    "lat": 28.6228832,
+    "lng": 77.2966806,
+    "address": "Delhi"
+  },
+  {
+    "name": "Fortis C-DOC Hospital",
+    "type": "hospital",
+    "lat": 28.5469888,
+    "lng": 77.2494873,
+    "address": "Delhi"
+  },
+  {
+    "name": "Tirath Ram Hospital",
+    "type": "hospital",
+    "lat": 28.666922,
+    "lng": 77.3178057,
+    "address": "Delhi"
+  },
+  {
+    "name": "Doctor Rajendra Prasad Centre for Opthalmic Sciences",
+    "type": "hospital",
+    "lat": 28.5667966,
+    "lng": 77.2088857,
+    "address": "Delhi"
+  },
+  {
+    "name": "Safdarjung H back gate",
+    "type": "hospital",
+    "lat": 28.5663672,
+    "lng": 77.207556,
+    "address": "Delhi"
+  },
+  {
+    "name": "ESIC Hospital",
+    "type": "hospital",
+    "lat": 28.5143778,
+    "lng": 77.2815719,
+    "address": "Delhi"
+  },
+  {
+    "name": "City Hospital",
+    "type": "hospital",
+    "lat": 28.6439995,
+    "lng": 77.1912841,
+    "address": "Delhi"
+  },
+  {
+    "name": "Rural Medical Centre",
+    "type": "hospital",
+    "lat": 28.5158966,
+    "lng": 77.1965361,
+    "address": "Delhi"
+  },
+  {
+    "name": "Institute of Brain and Spine",
+    "type": "hospital",
+    "lat": 28.5656044,
+    "lng": 77.2442543,
+    "address": "Delhi"
+  },
+  {
+    "name": "Saral Diagnostics",
+    "type": "hospital",
+    "lat": 28.6944136,
+    "lng": 77.1287968,
+    "address": "Maharishi Parshuram Marg"
+  },
+  {
+    "name": "Sama Hospital",
+    "type": "hospital",
+    "lat": 28.5544846,
+    "lng": 77.2270262,
+    "address": "Siri Fort Road"
+  },
+  {
+    "name": "Apollo",
+    "type": "hospital",
+    "lat": 28.5403869,
+    "lng": 77.2829628,
+    "address": "Delhi"
+  },
+  {
+    "name": "National Institute of TB and Respiratory Diseases",
+    "type": "hospital",
+    "lat": 28.529118,
+    "lng": 77.1900425,
+    "address": "NITRD, Sri Aurobindo Marg, Near Qutub minar"
+  },
+  {
+    "name": "Narang Hospital",
+    "type": "hospital",
+    "lat": 28.6460854,
+    "lng": 77.0980297,
+    "address": "Delhi"
+  },
+  {
+    "name": "Manchanda Hospital",
+    "type": "hospital",
+    "lat": 28.4943675,
+    "lng": 77.1836992,
+    "address": "Delhi"
+  },
+  {
+    "name": "Paschim Vihar West",
+    "type": "hospital",
+    "lat": 28.67852,
+    "lng": 77.0997686,
+    "address": "Rohtak Road"
+  },
+  {
+    "name": "World Brain Center Hospital",
+    "type": "hospital",
+    "lat": 28.6121754,
+    "lng": 77.0886731,
+    "address": "Delhi"
+  },
+  {
+    "name": "Max Medcentre",
+    "type": "hospital",
+    "lat": 28.5645418,
+    "lng": 77.2399229,
+    "address": "Delhi"
+  },
+  {
+    "name": "Mehta Hospital",
+    "type": "hospital",
+    "lat": 28.523344,
+    "lng": 77.2312921,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "hospital",
+    "lat": 28.6581566,
+    "lng": 77.1940384,
+    "address": "Delhi"
+  },
+  {
+    "name": "Diyos",
+    "type": "hospital",
+    "lat": 28.5660178,
+    "lng": 77.1946519,
+    "address": "Delhi"
+  },
+  {
+    "name": "Aakash Hospital",
+    "type": "hospital",
+    "lat": 28.5350359,
+    "lng": 77.2148651,
+    "address": "Delhi"
+  },
+  {
+    "name": "Saras Hospital",
+    "type": "hospital",
+    "lat": 28.4871984,
+    "lng": 77.3124513,
+    "address": "A - 1772, Green Field Colony"
+  },
+  {
+    "name": "Sunrise Hospital, Faridabad",
+    "type": "hospital",
+    "lat": 28.5769233,
+    "lng": 77.2660263,
+    "address": "Ic- Dt 1/1 A- Plot No- 14-15-16, Bata Hardware Road"
+  },
+  {
+    "name": "Mata Sumitra Devi Hospital",
+    "type": "hospital",
+    "lat": 28.5779214,
+    "lng": 77.0239288,
+    "address": "Near I.T.I Road, Chhara Mor, Bahadurgarh"
+  },
+  {
+    "name": "Metro Hospital and Heart Institute",
+    "type": "hospital",
+    "lat": 28.5647231,
+    "lng": 77.2437868,
+    "address": "Delhi"
+  },
+  {
+    "name": "AIIMS Emergency",
+    "type": "hospital",
+    "lat": 28.567441,
+    "lng": 77.2096335,
+    "address": "Delhi"
+  },
+  {
+    "name": "CRPF Composite Hospital",
+    "type": "hospital",
+    "lat": 28.6390663,
+    "lng": 76.9572897,
+    "address": "Part-1, Sainik Enclave, 243-244, Main Surakhpur Road, Jharoda Kalan"
+  },
+  {
+    "name": "DR GROVERS NURSING HOME",
+    "type": "hospital",
+    "lat": 28.6284133,
+    "lng": 77.1469129,
+    "address": "Near Park, Inderpuri"
+  },
+  {
+    "name": "Sushruta Trauma Centre",
+    "type": "hospital",
+    "lat": 28.6797783,
+    "lng": 77.2283852,
+    "address": "Mahatma Gandhi Road, Railway Colony,Civil Lines, North Delhi"
+  },
+  {
+    "name": "Bharti Nursingh Home",
+    "type": "hospital",
+    "lat": 28.5874217,
+    "lng": 77.0702439,
+    "address": "A-132, Palam Extension, Sector-7"
+  },
+  {
+    "name": "Dr B R Sur Homoeopathic Medical college and Hospital",
+    "type": "hospital",
+    "lat": 28.5862718,
+    "lng": 77.1684265,
+    "address": "Nanakpura, Near Nanakpura Gurudwara, South Motibagh"
+  },
+  {
+    "name": "Orthoplus Hospital",
+    "type": "hospital",
+    "lat": 28.6139007,
+    "lng": 76.976352,
+    "address": "RZ-B-28, Najafgarh, Gopal Nagar"
+  },
+  {
+    "name": "Vardhman Mahavir Medical College (VMMC) & Safdarjung Hospital, New Delhi",
+    "type": "hospital",
+    "lat": 28.5685701,
+    "lng": 77.2064068,
+    "address": "Ring Road, Safdarjung West, Safdarjung Campus, Ansari Nagar East, Opposite Aiims Hospital"
+  },
+  {
+    "name": "Prem Chiktsa Kendra",
+    "type": "hospital",
+    "lat": 28.5739982,
+    "lng": 77.1773627,
+    "address": "Ring Road, Near Cghs Disprnsary, R.K.Puram, SECTOR-12"
+  },
+  {
+    "name": "Shree Dhanvantri Hospital",
+    "type": "hospital",
+    "lat": 28.6121179,
+    "lng": 76.9756046,
+    "address": "RZ-10 A, Near Khera Mod, Najafgarh, Main Gopal Nagar"
+  },
+  {
+    "name": "Kalawati Saran Children's Hospital",
+    "type": "hospital",
+    "lat": 28.6357652,
+    "lng": 77.2110664,
+    "address": "C- 604, Connaught Circus, DIZ Area, Connaught Place, New Delhi"
+  },
+  {
+    "name": "Sports Injury Centre, Safdarjung Hospital (Part of SJH), New Delhi",
+    "type": "hospital",
+    "lat": 28.5681531,
+    "lng": 77.2054264,
+    "address": "Sport Injury complex, Safdarjung Hospital, Safdarjung, Ansari Nagar West"
+  },
+  {
+    "name": "Maulana Azad Institute of Dental Sciences",
+    "type": "hospital",
+    "lat": 28.6371532,
+    "lng": 77.236999,
+    "address": "Bahadur Shah Zafar Marg, New Delhi"
+  },
+  {
+    "name": "Divya Prastha Hospital",
+    "type": "hospital",
+    "lat": 28.5862424,
+    "lng": 77.0875445,
+    "address": "Divya Prastha Hospital, Opp.Bagh Wala School, Raj Nagar Part I, Main Road, Palam Colony"
+  },
+  {
+    "name": "Attar Sain Jain Hospital",
+    "type": "hospital",
+    "lat": 28.6821792,
+    "lng": 77.1502237,
+    "address": "Lawrence Road, Industrial Area, Shakurpur"
+  },
+  {
+    "name": "Satyawadi Raja Harish Chander Hospital",
+    "type": "hospital",
+    "lat": 28.840596,
+    "lng": 77.1032565,
+    "address": "Narela Main Road, Sector A1, Narela, Delhi"
+  },
+  {
+    "name": "Charak Palika Hospital NDMC",
+    "type": "hospital",
+    "lat": 28.5853147,
+    "lng": 77.1770243,
+    "address": "Main Road, North-West Moti-Bagh, Near Begumjadi Market"
+  },
+  {
+    "name": "Kesar Nursing Home Dabri",
+    "type": "hospital",
+    "lat": 28.6089466,
+    "lng": 77.1008845,
+    "address": "Street Number 12, Sagar Pur, Vashist Park Sagar Pur"
+  },
+  {
+    "name": "Chacha Nehru Bal Chikitsalaya",
+    "type": "hospital",
+    "lat": 28.653163,
+    "lng": 77.268342,
+    "address": "Raja Ram Kohli Marg, Geeta Colony, Delhi"
+  },
+  {
+    "name": "Maharishi Valmiki Hospital",
+    "type": "hospital",
+    "lat": 28.775826,
+    "lng": 77.048597,
+    "address": "Bhavana Industrial Area, Pooth Khurd, Delhi"
+  },
+  {
+    "name": "Medeor Hospital",
+    "type": "hospital",
+    "lat": 28.5964391,
+    "lng": 77.0457328,
+    "address": "HAF-B, Sector-12, Dwarka, Phase-1"
+  },
+  {
+    "name": "Shakuntla Nursing Home Sagarpur",
+    "type": "hospital",
+    "lat": 28.6081283,
+    "lng": 77.0952919,
+    "address": "RZ-I-81A, Sagarpur"
+  },
+  {
+    "name": "Malik Maternity Home and Surgical Centre",
+    "type": "hospital",
+    "lat": 28.6154991,
+    "lng": 76.982911,
+    "address": "Furniture Market, Krishna Mandir Chowk, Near Krishna Mandir, Najafgarh, Chitra Colony"
+  },
+  {
+    "name": "Government Hospital, Jawalapuri",
+    "type": "hospital",
+    "lat": 28.674566,
+    "lng": 77.080093,
+    "address": "R Block, Jwalapuri, New-Delhi, Camp No. 5"
+  },
+  {
+    "name": "Central Hospital (Northern Railways)",
+    "type": "hospital",
+    "lat": 28.6365867,
+    "lng": 77.2173905,
+    "address": "Basant Lane, Paharganj, Connaught Place"
+  },
+  {
+    "name": "Singhal Hospital Palam Colony",
+    "type": "hospital",
+    "lat": 28.5882997,
+    "lng": 77.0887312,
+    "address": "C-40, Sadh Nagar, Palam Colony, Street No-9"
+  },
+  {
+    "name": "Doctors Diagnostic Centre Najafgarh",
+    "type": "hospital",
+    "lat": 28.6145619,
+    "lng": 76.9844782,
+    "address": "1441 A, Ward No 1& 5, Opp Rhtc Najafgarh, Primary Health Centre, Najafgarh, Saini Mohalla"
+  },
+  {
+    "name": "Lady Hardinge Medical College & Associated Hospitals",
+    "type": "hospital",
+    "lat": 28.634138,
+    "lng": 77.212909,
+    "address": "C-604, Shaheed Bhagat Singh Road, Diz Area, Connaught Place, New Delhi"
+  },
+  {
+    "name": "Free Maternity & Child Welfare Centeri",
+    "type": "hospital",
+    "lat": 28.6472649,
+    "lng": 77.2308534,
+    "address": "MCW Center, 1st floor, Opposite Hamdard Dawa khana, Hauz Quzi, Lal Kuan"
+  },
+  {
+    "name": "Kaya Kalp Hospital",
+    "type": "hospital",
+    "lat": 28.7305663,
+    "lng": 77.2100401,
+    "address": "12, Jharoda Majra, Part-II, Near Police Station"
+  },
+  {
+    "name": "Sunder Lal Jain Eye Hospital",
+    "type": "hospital",
+    "lat": 28.6495013,
+    "lng": 77.2098206,
+    "address": "Motia Khan, Sadar Thana Road, Motia Khan, Nabi Karim Paharganj"
+  },
+  {
+    "name": "Aman Medical Centre",
+    "type": "hospital",
+    "lat": 28.5216502,
+    "lng": 77.1812935,
+    "address": "1061 /7, Dargah Street, Mehrauli, New Delhi"
+  },
+  {
+    "name": "Navjeevan Nursing Home",
+    "type": "hospital",
+    "lat": 28.653289,
+    "lng": 77.2780809,
+    "address": "Bhisham Lal Sharma Marg, Anarkali Colony North, Krishna Nagar"
+  },
+  {
+    "name": "Kasturba Hospital",
+    "type": "hospital",
+    "lat": 28.649831,
+    "lng": 77.2359282,
+    "address": "Kasturba Hospital Marg, Kasturba Marg, Near Jama Masjid, Daryaganj, Urdu Bazar, Daryaganj"
+  },
+  {
+    "name": "Mayur Medicare Center",
+    "type": "hospital",
+    "lat": 28.6060579,
+    "lng": 77.2933797,
+    "address": "Mayur Medicare Center, Mayur Vihar Phase 1, 81,Partap Nagar"
+  },
+  {
+    "name": "Sukhmani Hospital",
+    "type": "hospital",
+    "lat": 28.5597233,
+    "lng": 77.2005001,
+    "address": "B-7 Ext./126A, Safdarjung Enclave, Arjun Nagar, New Delhi, Delhi 110029"
+  },
+  {
+    "name": "Vardaan Hospital",
+    "type": "hospital",
+    "lat": 28.5372268,
+    "lng": 77.2149447,
+    "address": "Near Post Office, 100, Malviya Nagar, Khirki Extension, Malviya Nagar"
+  },
+  {
+    "name": "VMMC & SAFDARJANG HOSPITAL",
+    "type": "hospital",
+    "lat": 28.5686672,
+    "lng": 77.2067292,
+    "address": "Ring Road, Safdarjung Campus, Ansari Nagar East, Opposite Aiims Hospital"
+  },
+  {
+    "name": "Leekha Nursing Home",
+    "type": "hospital",
+    "lat": 28.5520278,
+    "lng": 77.2080381,
+    "address": "Likhas Nursing Home,D-62, Hauz Khas, Delhi - 110016"
+  },
+  {
+    "name": "Kukreja Hospital",
+    "type": "hospital",
+    "lat": 28.6092197,
+    "lng": 77.2948507,
+    "address": "D 36, ACHARYA NIKETAN, Mayur Vihar Phase 1"
+  },
+  {
+    "name": "Bhagwati Hospital",
+    "type": "hospital",
+    "lat": 28.5241613,
+    "lng": 77.1788654,
+    "address": "1/113, Desu Road, Near Dreamland School, Mehrauli, New Delhi"
+  },
+  {
+    "name": "Sparsh Mother & child care hospital",
+    "type": "hospital",
+    "lat": 28.6801482,
+    "lng": 77.1945449,
+    "address": "H.No.7, Jawahar Nagar, Near Canara Bank"
+  },
+  {
+    "name": "Medeor Hospital",
+    "type": "hospital",
+    "lat": 28.5374555,
+    "lng": 77.1810712,
+    "address": "B-33-34, Qutab Institutional Area, Katwaria Sarai"
+  },
+  {
+    "name": "NGO Lok Kalyan Samiti",
+    "type": "hospital",
+    "lat": 28.629808,
+    "lng": 77.2387009,
+    "address": "Sucheta Bhawan (Near ITO), Vishnu Digamber Marg, ITO,Vikram Nagar"
+  },
+  {
+    "name": "Parmarth Mission Hospital",
+    "type": "hospital",
+    "lat": 28.6810176,
+    "lng": 77.1979673,
+    "address": "23/7, Inder Chandra Shastri Marg, Shakti Nagar"
+  },
+  {
+    "name": "Aruna Asaf Ali Government Hospital",
+    "type": "hospital",
+    "lat": 28.6697661,
+    "lng": 77.2178501,
+    "address": "5, Rajpur Road, Civil Line, Near Tis Hazari"
+  },
+  {
+    "name": "Raj Rani Hospital",
+    "type": "hospital",
+    "lat": 28.6138358,
+    "lng": 77.3233982,
+    "address": "MAIN MARKET, KONDLI, Mayur Vihar Phase -iii"
+  },
+  {
+    "name": "Dr. N. C. Joshi Memorial Hospital",
+    "type": "hospital",
+    "lat": 28.6529654,
+    "lng": 77.1994853,
+    "address": "Opposite Ajmal Khan Park, East Park Road, Karol Bagh"
+  },
+  {
+    "name": "Malhotra Nursing Home",
+    "type": "hospital",
+    "lat": 28.6197989,
+    "lng": 77.3039095,
+    "address": "209-A, Pocket-B, Mayur Vihar, Mayur Vihar Phase - II"
+  },
+  {
+    "name": "Shree Jeewan Hospital",
+    "type": "hospital",
+    "lat": 28.6579998,
+    "lng": 77.1943948,
+    "address": "67/1, Dori Walan, Karol Bagh, Karolbagh, Near Rohtak Road"
+  },
+  {
+    "name": "Mohan Eye Institute",
+    "type": "hospital",
+    "lat": 28.6431266,
+    "lng": 77.1906871,
+    "address": "11-B, Ganga Ram Hospital Marg, Karol Bagh"
+  },
+  {
+    "name": "Navjoyti Eye Centre",
+    "type": "hospital",
+    "lat": 28.6435226,
+    "lng": 77.2424612,
+    "address": "90, opposite Hindi Park, Daryaganj"
+  },
+  {
+    "name": "Mahesh Hospital",
+    "type": "hospital",
+    "lat": 28.6264544,
+    "lng": 77.3023362,
+    "address": "D-437, WEST VINOD NAGAR, I.P. Extention"
+  },
+  {
+    "name": "Jag Pravesh Chandra Hospital",
+    "type": "hospital",
+    "lat": 28.6764665,
+    "lng": 77.262937,
+    "address": "Shastri Park, Panduk Shila Marg, Shahdara"
+  },
+  {
+    "name": "Healing Touch Hospital",
+    "type": "hospital",
+    "lat": 28.5427709,
+    "lng": 77.2073754,
+    "address": "Panchsheel Enclave, No. 7/5, Sarva Priya Vihar, New Delhi, Delhi 110016"
+  },
+  {
+    "name": "Gouri Hospital Ltd",
+    "type": "hospital",
+    "lat": 28.6796305,
+    "lng": 77.20819,
+    "address": "30, Malka Ganj, Jawahar Nagar"
+  },
+  {
+    "name": "Malik Nursing Home",
+    "type": "hospital",
+    "lat": 28.6094473,
+    "lng": 77.3343703,
+    "address": "B 1297-98 GHAROLI DAIRY COLONY, Mayur Vihar Phase -iii"
+  },
+  {
+    "name": "Sanjivini Nursing Home",
+    "type": "hospital",
+    "lat": 28.6814911,
+    "lng": 77.2007198,
+    "address": "13-D, Kamla Nagar, Nehru Marg"
+  },
+  {
+    "name": "Sharma Medical Center",
+    "type": "hospital",
+    "lat": 28.6494565,
+    "lng": 77.209831,
+    "address": "B-112, Sardar Thana Rd, Daya Basti, Motia Khan"
+  },
+  {
+    "name": "Sunil Hospital and Nursing Home",
+    "type": "hospital",
+    "lat": 28.5358718,
+    "lng": 77.2091623,
+    "address": "15/199, Geetanjali Marg, Block E, Malviya Nagar, New Delhi"
+  },
+  {
+    "name": "Mohan Nursing Home & Hospital",
+    "type": "hospital",
+    "lat": 28.702744,
+    "lng": 77.267766,
+    "address": "MCD Mty Home, B-2 Block, Yamuna Vihar, Near Petrol Pump"
+  },
+  {
+    "name": "Vibhu Nursing Home",
+    "type": "hospital",
+    "lat": 28.5347579,
+    "lng": 77.2083916,
+    "address": "11/137,138, Malviya Nagar, New Delhi"
+  },
+  {
+    "name": "Satyam Medical Centre",
+    "type": "hospital",
+    "lat": 28.5412998,
+    "lng": 77.1864475,
+    "address": "Satyam Medical Centre, 115/1, Katwaria Sarai, New Delhi"
+  },
+  {
+    "name": "Tirath Ram Shah Hospital",
+    "type": "hospital",
+    "lat": 28.6708223,
+    "lng": 77.2162565,
+    "address": "2, RBI, Isher Das Sawhney Marg Rajpur Road, Civil Line"
+  },
+  {
+    "name": "Sankhwar Hospital",
+    "type": "hospital",
+    "lat": 28.6151295,
+    "lng": 77.3237989,
+    "address": "D-134, KONDALI, near kondli bridge, Mayur Vihar Phase -iii"
+  },
+  {
+    "name": "Neera Eye Centre",
+    "type": "hospital",
+    "lat": 28.6424432,
+    "lng": 77.2427645,
+    "address": "92-B, opposite Commercial School, Bharat Ram Rd, Daryaganj"
+  },
+  {
+    "name": "Mahavir International Eye Hospital",
+    "type": "hospital",
+    "lat": 28.6598583,
+    "lng": 77.2157522,
+    "address": "6550, Main Qutab Road, Nabi Karim Paharganj, Paharganj"
+  },
+  {
+    "name": "Nazar Kanwar Surana Hospital",
+    "type": "hospital",
+    "lat": 28.6752381,
+    "lng": 77.1907591,
+    "address": "219-220, N.K. Surana Marg, Gulabi Bagh"
+  },
+  {
+    "name": "Savitri Hospital",
+    "type": "hospital",
+    "lat": 28.686033,
+    "lng": 77.1471281,
+    "address": "E-505, 565, Shakurpur Delhi"
+  },
+  {
+    "name": "MH Haiderpur",
+    "type": "hospital",
+    "lat": 28.7235001,
+    "lng": 77.1515703,
+    "address": "Ayurvedic Hospital Complex, Haiderpur"
+  },
+  {
+    "name": "Kuber Hospital",
+    "type": "hospital",
+    "lat": 28.6900528,
+    "lng": 77.1357109,
+    "address": "12, Chanderlok, Pitampura"
+  },
+  {
+    "name": "Children & Maternity Centre",
+    "type": "hospital",
+    "lat": 28.7334154,
+    "lng": 77.1261114,
+    "address": "A-6/6, Sec-16, Rohini"
+  },
+  {
+    "name": "Max Multi Speciality Centre, Pitampura",
+    "type": "hospital",
+    "lat": 28.6931702,
+    "lng": 77.1517793,
+    "address": "Delhi"
+  },
+  {
+    "name": "Dr BD Attam Hospital and Medical Research Centre",
+    "type": "hospital",
+    "lat": 28.6960546,
+    "lng": 77.1734959,
+    "address": "Pragati Market, Ashok Vihar II"
+  },
+  {
+    "name": "Fortis Bloom",
+    "type": "hospital",
+    "lat": 28.5287785,
+    "lng": 77.2437938,
+    "address": "S - 549, Kalkaji, Greater Kailash - II"
+  },
+  {
+    "name": "Gupta Nursing Home",
+    "type": "hospital",
+    "lat": 28.6759254,
+    "lng": 77.2876085,
+    "address": "25, raj block, West Rhotas Nagar, Shahdara"
+  },
+  {
+    "name": "Kamaal Nursing Home",
+    "type": "hospital",
+    "lat": 28.6798998,
+    "lng": 77.2718597,
+    "address": "790, Indira Chowk, Shahdara, Jafrabad, Shahdara"
+  },
+  {
+    "name": "Muni Maya Ram Jain Hospital",
+    "type": "hospital",
+    "lat": 28.700019,
+    "lng": 77.141187,
+    "address": "KD-Block, Muni Maya Ram Marg, Pitampura"
+  },
+  {
+    "name": "jp memorial",
+    "type": "hospital",
+    "lat": 28.6845119,
+    "lng": 77.3296536,
+    "address": "F189, NS Road, Block F, Dilshad Colony"
+  },
+  {
+    "name": "Medha Hospital",
+    "type": "hospital",
+    "lat": 28.7045697,
+    "lng": 77.1449278,
+    "address": "L-p-12-a, B, Maya Enclave, Pitampura"
+  },
+  {
+    "name": "Sai Charitable Dispensary & Nursing Home",
+    "type": "hospital",
+    "lat": 28.6893425,
+    "lng": 77.3003113,
+    "address": "No. 86A, jagat puri, 100 feet road, nathu colony chowk"
+  },
+  {
+    "name": "Saroj Hospital",
+    "type": "hospital",
+    "lat": 28.7061564,
+    "lng": 77.1290461,
+    "address": "Sector-14 Extn., Rohini Madhuban Chowk"
+  },
+  {
+    "name": "MCD Maternity Government Hospital",
+    "type": "hospital",
+    "lat": 28.7113776,
+    "lng": 77.1176777,
+    "address": "Brahmaputra Marg, Pocket 15, Sector 7D, Rohini"
+  },
+  {
+    "name": "Arora Nursing Home",
+    "type": "hospital",
+    "lat": 28.7141757,
+    "lng": 77.1528872,
+    "address": "BE-1, Shalimar Bagh"
+  },
+  {
+    "name": "Jiwan Charitable Hospital",
+    "type": "hospital",
+    "lat": 28.6897352,
+    "lng": 77.0858096,
+    "address": "R-226/227, Mangolpuri, Mangolpuri"
+  },
+  {
+    "name": "Karala Government Hospital",
+    "type": "hospital",
+    "lat": 28.7321173,
+    "lng": 77.037425,
+    "address": "Karala Village, Karala"
+  },
+  {
+    "name": "Government Hospital",
+    "type": "hospital",
+    "lat": 28.668361,
+    "lng": 77.277492,
+    "address": "West Kanti Nagar, Seelampur, Shahdara"
+  },
+  {
+    "name": "Jeevan Jyoti Hospital",
+    "type": "hospital",
+    "lat": 28.5223738,
+    "lng": 77.2855634,
+    "address": "T-43, Okhla Industrial Area Phase I, Main Road , Tekhand , okhla phase I"
+  },
+  {
+    "name": "Chandiwala Hospital Shahdara",
+    "type": "hospital",
+    "lat": 28.6750114,
+    "lng": 77.2904545,
+    "address": "Railway road, Shahdara"
+  },
+  {
+    "name": "Upchar Nursing Home",
+    "type": "hospital",
+    "lat": 28.6975051,
+    "lng": 77.1772633,
+    "address": "A-95, Ashok Vihar Delhi"
+  },
+  {
+    "name": "Talwar Medical Centre",
+    "type": "hospital",
+    "lat": 28.5363921,
+    "lng": 77.2441716,
+    "address": "m-139, GK-II"
+  },
+  {
+    "name": "Manav Medicare Centre",
+    "type": "hospital",
+    "lat": 28.5706874,
+    "lng": 77.2199599,
+    "address": "E-11, Defence Colony, South Extension Part-1"
+  },
+  {
+    "name": "Kesar Hospital",
+    "type": "hospital",
+    "lat": 28.7059502,
+    "lng": 77.1644781,
+    "address": "Block AH, Shalimar Bagh, New Delhi, Delhi 110088"
+  },
+  {
+    "name": "st. stephen hospital",
+    "type": "hospital",
+    "lat": 28.6939954,
+    "lng": 77.3171197,
+    "address": "Sunder Nagri, Dilshad Garden"
+  },
+  {
+    "name": "Garg Nursing Home",
+    "type": "hospital",
+    "lat": 28.6790286,
+    "lng": 77.157259,
+    "address": "3675/11, Street No.11, Jai Mata Market, Trinagar"
+  },
+  {
+    "name": "Santom Hospital",
+    "type": "hospital",
+    "lat": 28.7140205,
+    "lng": 77.1383483,
+    "address": "D-5 & 6, Prashant Vihar"
+  },
+  {
+    "name": "Manna Clinic & Maternity Home, Rani Bagh",
+    "type": "hospital",
+    "lat": 28.6857157,
+    "lng": 77.1315855,
+    "address": "Sant Nagar Road, Shakurbasti, Near Ndpl Office"
+  },
+  {
+    "name": "Prashant Nursing Home",
+    "type": "hospital",
+    "lat": 28.7148991,
+    "lng": 77.1326764,
+    "address": "C-1/17, Prashant Vihar"
+  },
+  {
+    "name": "Sai Drishti Maternity Centre",
+    "type": "hospital",
+    "lat": 28.7313713,
+    "lng": 77.1251957,
+    "address": "G-1/63, Sec-15 Rohini"
+  },
+  {
+    "name": "IG ESI Hospital",
+    "type": "hospital",
+    "lat": 28.6665856,
+    "lng": 77.3111297,
+    "address": "Road Number 71, Block D, Surajmal Vihar, Jhilmil Colony"
+  },
+  {
+    "name": "Hakeem Abdul Hameed Centenary Hospital",
+    "type": "hospital",
+    "lat": 28.5149753,
+    "lng": 77.2519382,
+    "address": "Guru Ravidas Marg, Sarita Vihar, Hamdard Nagar"
+  },
+  {
+    "name": "Vallabh Hospital",
+    "type": "hospital",
+    "lat": 28.5323573,
+    "lng": 77.2659687,
+    "address": "1402E/13,Near Govindpuri police station, Govindpuri"
+  },
+  {
+    "name": "Red Cross Hospital Society Mat. Welfare and Child Care Hospital",
+    "type": "hospital",
+    "lat": 28.678117,
+    "lng": 77.3225828,
+    "address": "New Seema Puri,Aradhak Marg, Chikamberpur Village, Seemapuri, near metro station"
+  },
+  {
+    "name": "Phoenix Hopsital",
+    "type": "hospital",
+    "lat": 28.5500671,
+    "lng": 77.2440346,
+    "address": "E60-62, Block E, Hansraj Gupta Rd, GK I"
+  },
+  {
+    "name": "Rashmi Hospital",
+    "type": "hospital",
+    "lat": 28.7025469,
+    "lng": 77.1473691,
+    "address": "JP-6, Maurya Enclave Pitam Pura"
+  },
+  {
+    "name": "Bhagwan Mahavir Super Speciality Hospital",
+    "type": "hospital",
+    "lat": 28.7057477,
+    "lng": 77.1294721,
+    "address": "Sector-14 Extension, Near Madhuban Chowk, Rohini"
+  },
+  {
+    "name": "Jhamb Maternity and Medical Centre",
+    "type": "hospital",
+    "lat": 28.7090339,
+    "lng": 77.1540084,
+    "address": "BP-59, Shalimar Bagh"
+  },
+  {
+    "name": "Capital Eye Centre",
+    "type": "hospital",
+    "lat": 28.6874142,
+    "lng": 77.1928254,
+    "address": "C-3/7-A, Rana Pratap Bagh"
+  },
+  {
+    "name": "Bhagwati Hospital",
+    "type": "hospital",
+    "lat": 28.7191521,
+    "lng": 77.1295373,
+    "address": "CS/OCF-6, Near Printer Apartment, Rohini, Sector-13, Rohini"
+  },
+  {
+    "name": "Tondan hospital",
+    "type": "hospital",
+    "lat": 28.6664871,
+    "lng": 77.3207024,
+    "address": "D-229, Vivek Vihar, delhi"
+  },
+  {
+    "name": "Primary Urban Health Centre Cum Maternity Home & Poly Clinic",
+    "type": "hospital",
+    "lat": 28.513195,
+    "lng": 77.2652745,
+    "address": "Master Colony, Tuglakabad Village,Ward no-197, Okhla Industrial Area Phase I"
+  },
+  {
+    "name": "North Delhi Nursing Home",
+    "type": "hospital",
+    "lat": 28.696547,
+    "lng": 77.179557,
+    "address": "PH-II, Ashok Vihar"
+  },
+  {
+    "name": "shanti nursing home LLP",
+    "type": "hospital",
+    "lat": 28.6779567,
+    "lng": 77.2825741,
+    "address": "E-1, Panchsheel Garden, Shahdara, Naveen Shahdara"
+  },
+  {
+    "name": "Banarsidas Chandiwala Insitute of Medical Sciences",
+    "type": "hospital",
+    "lat": 28.5441942,
+    "lng": 77.2676793,
+    "address": "Chandiwala Estate, Kalkaji, Maa Anandmai Marg"
+  },
+  {
+    "name": "Family Hospital",
+    "type": "hospital",
+    "lat": 28.7013032,
+    "lng": 77.0983471,
+    "address": "B-859-70, Avantika, Sec-01, Rohini"
+  },
+  {
+    "name": "Kumar Medical & Maternity Centre",
+    "type": "hospital",
+    "lat": 28.7041641,
+    "lng": 77.160742,
+    "address": "AM-35, Shalimar Bagh"
+  },
+  {
+    "name": "Parivar Sewa Sansthan",
+    "type": "hospital",
+    "lat": 28.5672773,
+    "lng": 77.2473565,
+    "address": "O-22, Ground Floor, Lajpat Nagar 2, Defence Colony, Near 17th Square"
+  },
+  {
+    "name": "MCW Sewa Nagar",
+    "type": "hospital",
+    "lat": 28.577053,
+    "lng": 77.226043,
+    "address": "SEWANAGAR, Jamia Miliia Islamia University Area"
+  },
+  {
+    "name": "Brahm Shakti Hospital",
+    "type": "hospital",
+    "lat": 28.712357,
+    "lng": 77.081262,
+    "address": "U-1/76, Budh Vihar"
+  },
+  {
+    "name": "Sona Maternity and Nursing Home",
+    "type": "hospital",
+    "lat": 28.6656992,
+    "lng": 77.2906128,
+    "address": "4/1925, Rama Block, Gali Number 7, Near M.C. Primary School, Bhola Nath Nagar"
+  },
+  {
+    "name": "DGD Vivek Vihar",
+    "type": "hospital",
+    "lat": 28.6696193,
+    "lng": 77.3190619,
+    "address": "Vivek Vihar"
+  },
+  {
+    "name": "D.R. Nursing Home",
+    "type": "hospital",
+    "lat": 28.6963486,
+    "lng": 77.1730105,
+    "address": "C-2/3, Pragati Market, Ashok Vihar II"
+  },
+  {
+    "name": "Netrayatan Hospital",
+    "type": "hospital",
+    "lat": 28.5299782,
+    "lng": 77.2451946,
+    "address": "Greater Kailash II"
+  },
+  {
+    "name": "MCW Giri Nagar",
+    "type": "hospital",
+    "lat": 28.540349,
+    "lng": 77.262854,
+    "address": "M&CW IPP VIII,GIRI NAGAR SDMC, NEHRU PLACE, Greater Kailash Ii"
+  },
+  {
+    "name": "Kanta Sethi Hospital",
+    "type": "hospital",
+    "lat": 28.7012483,
+    "lng": 77.0988184,
+    "address": "A-777-778, Main Market, Avantika, Sector-02, Rohini"
+  },
+  {
+    "name": "Delhi Common Wealth Women Association",
+    "type": "hospital",
+    "lat": 28.5556776,
+    "lng": 77.2369473,
+    "address": "medical center , Zamrudpur, East Of Kailash, Kailash colony extention"
+  },
+  {
+    "name": "Kalyan Nursing Home",
+    "type": "hospital",
+    "lat": 28.6814958,
+    "lng": 77.3283939,
+    "address": "G-22"
+  },
+  {
+    "name": "best care hospital",
+    "type": "hospital",
+    "lat": 28.68452,
+    "lng": 77.3278636,
+    "address": "118/A, Dilshad Colony"
+  },
+  {
+    "name": "Maheshwari Hospital",
+    "type": "hospital",
+    "lat": 28.7122011,
+    "lng": 77.1419875,
+    "address": "F-1 U /41, Pitampura"
+  },
+  {
+    "name": "nulife hospital",
+    "type": "hospital",
+    "lat": 28.7011094,
+    "lng": 77.2078767,
+    "address": "Delhi"
+  },
+  {
+    "name": "NDMS Park",
+    "type": "hospital",
+    "lat": 28.4851071,
+    "lng": 77.1938033,
+    "address": "Delhi"
+  },
+  {
+    "name": "PGH Hospitals",
+    "type": "hospital",
+    "lat": 28.636193,
+    "lng": 77.048981,
+    "address": "Plot No. 89A, Phase-2 Block-B, Sukkhar, Shani Bazar Road, Uttam Nagar"
+  },
+  {
+    "name": "Sanjivani Hospital",
+    "type": "hospital",
+    "lat": 28.674249,
+    "lng": 77.0502678,
+    "address": "3/3c Amar Colony, Phase 2, Near Sunday Market, Kamruddin Nagar"
+  },
+  {
+    "name": "Saraswati Hospital and Laproscopic Centre",
+    "type": "hospital",
+    "lat": 28.626424,
+    "lng": 77.009835,
+    "address": "41-41A, Phase-1, F 2 Block, Jai Vihar, Baprola"
+  },
+  {
+    "name": "Kalra Hospital",
+    "type": "hospital",
+    "lat": 28.6551825,
+    "lng": 77.1387304,
+    "address": "Tulsi Dass Kalra Marg, Kirti Nagar"
+  },
+  {
+    "name": "MKW Hospital",
+    "type": "hospital",
+    "lat": 28.6392919,
+    "lng": 77.119633,
+    "address": "No.J-12, Community Centre, Rajouri Garden, Block J, Block V, Subhash Nagar"
+  },
+  {
+    "name": "UK Nursing Home",
+    "type": "hospital",
+    "lat": 28.634107,
+    "lng": 77.076458,
+    "address": "M-1, Main PVR Road, Block M, Vikaspuri"
+  },
+  {
+    "name": "Goyal Hospital",
+    "type": "hospital",
+    "lat": 28.6616551,
+    "lng": 77.0853346,
+    "address": "B 33, Block B, LIC Colony, Nilothi-Meera Bagh Road, Paschim Vihar"
+  },
+  {
+    "name": "Aakash Healthcare Super Speciality Hospital",
+    "type": "hospital",
+    "lat": 28.6054061,
+    "lng": 77.0535572,
+    "address": "Hospital Plot, Road Number 201, Dwarka"
+  },
+  {
+    "name": "Care n Cure 24",
+    "type": "hospital",
+    "lat": 28.653375,
+    "lng": 77.0726925,
+    "address": "Ext, A-19, Ranjit Vihar, Chander Vihar, Nilothi"
+  },
+  {
+    "name": "Sunand Hospital & IVF Centre",
+    "type": "hospital",
+    "lat": 28.618746,
+    "lng": 77.0480879,
+    "address": "G-17, Kiran Garden, Uttam Nagar"
+  },
+  {
+    "name": "Medstar Hospital",
+    "type": "hospital",
+    "lat": 28.6590574,
+    "lng": 77.0907424,
+    "address": "Outer Ring Road, Block A, Meera Bagh, Paschim Vihar"
+  },
+  {
+    "name": "Karuna Sindhu Charitable Hospital",
+    "type": "hospital",
+    "lat": 28.6557378,
+    "lng": 77.0163489,
+    "address": "Bakkarwala Marg, Nangloi - Najafgarh Road"
+  },
+  {
+    "name": "Government Ayurvedic Hospital",
+    "type": "hospital",
+    "lat": 28.6635722,
+    "lng": 77.1458797,
+    "address": "Block A, Karam Pura, Jhule Lal Marg"
+  },
+  {
+    "name": "Kiran Das Charitable Hospital",
+    "type": "hospital",
+    "lat": 28.6524161,
+    "lng": 77.0617704,
+    "address": "25/19, Chander Vihar, Nilothi"
+  },
+  {
+    "name": "Apollo Cradle Maternity & Children's Hospital",
+    "type": "hospital",
+    "lat": 28.6617972,
+    "lng": 77.1503029,
+    "address": "15 A, Najafgarh Road, Moti Nagar, Karampura Industrial Area"
+  },
+  {
+    "name": "Satyabhama Hospital",
+    "type": "hospital",
+    "lat": 28.6769478,
+    "lng": 77.0634761,
+    "address": "RZ-10, Naresh Park, Najafgarh Road, Nangloi, Near Water Tank"
+  },
+  {
+    "name": "Dashmesh Hospital",
+    "type": "hospital",
+    "lat": 28.6304061,
+    "lng": 77.0988531,
+    "address": "C141, Jail Road, Near Fateh Nagar Bus Stand, Shiv Nagar Extension, Janakpuri"
+  },
+  {
+    "name": "Sumiti Vishal Charitable Hospital",
+    "type": "hospital",
+    "lat": 28.6137065,
+    "lng": 77.044482,
+    "address": "D/108, Matiala Extension, Block D, Matiala"
+  },
+  {
+    "name": "SR Malik Hospital",
+    "type": "hospital",
+    "lat": 28.620884,
+    "lng": 77.0520776,
+    "address": "C10-11, Gulab Bagh Om Vihar, Uttam Nagar, Opp. Piller No 702"
+  },
+  {
+    "name": "Gandhi Hospital",
+    "type": "hospital",
+    "lat": 28.6200029,
+    "lng": 77.0535384,
+    "address": "C-50-51, Najafgarh Road, Block E, Om Vihar, Uttam Nagar"
+  },
+  {
+    "name": "Khetarpal Hospital",
+    "type": "hospital",
+    "lat": 28.652562,
+    "lng": 77.130018,
+    "address": "Metro Station, F-95, Bali Nagar, Najafgarh Road"
+  },
+  {
+    "name": "Hardik Hospital",
+    "type": "hospital",
+    "lat": 28.6367362,
+    "lng": 77.0532022,
+    "address": "29-C, Bhagwan Parshuram Marg, Rajan Enclave, Vikas Nagar, Uttam Nagar, Hastsal"
+  },
+  {
+    "name": "Mata Chandana Devi Hospital",
+    "type": "hospital",
+    "lat": 28.635321,
+    "lng": 77.0539739,
+    "address": "Rajan Enclave, Vikas Nagar I, Uttam Nagar, Hastsal"
+  },
+  {
+    "name": "R. Nayyar Hospital",
+    "type": "hospital",
+    "lat": 28.6203861,
+    "lng": 77.0431588,
+    "address": "No.3/3 A, Amar Enclave, Main Najafgarh Road, Block D, Uttam Nagar, Nawada"
+  },
+  {
+    "name": "Bagga Nursing Home",
+    "type": "hospital",
+    "lat": 28.660249,
+    "lng": 77.090997,
+    "address": "A - 50, Outer Ring Road, Block A, State Bank Nagar, Paschim Vihar"
+  },
+  {
+    "name": "Rao Raghubir Hospital",
+    "type": "hospital",
+    "lat": 28.6750507,
+    "lng": 77.0610089,
+    "address": "Nangloi - Najafgarh Road, Ishwar Colony, Nangloi Extension, Nangloi"
+  },
+  {
+    "name": "Surya Laxmi Hospital",
+    "type": "hospital",
+    "lat": 28.6322953,
+    "lng": 77.0499201,
+    "address": "c-4, Maharani Enclave, Street Number 8, Hastsal"
+  },
+  {
+    "name": "Kanojia Hospital",
+    "type": "hospital",
+    "lat": 28.6262562,
+    "lng": 77.012034,
+    "address": "Harphool Vihar, Nangli Vihar Extension, Baprola"
+  },
+  {
+    "name": "Rathi Hospital",
+    "type": "hospital",
+    "lat": 28.6514885,
+    "lng": 77.0315432,
+    "address": "3, Nangloi - Najafgarh Road, Pratap Vihar, Ranhola"
+  },
+  {
+    "name": "Sodhi Nursing Home and ENT Hospital",
+    "type": "hospital",
+    "lat": 28.6702118,
+    "lng": 77.087877,
+    "address": "455, Bhera Enclave, Paschim Vihar"
+  },
+  {
+    "name": "Nijhara Hospital",
+    "type": "hospital",
+    "lat": 28.646316,
+    "lng": 77.165748,
+    "address": "7, 10, Chaudhary Deep Chand Marg, South Patel Nagar"
+  },
+  {
+    "name": "Mehra Hospital",
+    "type": "hospital",
+    "lat": 28.6711074,
+    "lng": 77.1276492,
+    "address": "Vashisht Kumar Gulla Marg, Arihant Nagar, Punjabi Bagh"
+  },
+  {
+    "name": "Sonia Hospital",
+    "type": "hospital",
+    "lat": 28.682627,
+    "lng": 77.0524348,
+    "address": "1, Rohtak Road, Gulshan Park, Nangloi"
+  },
+  {
+    "name": "JankiDas Kapur Memorial Hospital",
+    "type": "hospital",
+    "lat": 28.649171,
+    "lng": 77.151169,
+    "address": "Pandav Nagar, Near Satya Park, Naraina"
+  },
+  {
+    "name": "Sehgal Neo Hospital",
+    "type": "hospital",
+    "lat": 28.658057,
+    "lng": 77.09143,
+    "address": "B-362, 363, 364, Outer Ring Road, Near to ICICI Bank, Meera Bagh, Paschim Vihar"
+  },
+  {
+    "name": "Mahindru Hospital",
+    "type": "hospital",
+    "lat": 28.6206121,
+    "lng": 77.0495632,
+    "address": "Metro Pillar Number 461, E1, Kiran Garden, Main Najafgarh Road, Uttam Nagar"
+  },
+  {
+    "name": "Arya Hospital",
+    "type": "hospital",
+    "lat": 28.6172035,
+    "lng": 77.0794442,
+    "address": "C - 1/101, Pankha Road, Block C1, Janakpuri"
+  },
+  {
+    "name": "RLKC Hospital",
+    "type": "hospital",
+    "lat": 28.6510947,
+    "lng": 77.1546934,
+    "address": "Pandav Nagar, Naraina Road, Near Shadipur Metro Station"
+  },
+  {
+    "name": "SR Krishna Hospital",
+    "type": "hospital",
+    "lat": 28.61641,
+    "lng": 77.047023,
+    "address": "Plot No. 23-24, Near Nawada Metro Station, Matiala Road, Uttam Nagar"
+  },
+  {
+    "name": "Bhatia Global Hospital",
+    "type": "hospital",
+    "lat": 28.6655435,
+    "lng": 77.08244,
+    "address": "307-308 Opposite Central School, Ambica Vihar, Paschim Vihar"
+  },
+  {
+    "name": "Satya Multi Speciality Hospital",
+    "type": "hospital",
+    "lat": 28.6268253,
+    "lng": 77.039392,
+    "address": "Pipal Wala Road, Block E, Bhagwati Garden, Nawada"
+  },
+  {
+    "name": "Asha Hospital",
+    "type": "hospital",
+    "lat": 28.6365818,
+    "lng": 77.0516082,
+    "address": "Ph-II, Bhagwan Parshuram Marg, Vikas Nagar, Uttam Nagar, Hastsal"
+  },
+  {
+    "name": "Jeevan Jyoti Hospital",
+    "type": "hospital",
+    "lat": 28.6190592,
+    "lng": 77.0466915,
+    "address": "Main, B-28, Matiala Road, Kiran Garden, Uttam Nagar"
+  },
+  {
+    "name": "Bala Ji Hospital",
+    "type": "hospital",
+    "lat": 28.6334854,
+    "lng": 77.0558285,
+    "address": "Vikash Nagar, Hastsal Village, Hastsal"
+  },
+  {
+    "name": "Shri Mahant Gurmukh Singhji Charitable Hospital",
+    "type": "hospital",
+    "lat": 28.6739475,
+    "lng": 77.1352525,
+    "address": "Rohtak Road, West Punjabi Bagh, Bali Nagar"
+  },
+  {
+    "name": "R.R.Hospital",
+    "type": "hospital",
+    "lat": 28.6278418,
+    "lng": 77.0126848,
+    "address": "283, Nangli Vihar Ext Road, Harphool Vihar, Baprola"
+  },
+  {
+    "name": "Sanjeevani Maternity & Children Hospital",
+    "type": "hospital",
+    "lat": 28.6222392,
+    "lng": 77.0390502,
+    "address": "B, 35-38, Pipal Wala Road, Uttam Nagar, Rama Park, Block A, Nawada"
+  },
+  {
+    "name": "Konarc Hospital",
+    "type": "hospital",
+    "lat": 28.6773715,
+    "lng": 77.0638665,
+    "address": "9A/1, Naresh Park, Main Najafgarh Road, Nangloi"
+  },
+  {
+    "name": "Santosh Hospital",
+    "type": "hospital",
+    "lat": 28.6789124,
+    "lng": 77.0502929,
+    "address": "19 SB, Amar Colony, Nangloi Extension, Nangloi"
+  },
+  {
+    "name": "Care New born & Child Hospital",
+    "type": "hospital",
+    "lat": 28.6674155,
+    "lng": 77.1155597,
+    "address": "133-134, Club Road, Narayana Vihar, Pocket 2, Paschim Puri, Paschim Vihar"
+  },
+  {
+    "name": "Tarak Hospital India Private Limited",
+    "type": "hospital",
+    "lat": 28.619298,
+    "lng": 77.030036,
+    "address": "C-7, Jai Bharat Enclave, Najafgarh Road, Dwarka"
+  },
+  {
+    "name": "Jainar Hospital",
+    "type": "hospital",
+    "lat": 28.660601,
+    "lng": 77.0907507,
+    "address": "Shop No. A328, Outer Ring Road, Block A, Meera Bagh, Paschim Vihar"
+  },
+  {
+    "name": "Khushi Hospital",
+    "type": "hospital",
+    "lat": 28.607392,
+    "lng": 77.0491427,
+    "address": "Plot #1, Karuna Kunj, Near Delhi Public School, Sector-3, Dwarka"
+  },
+  {
+    "name": "Amit Nursing Home",
+    "type": "hospital",
+    "lat": 28.6340005,
+    "lng": 77.1095894,
+    "address": "A-3 Manak Vihar Ext., Opp Block 2 Subhash Nagar, Near Pacific Mall, Tihar Village"
+  },
+  {
+    "name": "Nanak Darbar Charitable Hospital",
+    "type": "hospital",
+    "lat": 28.6520769,
+    "lng": 77.0615293,
+    "address": "Chander Vihar, Nilothi"
+  },
+  {
+    "name": "Mata Chanan Devi Hospital",
+    "type": "hospital",
+    "lat": 28.618749,
+    "lng": 77.078224,
+    "address": "c1, Lal Sai Mandir Marg, Block C1, Janakpuri"
+  },
+  {
+    "name": "Lotus Hospital",
+    "type": "hospital",
+    "lat": 28.626739,
+    "lng": 77.110763,
+    "address": "WZ-409-A, Janak Park, Pocket 408, Hari Nagar"
+  },
+  {
+    "name": "Aashirwad Nursing Home",
+    "type": "hospital",
+    "lat": 28.6379887,
+    "lng": 77.0520031,
+    "address": "A-29/3, Lions Enclave, Marble Chowk, OPP. DDA Park, Vikas Nagar, Uttam Nagar"
+  },
+  {
+    "name": "Sumitra Hospital",
+    "type": "hospital",
+    "lat": 28.6734516,
+    "lng": 77.1240716,
+    "address": "142 Arihant Nagar, Shiv Mandir Marg, Punjabi Bagh"
+  },
+  {
+    "name": "Asi Hospital",
+    "type": "hospital",
+    "lat": 28.6561778,
+    "lng": 77.1334074,
+    "address": "WZ-272, Basai Dara pur, Bali Nagar"
+  },
+  {
+    "name": "Matrchaya Child Care",
+    "type": "hospital",
+    "lat": 28.665228,
+    "lng": 77.08128,
+    "address": "B-47, LIC Colony, Paschim Vihar"
+  },
+  {
+    "name": "Sanchet Hospital",
+    "type": "hospital",
+    "lat": 28.6700151,
+    "lng": 77.0885037,
+    "address": "436, Bhera Enclave, Paschim Vihar"
+  },
+  {
+    "name": "Mata Roop Rani Maggo Hospital",
+    "type": "hospital",
+    "lat": 28.6211011,
+    "lng": 77.0502551,
+    "address": "C-9, Om vihar, Phase 1, Uttam Nagar, Metro Pillar No-709"
+  },
+  {
+    "name": "Sai Nursing Home",
+    "type": "hospital",
+    "lat": 28.621501,
+    "lng": 77.081707,
+    "address": "18, Block A3, Janakpuri"
+  },
+  {
+    "name": "Governmentt Eye Hospital",
+    "type": "hospital",
+    "lat": 28.6697864,
+    "lng": 77.0646877,
+    "address": "Aman Puri, Block B, Lakshmi Park, Kamruddin Nagar"
+  },
+  {
+    "name": "Goyal Hospital, Nilothi",
+    "type": "hospital",
+    "lat": 28.6527464,
+    "lng": 77.0707603,
+    "address": "H 09, Block A, Chander Vihar, Nilothi"
+  },
+  {
+    "name": "Gaudham Cancer Ayurvedic Treatment & Research Center",
+    "type": "hospital",
+    "lat": 28.67286,
+    "lng": 77.130852,
+    "address": "C 41A, Block S, Shivaji Park, Punjabi Bagh"
+  },
+  {
+    "name": "SRG Hospital",
+    "type": "hospital",
+    "lat": 28.6496187,
+    "lng": 77.0296634,
+    "address": "205-206, Nangloi - Najafgarh Road, Kotla Vihar Phase 1, Tilangpur Kotla"
+  },
+  {
+    "name": "B.M. Gupta Hospital Pvt. Ltd.",
+    "type": "hospital",
+    "lat": 28.6195378,
+    "lng": 77.0613682,
+    "address": "H-9, 15, Arya Samaj Road, SDM Market, Block O, Uttam Nagar"
+  },
+  {
+    "name": "Kamlesh Nursing Home",
+    "type": "hospital",
+    "lat": 28.6699638,
+    "lng": 77.0886996,
+    "address": "Saiyyad Nangloi Marg, Bhera Enclave, Paschim Vihar"
+  },
+  {
+    "name": "Shubh Nursing Home",
+    "type": "hospital",
+    "lat": 28.635346,
+    "lng": 77.0566637,
+    "address": "57a, Deep Enclave, Hastsal Village, Uttam Nagar"
+  },
+  {
+    "name": "Sushruta Maternity And Surgical Centre",
+    "type": "hospital",
+    "lat": 28.6587906,
+    "lng": 77.0903999,
+    "address": "A-311, Block A, Nihal Vihar Road, Meera Bagh, Paschim Vihar"
+  },
+  {
+    "name": "Dwarika Medicare & Maternity Centre",
+    "type": "hospital",
+    "lat": 28.6148521,
+    "lng": 77.0490279,
+    "address": "A-95, Bindapur Matiala Road, Nanhey Park, Om Vihar, Uttam Nagar"
+  },
+  {
+    "name": "Jasrotia Hospital",
+    "type": "hospital",
+    "lat": 28.6237693,
+    "lng": 77.1157209,
+    "address": "MS Block, Nanak Pura, Hari Nagar"
+  },
+  {
+    "name": "Sanjivani Gynec & Children Hospital",
+    "type": "hospital",
+    "lat": 28.6242925,
+    "lng": 77.0390494,
+    "address": "F6, Pipal Wala Road, Block E, Bhagwati Garden, Nawada"
+  },
+  {
+    "name": "Genesis Hospital",
+    "type": "hospital",
+    "lat": 28.620674,
+    "lng": 77.08125,
+    "address": "C-1/130, Block C1, Janakpuri"
+  },
+  {
+    "name": "Ardent Ganpati Hospital",
+    "type": "hospital",
+    "lat": 28.6819483,
+    "lng": 77.0387679,
+    "address": "NH 10, Swaran Park, Rohtak Road, Mundka"
+  },
+  {
+    "name": "Dhruv Hospital",
+    "type": "hospital",
+    "lat": 28.6890276,
+    "lng": 77.0857544,
+    "address": "Block R, Mangolpuri S Block, Katter Market Road"
+  },
+  {
+    "name": "Dr Suresh Garg - Eye & Laser Hospital",
+    "type": "hospital",
+    "lat": 28.671097,
+    "lng": 77.110835,
+    "address": "A 4 Block, Nav Bharat Apartments, Paschim Vihar"
+  },
+  {
+    "name": "Mansaram Hospital",
+    "type": "hospital",
+    "lat": 28.6723615,
+    "lng": 77.0588003,
+    "address": "Main Najafgarh Road, Ram Nagar Colony, Ram Nagar, Nangloi"
+  },
+  {
+    "name": "Gendox Hospital",
+    "type": "hospital",
+    "lat": 28.519682,
+    "lng": 77.1733997,
+    "address": "602, Kishangarh - Mehrauli Road, Islam Colony, Mehrauli"
+  },
+  {
+    "name": "Vashishta Clinics & Hospital",
+    "type": "hospital",
+    "lat": 28.5352441,
+    "lng": 77.2079327,
+    "address": "B-35, Shivalik, Panchsheel Geetanjali Road, Opp. Malviya Nagar"
+  },
+  {
+    "name": "Sabharwal Hospital",
+    "type": "hospital",
+    "lat": 28.6443841,
+    "lng": 77.2385497,
+    "address": "2911B, Sir Syed Ahmed Road, Behind Golcha Cinema, Kucha Chalan, Daryaganj"
+  },
+  {
+    "name": "Sunrise Healthcare Centre",
+    "type": "hospital",
+    "lat": 28.5452411,
+    "lng": 77.3001922,
+    "address": "Block D, Jasola"
+  },
+  {
+    "name": "Dehli Hospital",
+    "type": "hospital",
+    "lat": 28.6418873,
+    "lng": 77.2450734,
+    "address": "Ansari Road, Part 1, Near Cambridge School, Daryaganj"
+  },
+  {
+    "name": "Apollo Spectra Hospitals",
+    "type": "hospital",
+    "lat": 28.6583838,
+    "lng": 77.1936638,
+    "address": "66A/2, New Rohtak Road, Block 23 B, Block 2C, Karol Bagh"
+  },
+  {
+    "name": "Luv Kush Hospital",
+    "type": "hospital",
+    "lat": 28.724975,
+    "lng": 77.2687617,
+    "address": "Gali Number 1, Main Road, Near Karawal Nagar Chowk, Karawal Nagar"
+  },
+  {
+    "name": "K.R. Hospital",
+    "type": "hospital",
+    "lat": 28.5074677,
+    "lng": 77.1848394,
+    "address": "100 Feet Road, Chhatarpur Hills, Dr Ambedkar Colony, Chhatarpur"
+  },
+  {
+    "name": "Neptune Hospital",
+    "type": "hospital",
+    "lat": 28.5324257,
+    "lng": 77.2026545,
+    "address": "1, Nav Jeevan Vihar, Shivalik, Geetanjali Marg, Adchini"
+  },
+  {
+    "name": "Lal Hospital",
+    "type": "hospital",
+    "lat": 28.7025443,
+    "lng": 77.2832977,
+    "address": "A-18, DL-94, Gokalpuri"
+  },
+  {
+    "name": "Alshifa Multispeciality Hospital",
+    "type": "hospital",
+    "lat": 28.5570997,
+    "lng": 77.2929324,
+    "address": "D-305, Abul Fazal Enclave Part 1, Jamia Nagar, Okhla"
+  },
+  {
+    "name": "Kalindi Hospital",
+    "type": "hospital",
+    "lat": 28.5408332,
+    "lng": 77.2958778,
+    "address": "89, Jasola Vihar, Pocket-1"
+  },
+  {
+    "name": "Vasist Hospital",
+    "type": "hospital",
+    "lat": 28.701646,
+    "lng": 77.280317,
+    "address": "C3/68A, Block C, Yamuna Vihar, Gokalpuri"
+  },
+  {
+    "name": "Orthostar Hospital",
+    "type": "hospital",
+    "lat": 28.5083921,
+    "lng": 77.2314148,
+    "address": "F-86-89, Pocket C, Jawahar Park, Khanpur"
+  },
+  {
+    "name": "Behl Hospital",
+    "type": "hospital",
+    "lat": 28.6243272,
+    "lng": 77.1367669,
+    "address": "B-128, B - Block, Naraina Vihar, Naraina"
+  },
+  {
+    "name": "Yogmaya Multispeciality Hospital",
+    "type": "hospital",
+    "lat": 28.4943274,
+    "lng": 77.1833094,
+    "address": "203/A, Chhattarpur Ext Road, Block F, Block G, Chhatarpur"
+  },
+  {
+    "name": "Dr Chaudhry's Moral Hospital",
+    "type": "hospital",
+    "lat": 28.7023722,
+    "lng": 77.2724415,
+    "address": "C - 1, Block C, Yamuna Vihar, Shalimar Garden"
+  },
+  {
+    "name": "RK Hospital",
+    "type": "hospital",
+    "lat": 28.5034403,
+    "lng": 77.2480077,
+    "address": "Gali Number 7a, Block E, Sangam Vihar"
+  },
+  {
+    "name": "Lions Kidney Hospitals",
+    "type": "hospital",
+    "lat": 28.571321,
+    "lng": 77.274224,
+    "address": "Ashoka Park Road, Opposite B Block, Khizarabad Bhagol"
+  },
+  {
+    "name": "Taravati Hospital",
+    "type": "hospital",
+    "lat": 28.628851,
+    "lng": 77.300537,
+    "address": "I.P.Extension, Patparganj"
+  },
+  {
+    "name": "Panchsheel Hospital",
+    "type": "hospital",
+    "lat": 28.7017,
+    "lng": 77.279607,
+    "address": "C-3/63A, 64A, Opp. Gokulpuri, Block C, Yamuna Vihar, Shahdara"
+  },
+  {
+    "name": "Jai Maa Tara Hospital",
+    "type": "hospital",
+    "lat": 28.6738845,
+    "lng": 77.1800003,
+    "address": "B-1434, Main Market, Shastri Nagar"
+  },
+  {
+    "name": "Viola Hospital",
+    "type": "hospital",
+    "lat": 28.5588756,
+    "lng": 77.2942198,
+    "address": "D-57 Abul Fazal Enclave, Jamia Nagar"
+  },
+  {
+    "name": "Safdarjung Hospital",
+    "type": "hospital",
+    "lat": 28.5773794,
+    "lng": 77.1774582,
+    "address": "J Block, New Moti Bagh, Near NBCC Zonal Office"
+  },
+  {
+    "name": "BSF Hospital",
+    "type": "hospital",
+    "lat": 28.5109301,
+    "lng": 77.2407796,
+    "address": "BSF campus, Tigri, Sangam Vihar"
+  },
+  {
+    "name": "Bal Kishan Memorial Hospital",
+    "type": "hospital",
+    "lat": 28.5118287,
+    "lng": 77.2346317,
+    "address": "IFFCO, Near Mother Dairy, Khanpur Extension, Sangam Vihar"
+  },
+  {
+    "name": "Neha Hospital",
+    "type": "hospital",
+    "lat": 28.7196717,
+    "lng": 77.2658014,
+    "address": "Shop No-K-45, Karanwal Nagar Road, Sadatpur"
+  },
+  {
+    "name": "L.D. Hospital",
+    "type": "hospital",
+    "lat": 28.5004025,
+    "lng": 77.3232801,
+    "address": "i 1163/2, Hari Nager Ext, Main Meetha Pur, Badarpur, Tanki Road"
+  },
+  {
+    "name": "Triveni Hospital",
+    "type": "hospital",
+    "lat": 28.7207367,
+    "lng": 77.2666955,
+    "address": "5A/19, Karawal Nagar-Bhajanpura Road, Block M, New Mustafabad"
+  },
+  {
+    "name": "Kunj Eye Hospital",
+    "type": "hospital",
+    "lat": 28.500025,
+    "lng": 77.237142,
+    "address": "C1-270, Sangam Vihar, Near Holy Chowk, Devli High School Road"
+  },
+  {
+    "name": "Virmani Hospital",
+    "type": "hospital",
+    "lat": 28.619588,
+    "lng": 77.3012574,
+    "address": "Mayur Vihar Phase II, Ram Kumar Gautam Marg"
+  },
+  {
+    "name": "Faraz Hospital",
+    "type": "hospital",
+    "lat": 28.5464875,
+    "lng": 77.3005748,
+    "address": "Block F, 167/2, Shaheen Bagh, Near Shaheen Public School, Jamia Nagar"
+  },
+  {
+    "name": "Aashlok Hospital",
+    "type": "hospital",
+    "lat": 28.566466,
+    "lng": 77.198976,
+    "address": "Aashlok 25 AB, Safdarjung Enclave, Near NCRMP"
+  },
+  {
+    "name": "Vinod Karhana Hospital",
+    "type": "hospital",
+    "lat": 28.712504,
+    "lng": 77.2626857,
+    "address": "B-11, Karawal Nagar Main Road, Nehru Vihar, Old Mustafabad, Shalimar Garden"
+  },
+  {
+    "name": "Curewell Hospital",
+    "type": "hospital",
+    "lat": 28.6651197,
+    "lng": 77.1952107,
+    "address": "Bhagat Singh Marg, Chandra Shekhar Azad Colony, Sarai Rohilla"
+  },
+  {
+    "name": "National Hospital",
+    "type": "hospital",
+    "lat": 28.507902,
+    "lng": 77.2494122,
+    "address": "D-175, Ratiya Marg, Block D, Sangam Vihar"
+  },
+  {
+    "name": "Sawan Neelu Angel's Multispeciality Hospital",
+    "type": "hospital",
+    "lat": 28.522116,
+    "lng": 77.215201,
+    "address": "J-293, Saket Road, Block J, Saket"
+  },
+  {
+    "name": "Muskan Hospital",
+    "type": "hospital",
+    "lat": 28.6919851,
+    "lng": 77.2548371,
+    "address": "Pustha Road Number 4, South Gamri, Block C, Kartar Nagar, Shahdara"
+  },
+  {
+    "name": "Arpan Hospital",
+    "type": "hospital",
+    "lat": 28.5104176,
+    "lng": 77.2374101,
+    "address": "Tigri Road, Tigri Colony, Tigri, Sangam Vihar"
+  },
+  {
+    "name": "Asian Samra Multi Speciality Hospital",
+    "type": "hospital",
+    "lat": 28.701808,
+    "lng": 77.278726,
+    "address": "C-3/53 A, Service Lane, Wazirabad Ghaziabad Road, Near Punjab National Bank"
+  },
+  {
+    "name": "Iqbal Faizy Hospital",
+    "type": "hospital",
+    "lat": 28.5561387,
+    "lng": 77.2893706,
+    "address": "Okhla Vihar Main Road, Mujeeb Bagh, Noor Nagar, Okhla"
+  },
+  {
+    "name": "Vikas Hospital",
+    "type": "hospital",
+    "lat": 28.5193612,
+    "lng": 77.1743007,
+    "address": "173C, Kishangarh - Mehrauli Road, Islam Colony, Mehrauli"
+  },
+  {
+    "name": "Base Hospital",
+    "type": "hospital",
+    "lat": 28.5095632,
+    "lng": 77.2486514,
+    "address": "H6, Block D, Sangam Vihar"
+  },
+  {
+    "name": "Batla Hospital",
+    "type": "hospital",
+    "lat": 28.56701,
+    "lng": 77.2843026,
+    "address": "F-1, Khajoori Road, Noor Nagar Extn I, Jamia Nagar, Okhla"
+  },
+  {
+    "name": "AIIMS Urban Health Centre",
+    "type": "hospital",
+    "lat": 28.5221871,
+    "lng": 77.242704,
+    "address": "Block 14, Dakshin Puri Extension, Dakshinpuri"
+  },
+  {
+    "name": "Silver Line Nursing Home",
+    "type": "hospital",
+    "lat": 28.6228036,
+    "lng": 77.2959726,
+    "address": "I.P.Extension, West Vinod Nagar"
+  },
+  {
+    "name": "Cribs Hospital",
+    "type": "hospital",
+    "lat": 28.543241,
+    "lng": 77.300456,
+    "address": "Dr Lal PathLabs, 40 Feet Road, Shaheen Bagh, Block D, Okhla"
+  },
+  {
+    "name": "Dr. Sunder Lal Memorial Hospital",
+    "type": "hospital",
+    "lat": 28.5063405,
+    "lng": 77.231747,
+    "address": "C-201, Devli Road, Jawahar Park, Khanpur"
+  },
+  {
+    "name": "Kavita Poly Clinic & Hospital",
+    "type": "hospital",
+    "lat": 28.7261791,
+    "lng": 77.2704213,
+    "address": "K-296, Bhagat Vihar, East Sadatpur Extension, Karawal Nagar"
+  },
+  {
+    "name": "Sanjeevan Hospital",
+    "type": "hospital",
+    "lat": 28.6412816,
+    "lng": 77.2429413,
+    "address": "24, Ansari Road, Daryaganj"
+  },
+  {
+    "name": "Jeewan Hospital",
+    "type": "hospital",
+    "lat": 28.643625,
+    "lng": 77.188255,
+    "address": "2-B, Pusa Road, Near Karol Bagh Metro Station"
+  },
+  {
+    "name": "Bhagat Hospital",
+    "type": "hospital",
+    "lat": 28.6085331,
+    "lng": 77.1060923,
+    "address": "D-2/48-49, PT Vishnu Datt Marg, Block D2, Janakpuri"
+  },
+  {
+    "name": "Mavi Hospital",
+    "type": "hospital",
+    "lat": 28.7134013,
+    "lng": 77.263533,
+    "address": "B- 2/11, Karawal Nagar, Main Road, Nehru Vihar, Mustafabad"
+  },
+  {
+    "name": "Sri Guru Nanak Charitable Hospital",
+    "type": "hospital",
+    "lat": 28.629893,
+    "lng": 77.146723,
+    "address": "EA 80-81, Sant Kabir Nagar, EA Block, Block F, Inder Puri"
+  },
+  {
+    "name": "Guru Harkrishan Hospital",
+    "type": "hospital",
+    "lat": 28.581479,
+    "lng": 77.261959,
+    "address": "Near Ring Road, Vidyut Vihar, Pocket A, Sunlight Colony"
+  },
+  {
+    "name": "Aarogya Hospital",
+    "type": "hospital",
+    "lat": 28.6413801,
+    "lng": 77.2863392,
+    "address": "32, Vikas Marg, Chitra Vihar, Swasthya Vihar"
+  },
+  {
+    "name": "Bansal Hospital",
+    "type": "hospital",
+    "lat": 28.563833,
+    "lng": 77.271553,
+    "address": "New Friends Colony, Near Sarvodaya Kanya Vidyalaya"
+  },
+  {
+    "name": "Apex Citi Hospital",
+    "type": "hospital",
+    "lat": 28.6265513,
+    "lng": 77.3019477,
+    "address": "D-440, Hanuman Road, D-Block, West Vinod Nagar"
+  },
+  {
+    "name": "Adarsh Hospital",
+    "type": "hospital",
+    "lat": 28.535139,
+    "lng": 77.2223229,
+    "address": "B-81, Near A P J SCHOOL, Panchsheel Vihar, Sheikh Sarai"
+  },
+  {
+    "name": "ECHS Polyclinic Hospital",
+    "type": "hospital",
+    "lat": 28.5095465,
+    "lng": 77.2545063,
+    "address": "106/9, Mehrauli - Badarpur Road, Airforce Station, Tughlakabad"
+  },
+  {
+    "name": "Dhan Devi Charitable Hospital",
+    "type": "hospital",
+    "lat": 28.5253365,
+    "lng": 77.2363897,
+    "address": "8/217, Dakshin Puri Ext, Maharishi Balmiki Road"
+  },
+  {
+    "name": "White House Hospital",
+    "type": "hospital",
+    "lat": 28.7018331,
+    "lng": 77.2784256,
+    "address": "C3/58A, Block C, Yamuna Vihar, Shahdara"
+  },
+  {
+    "name": "Delhi ENT Multispeciality Hospital",
+    "type": "hospital",
+    "lat": 28.539926,
+    "lng": 77.292145,
+    "address": "FC-33/13, Institutional Area, Jasola"
+  },
+  {
+    "name": "Khadija National Hospital",
+    "type": "hospital",
+    "lat": 28.6437984,
+    "lng": 77.2381596,
+    "address": "3123, Behind Golcha Cinema, Sir Syed Ahmed Road, Daryaganj"
+  },
+  {
+    "name": "Apex Hospital",
+    "type": "hospital",
+    "lat": 28.5001805,
+    "lng": 77.1843915,
+    "address": "Plot No, 8, Chattarpur Mandir Road, Dr Ambedkar Colony, Sat Bari"
+  },
+  {
+    "name": "Balak Ram Hospital",
+    "type": "hospital",
+    "lat": 28.5114808,
+    "lng": 77.202496,
+    "address": "Block B, Bees Sutri Harijan Basti, Khanpur"
+  },
+  {
+    "name": "Nature Care Hospital",
+    "type": "hospital",
+    "lat": 28.7618377,
+    "lng": 77.1871469,
+    "address": "Kh No.146, Opp Indian Gas Agency, Main Nathupura Road, Burari"
+  },
+  {
+    "name": "Raj Poly Clinic Hospital",
+    "type": "hospital",
+    "lat": 28.6989183,
+    "lng": 77.0530355,
+    "address": "Mubarak Pur Road, Narayan Vihar, Kirari Suleman Nagar"
+  },
+  {
+    "name": "Jain Muni Roshan Lal Charitable Hospital",
+    "type": "hospital",
+    "lat": 28.6751133,
+    "lng": 77.162161,
+    "address": "Jain Sathanak Road, Tri nagar"
+  },
+  {
+    "name": "Chouhan Hospital",
+    "type": "hospital",
+    "lat": 28.8260731,
+    "lng": 77.1760006,
+    "address": "Bakhtawar Pur,Tigipour Road"
+  },
+  {
+    "name": "Sinha Hospital",
+    "type": "hospital",
+    "lat": 28.6124178,
+    "lng": 76.9931022,
+    "address": "Plot No. 3A, Roshan Mandi, Tuda Mandi, Mitraon, Najafgarh"
+  },
+  {
+    "name": "Nirmal Hospital",
+    "type": "hospital",
+    "lat": 28.820678,
+    "lng": 77.173096,
+    "address": "Hiranki Road, Bakhtawar Pur Village"
+  },
+  {
+    "name": "Rohan Hospital",
+    "type": "hospital",
+    "lat": 28.629752,
+    "lng": 77.002263,
+    "address": "Nangloi - Najafgarh Road, Phase -1, Jai Vihar, Baprola"
+  },
+  {
+    "name": "Dr. Meena Indra Hospital",
+    "type": "hospital",
+    "lat": 28.7984412,
+    "lng": 77.0356652,
+    "address": "Vijay Nagar, Bawana"
+  },
+  {
+    "name": "Indus Valley Hospitals",
+    "type": "hospital",
+    "lat": 28.6136472,
+    "lng": 76.9909557,
+    "address": "232 Tehsil road, Near Tuda Mandi, Najafgarh"
+  },
+  {
+    "name": "Naman Hospital",
+    "type": "hospital",
+    "lat": 28.85958,
+    "lng": 77.101773,
+    "address": "178, Ch Ramdev Marg, Sector A6, Narela"
+  },
+  {
+    "name": "Pearl Hospital",
+    "type": "hospital",
+    "lat": 28.5959686,
+    "lng": 76.9916517,
+    "address": "RZ-40, A Block, Nazafgarh - Gurgaon Road, Deenpur Extension, Najafgarh"
+  },
+  {
+    "name": "Kesar Hospital",
+    "type": "hospital",
+    "lat": 28.695522,
+    "lng": 77.0591,
+    "address": "Block I - 454, Prem Nagar, 2nd Main Mubarakhpur Road, Kirari Road"
+  },
+  {
+    "name": "Shree Hospital",
+    "type": "hospital",
+    "lat": 28.5982541,
+    "lng": 77.041201,
+    "address": "Plot no. 54, Sec-12/A, Opposite Bal Bharti School, Dwarka"
+  },
+  {
+    "name": "Devansh Hospital",
+    "type": "hospital",
+    "lat": 28.7501926,
+    "lng": 77.0825296,
+    "address": "Prahladpur Bangar, Sector 31, Rohini"
+  },
+  {
+    "name": "Hitaishi Hospital",
+    "type": "hospital",
+    "lat": 28.7057013,
+    "lng": 77.1225618,
+    "address": "E-15/154, E-15, Pradeep Bhatia Marg, Sector 8E, Rohini"
+  },
+  {
+    "name": "Dispensary Child Welfare Centre",
+    "type": "hospital",
+    "lat": 28.6887375,
+    "lng": 77.1330548,
+    "address": "Rani Bagh, Saint Nagar, Delhi, Pitampura"
+  },
+  {
+    "name": "Vishwakarma Hospital",
+    "type": "hospital",
+    "lat": 28.6110344,
+    "lng": 76.9735825,
+    "address": "Najafgarh Dhansa Road, New Gopal Nagar, Najafgarh"
+  },
+  {
+    "name": "Airmid Hospital",
+    "type": "hospital",
+    "lat": 28.7449013,
+    "lng": 77.144869,
+    "address": "3, Narain Market, Samaypur, Near Samaypur Badli Metro Station"
+  },
+  {
+    "name": "Gahlot Hospital",
+    "type": "hospital",
+    "lat": 28.704823,
+    "lng": 77.043677,
+    "address": "Phase 2, Inder Enclave, Kirari Suleman Nagar"
+  },
+  {
+    "name": "Sanjeevani Hospital",
+    "type": "hospital",
+    "lat": 28.851102,
+    "lng": 77.085381,
+    "address": "Lampur Road, Narela Mandi, Narela"
+  },
+  {
+    "name": "ESI TB Hospital",
+    "type": "hospital",
+    "lat": 28.735014,
+    "lng": 77.1401182,
+    "address": "Near Municipal Corporation Primary School, Badli, Rohini"
+  },
+  {
+    "name": "Navjeevan Hospital",
+    "type": "hospital",
+    "lat": 28.6948742,
+    "lng": 77.1088735,
+    "address": "Golden Red Light, A-12 Pushpanjali Enclave, Outer Ring Road, Pitam Pura"
+  },
+  {
+    "name": "Bm Hospital",
+    "type": "hospital",
+    "lat": 28.6184538,
+    "lng": 77.0658712,
+    "address": "Vijay Vihar, Block E, Uttam Nagar East, Uttam Nagar"
+  },
+  {
+    "name": "Delhi Global Hospital",
+    "type": "hospital",
+    "lat": 28.7449215,
+    "lng": 77.1431698,
+    "address": "A, Gali Number 10, Teachers Colony, Samaypur"
+  },
+  {
+    "name": "Choudhary Hospital",
+    "type": "hospital",
+    "lat": 28.6900075,
+    "lng": 77.1481284,
+    "address": "22, Abdul Hameed Marg, DDA Market, Block H, Shakurpur Colony"
+  },
+  {
+    "name": "Narayani Hospital",
+    "type": "hospital",
+    "lat": 28.6122422,
+    "lng": 76.9798637,
+    "address": "Nangloi-Najafgarh Road, Najafgarh"
+  },
+  {
+    "name": "Sunil Memorial Nursing Home",
+    "type": "hospital",
+    "lat": 28.5873313,
+    "lng": 77.0846422,
+    "address": "RZ-13-I/6, Main Road, Raj Nagar I"
+  },
+  {
+    "name": "Sudarshan Hospital",
+    "type": "hospital",
+    "lat": 28.845479,
+    "lng": 77.089664,
+    "address": "Punjabi Colony, Narela Mandi, Narela"
+  },
+  {
+    "name": "Saransh Hospital",
+    "type": "hospital",
+    "lat": 28.6887151,
+    "lng": 77.1324657,
+    "address": "2949, Sant Nagar, Rani Bagh, Pitam Pura"
+  },
+  {
+    "name": "Jeevandan Hospital",
+    "type": "hospital",
+    "lat": 28.6952239,
+    "lng": 77.0549322,
+    "address": "239, Block M, Prem Nagar I"
+  },
+  {
+    "name": "Manipal Hospitals",
+    "type": "hospital",
+    "lat": 28.5929199,
+    "lng": 77.0637613,
+    "address": "Sector 6, Dwarka"
+  },
+  {
+    "name": "Sant Soham Hospital",
+    "type": "hospital",
+    "lat": 28.7974008,
+    "lng": 77.033424,
+    "address": "190/7, 190/7, Ishwar Colony, Bawana"
+  },
+  {
+    "name": "Clifton Springs Hospital",
+    "type": "hospital",
+    "lat": 28.6005702,
+    "lng": 76.9885337,
+    "address": "Gali Number 3, Opp. BDO Office, Block G, Roshanpura, Najafgarh"
+  },
+  {
+    "name": "Surya Kiran Hospital",
+    "type": "hospital",
+    "lat": 28.6138396,
+    "lng": 76.9923106,
+    "address": "Roshan Mandi, Masudabad, Najafgarh"
+  },
+  {
+    "name": "Jeevan Daan Hospital",
+    "type": "hospital",
+    "lat": 28.698019,
+    "lng": 77.054191,
+    "address": "Block W, Prem Nagar II, Kirari Suleman Nagar"
+  },
+  {
+    "name": "Ardent Hospital",
+    "type": "hospital",
+    "lat": 28.5869919,
+    "lng": 77.0859526,
+    "address": "6, Palam Village Road, Block RZ, Raj Nagar I"
+  },
+  {
+    "name": "Dr. Rakesh Multispeciality Hospital",
+    "type": "hospital",
+    "lat": 28.8402532,
+    "lng": 77.0822963,
+    "address": "2001, Street No. 31, Main Road Swatantra Nagar, Narela"
+  },
+  {
+    "name": "New Heera Hospital",
+    "type": "hospital",
+    "lat": 28.6130081,
+    "lng": 76.9887306,
+    "address": "RZ 41, Rati Ram Park, Naya Bazar, Najafgarh, Near Tura Mandi"
+  },
+  {
+    "name": "Shanti Mohan Hospital",
+    "type": "hospital",
+    "lat": 28.852043,
+    "lng": 77.082868,
+    "address": "Lampur Road, Narela, Near MTNL Exchange"
+  },
+  {
+    "name": "Marg Hospital",
+    "type": "hospital",
+    "lat": 28.6997775,
+    "lng": 77.0513459,
+    "address": "A-16, Khasra No. 148, Main Mubarak pur Road ll, Prem Nagar"
+  },
+  {
+    "name": "Dwarka Heart Centre",
+    "type": "hospital",
+    "lat": 28.5995579,
+    "lng": 77.0436777,
+    "address": "Flat no.373, Gangotri Apartments Road, Dwarka"
+  },
+  {
+    "name": "Kalpavriksh Super Speciality Center",
+    "type": "hospital",
+    "lat": 28.5978809,
+    "lng": 77.0351429,
+    "address": "Plot 96, Sector 13, Dwarka"
+  },
+  {
+    "name": "Maujiram Lions Eye Hospital",
+    "type": "hospital",
+    "lat": 28.837695,
+    "lng": 77.1797456,
+    "address": "Palla Bakhtawarpur Road, Akbarpur Majra"
+  },
+  {
+    "name": "Skylife Multispeciality Hospital",
+    "type": "hospital",
+    "lat": 28.7497815,
+    "lng": 77.1430972,
+    "address": "Samaypur - Libaspur Road, Near Bypass NH-1, Libaspur, Samaypur"
+  },
+  {
+    "name": "Naturopathy Hospital",
+    "type": "hospital",
+    "lat": 28.7272273,
+    "lng": 77.1431096,
+    "address": "Sector 19, Rohini"
+  },
+  {
+    "name": "Vikas Hospital Private Limited",
+    "type": "hospital",
+    "lat": 28.610754,
+    "lng": 76.980957,
+    "address": "1629- H, Thana Road, Najafgarh"
+  },
+  {
+    "name": "City Health Hospital",
+    "type": "hospital",
+    "lat": 28.6105806,
+    "lng": 76.9735567,
+    "address": "RZ/7B, Najafgarh Dhansa Road, Gopal Nagar Extension, Najafgarh"
+  },
+  {
+    "name": "Shri Sanjivani Hospital",
+    "type": "hospital",
+    "lat": 28.6080273,
+    "lng": 76.9857721,
+    "address": "RZ-84 Village Chhawla Stand, Old Roshanpura, Todarmal Colony, Najafgarh"
+  },
+  {
+    "name": "Tyagi Hospital",
+    "type": "hospital",
+    "lat": 28.6912301,
+    "lng": 77.0902773,
+    "address": "Shop No:p-1/16-17, D.D.A Market, Block P, Mangolpuri S Block"
+  },
+  {
+    "name": "Ortho Care Hospital",
+    "type": "hospital",
+    "lat": 28.613246,
+    "lng": 76.991315,
+    "address": "Plot No-5,6 Chara Mandi, Tehsil Road, Najafgarh"
+  },
+  {
+    "name": "Avantika Multispeciality Hospital",
+    "type": "hospital",
+    "lat": 28.6979066,
+    "lng": 77.1085167,
+    "address": "A-3/8, Opposite Jaipur Golden Hospital, Sector 3, Rohini"
+  },
+  {
+    "name": "Aastha Hospital",
+    "type": "hospital",
+    "lat": 28.7327628,
+    "lng": 77.1416494,
+    "address": "Badli Road, Sector 19, Rohini"
+  },
+  {
+    "name": "Shri Multan Sewa Samiti Eye Care Hospital",
+    "type": "hospital",
+    "lat": 28.6942651,
+    "lng": 77.1302581,
+    "address": "50, Shakti Vihar, Near Government Primary School, Pitam Pura"
+  },
+  {
+    "name": "Ayushman Hospital",
+    "type": "hospital",
+    "lat": 28.5881804,
+    "lng": 77.0596665,
+    "address": "Sector 10, Dwarka, Elephenta Line, Near Pacific Apartments"
+  },
+  {
+    "name": "Shree Balaji Hospital",
+    "type": "hospital",
+    "lat": 28.7985051,
+    "lng": 77.0352927,
+    "address": "Opp. Petrol Pump, Bawana Road, Bawana"
+  },
+  {
+    "name": "Ishan Hospital",
+    "type": "hospital",
+    "lat": 28.7336313,
+    "lng": 77.1397543,
+    "address": "Plot No.1, Pocket-8B, Dr MC Davar Marg, Sector 19, Rohini"
+  },
+  {
+    "name": "City Hospital 42",
+    "type": "hospital",
+    "lat": 28.7457338,
+    "lng": 77.1445171,
+    "address": "Samaypur Underpass, Suraj Park, Pocket G, Sector 18, Rohini"
+  },
+  {
+    "name": "Aryan Hospital",
+    "type": "hospital",
+    "lat": 28.7999135,
+    "lng": 77.0364781,
+    "address": "Chowdhary Chhaju Ram Market Main Vijaya, Sharma Colony Road, Bawana"
+  },
+  {
+    "name": "Vinayak Hospital",
+    "type": "hospital",
+    "lat": 28.6985342,
+    "lng": 77.1870961,
+    "address": "Derawal Nagar, Gujranwala Town"
+  },
+  {
+    "name": "Bhagat Chandra Hospital",
+    "type": "hospital",
+    "lat": 28.6051867,
+    "lng": 77.0984624,
+    "address": "Geetanjali Park, Block RZ, West Sagarpur, Sagar Pur"
+  },
+  {
+    "name": "Aggarwal Nursing Home",
+    "type": "hospital",
+    "lat": 28.6766024,
+    "lng": 77.1804445,
+    "address": "B-1634, Shastri Nagar Road, Block E2, Shastri Nagar"
+  },
+  {
+    "name": "Shradha Multi Speciality Hospital",
+    "type": "hospital",
+    "lat": 28.856633,
+    "lng": 77.088436,
+    "address": "Near JS Automobiles, Safiabad Road, Narela"
+  },
+  {
+    "name": "Rosewood Hospital",
+    "type": "hospital",
+    "lat": 28.610136,
+    "lng": 76.992631,
+    "address": "Plot No.5, JL BLOCK, Roshan Garden, Masudabad, Najafgarh"
+  },
+  {
+    "name": "Jackson Hospital & Research Centre",
+    "type": "hospital",
+    "lat": 28.7375325,
+    "lng": 77.121294,
+    "address": "G-9/251-252, Opp. Jain Bharti Model School, G Block, Sector 16, Rohini"
+  },
+  {
+    "name": "Orchid Hospital Maternity and Heart Centre",
+    "type": "hospital",
+    "lat": 28.614656,
+    "lng": 77.0874447,
+    "address": "C-3/91-92, Major P Srikumar Marg, Block C3A, Block C3, Janakpuri"
+  },
+  {
+    "name": "Ekta Hospital",
+    "type": "hospital",
+    "lat": 28.74831,
+    "lng": 77.1405079,
+    "address": "Yadav Nagar, Samaypur"
+  },
+  {
+    "name": "O.P. Memorial Hospital",
+    "type": "hospital",
+    "lat": 28.6992105,
+    "lng": 77.0965459,
+    "address": "Star School, 5, Sir Chotu Ram Marg, Opp Pole, Avantika, Sector 1, Rohini"
+  },
+  {
+    "name": "Foji Hospital",
+    "type": "hospital",
+    "lat": 28.6133491,
+    "lng": 76.9760625,
+    "address": "Main Gopal Nagar Road, Najafgarh Village, Najafgarh"
+  },
+  {
+    "name": "Arogya Care",
+    "type": "hospital",
+    "lat": 28.6958743,
+    "lng": 77.0588261,
+    "address": "Niti Vihar, Mubarakhpur Main Road, Sultanpuri"
+  },
+  {
+    "name": "Apaar Nursing Home",
+    "type": "hospital",
+    "lat": 28.614442,
+    "lng": 77.071139,
+    "address": "Ez a1, Adarsh Nagar, Bindapur Extn, Uttam Nagar"
+  },
+  {
+    "name": "Dwarka Hospital",
+    "type": "hospital",
+    "lat": 28.6166831,
+    "lng": 77.0316366,
+    "address": "B-92, Pipe Line, Patel Garden, Kakrola"
+  },
+  {
+    "name": "Savitri Hospital",
+    "type": "hospital",
+    "lat": 28.7353344,
+    "lng": 77.0128194,
+    "address": "Kanjhawala Road, Uday Vihar Colony, Karala"
+  },
+  {
+    "name": "Bawasher Hospital",
+    "type": "hospital",
+    "lat": 28.6742139,
+    "lng": 77.1761804,
+    "address": "L231, Near Madhur Milan, Shastri Nagar"
+  },
+  {
+    "name": "Budhho Devi Hospital",
+    "type": "hospital",
+    "lat": 28.843007,
+    "lng": 77.0913617,
+    "address": "Narela Mandi, Narela"
+  },
+  {
+    "name": "Kalyani Hospital",
+    "type": "hospital",
+    "lat": 28.6132186,
+    "lng": 76.9876459,
+    "address": "RZ-30A, Rati, Naya Bazar, Mansa Ram Park, Najafgarh"
+  },
+  {
+    "name": "Dhanwati Hospital",
+    "type": "hospital",
+    "lat": 28.6123667,
+    "lng": 76.9686781,
+    "address": "Rz - 10/A, Gopal Nagar, Najafgarh, Near Khera Mod"
+  },
+  {
+    "name": "Janki Hospital",
+    "type": "hospital",
+    "lat": 28.6058663,
+    "lng": 76.987173,
+    "address": "RZ89, Old Roashanpura, opp. Gurudwara, Gurugram Road, Najafgarh"
+  },
+  {
+    "name": "Dharmarth Hospital",
+    "type": "hospital",
+    "lat": 28.7221236,
+    "lng": 77.1748098,
+    "address": "E-48, Shivaji Road, Adarsh Nagar Extension"
+  },
+  {
+    "name": "Angel Agastya Multi Speciality Hospital",
+    "type": "hospital",
+    "lat": 28.5870577,
+    "lng": 77.0857082,
+    "address": "Pillar No.39, RZ-14, 40, Palam Colony, Raj Nagar"
+  },
+  {
+    "name": "Jay Hospital",
+    "type": "hospital",
+    "lat": 28.6085349,
+    "lng": 76.9861235,
+    "address": "House no.68, Old Roshan Pura, Block E, New Roshanpura, Najafgarh"
+  },
+  {
+    "name": "Deepan Hospital",
+    "type": "hospital",
+    "lat": 28.5300327,
+    "lng": 77.0848898,
+    "address": "Khasra No:139/140, Najafgarh Road, Kapashera"
+  },
+  {
+    "name": "Sunrise Hospital",
+    "type": "hospital",
+    "lat": 28.730694,
+    "lng": 77.133406,
+    "address": "8-B, Plot No, 1, B4 Road, Sector 15, Pocket 1, Rohini"
+  },
+  {
+    "name": "Sushila Hospital",
+    "type": "hospital",
+    "lat": 28.8596954,
+    "lng": 77.08365,
+    "address": "Plot No.109, Gali no.9, Safiabad Road, Gautam Colony, Narela"
+  },
+  {
+    "name": "Shiv Jivodaya Janta Hospital",
+    "type": "hospital",
+    "lat": 28.844519,
+    "lng": 77.087491,
+    "address": "2382-E Mandi Extension, Old Anaj Mandi, Narela Mandi, Narela"
+  },
+  {
+    "name": "Dwarka New Born and Child Hospital",
+    "type": "hospital",
+    "lat": 28.6194069,
+    "lng": 77.0291453,
+    "address": "Metro Pillar Number 793, Vipin Garden, Dwarka"
+  },
+  {
+    "name": "Lifeline Hospital",
+    "type": "hospital",
+    "lat": 28.5941071,
+    "lng": 77.0426925,
+    "address": "42, Road Number 203, Parmanand Colony, Dwarka"
+  },
+  {
+    "name": "Chander Leela Hospital",
+    "type": "hospital",
+    "lat": 28.6186477,
+    "lng": 77.0623437,
+    "address": "Vijay Vihar, Vani Vihar, New Uttam Nagar, Bindapur"
+  },
+  {
+    "name": "K R Gangwal Hospital",
+    "type": "hospital",
+    "lat": 28.8576922,
+    "lng": 77.1070231,
+    "address": "Singhu, Border Road, Narela"
+  },
+  {
+    "name": "Nirmala Hospital",
+    "type": "hospital",
+    "lat": 28.6312194,
+    "lng": 77.0015182,
+    "address": "Veer Bazar Road, Jai Vihar, Baprola"
+  },
+  {
+    "name": "Kukreja Hospital",
+    "type": "hospital",
+    "lat": 28.696354,
+    "lng": 77.053765,
+    "address": "Block R, Prem Nagar I"
+  },
+  {
+    "name": "New Rohini Hospital",
+    "type": "hospital",
+    "lat": 28.6995752,
+    "lng": 77.0963422,
+    "address": "156, Sector 1, Rohini, Avantika"
+  },
+  {
+    "name": "Samarpan Multispeciality Hospital",
+    "type": "hospital",
+    "lat": 28.8427173,
+    "lng": 77.0884491,
+    "address": "2410, Bawana Road, Bhorgarh, Narela"
+  },
+  {
+    "name": "Sanjevani Hospital",
+    "type": "hospital",
+    "lat": 28.6052388,
+    "lng": 76.9874092,
+    "address": "Block E, New Roshanpura, Najafgarh"
+  },
+  {
+    "name": "Sanjeevan Surgical Centre",
+    "type": "hospital",
+    "lat": 28.6992877,
+    "lng": 77.0962764,
+    "address": "B-00 157, Avantika, Sector 1, Kanjhawala Road, Rohini"
+  },
+  {
+    "name": "Janta Hospital",
+    "type": "hospital",
+    "lat": 28.8416834,
+    "lng": 77.077561,
+    "address": "Swatantra Nagar, Narela"
+  },
+  {
+    "name": "Nirvana Hospital",
+    "type": "hospital",
+    "lat": 28.731172,
+    "lng": 77.1332663,
+    "address": "C1, 10, Near Manav Chowk, Sector 15, Pocket 1, Sector 15C, Rohini"
+  },
+  {
+    "name": "Government Dispensary",
+    "type": "hospital",
+    "lat": 28.6705615,
+    "lng": 77.1511902,
+    "address": "Punjabi Bagh East, Manohar Park, Block A, East Punjabi Bagh, Punjabi Bagh, New Delhi, Delhi"
+  },
+  {
+    "name": "DGD Prem Nagar",
+    "type": "hospital",
+    "lat": 28.66261,
+    "lng": 77.1624729,
+    "address": "Prem Nagar Republic of India, 2099/4D, Gali Number 14, Block B, Prem Nagar, Patel Nagar, New Delhi, Delhi"
+  },
+  {
+    "name": "Kelvin Diagnostics",
+    "type": "hospital",
+    "lat": 28.6625223,
+    "lng": 77.1417334,
+    "address": "A-41, New Moti Nagar, Block B, New Moti Nagar, Moti Nagar, New Delhi, Delhi"
+  },
+  {
+    "name": "Gyanchandra Joshi Ayurvedic Hospital",
+    "type": "hospital",
+    "lat": 28.662511,
+    "lng": 77.144284,
+    "address": "Block A, New Moti Nagar, Moti Nagar, New Delhi, Delhi"
+  },
+  {
+    "name": "DR CHOPRAS SPINE JOINT SOLUTIONS INDIA - joint replacement doctor in west Delhi",
+    "type": "hospital",
+    "lat": 28.6581639,
+    "lng": 77.1421631,
+    "address": "B2, Moti Nagar Rd, Main Market, Mini Market, Moti Nagar, New Delhi, Delhi"
+  },
+  {
+    "name": "Guru Ram Dass Charitable Hospital",
+    "type": "hospital",
+    "lat": 28.6376807,
+    "lng": 77.1125936,
+    "address": "2/295-294, Near Pishori Gurudwara, Subhash Nagar, Block 17, Block 5, Subhash Nagar, New Delhi, Delhi"
+  },
+  {
+    "name": "Arvind Medicare",
+    "type": "hospital",
+    "lat": 28.6311711,
+    "lng": 77.2170294,
+    "address": "L-43, Connaught Cir, Hanuman Road Area, Connaught Place, New Delhi, Delhi"
+  },
+  {
+    "name": "General Williams Hospital",
+    "type": "hospital",
+    "lat": 28.6267808,
+    "lng": 77.2182706,
+    "address": "40, Tolstoy Rd, Atul Grove Road, Janpath, Connaught Place, New Delhi, Delhi"
+  },
+  {
+    "name": "Research & Referal Hospital",
+    "type": "hospital",
+    "lat": 28.5760974,
+    "lng": 77.1576228,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "hospital",
+    "lat": 28.5391557,
+    "lng": 77.282953,
+    "address": "2ND FLOOR, U.S. COMPLEX, OPP. APOLLO HOSPITAL,120, MATHURA ROAD"
+  },
+  {
+    "name": "Sanjay Gandi Hospital",
+    "type": "hospital",
+    "lat": 28.6337619,
+    "lng": 77.1700493,
+    "address": "Delhi"
+  },
+  {
+    "name": "Aggarwal Dharmarth Hospital",
+    "type": "hospital",
+    "lat": 28.6812368,
+    "lng": 77.1976619,
+    "address": "Delhi"
+  },
+  {
+    "name": "Delhi City, Medical",
+    "type": "hospital",
+    "lat": 28.6559519,
+    "lng": 77.2811441,
+    "address": "Delhi"
+  },
+  {
+    "name": "Indraprastha Apollo Hospital",
+    "type": "hospital",
+    "lat": 28.5408159,
+    "lng": 77.2835195,
+    "address": "Indraprastha Apollo Hospital, Mathura Rd, Jasola Vihar"
+  },
+  {
+    "name": "SCI IVF Hospital",
+    "type": "hospital",
+    "lat": 28.5495245,
+    "lng": 77.2337844,
+    "address": "Delhi"
+  },
+  {
+    "name": "HAH century hospital",
+    "type": "hospital",
+    "lat": 28.5128503,
+    "lng": 77.2513477,
+    "address": "Guru Ravidas Marg"
+  },
+  {
+    "name": "Chaudhary Braham Prakash Ayurvedic Charak Sansthan",
+    "type": "hospital",
+    "lat": 28.5721366,
+    "lng": 76.9336152,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "hospital",
+    "lat": 28.6134172,
+    "lng": 76.9951114,
+    "address": "Delhi"
+  },
+  {
+    "name": "HOD Karkardooma - House Of Diagnostics",
+    "type": "hospital",
+    "lat": 28.6470935,
+    "lng": 77.3020999,
+    "address": "Hargovind Enclave"
+  },
+  {
+    "name": "HOD Ashok Vihar - House Of Diagnostics",
+    "type": "hospital",
+    "lat": 28.6956326,
+    "lng": 77.1874885,
+    "address": "GT Karnal Industrial Area"
+  },
+  {
+    "name": "HOD Rajouri Garden - House Of Diagnostics",
+    "type": "hospital",
+    "lat": 28.6484714,
+    "lng": 77.1204602,
+    "address": "Shivaji Marg"
+  },
+  {
+    "name": "al-shifa",
+    "type": "hospital",
+    "lat": 28.5570345,
+    "lng": 77.2929977,
+    "address": "Delhi"
+  },
+  {
+    "name": "Oncoplus Hospital",
+    "type": "hospital",
+    "lat": 28.5697622,
+    "lng": 77.2267424,
+    "address": "Delhi"
+  },
+  {
+    "name": "SITE",
+    "type": "hospital",
+    "lat": 28.5764608,
+    "lng": 77.0675724,
+    "address": "Delhi"
+  },
+  {
+    "name": "Vardayani Charitable Multi-Speciality Hospital",
+    "type": "hospital",
+    "lat": 28.7221086,
+    "lng": 77.171616,
+    "address": "Shah Alam Bandh Marg"
+  },
+  {
+    "name": "Anand Maya Multi Speciality Hospital",
+    "type": "hospital",
+    "lat": 28.7299137,
+    "lng": 77.1600821,
+    "address": "Delhi"
+  },
+  {
+    "name": "Mahajan Hospital",
+    "type": "hospital",
+    "lat": 28.7183028,
+    "lng": 77.1710383,
+    "address": "Delhi"
+  },
+  {
+    "name": "Parnami Orthopaedic Hospital",
+    "type": "hospital",
+    "lat": 28.7136327,
+    "lng": 77.1734502,
+    "address": "Delhi"
+  },
+  {
+    "name": "Shanti Kumud Hospital",
+    "type": "hospital",
+    "lat": 28.7176383,
+    "lng": 77.1701132,
+    "address": "Delhi"
+  },
+  {
+    "name": "Guru Harkrishan Polyclinic Bangla Sahib",
+    "type": "hospital",
+    "lat": 28.6267693,
+    "lng": 77.2092035,
+    "address": "Delhi"
+  },
+  {
+    "name": "ESIC Hospital",
+    "type": "hospital",
+    "lat": 28.7273448,
+    "lng": 77.126818,
+    "address": "Delhi"
+  },
+  {
+    "name": "Patel Hospital",
+    "type": "hospital",
+    "lat": 28.6308656,
+    "lng": 77.2783314,
+    "address": "Delhi"
+  },
+  {
+    "name": "JNU Health Centre",
+    "type": "hospital",
+    "lat": 28.5495066,
+    "lng": 77.1676082,
+    "address": "Delhi"
+  },
+  {
+    "name": "Hans Charitable Hospital",
+    "type": "hospital",
+    "lat": 28.7003162,
+    "lng": 77.2083336,
+    "address": "Delhi"
+  },
+  {
+    "name": "KK SURGICAL CENTRE",
+    "type": "hospital",
+    "lat": 28.6925868,
+    "lng": 77.292098,
+    "address": "Delhi"
+  },
+  {
+    "name": "TYGAI DIAGNOSTIC CENTER",
+    "type": "hospital",
+    "lat": 28.6913354,
+    "lng": 77.2913592,
+    "address": "Delhi"
+  },
+  {
+    "name": "INDIAN BAGHEERA VETERINARY HOSPITAL",
+    "type": "hospital",
+    "lat": 28.6944964,
+    "lng": 77.2921256,
+    "address": "Delhi"
+  },
+  {
+    "name": "BHARAT VIKAS PARISHAD(FREE EYE CAMP)",
+    "type": "hospital",
+    "lat": 28.6885897,
+    "lng": 77.2917846,
+    "address": "Delhi"
+  },
+  {
+    "name": "MIND BRAIN & MENTAL HOSPITAL",
+    "type": "hospital",
+    "lat": 28.6904216,
+    "lng": 77.2916753,
+    "address": "Delhi"
+  },
+  {
+    "name": "MAHALAKSHMI HOSPITAL",
+    "type": "hospital",
+    "lat": 28.6892732,
+    "lng": 77.2986283,
+    "address": "Delhi"
+  },
+  {
+    "name": "DUKH NIWARAN MEDICAL CENTER",
+    "type": "hospital",
+    "lat": 28.6865598,
+    "lng": 77.2902512,
+    "address": "Delhi"
+  },
+  {
+    "name": "Aakash Hospital",
+    "type": "hospital",
+    "lat": 28.6053767,
+    "lng": 77.0536459,
+    "address": "Delhi"
+  },
+  {
+    "name": "Injury Centre",
+    "type": "hospital",
+    "lat": 28.6063225,
+    "lng": 77.0526152,
+    "address": "Delhi"
+  },
+  {
+    "name": "Saroj Medical Institute",
+    "type": "hospital",
+    "lat": 28.7340712,
+    "lng": 77.1390604,
+    "address": "Delhi"
+  },
+  {
+    "name": "BR Healthcare Rohini",
+    "type": "hospital",
+    "lat": 28.7443866,
+    "lng": 77.1196309,
+    "address": "Delhi"
+  },
+  {
+    "name": "Indian Cancer Institute",
+    "type": "hospital",
+    "lat": 28.5483823,
+    "lng": 77.2419692,
+    "address": "Delhi"
+  },
+  {
+    "name": "Airport Health Organization",
+    "type": "hospital",
+    "lat": 28.5445057,
+    "lng": 77.115956,
+    "address": "Delhi"
+  },
+  {
+    "name": "Ravi Nursing Home",
+    "type": "hospital",
+    "lat": 28.6172493,
+    "lng": 77.0305823,
+    "address": "Delhi"
+  },
+  {
+    "name": "IndraGandhi ESI HOSPITAL",
+    "type": "hospital",
+    "lat": 28.6665679,
+    "lng": 77.3110943,
+    "address": "Delhi"
+  },
+  {
+    "name": "Ambedkar Nagar Hospital",
+    "type": "hospital",
+    "lat": 28.5223965,
+    "lng": 77.2383804,
+    "address": "Maharishi Valmiki Marg"
+  },
+  {
+    "name": "Banwari Lal Charitable Trust Diagnostic Centre",
+    "type": "hospital",
+    "lat": 28.6420044,
+    "lng": 77.2042941,
+    "address": "Delhi"
+  },
+  {
+    "name": "Kasturba Hospital",
+    "type": "hospital",
+    "lat": 28.6485447,
+    "lng": 77.2385223,
+    "address": "Delhi"
+  },
+  {
+    "name": "Under Construction Hospital",
+    "type": "hospital",
+    "lat": 28.6336658,
+    "lng": 77.061634,
+    "address": "Delhi"
+  },
+  {
+    "name": "Apollo Fertility",
+    "type": "hospital",
+    "lat": 28.5964346,
+    "lng": 77.0400311,
+    "address": "Delhi"
+  },
+  {
+    "name": "Dr. Shroff Charity Eye Hospital",
+    "type": "hospital",
+    "lat": 28.6459381,
+    "lng": 77.242051,
+    "address": "Delhi"
+  },
+  {
+    "name": "Medical Room",
+    "type": "hospital",
+    "lat": 28.583431,
+    "lng": 77.1538641,
+    "address": "Delhi"
+  },
+  {
+    "name": "Tyagi Hospital",
+    "type": "hospital",
+    "lat": 28.7187985,
+    "lng": 77.1681742,
+    "address": "Delhi"
+  },
+  {
+    "name": "Bawana Police station",
+    "type": "police",
+    "lat": 28.8055119,
+    "lng": 77.0256424,
+    "address": "Delhi"
+  },
+  {
+    "name": "Shalimar Bagh Police Station",
+    "type": "police",
+    "lat": 28.7170924,
+    "lng": 77.1571367,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "police",
+    "lat": 28.6345193,
+    "lng": 77.1810077,
+    "address": "Delhi"
+  },
+  {
+    "name": "Vikas Puri",
+    "type": "police",
+    "lat": 28.6301441,
+    "lng": 77.0682683,
+    "address": "Delhi"
+  },
+  {
+    "name": "Ashok Vihar Police Station",
+    "type": "police",
+    "lat": 28.6925224,
+    "lng": 77.1739049,
+    "address": "Delhi"
+  },
+  {
+    "name": "Najafgarh Police Thana",
+    "type": "police",
+    "lat": 28.6098145,
+    "lng": 76.9828316,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Chowki",
+    "type": "police",
+    "lat": 28.6126106,
+    "lng": 76.9867433,
+    "address": "Delhi"
+  },
+  {
+    "name": "Jaffar Pur Police Station",
+    "type": "police",
+    "lat": 28.5958543,
+    "lng": 76.9151778,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Station Malviya Nagar",
+    "type": "police",
+    "lat": 28.5306718,
+    "lng": 77.2045562,
+    "address": "Delhi"
+  },
+  {
+    "name": "Hari Nagar Police Station",
+    "type": "police",
+    "lat": 28.6097133,
+    "lng": 77.0997911,
+    "address": "Pankha Road"
+  },
+  {
+    "name": "Prasad Nagar Police Station",
+    "type": "police",
+    "lat": 28.6478735,
+    "lng": 77.180705,
+    "address": "Delhi"
+  },
+  {
+    "name": "Dwarka Ploce Station",
+    "type": "police",
+    "lat": 28.5649687,
+    "lng": 77.0584523,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Booth",
+    "type": "police",
+    "lat": 28.6702484,
+    "lng": 77.1336893,
+    "address": "Delhi"
+  },
+  {
+    "name": "Punjabi Bagh Police Station",
+    "type": "police",
+    "lat": 28.6741463,
+    "lng": 77.1322843,
+    "address": "Delhi"
+  },
+  {
+    "name": "Rajendra Nagar Police Station",
+    "type": "police",
+    "lat": 28.634698,
+    "lng": 77.1826937,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Residential Complex",
+    "type": "police",
+    "lat": 28.6349617,
+    "lng": 77.1837505,
+    "address": "Delhi"
+  },
+  {
+    "name": "New Ashok Nagar Police Station",
+    "type": "police",
+    "lat": 28.5983359,
+    "lng": 77.3112386,
+    "address": "Delhi"
+  },
+  {
+    "name": "Baba Haridas Nagar Police Station",
+    "type": "police",
+    "lat": 28.6289362,
+    "lng": 76.9666822,
+    "address": "Delhi"
+  },
+  {
+    "name": "Subroto Park Police Station",
+    "type": "police",
+    "lat": 28.5942138,
+    "lng": 77.1651188,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "police",
+    "lat": 28.6499571,
+    "lng": 77.1219621,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "police",
+    "lat": 28.6499319,
+    "lng": 77.2432349,
+    "address": "Delhi"
+  },
+  {
+    "name": "Lahori Gate Police Station",
+    "type": "police",
+    "lat": 28.6558358,
+    "lng": 77.2190161,
+    "address": "Delhi"
+  },
+  {
+    "name": "Kotwali Police Station",
+    "type": "police",
+    "lat": 28.6585978,
+    "lng": 77.2310844,
+    "address": "Delhi"
+  },
+  {
+    "name": "Jama Masjid Police Station",
+    "type": "police",
+    "lat": 28.6524641,
+    "lng": 77.2337052,
+    "address": "Delhi"
+  },
+  {
+    "name": "Cycle Market Police Post",
+    "type": "police",
+    "lat": 28.6559206,
+    "lng": 77.2347384,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Station",
+    "type": "police",
+    "lat": 28.5246843,
+    "lng": 77.2543284,
+    "address": "Delhi"
+  },
+  {
+    "name": "police station",
+    "type": "police",
+    "lat": 28.5820097,
+    "lng": 77.195299,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Post Sanjay Colony",
+    "type": "police",
+    "lat": 28.4300428,
+    "lng": 77.2261104,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "police",
+    "lat": 28.6891306,
+    "lng": 77.2217498,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Station Hazrat Nizamudin Railway station",
+    "type": "police",
+    "lat": 28.5879796,
+    "lng": 77.2536138,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Station Karol Bagh",
+    "type": "police",
+    "lat": 28.652398,
+    "lng": 77.1930248,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Station New Delhi Railway Station",
+    "type": "police",
+    "lat": 28.6437003,
+    "lng": 77.2189266,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Post",
+    "type": "police",
+    "lat": 28.635912,
+    "lng": 77.2222854,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Post Majnu ka Tila",
+    "type": "police",
+    "lat": 28.6965167,
+    "lng": 77.2270376,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Station Pul Prahladpur",
+    "type": "police",
+    "lat": 28.5019105,
+    "lng": 77.2907092,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Station Khyala",
+    "type": "police",
+    "lat": 28.6517663,
+    "lng": 77.0963462,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "police",
+    "lat": 28.613379,
+    "lng": 77.3171717,
+    "address": "Delhi"
+  },
+  {
+    "name": "Durga Puri Police Station",
+    "type": "police",
+    "lat": 28.6894132,
+    "lng": 77.2915327,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Post PSRI Hospital",
+    "type": "police",
+    "lat": 28.5318943,
+    "lng": 77.2252646,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Chowki",
+    "type": "police",
+    "lat": 28.6862014,
+    "lng": 77.2920281,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Station Dabri",
+    "type": "police",
+    "lat": 28.6131514,
+    "lng": 77.0860753,
+    "address": "Sitapuri, Dabri"
+  },
+  {
+    "name": "Police Station Old Delhi Railway Station",
+    "type": "police",
+    "lat": 28.6603874,
+    "lng": 77.2293263,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Station Badarpur",
+    "type": "police",
+    "lat": 28.4937527,
+    "lng": 77.3037682,
+    "address": "Delhi"
+  },
+  {
+    "name": "Kirti Nagar Police Station",
+    "type": "police",
+    "lat": 28.6402677,
+    "lng": 77.135379,
+    "address": "Delhi"
+  },
+  {
+    "name": "Vivek Vihar",
+    "type": "police",
+    "lat": 28.667016,
+    "lng": 77.3062943,
+    "address": "Delhi"
+  },
+  {
+    "name": "Bharat Nagar Police station",
+    "type": "police",
+    "lat": 28.6807121,
+    "lng": 77.178135,
+    "address": "Delhi"
+  },
+  {
+    "name": "Women Facilitation Booth",
+    "type": "police",
+    "lat": 28.7283053,
+    "lng": 77.1699161,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Post, Khan Market",
+    "type": "police",
+    "lat": 28.6003274,
+    "lng": 77.2262488,
+    "address": "Delhi"
+  },
+  {
+    "name": "No entry for foreigners going towards the government buildings",
+    "type": "police",
+    "lat": 28.6153345,
+    "lng": 77.2093428,
+    "address": "Delhi"
+  },
+  {
+    "name": "Gate 35, No entry for foreigners",
+    "type": "police",
+    "lat": 28.6176525,
+    "lng": 77.1985707,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "police",
+    "lat": 28.617356,
+    "lng": 77.2020072,
+    "address": "Delhi"
+  },
+  {
+    "name": "Traffic Police Station, RK Puram, Sector-4",
+    "type": "police",
+    "lat": 28.560194,
+    "lng": 77.1811399,
+    "address": "Venkateshwara Marg"
+  },
+  {
+    "name": "Delhi Police Post (Babarpur)",
+    "type": "police",
+    "lat": 28.6892958,
+    "lng": 77.2787079,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "police",
+    "lat": 28.7541865,
+    "lng": 77.1627448,
+    "address": "Delhi"
+  },
+  {
+    "name": "Railway Police Force Station",
+    "type": "police",
+    "lat": 28.6452469,
+    "lng": 77.2188823,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "police",
+    "lat": 28.6304085,
+    "lng": 77.2774333,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Station Barakhamba Road",
+    "type": "police",
+    "lat": 28.6308823,
+    "lng": 77.2253541,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police station",
+    "type": "police",
+    "lat": 28.5006344,
+    "lng": 77.3163336,
+    "address": "Delhi"
+  },
+  {
+    "name": "All Women police assistance booth",
+    "type": "police",
+    "lat": 28.549942,
+    "lng": 77.2507374,
+    "address": "Delhi"
+  },
+  {
+    "name": "DCP Residence",
+    "type": "police",
+    "lat": 28.6274655,
+    "lng": 77.232869,
+    "address": "Sikandra Road"
+  },
+  {
+    "name": "Police check point",
+    "type": "police",
+    "lat": 28.5617873,
+    "lng": 77.2877917,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police assistance booth",
+    "type": "police",
+    "lat": 28.6012604,
+    "lng": 77.2273752,
+    "address": "Delhi"
+  },
+  {
+    "name": "Gandhi Nagar Police Station",
+    "type": "police",
+    "lat": 28.6599766,
+    "lng": 77.2671907,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "police",
+    "lat": 28.5956693,
+    "lng": 77.1683104,
+    "address": "Delhi"
+  },
+  {
+    "name": "Bara Hindu Rao Police Station",
+    "type": "police",
+    "lat": 28.6657245,
+    "lng": 77.2080538,
+    "address": "Delhi"
+  },
+  {
+    "name": "Sabzi Mandi Police Station",
+    "type": "police",
+    "lat": 28.6689322,
+    "lng": 77.2073279,
+    "address": "Delhi"
+  },
+  {
+    "name": "Crime Against Women Cell",
+    "type": "police",
+    "lat": 28.6694195,
+    "lng": 77.2073751,
+    "address": "Delhi"
+  },
+  {
+    "name": "Delhi Police — Mehrauli",
+    "type": "police",
+    "lat": 28.5262044,
+    "lng": 77.1779413,
+    "address": "Delhi"
+  },
+  {
+    "name": "Keshavpur Sabzi Mandi",
+    "type": "police",
+    "lat": 28.6515928,
+    "lng": 77.0881006,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Station Mandawali",
+    "type": "police",
+    "lat": 28.6250464,
+    "lng": 77.3061809,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Station Madhu Vihar",
+    "type": "police",
+    "lat": 28.6250657,
+    "lng": 77.3062871,
+    "address": "Delhi"
+  },
+  {
+    "name": "Pink Booth",
+    "type": "police",
+    "lat": 28.5966453,
+    "lng": 77.1332471,
+    "address": "Delhi"
+  },
+  {
+    "name": "Facilitation Kiosk",
+    "type": "police",
+    "lat": 28.5758546,
+    "lng": 77.1973707,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Booth",
+    "type": "police",
+    "lat": 28.5757026,
+    "lng": 77.195241,
+    "address": "Delhi"
+  },
+  {
+    "name": "Prepaid Auto Service",
+    "type": "police",
+    "lat": 28.6316262,
+    "lng": 77.219012,
+    "address": "Delhi"
+  },
+  {
+    "name": "Tourist Police Booth",
+    "type": "police",
+    "lat": 28.6420284,
+    "lng": 77.2182954,
+    "address": "Delhi"
+  },
+  {
+    "name": "Delhi Police",
+    "type": "police",
+    "lat": 28.6487676,
+    "lng": 77.3161693,
+    "address": "Delhi"
+  },
+  {
+    "name": "G.R.P Police Station Anand Vihar",
+    "type": "police",
+    "lat": 28.6480027,
+    "lng": 77.314937,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Station Rithala Metro",
+    "type": "police",
+    "lat": 28.7198672,
+    "lng": 77.1077634,
+    "address": "Delhi"
+  },
+  {
+    "name": "Office Of The Deputy Commissioner Of Police Central District",
+    "type": "police",
+    "lat": 28.6415133,
+    "lng": 77.2409554,
+    "address": "Delhi"
+  },
+  {
+    "name": "Delhi Police",
+    "type": "police",
+    "lat": 28.6494703,
+    "lng": 77.2265741,
+    "address": "Delhi"
+  },
+  {
+    "name": "DCP Shahdara District Office",
+    "type": "police",
+    "lat": 28.6653684,
+    "lng": 77.2867347,
+    "address": "Delhi"
+  },
+  {
+    "name": "Delhi Police Dog Squad",
+    "type": "police",
+    "lat": 28.6554103,
+    "lng": 77.298339,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "police",
+    "lat": 28.591667,
+    "lng": 77.0417182,
+    "address": "Delhi"
+  },
+  {
+    "name": "Integrated Facilitation Booth",
+    "type": "police",
+    "lat": 28.6050112,
+    "lng": 77.1269382,
+    "address": "Delhi"
+  },
+  {
+    "name": "Integrated Facilitation Booth",
+    "type": "police",
+    "lat": 28.5892018,
+    "lng": 77.1691272,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Booth",
+    "type": "police",
+    "lat": 28.6890388,
+    "lng": 77.2155277,
+    "address": "Delhi"
+  },
+  {
+    "name": "South Campus Police Station",
+    "type": "police",
+    "lat": 28.5796397,
+    "lng": 77.1760286,
+    "address": "Delhi"
+  },
+  {
+    "name": "Kailash Colony Market Integrated Facilitation Booth",
+    "type": "police",
+    "lat": 28.5528334,
+    "lng": 77.2411483,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "police",
+    "lat": 28.5588883,
+    "lng": 77.2442795,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "police",
+    "lat": 28.5724533,
+    "lng": 77.2342725,
+    "address": "Delhi"
+  },
+  {
+    "name": "Welcome Metro Station Integrated Facilitation Booth",
+    "type": "police",
+    "lat": 28.6725287,
+    "lng": 77.2761129,
+    "address": "Delhi"
+  },
+  {
+    "name": "Swami Dayanand Hospital Police Booth",
+    "type": "police",
+    "lat": 28.6778818,
+    "lng": 77.3032989,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "police",
+    "lat": 28.4989184,
+    "lng": 77.2140888,
+    "address": "Delhi"
+  },
+  {
+    "name": "Integrated police booth, Model Town",
+    "type": "police",
+    "lat": 28.7074219,
+    "lng": 77.1798446,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "police",
+    "lat": 28.5356392,
+    "lng": 77.2917074,
+    "address": "Delhi"
+  },
+  {
+    "name": "Police Station Pandav Nagar",
+    "type": "police",
+    "lat": 28.6201262,
+    "lng": 77.3027366,
+    "address": "Delhi"
+  },
+  {
+    "name": "Bharola Policr Post",
+    "type": "police",
+    "lat": 28.7159166,
+    "lng": 77.1705927,
+    "address": "Delhi"
+  },
+  {
+    "name": "Integrated Police Booth",
+    "type": "police",
+    "lat": 28.7225762,
+    "lng": 77.1649585,
+    "address": "Delhi"
+  },
+  {
+    "name": "Kotla Mubarakpur Police Station",
+    "type": "police",
+    "lat": 28.5759348,
+    "lng": 77.2251127,
+    "address": "Delhi"
+  },
+  {
+    "name": "Jaitpur Thana",
+    "type": "police",
+    "lat": 28.5037996,
+    "lng": 77.3193324,
+    "address": "Delhi"
+  },
+  {
+    "name": "Unknown",
+    "type": "police",
+    "lat": 28.7181571,
+    "lng": 77.1268184,
+    "address": "Delhi"
+  },
+  {
+    "name": "Adarsh Nagar Police Station",
+    "type": "police",
+    "lat": 28.7098594,
+    "lng": 77.1752464,
+    "address": "Delhi"
+  }
+]
