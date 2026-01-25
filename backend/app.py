@@ -1,15 +1,14 @@
-# app.py
-import os
 import json
 import faiss
 import numpy as np
-from dotenv import load_dotenv
-from sentence_transformers import SentenceTransformer
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from sentence_transformers import SentenceTransformer
+from fastapi.staticfiles import StaticFiles
+
 from llm.local_llm import generate_with_ollama
 from tts.generate_audio import generate_audio
-from fastapi.staticfiles import StaticFiles
+from utils.translate import translate_to_hindi, to_hinglish
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 index = faiss.read_index("rag/monuments.index")
@@ -24,96 +23,51 @@ class StoryRequest(BaseModel):
     placeId: str
     placeName: str
     mode: str
+    language: str
 
-
-FACTUAL_PROMPT = """
-You are a heritage historian.
-Rewrite the following content into a concise, factual description.
-No metaphors. No imagination. Only verified facts.
-
-CONTENT:
-{content}
-"""
-
-IMMERSIVE_PROMPT = """
-You are a cultural storyteller for a walking tour.
-Rewrite the following content into an immersive narrative.
-Use vivid but respectful language.
-Do NOT invent facts. Do NOT add dates or events not present.
-
-CONTENT:
-{content}
-"""
+class VoiceRequest(BaseModel):
+    story: str
 
 @app.post("/story/generate")
 def generate_story(req: StoryRequest):
-    print("---- STORY REQUEST ----")
-    print("Place:", req.placeName)
-    print("Mode:", req.mode)
-
-    # 1. Vector search
     query = f"{req.placeName} monument history Delhi"
     query_embedding = model.encode([query])
+    
+    _, I = index.search(np.array(query_embedding), k=1)
 
-    D, I = index.search(np.array(query_embedding), k=1)
-    retrieved_doc = METADATA[I[0][0]]
-    base_content = retrieved_doc["content"]
+    base_content = METADATA[I[0][0]]["content"]
 
-    print("Retrieved content:", base_content[:80])
-
-    try:
-        print("Calling Ollama...")
-
-        system_prompt = (
-            "You are a heritage storyteller for Delhi monuments.\n"
-            "You must strictly use ONLY the provided content.\n"
-            "Do NOT add new facts, dates, or names.\n"
-        )
-
-        if req.mode == "factual":
-            user_prompt = f"""
-Rewrite the following content into a concise, factual description.
-No metaphors. No imagination. Strictly factual.
-
-CONTENT:
-{base_content}
-"""
-        else:
-            user_prompt = f"""
-Rewrite the following content into an immersive walking-tour style story.
-Use second-person narration like 'you see', 'you walk'.
-Change sentence structure.
-Do NOT invent facts or dates.
+    prompt = f"""
+You are a Delhi heritage storyteller.
+Rewrite the following content into a {req.mode} story.
+Use ONLY given facts.
 
 CONTENT:
 {base_content}
 """
 
-        
+    story_en = generate_with_ollama(prompt).strip()
 
-        story_text = generate_with_ollama(user_prompt)
-        fallback = False
-
-    except Exception as e:
-        print("OLLAMA ERROR:", str(e))
-        story_text = base_content
-        fallback = True
+    if not story_en:
+        raise HTTPException(500, "LLM returned empty story")
+    
+    if req.language == "Hindi":
+        final_story = translate_to_hindi(story_en)
+    elif req.language == "Hinglish":
+        final_story = to_hinglish(story_en)
+    else:
+        final_story = story_en
 
     return {
-        "story": story_text,
-        "confidence": 0.9,
-        "sources": ["ASI", "Community Archive"],
-        "mode": req.mode,
-        "fallback": fallback
+        "story": final_story,
+        "language": req.language
     }
 
 @app.post("/story/voice")
-def generate_voice(req: StoryRequest):
-    story_text = generate_story(req)["story"]
-    audio_path = generate_audio(story_text)
-    
-    print("AUDIO PATH RETURNED:", audio_path) 
-    
-    return {
-        "audio_url": audio_path
-    }
+def generate_voice(req: VoiceRequest):
+    text = req.story.strip()
+    if not text:
+        raise HTTPException(400, "Empty story text")
+
+    audio_path = generate_audio(text)
+    return {"audio_url": audio_path}

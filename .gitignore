@@ -17,4 +17,5 @@ web-build/
 # IDE
 .vscode/
 .idea/
-backend/.env
+backend/venv
+backend/__pycache__

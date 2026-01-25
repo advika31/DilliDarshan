@@ -16,7 +16,7 @@ import { Audio } from "expo-av";
 import { Card } from "../components/Card";
 import { getPlaceById } from "../constants/places";
 
-const API_BASE = "http://192.168.1.9:8000";
+const API_BASE = "http://192.168.1.7:8000";
 
 export default function StorytellingScreen() {
   const route = useRoute();
@@ -91,6 +91,7 @@ export default function StorytellingScreen() {
           placeId: String(place.id),
           placeName: place.name,
           mode: storyMode,
+          language,
         }),
       });
 
@@ -98,18 +99,19 @@ export default function StorytellingScreen() {
       setStoryContent(storyData.story);
       setHasGenerated(true);
 
+      if (language !== "English") return;
+
       const voiceRes = await fetch(`${API_BASE}/story/voice`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          placeId: String(place.id),
-          placeName: place.name,
-          mode: storyMode,
+          story: storyData.story,
         }),
       });
 
       const voiceData = await voiceRes.json();
       await loadAudio(voiceData.audio_url);
+
     } catch (err) {
       console.error(err);
       setStoryContent("Failed to generate story.");
