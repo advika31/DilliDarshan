@@ -46,12 +46,6 @@ const HomeScreen = () => {
   const navigation = useNavigation();
   const { points } = usePoints();
 
-  const handleFeaturePress = (title) => {
-    if (title === "Smart Plan") {
-      navigation.navigate("PersonalizedPlan", { places: ["1", "2", "4"] });
-    }
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -74,11 +68,13 @@ const HomeScreen = () => {
             title="Start Exploring"
             onPress={() => navigation.navigate("Explore")}
           />
-          <Button
-            title="Ask AI Guide"
-            variant="secondary"
-            onPress={() => navigation.navigate("Chat")}
-          />
+          <View style={styles.ctaContainer}>
+            <Button
+              title="Ask AI Guide"
+              variant="primary"
+              onPress={() => navigation.navigate("Chat")}
+            />
+          </View>
         </View>
 
         {/* QUICK ACTIONS */}
@@ -103,8 +99,8 @@ const HomeScreen = () => {
         {/* SMART TOOLS SECTION */}
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionTitle}>Smart Tools</Text>
-          <Card 
-            style={styles.smartPlanCard} 
+          <Card
+            style={styles.smartPlanCard}
             onPress={() => handleFeaturePress("Smart Plan")}
           >
             <View style={styles.featureRow}>
@@ -137,14 +133,14 @@ const HomeScreen = () => {
             </Card>
           ))}
         </View>
-        
+
         {/* BOTTOM SPACER */}
         <View style={{ height: 100 }} />
       </ScrollView>
 
       {/* FLOATING SOS */}
       <SOSButton />
-    </SafeAreaView>
+    </SafeAreaView >
   );
 };
 
@@ -250,7 +246,7 @@ const styles = StyleSheet.create({
     borderColor: '#FDE68A',
   },
   featureCardMargin: {
-    marginVertical: 6, 
+    marginVertical: 6,
   },
   featureRow: {
     flexDirection: "row",
@@ -275,6 +271,306 @@ const styles = StyleSheet.create({
     color: "#84593C",
     marginTop: 2,
     lineHeight: 18,
+  },
+  recommendationContainer: {
+    paddingHorizontal: 20,
+    marginTop: 24,
+  },
+  recommendationTitle: {
+    fontSize: 18,
+    fontWeight: "800",
+    color: "#2D241E",
+    marginBottom: 12,
+  },
+  recommendationCard: {
+    backgroundColor: '#FFF9F1',
+    borderColor: '#FDE68A',
+    borderWidth: 1,
+  },
+  recommendationContent: {
+    padding: 4,
+  },
+  recommendationHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 8,
+  },
+  recommendationPlace: {
+    fontSize: 18,
+    fontWeight: "700",
+    color: "#2D241E",
+    marginLeft: 8,
+    flex: 1,
+  },
+  recommendationReason: {
+    fontSize: 14,
+    color: "#84593C",
+    lineHeight: 20,
+    marginBottom: 12,
+  },
+  recommendationMeta: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  recommendationDistance: {
+    fontSize: 13,
+    color: "#84593C",
+    marginLeft: 4,
+    flex: 1,
+  },
+  scoreBadge: {
+    backgroundColor: COLORS.primary,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  scoreText: {
+    fontSize: 12,
+    fontWeight: "700",
+    color: "#FFFFFF",
+  },
+  recommendationsContainer: {
+    paddingHorizontal: 20,
+    marginTop: 24,
+  },
+  recommendationsHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  recommendationsTitle: {
+    fontSize: 18,
+    fontWeight: "800",
+    color: "#2D241E",
+  },
+  viewToggle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#F0E4D3',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+  },
+  viewToggleText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: COLORS.primary,
+    marginLeft: 4,
+  },
+  mapPlaceholder: {
+    height: 200,
+    backgroundColor: '#F8F9FA',
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 12,
+    borderWidth: 2,
+    borderColor: '#E9ECEF',
+    borderStyle: 'dashed',
+  },
+  mapPlaceholderTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#2D241E',
+    marginTop: 12,
+    marginBottom: 4,
+  },
+  mapPlaceholderText: {
+    fontSize: 14,
+    color: '#84593C',
+    textAlign: 'center',
+    marginBottom: 16,
+  },
+  mapPlaceholderButton: {
+    backgroundColor: COLORS.primary,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 20,
+  },
+  mapPlaceholderButtonText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  placeCard: {
+    marginBottom: 12,
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#F0E4D3',
+  },
+  topRecommendation: {
+    backgroundColor: '#FFF9F1',
+    borderColor: '#FDE68A',
+    borderWidth: 2,
+  },
+  placeCardContent: {
+    padding: 4,
+  },
+  placeHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    marginBottom: 8,
+  },
+  placeInfo: {
+    flex: 1,
+    marginRight: 12,
+  },
+  placeName: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#2D241E",
+    marginBottom: 4,
+  },
+  categoryBadge: {
+    backgroundColor: '#E8F4FD',
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 8,
+    alignSelf: 'flex-start',
+    marginBottom: 4,
+  },
+  categoryText: {
+    fontSize: 10,
+    fontWeight: "600",
+    color: '#1976D2',
+  },
+  placeReason: {
+    fontSize: 13,
+    color: "#84593C",
+    lineHeight: 18,
+  },
+  placeMeta: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  metaItem: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  metaText: {
+    fontSize: 12,
+    color: "#84593C",
+    marginLeft: 4,
+  },
+  bestChoiceBadge: {
+    backgroundColor: COLORS.primary,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  bestChoiceText: {
+    fontSize: 10,
+    fontWeight: "700",
+    color: "#FFFFFF",
+  },
+  modalOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  modalContent: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
+    padding: 20,
+    width: '100%',
+    maxWidth: 400,
+  },
+  modalHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    marginBottom: 16,
+  },
+  modalTitleContainer: {
+    flex: 1,
+    marginRight: 12,
+  },
+  modalTitle: {
+    fontSize: 20,
+    fontWeight: "800",
+    color: "#2D241E",
+    marginBottom: 4,
+  },
+  modalCategoryBadge: {
+    backgroundColor: '#E8F4FD',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 10,
+    alignSelf: 'flex-start',
+  },
+  modalCategoryText: {
+    fontSize: 11,
+    fontWeight: "600",
+    color: '#1976D2',
+  },
+  closeButton: {
+    padding: 4,
+  },
+  modalBody: {
+    marginBottom: 20,
+  },
+  modalDescription: {
+    fontSize: 14,
+    color: "#84593C",
+    lineHeight: 20,
+    marginBottom: 16,
+  },
+  modalMeta: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 16,
+  },
+  modalMetaItem: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  modalMetaText: {
+    fontSize: 13,
+    color: "#2D241E",
+    marginLeft: 6,
+    fontWeight: "500",
+  },
+  modalReason: {
+    fontSize: 13,
+    color: "#84593C",
+    fontStyle: 'italic',
+  },
+  visitButton: {
+    backgroundColor: COLORS.primary,
+    paddingVertical: 12,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  visitButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '700',
+  },
+  noRecommendationCard: {
+    backgroundColor: '#F8F9FA',
+    borderColor: '#E9ECEF',
+    borderWidth: 1,
+  },
+  noRecommendationContent: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    padding: 4,
+  },
+  noRecommendationText: {
+    fontSize: 14,
+    color: "#84593C",
+    marginLeft: 8,
+    flex: 1,
+    lineHeight: 20,
   },
 });
 

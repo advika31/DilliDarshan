@@ -10,11 +10,15 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  Alert,
+  ActivityIndicator,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { usePoints } from "../context/PointsContext";
+import * as Location from 'expo-location';
+import { getNextAction } from "../api/nextAction";
 
 const QUICK_ACTIONS = [
   "What should I do next?",
@@ -27,6 +31,7 @@ const ChatScreen = () => {
   const navigation = useNavigation();
   const { addPoints } = usePoints();
   const [inputText, setInputText] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const flatListRef = useRef(null);
 
   const [messages, setMessages] = useState([
@@ -36,6 +41,76 @@ const ChatScreen = () => {
       isBot: true,
     },
   ]);
+
+  const getHeritageRecommendations = async () => {
+    try {
+      setIsLoading(true);
+
+      // Add loading message
+      const loadingMessage = {
+        id: Date.now().toString(),
+        text: "🔍 Finding the best heritage places near you...",
+        isBot: true,
+        isLoading: true,
+      };
+      setMessages((prev) => [...prev, loadingMessage]);
+
+      // Request location permission
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        Alert.alert("Permission Required", "Location access is required to suggest nearby places");
+        return;
+      }
+
+      // Get current location
+      let location = await Location.getCurrentPositionAsync({});
+      const lat = location.coords.latitude;
+      const lon = location.coords.longitude;
+
+      // Get heritage recommendations
+      const data = await getNextAction(lat, lon);
+
+      // Remove loading message
+      setMessages((prev) => prev.filter(msg => msg.id !== loadingMessage.id));
+
+      // Format recommendations for chat
+      if (data.recommendations && data.recommendations.length > 0) {
+        const recommendationsText = data.recommendations.map((place, index) => {
+          return `${index + 1}. **${place.name}** (${place.distance_km} km away)\n   📍 ${place.reason}\n   ⭐ Score: ${place.score}/100`;
+        }).join('\n\n');
+
+        const botResponse = {
+          id: Date.now().toString(),
+          text: `🏛️ **Here are the best heritage places near you:**\n\n💡 Tap on any card for more details!`,
+          isBot: true,
+          showRecommendations: true,
+          recommendations: data.recommendations,
+        };
+        setMessages((prev) => [...prev, botResponse]);
+      } else {
+        const botResponse = {
+          id: Date.now().toString(),
+          text: "😔 I couldn't find any heritage places near you right now. Try moving to a different location or ask me about specific monuments!",
+          isBot: true,
+        };
+        setMessages((prev) => [...prev, botResponse]);
+      }
+    } catch (err) {
+      console.error('Error getting recommendations:', err);
+
+      // Remove loading message
+      setMessages((prev) => prev.filter(msg => msg.isLoading));
+
+      const errorMessage = {
+        id: Date.now().toString(),
+        text: "❌ Sorry, I'm having trouble getting recommendations right now. Please try again in a moment!",
+        isBot: true,
+      };
+      setMessages((prev) => [...prev, errorMessage]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const generateBotResponse = (queryText) => {
     const query = queryText.toLowerCase();
@@ -48,9 +123,9 @@ const ChatScreen = () => {
       query.includes("itinerary") ||
       query.includes("do")
     ) {
-      text =
-        "Based on the time and your interests, I've generated a smart itinerary for you. It starts at Humayun's Tomb to avoid the afternoon rush.";
-      showPlanButton = true;
+      // Trigger heritage recommendations instead of generic response
+      getHeritageRecommendations();
+      return null; // Don't add a message yet, let the async function handle it
     } else if (query.includes("food")) {
       text =
         "Delhi is a food paradise! I recommend checking out Paranthe Wali Gali for a local experience.";
@@ -68,14 +143,16 @@ const ChatScreen = () => {
   };
 
   const sendMessage = (text) => {
-    if (!text.trim()) return;
+    if (!text.trim() || isLoading) return;
     const userMessage = { id: Date.now().toString(), text, isBot: false };
     setMessages((prev) => [...prev, userMessage]);
     addPoints(5, "Chat interaction");
 
     setTimeout(() => {
       const botResponse = generateBotResponse(text);
-      setMessages((prev) => [...prev, botResponse]);
+      if (botResponse) {
+        setMessages((prev) => [...prev, botResponse]);
+      }
     }, 600);
   };
 
@@ -100,6 +177,49 @@ const ChatScreen = () => {
         >
           {item.text}
         </Text>
+
+        {/* LOADING INDICATOR */}
+        {item.isLoading && (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="small" color="#FF8C00" />
+            <Text style={styles.loadingText}>Searching heritage places...</Text>
+          </View>
+        )}
+
+        {/* RECOMMENDATION CARDS */}
+        {item.isBot && item.showRecommendations && item.recommendations && (
+          <View style={styles.recommendationsContainer}>
+            {item.recommendations.map((place, index) => (
+              <TouchableOpacity
+                key={index}
+                style={[
+                  styles.recommendationCard,
+                  index === 0 && styles.topRecommendation
+                ]}
+                onPress={() => {
+                  console.log('DEBUG recommendation place object =>', place);
+                  navigation.navigate("PlaceDetails", { placeName: place.name });
+                }}
+              >
+                <View style={styles.recommendationHeader}>
+                  <View style={styles.recommendationInfo}>
+                    <Text style={styles.recommendationName}>{place.name}</Text>
+                    <Text style={styles.recommendationDistance}>{place.distance_km} km away</Text>
+                  </View>
+                  <View style={styles.recommendationScore}>
+                    <Text style={styles.recommendationScoreText}>{place.score}</Text>
+                  </View>
+                </View>
+                <Text style={styles.recommendationReason}>{place.reason}</Text>
+                {index === 0 && (
+                  <View style={styles.bestChoiceBadge}>
+                    <Text style={styles.bestChoiceText}>🏆 Best Choice</Text>
+                  </View>
+                )}
+              </TouchableOpacity>
+            ))}
+          </View>
+        )}
 
         {/* ACTION BUTTON */}
         {item.isBot && item.showPlanButton && (
@@ -222,6 +342,90 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   planButtonText: { color: "#FFF", fontWeight: "700", fontSize: 14 },
+
+  // Loading indicator
+  loadingContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 8,
+    paddingVertical: 8,
+  },
+  loadingText: {
+    marginLeft: 8,
+    fontSize: 14,
+    color: "#84593C",
+    fontStyle: "italic",
+  },
+
+  // Recommendation cards
+  recommendationsContainer: {
+    marginTop: 12,
+  },
+  recommendationCard: {
+    backgroundColor: "#FFF",
+    borderWidth: 1,
+    borderColor: "#F0E4D3",
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 8,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  topRecommendation: {
+    backgroundColor: "#FFF9F1",
+    borderColor: "#FDE68A",
+    borderWidth: 2,
+  },
+  recommendationHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    marginBottom: 6,
+  },
+  recommendationInfo: {
+    flex: 1,
+  },
+  recommendationName: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#2D241E",
+    marginBottom: 2,
+  },
+  recommendationDistance: {
+    fontSize: 12,
+    color: "#84593C",
+  },
+  recommendationScore: {
+    backgroundColor: "#FF8C00",
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  recommendationScoreText: {
+    color: "#FFF",
+    fontSize: 12,
+    fontWeight: "700",
+  },
+  recommendationReason: {
+    fontSize: 13,
+    color: "#84593C",
+    lineHeight: 18,
+  },
+  bestChoiceBadge: {
+    backgroundColor: "#FFD700",
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
+    alignSelf: "flex-start",
+    marginTop: 6,
+  },
+  bestChoiceText: {
+    fontSize: 11,
+    fontWeight: "700",
+    color: "#2D241E",
+  },
 
   // Suggested Questions Styling
   suggestionsWrapper: { paddingVertical: 10, backgroundColor: "#FEFBF6" },

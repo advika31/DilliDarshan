@@ -14,15 +14,22 @@ import { useRoute, useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { usePoints } from "../context/PointsContext";
 import { Card } from "../components/Card";
-import { getPlaceById } from "../constants/places";
+import { PLACES, getPlaceById } from "../constants/places";
 
 const PlaceDetailsScreen = () => {
   const route = useRoute();
   const navigation = useNavigation();
   const { placeId } = route.params;
+  console.log('DEBUG route.params =>', route.params);
   const { points } = usePoints();
 
-  const place = getPlaceById(placeId);
+  const placeNameParam = route.params.placeName ? route.params.placeName.trim().toLowerCase() : null;
+  console.log('DEBUG placeNameParam =>', placeNameParam);
+  let place = getPlaceById(placeId);
+  if (!place && placeNameParam) {
+    place = PLACES.find(p => p.name.trim().toLowerCase() === placeNameParam);
+  }
+  console.log('DEBUG getPlaceById result =>', place);
 
   if (!place)
     return (
@@ -35,8 +42,8 @@ const PlaceDetailsScreen = () => {
     place.crowdLevel === "low"
       ? "#10b981"
       : place.crowdLevel === "medium"
-      ? "#f59e0b"
-      : "#ef4444";
+        ? "#f59e0b"
+        : "#ef4444";
 
   return (
     <View style={styles.container}>

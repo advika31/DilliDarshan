@@ -1,0 +1,135 @@
+id,name,latitude,longitude
+1,Red Fort,28.656081,77.2407959
+2,Qutub Minar,28.524413,77.1854501
+3,Humayun\,28.5930135,77.2482725
+4,India Gate,28.6129332,77.2294928
+5,Lotus Temple,28.5533586,77.2586006
+6,Safdarjung Tomb,28.5892861,77.2131643
+7,Purana Qila,28.6091959,77.2441111
+8,Agrasen ki Baoli,28.6260676,77.2250111
+9,Jama Masjid,28.6506822,77.232961
+10,Raj Ghat,28.644154,77.2498378
+11,Zafar Mahal,28.657782,77.2426381
+12,Salimgarh Fort,28.6609186,77.2427074
+13,Feroz Shah Kotla,28.6377017,77.2431069
+14,Jantar Mantar,28.6271791,77.2166166
+15,Gurudwara Bangla Sahib,28.625421,77.2095761
+16,ISKCON Temple,28.6006842,77.0365926
+17,Akshardham Temple,28.6125167,77.2773184
+18,Lodi Gardens,28.5945664,77.2218564
+19,National Museum,28.6119151,77.2196391
+20,National Gallery of Modern Art,28.6096334,77.2341764
+21,Dilli Haat,28.6958325,77.1498803
+22,Chandni Chowk,28.6559834,77.2321937
+23,Connaught Place,28.6314022,77.2193791
+24,Hauz Khas Village,28.5533674,77.194849
+25,Nizamuddin Dargah,28.5913671,77.2419807
+26,Tughlaqabad Fort,28.5111925,77.2623265
+27,Mehrauli Archaeological Park,28.5212377,77.1858618
+28,Sultan Garhi Tomb,28.5333746,77.1370628
+29,Bhool Bhulaiya,,
+30,Adilabad Fort,28.5060271,77.2680934
+31,Chhatarpur Temple,,
+32,Kalkaji Mandir,28.5494785,77.25909
+33,Nehru Planetarium,28.6038957,77.1981214
+34,National Science Centre,28.6256148,77.1621057
+35,National Rail Museum,28.5851098,77.1810104
+36,Crafts Museum,28.6139092,77.2422964
+37,Sanskriti Museum,28.4879067,77.1277713
+38,Shankar\,28.5574387,77.1396655
+39,Sulabh International Museum of Toilets,28.596977,77.0806365
+40,Gandhi Smriti,28.6018543,77.2143898
+41,Indira Gandhi Memorial Museum,28.5999691,77.2061494
+42,Nehru Memorial Museum and Library,,
+43,National Gandhi Museum,28.6389443,77.2460725
+44,Dara Shikoh Library,28.6634955,77.2330896
+45,Mirza Ghalib Tomb,28.5914282,77.2430127
+46,Razia Sultan Tomb,,
+47,Jahaz Mahal,28.5143722,77.1785585
+48,Moth Ki Masjid,28.5626385,77.2179673
+49,Kalan Masjid,,
+50,Khirki Masjid,28.5314563,77.2197454
+51,Madan Mohan Malaviya Memorial,,
+52,Bhuli Bhatiyari Ka Mahal,28.6418642,77.1981465
+53,Bijri Khan\,28.5586267,77.1817513
+54,Bara Gumbad Mosque,,
+55,Sheesh Mahal,28.7149047,77.1510025
+56,Satpula Bridge,,
+57,Wazirpur Mosque,,
+58,Chauburja Mosque,,
+59,Gandhi Memorial Museum,28.5999691,77.2061494
+60,National Philatelic Museum,,
+61,National Museum of Natural History,,
+62,Air Force Museum,28.5742573,77.1169532
+63,Egmore Museum,,
+64,Archaeological Museum,28.6087534,77.2424545
+65,National Police Memorial,28.6034506,77.1938647
+66,War Memorial Museum,28.6558327,77.2409945
+67,Shankar\,28.5574387,77.1396655
+68,National Museum Institute,,
+69,Indira Gandhi Centre for Arts,,
+70,Sangeet Natak Akademi,,
+71,National Gallery of Modern Art,28.6096334,77.2341764
+72,Lalit Kala Akademi,,
+73,Triveni Kala Sangam,,
+74,Sahitya Akademi,,
+75,National School of Drama,28.6245644,77.2342196
+76,Bhagwan Das Road Heritage Walk,,
+77,Alai Darwaza,28.5242011,77.185688
+78,Alai Minar,28.5257929,77.1853469
+79,Jamali Kamali Mosque,28.519401,77.187165
+80,Balban\,28.519675,77.1887862
+81,Rajon Ki Baoli,28.5203127,77.1833632
+82,Gandhak Ki Baoli,28.5208507,77.1816515
+83,Yogmaya Temple,28.5257019,77.1822181
+84,Adam Khan\,,
+85,Chhatarpur Temple Complex,,
+86,Lotus Temple Gardens,,
+87,Sanjay Van,28.5324866,77.180585
+88,Deer Park,28.5566618,77.1946141
+89,Rose Garden,28.5220085,77.1884779
+90,Buddha Jayanti Park,28.615611,77.177741
+91,National Zoological Park,28.6026948,77.247176
+92,National Museum of Natural History,,
+93,National Agricultural Science Museum,,
+94,National Science Center,28.6134283,77.2454509
+95,National Handicrafts and Handlooms Museum,,
+96,National Gallery of Modern Art,28.6096334,77.2341764
+97,National Museum Institute,,
+98,National Archives of India,28.6152861,77.2176077
+99,National Library,28.5681491,77.2154858
+100,National Film Archive of India,,
+101,National School of Drama Repertory Company,,
+102,Sangeet Natak Akademi Auditorium,,
+103,Triveni Kala Sangam Open Air Theatre,,
+104,India International Centre,28.551953,77.0426762
+105,All India Fine Arts and Crafts Society,28.6177166,77.2118565
+106,Garhi Studios,,
+107,Kiran Nadar Museum of Art,28.5288757,77.2203738
+108,Devil Art Foundation,,
+109,Nature Morte Gallery,,
+110,Vadehra Art Gallery,,
+111,Hauz Khas Fort,,
+112,Siri Fort Ruins,,
+113,Chhota Gumbad,,
+114,Lodhi Tomb,28.5962998,77.2215497
+115,Muhammad Shah Tomb,28.5910085,77.2182854
+116,Shish Gumbad,28.5937613,77.2201933
+117,Begumpur Masjid,28.5391023,77.206422
+118,Adham Khan Tomb,28.5230942,77.1819548
+119,Bijay Mandal,28.5409021,77.2060942
+120,Metcalfe\,28.5230419,77.1863121
+121,Malcha Mahal,28.6095664,77.1811051
+122,Kos Minar Mehrauli,,
+123,Kos Minar Sarai Kale Khan,,
+124,Parliament House,28.6171875,77.2078082
+125,Rashtrapati Bhavan,28.6143595,77.1995888
+126,Old Fort Archaeological Museum,,
+127,St James Church Kashmere Gate,28.6657551,77.2310512
+128,Sacred Heart Cathedral,28.628618,77.2067681
+129,Mutiny Memorial Kashmere Gate,28.6622924,77.2342466
+130,Coronation Park,28.7224324,77.1967481
+131,Teen Murti Memorial,28.6047117,77.198888
+132,Prime Ministers Museum,,
+133,National War Memorial,28.6127558,77.2330441
+134,Teen Murti Memorial,28.6047117,77.198888
