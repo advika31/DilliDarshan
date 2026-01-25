@@ -24,6 +24,20 @@ const PlaceDetailsScreen = () => {
 
   const place = getPlaceById(placeId);
 
+  const handleTicketBooking = async () => {
+  if (!place.bookingUrl) {
+    alert("This place does not require ticket booking.");
+    return;
+  }
+
+  const supported = await Linking.canOpenURL(place.bookingUrl);
+  if (supported) {
+    await Linking.openURL(place.bookingUrl);
+  } else {
+    alert("Unable to open the official booking website.");
+  }
+};
+
   if (!place)
     return (
       <View style={styles.container}>
@@ -189,11 +203,17 @@ const PlaceDetailsScreen = () => {
           <Text style={styles.navBtnText}>Navigate</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.bookBtn}
-          onPress={() => Linking.openURL("https://asi.paygov.org.in")}
+          style={[
+            styles.bookBtn,
+            !place.bookingUrl && { backgroundColor: "#D1D5DB" }
+          ]}
+          onPress={handleTicketBooking}
         >
-          <Text style={styles.bookBtnText}>Book Tickets</Text>
+          <Text style={styles.bookBtnText}>
+            {place.bookingUrl ? "Book Tickets" : "Free Entry"}
+          </Text>
         </TouchableOpacity>
+
       </View>
     </View>
   );
