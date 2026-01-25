@@ -1,3 +1,4 @@
+# backend/app.py
 import json
 import faiss
 import numpy as np
@@ -7,7 +8,7 @@ from sentence_transformers import SentenceTransformer
 from fastapi.staticfiles import StaticFiles
 
 from llm.local_llm import generate_with_ollama
-from tts.generate_audio import generate_audio
+from tts.multilingual_tts import generate_multilingual_audio
 from utils.translate import translate_to_hindi, to_hinglish
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
@@ -27,6 +28,7 @@ class StoryRequest(BaseModel):
 
 class VoiceRequest(BaseModel):
     story: str
+    language: str
 
 @app.post("/story/generate")
 def generate_story(req: StoryRequest):
@@ -68,6 +70,6 @@ def generate_voice(req: VoiceRequest):
     text = req.story.strip()
     if not text:
         raise HTTPException(400, "Empty story text")
-
-    audio_path = generate_audio(text)
+    
+    audio_path = generate_multilingual_audio(text, req.language)
     return {"audio_url": audio_path}

@@ -1,3 +1,4 @@
+# backend/rag/build_index.py
 import json
 import faiss
 import numpy as np

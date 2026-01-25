@@ -99,13 +99,14 @@ export default function StorytellingScreen() {
       setStoryContent(storyData.story);
       setHasGenerated(true);
 
-      if (language !== "English") return;
+      // if (language !== "English") return;
 
       const voiceRes = await fetch(`${API_BASE}/story/voice`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           story: storyData.story,
+          language,
         }),
       });
 
