@@ -2,7 +2,7 @@ export const PLACES = [
   {
     id: '1',
     name: 'Red Fort',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Red_Fort_in_Delhi.jpg/400px-Red_Fort_in_Delhi.jpg',
+    image: 'https://wanderwisdom.com/.image/w_3840,q_auto:good,c_limit/MjAzNDMwNzE1ODA1NjcyNzk2/fort-agra-easy-peasy.jpg?arena_f_auto',
     culturalHook: 'The magnificent seat of Mughal power and Indian independence',
     crowdLevel: 'high',
     category: 'Heritage',
@@ -27,7 +27,7 @@ export const PLACES = [
   {
     id: '2',
     name: 'Qutub Minar',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Qutub_Minar.jpg/400px-Qutub_Minar.jpg',
+    image: 'https://images.squarespace-cdn.com/content/v1/6298cb774cf3830bc9b342bf/f1168ddd-50e9-4e4e-8328-4f1ea7c50d34/qutub-minar-delhi-1.jpg',
     culturalHook: 'Delhi\'s tallest minaret and UNESCO World Heritage Site',
     crowdLevel: 'medium',
     category: 'Heritage',
@@ -52,7 +52,7 @@ export const PLACES = [
   {
     id: '3',
     name: 'Humayun\'s Tomb',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Humayun_Tomb_Delhi.jpg/400px-Humayun_Tomb_Delhi.jpg',
+    image: 'https://s7ap1.scene7.com/is/image/incredibleindia/humayuns-tomb-delhi-3-musthead-hero?qlt=82&ts=1742202049066',
     culturalHook: 'The garden tomb that inspired the Taj Mahal',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -77,7 +77,7 @@ export const PLACES = [
   {
     id: '4',
     name: 'India Gate',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/India_Gate_at_Dusk.jpg/400px-India_Gate_at_Dusk.jpg',
+    image: 'https://i.pinimg.com/736x/e3/a3/99/e3a3993d87799024e3dbc5b88c3922b9.jpg',
     culturalHook: 'War memorial and symbol of national pride',
     crowdLevel: 'high',
     category: 'History',
@@ -102,7 +102,7 @@ export const PLACES = [
   {
     id: '5',
     name: 'Lotus Temple',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Lotus_Temple_Delhi.jpg/400px-Lotus_Temple_Delhi.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBKWPHZYlcvLMSbgZIL7Ano9sHuYC_6hHe_w&s',
     culturalHook: 'A place of peace and architectural marvel',
     crowdLevel: 'medium',
     category: 'Culture',
@@ -127,7 +127,7 @@ export const PLACES = [
   {
     id: '6',
     name: 'Safdarjung Tomb',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Safdarjung_Tomb_Delhi.jpg/400px-Safdarjung_Tomb_Delhi.jpg',
+    image: 'https://vajiramandravi.com/current-affairs/wp-content/uploads/2025/04/safdarjung_tomb.jpg',
     culturalHook: 'Last garden tomb of Mughal architecture',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -152,7 +152,7 @@ export const PLACES = [
   {
     id: '7',
     name: 'Purana Qila',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Purana_Qila_Delhi.jpg/400px-Purana_Qila_Delhi.jpg',
+    image: 'https://www.sushanttravels.com/uploads/V0oeUpb_PURANA_QUILA_2.jpg',
     culturalHook: 'Ancient fort with 5000 years of history',
     crowdLevel: 'medium',
     category: 'Heritage',
@@ -177,7 +177,7 @@ export const PLACES = [
   {
     id: '8',
     name: 'Agrasen ki Baoli',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Agrasen_ki_Baoli.jpg/400px-Agrasen_ki_Baoli.jpg',
+    image: 'https://res.cloudinary.com/purnesh/image/upload/w_540,f_auto,q_auto:eco,c_limit/92876190-2638504226396955-8630912871820957302-n-1.jpg',
     culturalHook: 'Ancient stepwell with mysterious atmosphere',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -202,7 +202,7 @@ export const PLACES = [
   {
     id: '9',
     name: 'Jama Masjid',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Jama_Masjid_Delhi.jpg/400px-Jama_Masjid_Delhi.jpg',
+    image: 'https://static.hectindia.com/0000/6/2024/04/21/jama-masjid-delhi-india.webp',
     culturalHook: 'India\'s largest mosque and architectural masterpiece',
     crowdLevel: 'high',
     category: 'Culture',
@@ -227,7 +227,7 @@ export const PLACES = [
   {
     id: '10',
     name: 'Raj Ghat',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Raj_Ghat_Delhi.jpg/400px-Raj_Ghat_Delhi.jpg',
+    image: 'https://s7ap1.scene7.com/is/image/incredibleindia/raj-ghat-delhi-2-attr-hero?qlt=82&ts=1742198488597',
     culturalHook: 'Memorial to Mahatma Gandhi, Father of the Nation',
     crowdLevel: 'medium',
     category: 'History',
@@ -252,7 +252,7 @@ export const PLACES = [
   {
     id: '11',
     name: 'Zafar Mahal',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Zafar_Mahal_Delhi.jpg/400px-Zafar_Mahal_Delhi.jpg',
+    image: 'https://cdn1.byjus.com/wp-content/uploads/2023/04/Zafar-Mahal.jpeg',
     culturalHook: 'Summer palace of the last Mughal emperor',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -277,7 +277,7 @@ export const PLACES = [
   {
     id: '12',
     name: 'Salimgarh Fort',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Salimgarh_Fort_Delhi.jpg/400px-Salimgarh_Fort_Delhi.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlDCUVC8XN7vcj7Ro5W39CkU9q4mGhJhM7GA&s',
     culturalHook: '17th century Mughal fort with prison history',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -302,7 +302,7 @@ export const PLACES = [
   {
     id: '13',
     name: 'Feroz Shah Kotla',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Feroz_Shah_Kotla_Fort.jpg/400px-Feroz_Shah_Kotla_Fort.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-PnKV0jZcpHzGTwroyY7ZFjTU1lAVHAKHNA&s',
     culturalHook: '14th century fortress with ancient Ashokan pillar',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -327,7 +327,7 @@ export const PLACES = [
   {
     id: '14',
     name: 'Jantar Mantar',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Jantar_Mantar_Delhi.jpg/400px-Jantar_Mantar_Delhi.jpg',
+    image: 'https://www.jaypeehotels.com/blog/wp-content/uploads/2024/09/Blog-5-scaled.jpg',
     culturalHook: 'Ancient astronomical observatory with massive instruments',
     crowdLevel: 'medium',
     category: 'Science',
@@ -352,7 +352,7 @@ export const PLACES = [
   {
     id: '15',
     name: 'Gurudwara Bangla Sahib',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Gurudwara_Bangla_Sahib.jpg/400px-Gurudwara_Bangla_Sahib.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcSQi4W5MD7AObzmtd-pB-BBuqYax5jbx-tQ&s',
     culturalHook: 'Sacred Sikh shrine with golden dome and community kitchen',
     crowdLevel: 'high',
     category: 'Religious',
@@ -377,7 +377,7 @@ export const PLACES = [
   {
     id: '16',
     name: 'ISKCON Temple',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Iskcon_temple_delhi.jpg/400px-Iskcon_temple_delhi.jpg',
+    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/d0/3d/93/iconic-view-iskcon-glory.jpg?w=900&h=500&s=1',
     culturalHook: 'Modern temple dedicated to Lord Krishna with beautiful architecture',
     crowdLevel: 'medium',
     category: 'Religious',
@@ -402,7 +402,7 @@ export const PLACES = [
   {
     id: '17',
     name: 'Akshardham Temple',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Akshardham_Delhi.jpg/400px-Akshardham_Delhi.jpg',
+    image: 'https://static.toiimg.com/photo/48052049/.jpg',
     culturalHook: 'Magnificent Hindu temple complex showcasing Indian culture',
     crowdLevel: 'high',
     category: 'Religious',
@@ -427,7 +427,7 @@ export const PLACES = [
   {
     id: '18',
     name: 'Lodi Gardens',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Lodi_Gardens_Delhi.jpg/400px-Lodi_Gardens_Delhi.jpg',
+    image: 'https://s7ap1.scene7.com/is/image/incredibleindia/lodhi-garden-delhi-delhi-4-attr-hero?qlt=82&ts=1742174558559',
     culturalHook: 'Historic park with 15th century tombs and lush greenery',
     crowdLevel: 'medium',
     category: 'Nature',
@@ -452,7 +452,7 @@ export const PLACES = [
   {
     id: '19',
     name: 'National Museum',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/National_Museum_Delhi.jpg/400px-National_Museum_Delhi.jpg',
+    image: 'https://s7ap1.scene7.com/is/image/incredibleindia/national-museum-delhi-2-attr-hero?qlt=82&ts=1742170067339',
     culturalHook: 'India\'s largest museum with 5000 years of heritage',
     crowdLevel: 'low',
     category: 'Museum',
@@ -477,7 +477,7 @@ export const PLACES = [
   {
     id: '20',
     name: 'National Gallery of Modern Art',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/National_Gallery_of_Modern_Art_Delhi.jpg/400px-National_Gallery_of_Modern_Art_Delhi.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-E-fvahiJXT4uniLh49gqtzOofFKjY_VLSg&s',
     culturalHook: 'Premier modern art museum in historic Jaipur House',
     crowdLevel: 'low',
     category: 'Art',
@@ -502,7 +502,7 @@ export const PLACES = [
   {
     id: '21',
     name: 'Dilli Haat',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Dilli_Haat_Delhi.jpg/400px-Dilli_Haat_Delhi.jpg',
+    image: 'https://delhitourism.travel/images/places-to-visit/headers/dilli-haat-delhi-tourism-entry-fee-timings-holidays-reviews-header.jpg',
     culturalHook: 'Open-air craft market showcasing Indian culture and cuisine',
     crowdLevel: 'high',
     category: 'Market',
@@ -527,7 +527,7 @@ export const PLACES = [
   {
     id: '22',
     name: 'Chandni Chowk',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Chandni_Chowk_Delhi.jpg/400px-Chandni_Chowk_Delhi.jpg',
+    image: 'https://s7ap1.scene7.com/is/image/incredibleindia/chandni-chowk-delhi-2-attr-hero?qlt=82&ts=1742170496098',
     culturalHook: 'Historic market street dating back to Mughal era',
     crowdLevel: 'high',
     category: 'Market',
@@ -552,7 +552,7 @@ export const PLACES = [
   {
     id: '23',
     name: 'Connaught Place',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Connaught_Place_Delhi.jpg/400px-Connaught_Place_Delhi.jpg',
+    image: 'https://static.toiimg.com/thumb/48052467/Places-that-make-Connaught-Place-what-it-is.jpg?width=1200&height=900',
     culturalHook: 'Colonial-era commercial hub with Georgian architecture',
     crowdLevel: 'high',
     category: 'Market',
@@ -577,7 +577,7 @@ export const PLACES = [
   {
     id: '24',
     name: 'Hauz Khas Village',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Hauz_Khas_Village.jpg/400px-Hauz_Khas_Village.jpg',
+    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/6f/c4/64/hauz-khas-village.jpg?w=700&h=400&s=1',
     culturalHook: 'Medieval complex with trendy cafes and art galleries',
     crowdLevel: 'medium',
     category: 'Culture',
@@ -602,7 +602,7 @@ export const PLACES = [
   {
     id: '25',
     name: 'Nizamuddin Dargah',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Nizamuddin_Dargah.jpg/400px-Nizamuddin_Dargah.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-b1r3G6zMZJHX1RvX41Us8HfZpPCDwJZLBg&sg',
     culturalHook: 'Sufi shrine with spiritual atmosphere and qawwali music',
     crowdLevel: 'medium',
     category: 'Religious',
@@ -627,7 +627,7 @@ export const PLACES = [
   {
     id: '26',
     name: 'Tughlaqabad Fort',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Tughlaqabad_Fort.jpg/400px-Tughlaqabad_Fort.jpg',
+    image: 'https://s7ap1.scene7.com/is/image/incredibleindia/tughlaqabad-fort-delhi1-attr-hero?qlt=82&ts=1742191177538',
     culturalHook: 'Massive 14th century fortress with imposing walls',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -652,7 +652,7 @@ export const PLACES = [
   {
     id: '27',
     name: 'Mehrauli Archaeological Park',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mehrauli_Archaeological_Park.jpg/400px-Mehrauli_Archaeological_Park.jpg',
+    image: 'https://s7ap1.scene7.com/is/image/incredibleindia/mehrauli-archaeological-park-delhi-1-attr-hero?qlt=82&ts=1742184718541',
     culturalHook: 'Sprawling park with 100+ monuments spanning 1000 years',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -677,7 +677,7 @@ export const PLACES = [
   {
     id: '28',
     name: 'Sultan Garhi Tomb',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Sultan_Garhi_Tomb.jpg/400px-Sultan_Garhi_Tomb.jpg',
+    image: 'https://kevinstandagephotography.wordpress.com/wp-content/uploads/2023/03/cover-3.jpg',
     culturalHook: 'India\'s first Islamic tomb with unique architecture',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -702,7 +702,7 @@ export const PLACES = [
   {
     id: '29',
     name: 'Bhool Bhulaiya',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Bhool_Bhulaiya_Delhi.jpg/400px-Bhool_Bhulaiya_Delhi.jpg',
+    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/3e/fd/7b/adam-khan-s-tomb.jpg?w=1200&h=-1&s=1',
     culturalHook: 'Mysterious labyrinth with confusing passages',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -727,7 +727,7 @@ export const PLACES = [
   {
     id: '30',
     name: 'Adilabad Fort',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Adilabad_Fort.jpg/400px-Adilabad_Fort.jpg',
+    image: 'https://kevinstandagephotography.wordpress.com/wp-content/uploads/2019/04/ksp_3639.jpg?w=1000',
     culturalHook: 'Fourth city of Delhi with impressive fortifications',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -752,7 +752,7 @@ export const PLACES = [
   {
     id: '31',
     name: 'Chhatarpur Temple',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Chhatarpur_Temple.jpg/400px-Chhatarpur_Temple.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Chattarpur_Temple.jpg',
     culturalHook: 'Second largest temple complex in India with stunning architecture',
     crowdLevel: 'medium',
     category: 'Religious',
@@ -777,7 +777,7 @@ export const PLACES = [
   {
     id: '32',
     name: 'Kalkaji Mandir',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Kalkaji_Mandir.jpg/400px-Kalkaji_Mandir.jpg',
+    image: 'https://www.templepurohit.com/wp-content/uploads/2015/05/Kalkaji-Mandir-Kalka-Devi-temple-Delhi_TemplePurohit-300x225.jpg',
     culturalHook: 'Ancient Hindu temple with spiritual significance',
     crowdLevel: 'high',
     category: 'Religious',
@@ -802,7 +802,7 @@ export const PLACES = [
   {
     id: '33',
     name: 'Nehru Planetarium',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Nehru_Planetarium_Delhi.jpg/400px-Nehru_Planetarium_Delhi.jpg',
+    image: 'https://www.japjitravel.com/blog/wp-content/uploads/2023/01/nehru-planetarium-delhi.jpg',
     culturalHook: 'Astronomy shows and space education center',
     crowdLevel: 'medium',
     category: 'Science',
@@ -827,7 +827,7 @@ export const PLACES = [
   {
     id: '34',
     name: 'National Science Centre',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/National_Science_Centre_Delhi.jpg/400px-National_Science_Centre_Delhi.jpg',
+    image: 'https://www.trodly.com/pictures/attraction/5516.jpg',
     culturalHook: 'Interactive science museum with hands-on exhibits',
     crowdLevel: 'medium',
     category: 'Science',
@@ -852,7 +852,7 @@ export const PLACES = [
   {
     id: '35',
     name: 'National Rail Museum',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/National_Rail_Museum_Delhi.jpg/400px-National_Rail_Museum_Delhi.jpg',
+    image: 'https://s7ap1.scene7.com/is/image/incredibleindia/national-rail-museum-delhi-1-attr-hero?qlt=82&ts=1751459435602',
     culturalHook: 'Preserved heritage of Indian railways with vintage trains',
     crowdLevel: 'low',
     category: 'Museum',
@@ -877,7 +877,7 @@ export const PLACES = [
   {
     id: '36',
     name: 'Crafts Museum',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Crafts_Museum_Delhi.jpg/400px-Crafts_Museum_Delhi.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDDVXVFT_YSaEx8yUNKYNWRVkExz91JarpUQ&s',
     culturalHook: 'Showcase of Indian traditional crafts and textiles',
     crowdLevel: 'low',
     category: 'Museum',
@@ -902,7 +902,7 @@ export const PLACES = [
   {
     id: '37',
     name: 'Sanskriti Museum',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Sanskriti_Museum_Delhi.jpg/400px-Sanskriti_Museum_Delhi.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeG7w00fvtyncDwJ1OrfstgU-KKlyx9iKZMA&s',
     culturalHook: 'Contemporary Indian art and cultural heritage',
     crowdLevel: 'low',
     category: 'Museum',
@@ -927,7 +927,7 @@ export const PLACES = [
   {
     id: '38',
     name: 'Shankar\'s International Dolls Museum',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Shankars_Dolls_Museum.jpg/400px-Shankars_Dolls_Museum.jpg',
+    image: 'https://www.tourmyindia.com/states/delhi/images/shankar-international-dolls-museum1-1.jpg',
     culturalHook: 'Unique collection of dolls from around the world',
     crowdLevel: 'low',
     category: 'Museum',
@@ -952,7 +952,7 @@ export const PLACES = [
   {
     id: '39',
     name: 'Sulabh International Museum of Toilets',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Sulabh_Museum.jpg/400px-Sulabh_Museum.jpg',
+    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/8e/4a/52/caption.jpg?w=1200&h=-1&s=1',
     culturalHook: 'Unique museum showcasing the history of sanitation',
     crowdLevel: 'low',
     category: 'Museum',
@@ -977,7 +977,7 @@ export const PLACES = [
   {
     id: '40',
     name: 'Gandhi Smriti',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Gandhi_Smriti_Delhi.jpg/400px-Gandhi_Smriti_Delhi.jpg',
+    image: 'https://static.toiimg.com/photo/msid-44856038,width-96,height-65.cms',
     culturalHook: 'Memorial where Mahatma Gandhi spent his last days',
     crowdLevel: 'medium',
     category: 'History',
@@ -1002,7 +1002,7 @@ export const PLACES = [
   {
     id: '41',
     name: 'Indira Gandhi Memorial Museum',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Indira_Gandhi_Museum.jpg/400px-Indira_Gandhi_Museum.jpg',
+    image: 'https://static.toiimg.com/photo/62650852/.jpg',
     culturalHook: 'Memorial to India\'s first female Prime Minister',
     crowdLevel: 'low',
     category: 'History',
@@ -1027,7 +1027,7 @@ export const PLACES = [
   {
     id: '42',
     name: 'Nehru Memorial Museum and Library',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Nehru_Museum_Delhi.jpg/400px-Nehru_Museum_Delhi.jpg',
+    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/b3/8b/8e/main-building.jpg?w=900&h=500&s=1',
     culturalHook: 'Former residence of India\'s first Prime Minister',
     crowdLevel: 'low',
     category: 'History',
@@ -1052,7 +1052,7 @@ export const PLACES = [
   {
     id: '43',
     name: 'National Gandhi Museum',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/National_Gandhi_Museum.jpg/400px-National_Gandhi_Museum.jpg',
+    image: 'https://www.mkgandhi.org/images/ngm.jpg',
     culturalHook: 'Comprehensive museum on Mahatma Gandhi\'s life and philosophy',
     crowdLevel: 'low',
     category: 'History',
@@ -1077,7 +1077,7 @@ export const PLACES = [
   {
     id: '44',
     name: 'Dara Shikoh Library',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Dara_Shikoh_Library.jpg/400px-Dara_Shikoh_Library.jpg',
+    image: 'https://www.sushanttravels.com/uploads/xVrxuwY_DARA_SHIKOH_LIBRARY_1.jpg',
     culturalHook: 'Historic library with Mughal-era manuscripts',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -1102,7 +1102,7 @@ export const PLACES = [
   {
     id: '45',
     name: 'Mirza Ghalib Tomb',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mirza_Ghalib_Tomb.jpg/400px-Mirza_Ghalib_Tomb.jpg',
+    image: 'https://static.toiimg.com/thumb/62268229/Mirza-Ghalib-Tomb-Delhi.jpg?width=1200&height=900',
     culturalHook: 'Resting place of renowned Urdu poet',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -1127,7 +1127,7 @@ export const PLACES = [
   {
     id: '46',
     name: 'Razia Sultan Tomb',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Razia_Sultan_Tomb.jpg/400px-Razia_Sultan_Tomb.jpg',
+    image: 'https://static.toiimg.com/thumb/msid-47706871,width=1200,height=900/47706871.jpg',
     culturalHook: 'Tomb of India\'s first female Muslim ruler',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -1152,7 +1152,7 @@ export const PLACES = [
   {
     id: '47',
     name: 'Jahaz Mahal',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Jahaz_Mahal_Delhi.jpg/400px-Jahaz_Mahal_Delhi.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Jahaz_Mahal_on_the_bank_of_Hauz-i-Shamsi.jpg',
     culturalHook: 'Ship palace built in the middle of a reservoir',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -1177,7 +1177,7 @@ export const PLACES = [
   {
     id: '48',
     name: 'Moth Ki Masjid',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Moth_Ki_Masjid.jpg/400px-Moth_Ki_Masjid.jpg',
+    image: 'https://kevinstandagephotography.wordpress.com/wp-content/uploads/2024/04/moth-ki-masjid.jpg',
     culturalHook: '15th century mosque with unique architectural style',
     crowdLevel: 'low',
     category: 'Religious',
@@ -1202,7 +1202,7 @@ export const PLACES = [
   {
     id: '49',
     name: 'Kalan Masjid',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Kalan_Masjid.jpg/400px-Kalan_Masjid.jpg',
+    image: 'https://shahjahanabad.eheritageproject.in/wp-content/uploads/2014/03/IMG_6484.jpg',
     culturalHook: 'Ancient mosque with impressive architecture',
     crowdLevel: 'low',
     category: 'Religious',
@@ -1227,7 +1227,7 @@ export const PLACES = [
   {
     id: '50',
     name: 'Khirki Masjid',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Khirki_Masjid.jpg/400px-Khirki_Masjid.jpg',
+    image: 'https://lh3.googleusercontent.com/gps-cs-s/AHVAwepH1JVFFsIokeSILeRKxK77Yxj4VFcQxObbm0mOH5mJodbPM_FOymdtRBOnorHt96DcFVCJZqpxJh6Gr_Uwi62BiThN6K9M7nYJX33XwHAIQ_0Em0cMbK-ChyhCdQXmDfIaA4wwjyMy4pUl=s1360-w1360-h1020-rw',
     culturalHook: 'Unique mosque with windows instead of arches',
     crowdLevel: 'low',
     category: 'Religious',
@@ -1252,7 +1252,7 @@ export const PLACES = [
   {
     id: '51',
     name: 'Madan Mohan Malaviya Memorial',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Madan_Mohan_Malaviya_Memorial.jpg/400px-Madan_Mohan_Malaviya_Memorial.jpg',
+    image: 'https://staticprintenglish.theprint.in/wp-content/uploads/2018/12/Madan-Mohan-Malviya.jpg',
     culturalHook: 'Memorial to great freedom fighter and educationist',
     crowdLevel: 'low',
     category: 'History',
@@ -1277,7 +1277,7 @@ export const PLACES = [
   {
     id: '52',
     name: 'Bhuli Bhatiyari Ka Mahal',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Bhuli_Bhatiyari_Ka_Mahal.jpg/400px-Bhuli_Bhatiyari_Ka_Mahal.jpg',
+    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/ea/1f/81/bhuli-bhatiyari-ka-mahal.jpg?w=900&h=500&s=1',
     culturalHook: 'Mysterious 14th century hunting lodge with legends',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -1302,7 +1302,7 @@ export const PLACES = [
   {
     id: '53',
     name: 'Bijri Khan\'s Tomb',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Bijri_Khans_Tomb.jpg/400px-Bijri_Khans_Tomb.jpg',
+    image: 'https://archaeology.delhi.gov.in/sites/default/files/archaeology/resize/0_15.jpg',
     culturalHook: 'Elegant 16th century Mughal tomb',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -1327,7 +1327,7 @@ export const PLACES = [
   {
     id: '54',
     name: 'Bara Gumbad Mosque',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Bara_Gumbad_Mosque.jpg/400px-Bara_Gumbad_Mosque.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmlWJvKzZzGXzfN2Kn-uvegtcu8izhkQHWEA&s',
     culturalHook: '15th century mosque with impressive dome',
     crowdLevel: 'low',
     category: 'Religious',
@@ -1352,7 +1352,7 @@ export const PLACES = [
   {
     id: '55',
     name: 'Sheesh Mahal',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Sheesh_Mahal_Delhi.jpg/400px-Sheesh_Mahal_Delhi.jpg',
+    image: 'https://miro.medium.com/1*5X141Fj7w7pgjb60uYzbrg.jpeg',
     culturalHook: 'Mirror palace with stunning glasswork',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -1377,7 +1377,7 @@ export const PLACES = [
   {
     id: '56',
     name: 'Satpula Bridge',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Satpula_Bridge.jpg/400px-Satpula_Bridge.jpg',
+    image: 'https://res.cloudinary.com/purnesh/image/upload/f_auto/v1494758731/satpula03.jpg',
     culturalHook: '14th century stone bridge with seven arches',
     crowdLevel: 'low',
     category: 'Heritage',
@@ -1402,7 +1402,7 @@ export const PLACES = [
   {
     id: '57',
     name: 'Wazirpur Mosque',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Wazirpur_Mosque.jpg/400px-Wazirpur_Mosque.jpg',
+    image: 'https://media.sciencephoto.com/f0/39/48/91/f0394891-800px-wm.jpg',
     culturalHook: 'Ancient mosque with unique architectural features',
     crowdLevel: 'low',
     category: 'Religious',
@@ -1427,7 +1427,7 @@ export const PLACES = [
   {
     id: '58',
     name: 'Chauburja Mosque',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Chauburja_Mosque.jpg/400px-Chauburja_Mosque.jpg',
+    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/69/e3/12/chauburji-masjid.jpg?w=900&h=500&s=1',
     culturalHook: 'Mosque with four towers and unique design',
     crowdLevel: 'low',
     category: 'Religious',
@@ -1452,7 +1452,7 @@ export const PLACES = [
   {
     id: '59',
     name: 'Gandhi Memorial Museum',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Gandhi_Memorial_Museum.jpg/400px-Gandhi_Memorial_Museum.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrrVzeqDG43IwQwg_N-mKOUVzWQopfK3f6FA&s',
     culturalHook: 'Dedicated to Gandhi\'s life and freedom struggle',
     crowdLevel: 'low',
     category: 'History',
@@ -1477,7 +1477,7 @@ export const PLACES = [
   {
     id: '60',
     name: 'National Philatelic Museum',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/National_Philatelic_Museum.jpg/400px-National_Philatelic_Museum.jpg',
+    image: 'https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/sites/1/2016/02/160816_PhilatelicMuseum1.jpg',
     culturalHook: 'Collection of rare stamps and postal history',
     crowdLevel: 'low',
     category: 'Museum',
@@ -1502,7 +1502,7 @@ export const PLACES = [
   {
     id: '61',
     name: 'National Museum of Natural History',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/National_Museum_Natural_History.jpg/400px-National_Museum_Natural_History.jpg',
+    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/4d/b1/0d/large-sea-creatures.jpg?w=900&h=500&s=1',
     culturalHook: 'Showcase of India\'s natural heritage and biodiversity',
     crowdLevel: 'medium',
     category: 'Museum',
@@ -1527,7 +1527,7 @@ export const PLACES = [
   {
     id: '62',
     name: 'Air Force Museum',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Air_Force_Museum_Delhi.jpg/400px-Air_Force_Museum_Delhi.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6EHyq5zZGpGAJAKf06av38NE5H-dkoTPGQQ&s',
     culturalHook: 'Aviation history and Indian Air Force heritage',
     crowdLevel: 'medium',
     category: 'Museum',
@@ -1552,7 +1552,7 @@ export const PLACES = [
   {
     id: '63',
     name: 'Egmore Museum',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Egmore_Museum.jpg/400px-Egmore_Museum.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Egmore_Museum_building.jpeg',
     culturalHook: 'Archaeological treasures and ancient artifacts',
     crowdLevel: 'low',
     category: 'Museum',
@@ -1577,7 +1577,7 @@ export const PLACES = [
   {
     id: '64',
     name: 'Archaeological Museum',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Archaeological_Museum_Delhi.jpg/400px-Archaeological_Museum_Delhi.jpg',
+    image: 'https://www.whatsoninkos.com/wp-content/uploads/2018/05/Archeological-Museum.jpg',
     culturalHook: 'Ancient artifacts and archaeological discoveries',
     crowdLevel: 'low',
     category: 'Museum',
@@ -1602,7 +1602,7 @@ export const PLACES = [
   {
     id: '65',
     name: 'National Police Memorial',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/National_Police_Memorial.jpg/400px-National_Police_Memorial.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/National_Police_Museum_New_Delhi_India.jpg',
     culturalHook: 'Tribute to police personnel who sacrificed their lives',
     crowdLevel: 'low',
     category: 'History',
@@ -1627,7 +1627,7 @@ export const PLACES = [
   {
     id: '66',
     name: 'War Memorial Museum',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/War_Memorial_Museum.jpg/400px-War_Memorial_Museum.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/1/17/National_War_Memorial_on_the_21st_anniversary_of_Kargil_Vijay_Diwas%2C_2020.jpg',
     culturalHook: 'Tribute to Indian armed forces and war heroes',
     crowdLevel: 'medium',
     category: 'History',
@@ -1652,7 +1652,7 @@ export const PLACES = [
   {
     id: '67',
     name: 'Shankar\'s International Dolls Museum',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Shankars_Dolls_Museum.jpg/400px-Shankars_Dolls_Museum.jpg',
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhikX5dtqjxNKKdqiX1Cka9Dh34uCDZVIUbKul36dzDgMd5U5X5TbJOUSrDoELWkCUhdcIxzuFtovaMZPTLIfyEu2xpw1pbq40vqDH36hGLfzTHEH3TzR10U9vXft6-3mYWwXw-p3C9NyFN/s1600/Doll+Museum+Delhi+Pixelated+Memories+Sahil+Ahuja+%25285%2529.JPG',
     culturalHook: 'Unique collection of dolls from around the world',
     crowdLevel: 'low',
     category: 'Museum',
