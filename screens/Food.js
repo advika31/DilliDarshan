@@ -30,6 +30,12 @@ export const FOOD_CATEGORIES = [
     name: 'Pure Vegetarian',
     icon: '🥗',
     color: '#95E1D3'
+  },
+  {
+    id: 'fast-food',
+    name: 'Fast Food',
+    icon: '🍔',
+    color: '#E74C3C'
   }
 ];
 
@@ -382,6 +388,59 @@ export const FOOD_ITEMS = [
     bestTime: '7:00 AM - 10:00 PM',
     priceRange: '₹100-220 per person',
     ratings: 4.5
+  },
+
+  // Fast Food Category (3 items)
+  {
+    id: 'food-21',
+    name: 'Burger King Delhi',
+    category: 'fast-food',
+    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400',
+    description: 'Premium flame-grilled burgers and quick service',
+    location: 'Connaught Place, New Delhi',
+    nearestMetro: 'Rajiv Chowk (Blue/Yellow Line)',
+    metroDistance: '5 minutes walk',
+    transportConnectivity: 'Metro: Blue/Yellow Line\nAuto: ₹30-50\nBus: 403, 420',
+    heritageInfo: 'Modern fast food experience in central Delhi\nPremium dining with fast service\nInternational burger standards',
+    highlights: ['Whopper', 'Chicken Burgers', 'Fries', 'Shakes', 'Combos'],
+    navigateCoordinates: '28.6318, 77.2197',
+    bestTime: '11:00 AM - 11:00 PM',
+    priceRange: '₹150-350 per person',
+    ratings: 4.3
+  },
+  {
+    id: 'food-22',
+    name: 'Domino\'s Pizza - Khan Market',
+    category: 'fast-food',
+    image: 'https://images.unsplash.com/photo-1585238341710-4913d3f3611e?w=400',
+    description: 'Fresh pizzas with authentic Italian flavors',
+    location: 'Khan Market, New Delhi',
+    nearestMetro: 'Kalkaji Mandir (Blue Line)',
+    metroDistance: '8 minutes walk',
+    transportConnectivity: 'Metro: Blue Line\nAuto: ₹60-80\nBus: 401, 405',
+    heritageInfo: 'Contemporary pizza delivery in trendy Khan Market\nFresh baked pizzas with quality ingredients\nPerfect for casual dining',
+    highlights: ['Cheese Pizza', 'Veggie Supreme', 'Chicken Feast', 'Garlic Breadsticks', 'Sides'],
+    navigateCoordinates: '28.5679, 77.2422',
+    bestTime: '12:00 PM - 11:30 PM',
+    priceRange: '₹200-500 per person',
+    ratings: 4.4
+  },
+  {
+    id: 'food-23',
+    name: 'Olive Bar & Kitchen - Pasta House',
+    category: 'fast-food',
+    image: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400',
+    description: 'Italian pasta and contemporary fusion cuisine',
+    location: 'Mehrauli, New Delhi',
+    nearestMetro: 'Chhatarpur (Violet Line)',
+    metroDistance: '10 minutes drive',
+    transportConnectivity: 'Auto: ₹80-120\nBus: 506, 507',
+    heritageInfo: 'Premium Italian pasta restaurant\nAuthentic Italian recipes with modern twist\nCozy dining experience near heritage sites',
+    highlights: ['Pasta Carbonara', 'Penne Arrabbiata', 'Fettuccine Alfredo', 'Risotto', 'Tiramisu'],
+    navigateCoordinates: '28.5244, 77.1963',
+    bestTime: '12:30 PM - 11:00 PM',
+    priceRange: '₹300-600 per person',
+    ratings: 4.6
   }
 ];
 

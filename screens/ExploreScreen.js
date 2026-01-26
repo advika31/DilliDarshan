@@ -10,13 +10,15 @@ import {
   ScrollView,
   Modal,
   ImageBackground,
+  Linking,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
-import * as Location from "expo-location";
 import { PLACES } from "../constants/places";
 import { FOOD_ITEMS, FOOD_CATEGORIES, getFoodItemsByCategory } from "./Food";
+import { MARKET_ITEMS, MARKET_CATEGORIES, getMarketItemsByCategory } from "./Market";
+import { FESTIVAL_ITEMS, FESTIVAL_CATEGORIES, getFestivalItemsByCategory } from "./Culture";
 
 const CATEGORIES = [
   { id: "1", name: "Heritage", icon: "business" },
@@ -32,6 +34,12 @@ const ExploreScreen = () => {
   const [selectedFoodSubCategory, setSelectedFoodSubCategory] = useState(null);
   const [selectedFoodItem, setSelectedFoodItem] = useState(null);
   const [showFoodDetailsModal, setShowFoodDetailsModal] = useState(false);
+  const [selectedMarketSubCategory, setSelectedMarketSubCategory] = useState(null);
+  const [selectedMarketItem, setSelectedMarketItem] = useState(null);
+  const [showMarketDetailsModal, setShowMarketDetailsModal] = useState(false);
+  const [selectedFestivalSubCategory, setSelectedFestivalSubCategory] = useState(null);
+  const [selectedFestivalItem, setSelectedFestivalItem] = useState(null);
+  const [showFestivalDetailsModal, setShowFestivalDetailsModal] = useState(false);
 
   /* ---------------- render helpers ---------------- */
   const renderCategory = ({ item }) => (
@@ -103,6 +111,78 @@ const ExploreScreen = () => {
     </TouchableOpacity>
   );
 
+  const renderMarketCategory = ({ item }) => (
+    <TouchableOpacity
+      style={[
+        styles.catItem,
+        selectedMarketSubCategory === item.id && styles.catItemActive,
+      ]}
+      onPress={() =>
+        setSelectedMarketSubCategory(prev => (prev === item.id ? null : item.id))
+      }
+    >
+      <View style={[styles.catIconWrapper, { backgroundColor: item.color + '20' }]}>
+        <Text style={styles.categoryEmoji}>{item.icon}</Text>
+      </View>
+      <Text style={styles.catText}>{item.name}</Text>
+    </TouchableOpacity>
+  );
+
+  const renderMarketItem = ({ item }) => (
+    <TouchableOpacity
+      style={styles.placeCard}
+      onPress={() => {
+        setSelectedMarketItem(item);
+        setShowMarketDetailsModal(true);
+      }}
+      activeOpacity={0.9}
+    >
+      <Image source={{ uri: item.image }} style={styles.placeImage} />
+      <View style={styles.placeInfo}>
+        <Text style={styles.placeName}>{item.name}</Text>
+        <Text style={styles.placeHook} numberOfLines={1}>
+          {item.description}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+
+  const renderFestivalCategory = ({ item }) => (
+    <TouchableOpacity
+      style={[
+        styles.catItem,
+        selectedFestivalSubCategory === item.id && styles.catItemActive,
+      ]}
+      onPress={() =>
+        setSelectedFestivalSubCategory(prev => (prev === item.id ? null : item.id))
+      }
+    >
+      <View style={[styles.catIconWrapper, { backgroundColor: item.color + '20' }]}>
+        <Text style={styles.categoryEmoji}>{item.icon}</Text>
+      </View>
+      <Text style={styles.catText}>{item.name}</Text>
+    </TouchableOpacity>
+  );
+
+  const renderFestivalItem = ({ item }) => (
+    <TouchableOpacity
+      style={styles.placeCard}
+      onPress={() => {
+        setSelectedFestivalItem(item);
+        setShowFestivalDetailsModal(true);
+      }}
+      activeOpacity={0.9}
+    >
+      <Image source={{ uri: item.image }} style={styles.placeImage} />
+      <View style={styles.placeInfo}>
+        <Text style={styles.placeName}>{item.name}</Text>
+        <Text style={styles.placeHook} numberOfLines={1}>
+          {item.description}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+
   const places = selectedCategory
     ? PLACES.filter(p => p.category === selectedCategory)
     : PLACES;
@@ -111,11 +191,19 @@ const ExploreScreen = () => {
     ? getFoodItemsByCategory(selectedFoodSubCategory)
     : [];
 
+  const marketItems = selectedCategory === "Market" && selectedMarketSubCategory
+    ? getMarketItemsByCategory(selectedMarketSubCategory)
+    : [];
+
+  const festivalItems = selectedCategory === "Culture" && selectedFestivalSubCategory
+    ? getFestivalItemsByCategory(selectedFestivalSubCategory)
+    : [];
+
   const handleNavigate = async (coordinates) => {
     try {
       const [latitude, longitude] = coordinates.split(", ").map(Number);
       const url = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
-      await Location.openURL(url);
+      await Linking.openURL(url);
     } catch (error) {
       console.log("Navigation error:", error);
     }
@@ -128,13 +216,23 @@ const ExploreScreen = () => {
         <View style={styles.header}>
           <View style={styles.headerContent}>
             <Text style={styles.headerTitle}>Explore Delhi</Text>
-            {selectedCategory === "Food" && selectedFoodSubCategory && (
+            {(selectedCategory === "Food" || selectedCategory === "Market" || selectedCategory === "Culture" || selectedCategory === "Heritage") && (
               <TouchableOpacity
-                onPress={() => setSelectedFoodSubCategory(null)}
+                onPress={() => {
+                  if (selectedCategory === "Food" && selectedFoodSubCategory) {
+                    setSelectedFoodSubCategory(null);
+                  } else if (selectedCategory === "Market" && selectedMarketSubCategory) {
+                    setSelectedMarketSubCategory(null);
+                  } else if (selectedCategory === "Culture" && selectedFestivalSubCategory) {
+                    setSelectedFestivalSubCategory(null);
+                  } else {
+                    setSelectedCategory(null);
+                  }
+                }}
                 style={styles.backButton}
               >
                 <Ionicons name="arrow-back" size={24} color="#FF8C00" />
-                <Text style={styles.backText}>Back</Text>
+                <Text style={[styles.backText, { color: "#FF8C00" }]}>Back</Text>
               </TouchableOpacity>
             )}
           </View>
@@ -153,31 +251,100 @@ const ExploreScreen = () => {
           />
         </View>
 
-        {/* Places or Food */}
+        {/* Places, Food, Market or Culture */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>
             {selectedCategory === "Food"
               ? selectedFoodSubCategory
                 ? FOOD_CATEGORIES.find(c => c.id === selectedFoodSubCategory)?.name || "Food Items"
                 : "Food Categories"
+              : selectedCategory === "Market"
+              ? selectedMarketSubCategory
+                ? MARKET_CATEGORIES.find(c => c.id === selectedMarketSubCategory)?.name || "Marketplaces"
+                : "Market Categories"
+              : selectedCategory === "Culture"
+              ? selectedFestivalSubCategory
+                ? FESTIVAL_CATEGORIES.find(c => c.id === selectedFestivalSubCategory)?.name || "Festivals"
+                : "Festival Categories"
               : selectedCategory || "All Places"}
           </Text>
 
           {selectedCategory === "Food" ? (
             !selectedFoodSubCategory ? (
-              // Show Food Categories
-              <FlatList
-                horizontal
-                data={FOOD_CATEGORIES}
-                renderItem={renderFoodCategory}
-                keyExtractor={i => i.id}
-                showsHorizontalScrollIndicator={false}
-                contentContainerStyle={styles.catList}
-              />
+              // Show Food Categories in Grid (2 per row)
+              <View style={styles.foodCategoryGrid}>
+                {FOOD_CATEGORIES.map((item) => (
+                  <TouchableOpacity
+                    key={item.id}
+                    style={[
+                      styles.foodCategoryItem,
+                      selectedFoodSubCategory === item.id && styles.catItemActive,
+                    ]}
+                    onPress={() => setSelectedFoodSubCategory(item.id)}
+                  >
+                    <View style={[styles.foodCategoryIconWrapper, { backgroundColor: item.color + '20' }]}>
+                      <Text style={styles.foodCategoryEmoji}>{item.icon}</Text>
+                    </View>
+                    <Text style={styles.foodCategoryText}>{item.name}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
             ) : (
-              // Show Food Items in Selected Category
+              // Show Food Items in Selected Category - VERTICAL
               foodItems.map(item => (
                 <View key={item.id}>{renderFoodItem({ item })}</View>
+              ))
+            )
+          ) : selectedCategory === "Market" ? (
+            !selectedMarketSubCategory ? (
+              // Show Market Categories in Grid (2 per row)
+              <View style={styles.foodCategoryGrid}>
+                {MARKET_CATEGORIES.map((item) => (
+                  <TouchableOpacity
+                    key={item.id}
+                    style={[
+                      styles.foodCategoryItem,
+                      selectedMarketSubCategory === item.id && styles.catItemActive,
+                    ]}
+                    onPress={() => setSelectedMarketSubCategory(item.id)}
+                  >
+                    <View style={[styles.foodCategoryIconWrapper, { backgroundColor: item.color + '20' }]}>
+                      <Text style={styles.foodCategoryEmoji}>{item.icon}</Text>
+                    </View>
+                    <Text style={styles.foodCategoryText}>{item.name}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            ) : (
+              // Show Market Items in Selected Category - VERTICAL
+              marketItems.map(item => (
+                <View key={item.id}>{renderMarketItem({ item })}</View>
+              ))
+            )
+          ) : selectedCategory === "Culture" ? (
+            !selectedFestivalSubCategory ? (
+              // Show Festival Categories in Grid (2 per row)
+              <View style={styles.foodCategoryGrid}>
+                {FESTIVAL_CATEGORIES.map((item) => (
+                  <TouchableOpacity
+                    key={item.id}
+                    style={[
+                      styles.foodCategoryItem,
+                      selectedFestivalSubCategory === item.id && styles.catItemActive,
+                    ]}
+                    onPress={() => setSelectedFestivalSubCategory(item.id)}
+                  >
+                    <View style={[styles.foodCategoryIconWrapper, { backgroundColor: item.color + '20' }]}>
+                      <Text style={styles.foodCategoryEmoji}>{item.icon}</Text>
+                    </View>
+                    <Text style={styles.foodCategoryText}>{item.name}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            ) : (
+              // Show Festival Items in Selected Category - VERTICAL
+              festivalItems.map(item => (
+                <View key={item.id}>{renderFestivalItem({ item })}</View>
               ))
             )
           ) : (
@@ -199,7 +366,22 @@ const ExploreScreen = () => {
           setSelectedFoodItem(null);
         }}
       >
-        <View style={styles.detailsModalContainer}>
+        <SafeAreaView style={styles.container}>
+          {/* Modal Header */}
+          <View style={styles.modalHeader}>
+            <TouchableOpacity
+              onPress={() => {
+                setShowFoodDetailsModal(false);
+                setSelectedFoodItem(null);
+              }}
+              style={styles.modalBackButton}
+            >
+              <Ionicons name="arrow-back" size={24} color="#2563eb" />
+              <Text style={styles.modalBackText}>Main</Text>
+            </TouchableOpacity>
+            <Text style={styles.modalTitle}>Food Details</Text>
+            <View style={{ width: 60 }} />
+          </View>
           <ScrollView showsVerticalScrollIndicator={false}>
             {selectedFoodItem && (
               <>
@@ -208,7 +390,7 @@ const ExploreScreen = () => {
                   source={{ uri: selectedFoodItem.image }}
                   style={styles.heroImage}
                 >
-                  <SafeAreaView style={styles.heroOverlay}>
+                  <SafeAreaView style={[styles.heroOverlay, { alignItems: 'flex-end' }]}>
                     <TouchableOpacity
                       style={styles.backBtn}
                       onPress={() => {
@@ -216,10 +398,11 @@ const ExploreScreen = () => {
                         setSelectedFoodItem(null);
                       }}
                     >
-                      <Ionicons name="arrow-back" size={24} color="#FFF" />
+                      <Text style={styles.backBtnText}>Back</Text>
+                      <Ionicons name="arrow-forward" size={20} color="#FF8C00" />
                     </TouchableOpacity>
 
-                    <View style={styles.heroBottom}>
+                    <View style={[styles.heroBottom, { alignSelf: 'flex-start', width: '100%' }]}>
                       <View style={[styles.crowdStatus, { backgroundColor: "#FF8C00" }]}>
                         <Text style={styles.crowdStatusText}>FOOD PLACE</Text>
                       </View>
@@ -327,7 +510,329 @@ const ExploreScreen = () => {
               </>
             )}
           </ScrollView>
-        </View>
+        </SafeAreaView>
+      </Modal>
+
+      {/* MARKET ITEM DETAILS MODAL */}
+      <Modal
+        visible={showMarketDetailsModal}
+        transparent={false}
+        animationType="slide"
+        onRequestClose={() => {
+          setShowMarketDetailsModal(false);
+          setSelectedMarketItem(null);
+        }}
+      >
+        <SafeAreaView style={styles.container}>
+          {/* Modal Header */}
+          <View style={styles.modalHeader}>
+            <TouchableOpacity
+              onPress={() => {
+                setShowMarketDetailsModal(false);
+                setSelectedMarketItem(null);
+              }}
+              style={styles.modalBackButton}
+            >
+              <Ionicons name="arrow-back" size={24} color="#2563eb" />
+              <Text style={styles.modalBackText}>Main</Text>
+            </TouchableOpacity>
+            <Text style={styles.modalTitle}>Market Details</Text>
+            <View style={{ width: 60 }} />
+          </View>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            {selectedMarketItem && (
+              <>
+                {/* HERO IMAGE WITH BACK BUTTON */}
+                <ImageBackground
+                  source={{ uri: selectedMarketItem.image }}
+                  style={styles.heroImage}
+                >
+                  <SafeAreaView style={[styles.heroOverlay, { alignItems: 'flex-end' }]}>
+                    <TouchableOpacity
+                      style={styles.backBtn}
+                      onPress={() => {
+                        setShowMarketDetailsModal(false);
+                        setSelectedMarketItem(null);
+                      }}
+                    >
+                      <Text style={styles.backBtnText}>Back</Text>
+                      <Ionicons name="arrow-forward" size={20} color="#FF8C00" />
+                    </TouchableOpacity>
+
+                    <View style={[styles.heroBottom, { alignSelf: 'flex-start', width: '100%' }]}>
+                      <View style={[styles.crowdStatus, { backgroundColor: "#FF8C00" }]}>
+                        <Text style={styles.crowdStatusText}>MARKETPLACE</Text>
+                      </View>
+                      <Text style={styles.placeName}>{selectedMarketItem.name}</Text>
+                      <Text style={styles.placeHook}>{selectedMarketItem.description}</Text>
+                    </View>
+                  </SafeAreaView>
+                </ImageBackground>
+
+                {/* INFO TILES */}
+                <View style={styles.content}>
+                  <View style={styles.infoGrid}>
+                    <View style={styles.infoTile}>
+                      <Ionicons name="time-outline" size={20} color="#FF8C00" />
+                      <Text style={[styles.tileLabel, { color: "#FF8C00" }]}>Best Time</Text>
+                      <Text style={styles.tileValue}>{selectedMarketItem.bestTime}</Text>
+                    </View>
+                    <View style={styles.infoTile}>
+                      <Ionicons name="pricetag-outline" size={20} color="#FF8C00" />
+                      <Text style={[styles.tileLabel, { color: "#FF8C00" }]}>Price Range</Text>
+                      <Text style={styles.tileValue}>{selectedMarketItem.priceRange}</Text>
+                    </View>
+                    <View style={styles.infoTile}>
+                      <Ionicons name="star" size={20} color="#FFB800" />
+                      <Text style={styles.tileLabel}>Rating</Text>
+                      <Text style={styles.tileValue}>{selectedMarketItem.ratings}</Text>
+                    </View>
+                  </View>
+
+                  {/* NEAREST METRO */}
+                  <View style={styles.section}>
+                    <Text style={styles.sectionHeading}>Transport & Connectivity</Text>
+                    <View style={styles.metroCard}>
+                      <View style={[styles.metroTag, { backgroundColor: "#FF8C00" }]}>
+                        <Ionicons name="train" size={16} color="#FFF" />
+                        <Text style={styles.metroTagText}>Metro Accessible</Text>
+                      </View>
+                      <Text style={styles.metroName}>{selectedMarketItem.nearestMetro}</Text>
+                      <Text style={styles.metroDistance}>{selectedMarketItem.metroDistance}</Text>
+                    </View>
+                  </View>
+
+                  {/* TRANSPORT INFO */}
+                  <View style={styles.transportInfo}>
+                    <Text style={[styles.transportLabel, { color: "#FF8C00" }]}>How to Reach</Text>
+                    <View style={styles.transportCardsRow}>
+                      <View style={styles.transportCard}>
+                        <Ionicons name="car" size={18} color="#FF8C00" />
+                        <Text style={styles.transportCardTitle}>Auto-Rickshaw</Text>
+                        <Text style={styles.transportCardText}>₹40-60</Text>
+                      </View>
+                      <View style={styles.transportCard}>
+                        <Ionicons name="bus" size={18} color="#FF8C00" />
+                        <Text style={styles.transportCardTitle}>Bus Routes</Text>
+                        <Text style={styles.transportCardText}>Available</Text>
+                      </View>
+                    </View>
+                  </View>
+
+                  {/* MARKET INFO */}
+                  <View style={styles.section}>
+                    <Text style={styles.sectionHeading}>About This Market</Text>
+                    <View style={styles.guideCard}>
+                      <Text style={styles.guideText}>{selectedMarketItem.marketInfo}</Text>
+                    </View>
+                  </View>
+
+                  {/* HIGHLIGHTS */}
+                  <View style={styles.section}>
+                    <Text style={styles.sectionHeading}>What to Find</Text>
+                    <View style={styles.highlightsContainer}>
+                      {selectedMarketItem.highlights.map((highlight, idx) => (
+                        <View key={idx} style={styles.highlightItemFood}>
+                          <Ionicons name="checkmark-circle" size={16} color="#FF8C00" />
+                          <Text style={styles.highlightTextFood}>{highlight}</Text>
+                        </View>
+                      ))}
+                    </View>
+                  </View>
+
+                  {/* LOCATION */}
+                  <View style={styles.section}>
+                    <Text style={styles.sectionHeading}>Location</Text>
+                    <View style={styles.locationCard}>
+                      <Ionicons name="location" size={20} color="#10b981" />
+                      <View style={styles.locationInfo}>
+                        <Text style={styles.locationName}>{selectedMarketItem.location}</Text>
+                      </View>
+                    </View>
+                  </View>
+
+                  {/* ACTION BUTTONS */}
+                  <View style={styles.actionButtons}>
+                    <TouchableOpacity 
+                      style={[styles.navigateBtn, { backgroundColor: "#FF8C00" }]}
+                      onPress={() => handleNavigate(selectedMarketItem.navigateCoordinates)}
+                    >
+                      <Ionicons name="navigate" size={20} color="#FFF" />
+                      <Text style={styles.navigateBtnText}>Navigate</Text>
+                    </TouchableOpacity>
+                  </View>
+
+                  <View style={{ height: 30 }} />
+                </View>
+              </>
+            )}
+          </ScrollView>
+        </SafeAreaView>
+      </Modal>
+
+      {/* FESTIVAL ITEM DETAILS MODAL */}
+      <Modal
+        visible={showFestivalDetailsModal}
+        transparent={false}
+        animationType="slide"
+        onRequestClose={() => {
+          setShowFestivalDetailsModal(false);
+          setSelectedFestivalItem(null);
+        }}
+      >
+        <SafeAreaView style={styles.container}>
+          {/* Modal Header */}
+          <View style={styles.modalHeader}>
+            <TouchableOpacity
+              onPress={() => {
+                setShowFestivalDetailsModal(false);
+                setSelectedFestivalItem(null);
+              }}
+              style={styles.modalBackButton}
+            >
+              <Ionicons name="arrow-back" size={24} color="#2563eb" />
+              <Text style={styles.modalBackText}>Main</Text>
+            </TouchableOpacity>
+            <Text style={styles.modalTitle}>Festival Details</Text>
+            <View style={{ width: 60 }} />
+          </View>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            {selectedFestivalItem && (
+              <>
+                {/* HERO IMAGE WITH BACK BUTTON */}
+                <ImageBackground
+                  source={{ uri: selectedFestivalItem.image }}
+                  style={styles.heroImage}
+                >
+                  <SafeAreaView style={[styles.heroOverlay, { alignItems: 'flex-end' }]}>
+                    <TouchableOpacity
+                      style={styles.backBtn}
+                      onPress={() => {
+                        setShowFestivalDetailsModal(false);
+                        setSelectedFestivalItem(null);
+                      }}
+                    >
+                      <Text style={styles.backBtnText}>Back</Text>
+                      <Ionicons name="arrow-forward" size={20} color="#FF8C00" />
+                    </TouchableOpacity>
+
+                    <View style={[styles.heroBottom, { alignSelf: 'flex-start', width: '100%' }]}>
+                      <View style={[styles.crowdStatus, { backgroundColor: "#FF8C00" }]}>
+                        <Text style={styles.crowdStatusText}>FESTIVAL</Text>
+                      </View>
+                      <Text style={styles.placeName}>{selectedFestivalItem.name}</Text>
+                      <Text style={styles.placeHook}>{selectedFestivalItem.description}</Text>
+                    </View>
+                  </SafeAreaView>
+                </ImageBackground>
+
+                {/* INFO TILES */}
+                <View style={styles.content}>
+                  <View style={styles.infoGrid}>
+                    <View style={styles.infoTile}>
+                      <Ionicons name="calendar-outline" size={20} color="#FF8C00" />
+                      <Text style={[styles.tileLabel, { color: "#FF8C00" }]}>Date</Text>
+                      <Text style={styles.tileValue}>{selectedFestivalItem.dateInfo}</Text>
+                    </View>
+                    <View style={styles.infoTile}>
+                      <Ionicons name="star" size={20} color="#FFB800" />
+                      <Text style={styles.tileLabel}>Rating</Text>
+                      <Text style={styles.tileValue}>{selectedFestivalItem.ratings}</Text>
+                    </View>
+                    <View style={styles.infoTile}>
+                      <Ionicons name="pricetag-outline" size={20} color="#FF8C00" />
+                      <Text style={[styles.tileLabel, { color: "#FF8C00" }]}>Cost</Text>
+                      <Text style={styles.tileValue}>{selectedFestivalItem.priceRange.split(', ')[0]}</Text>
+                    </View>
+                  </View>
+
+                  {/* CELEBRATION LOCATION */}
+                  <View style={styles.section}>
+                    <Text style={styles.sectionHeading}>Celebration Locations</Text>
+                    <View style={styles.metroCard}>
+                      <Text style={styles.metroName}>{selectedFestivalItem.celebrationLocation}</Text>
+                    </View>
+                  </View>
+
+                  {/* NEAREST METRO */}
+                  <View style={styles.section}>
+                    <Text style={styles.sectionHeading}>Transport & Connectivity</Text>
+                    <View style={styles.metroCard}>
+                      <View style={[styles.metroTag, { backgroundColor: "#FF8C00" }]}>
+                        <Ionicons name="train" size={16} color="#FFF" />
+                        <Text style={styles.metroTagText}>Metro Accessible</Text>
+                      </View>
+                      <Text style={styles.metroName}>{selectedFestivalItem.nearestMetro}</Text>
+                      <Text style={styles.metroDistance}>{selectedFestivalItem.metroDistance}</Text>
+                    </View>
+                  </View>
+
+                  {/* TRANSPORT INFO */}
+                  <View style={styles.transportInfo}>
+                    <Text style={[styles.transportLabel, { color: "#FF8C00" }]}>How to Reach</Text>
+                    <View style={styles.transportCardsRow}>
+                      <View style={styles.transportCard}>
+                        <Ionicons name="car" size={18} color="#FF8C00" />
+                        <Text style={styles.transportCardTitle}>Auto-Rickshaw</Text>
+                        <Text style={styles.transportCardText}>₹40-60</Text>
+                      </View>
+                      <View style={styles.transportCard}>
+                        <Ionicons name="bus" size={18} color="#FF8C00" />
+                        <Text style={styles.transportCardTitle}>Bus Routes</Text>
+                        <Text style={styles.transportCardText}>Available</Text>
+                      </View>
+                    </View>
+                  </View>
+
+                  {/* FESTIVITIES */}
+                  <View style={styles.section}>
+                    <Text style={styles.sectionHeading}>Festival Festivities</Text>
+                    <View style={styles.guideCard}>
+                      <Text style={styles.guideText}>{selectedFestivalItem.festivities}</Text>
+                    </View>
+                  </View>
+
+                  {/* HIGHLIGHTS */}
+                  <View style={styles.section}>
+                    <Text style={styles.sectionHeading}>Festival Highlights</Text>
+                    <View style={styles.highlightsContainer}>
+                      {selectedFestivalItem.highlights.map((highlight, idx) => (
+                        <View key={idx} style={styles.highlightItemFood}>
+                          <Ionicons name="checkmark-circle" size={16} color="#FF8C00" />
+                          <Text style={styles.highlightTextFood}>{highlight}</Text>
+                        </View>
+                      ))}
+                    </View>
+                  </View>
+
+                  {/* LOCATION */}
+                  <View style={styles.section}>
+                    <Text style={styles.sectionHeading}>Location</Text>
+                    <View style={styles.locationCard}>
+                      <Ionicons name="location" size={20} color="#10b981" />
+                      <View style={styles.locationInfo}>
+                        <Text style={styles.locationName}>{selectedFestivalItem.location}</Text>
+                      </View>
+                    </View>
+                  </View>
+
+                  {/* ACTION BUTTONS */}
+                  <View style={styles.actionButtons}>
+                    <TouchableOpacity 
+                      style={[styles.navigateBtn, { backgroundColor: "#FF8C00" }]}
+                      onPress={() => handleNavigate(selectedFestivalItem.navigateCoordinates)}
+                    >
+                      <Ionicons name="navigate" size={20} color="#FFF" />
+                      <Text style={styles.navigateBtnText}>Navigate</Text>
+                    </TouchableOpacity>
+                  </View>
+
+                  <View style={{ height: 30 }} />
+                </View>
+              </>
+            )}
+          </ScrollView>
+        </SafeAreaView>
       </Modal>
     </SafeAreaView>
   );
@@ -342,6 +847,33 @@ const styles = StyleSheet.create({
   backButton: { flexDirection: "row", alignItems: "center", gap: 6 },
   backText: { fontSize: 14, fontWeight: "700", color: "#FF8C00" },
 
+  // Modal Header Styles
+  modalHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    backgroundColor: "#FFFFFF",
+    borderBottomWidth: 1,
+    borderBottomColor: "#F0E4D3",
+  },
+  modalBackButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+  },
+  modalBackText: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#2563eb",
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: "800",
+    color: "#2D241E",
+  },
+
   section: { marginTop: 20 },
   sectionTitle: {
     fontSize: 18,
@@ -355,18 +887,45 @@ const styles = StyleSheet.create({
   catItem: { alignItems: "center", marginRight: 20 },
   catItemActive: { transform: [{ scale: 1.05 }], opacity: 0.9 },
   catIconWrapper: {
-    width: 56,
-    height: 56,
-    borderRadius: 18,
+    width: 76,
+    height: 76,
+    borderRadius: 22,
     backgroundColor: "#FFF2E0",
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 6,
+    marginBottom: 8,
     borderWidth: 1,
     borderColor: "#FDE68A",
   },
   catText: { fontSize: 12, fontWeight: "700", color: "#84593C" },
-  categoryEmoji: { fontSize: 28 },
+  categoryEmoji: { fontSize: 40 },
+
+  // Food Category Grid Styles
+  foodCategoryGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+    paddingHorizontal: 10,
+    gap: 15,
+  },
+  foodCategoryItem: {
+    width: "45%",
+    alignItems: "center",
+    marginBottom: 20,
+  },
+  foodCategoryIconWrapper: {
+    width: 120,
+    height: 120,
+    borderRadius: 30,
+    backgroundColor: "#FFF2E0",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: "#FDE68A",
+  },
+  foodCategoryEmoji: { fontSize: 65 },
+  foodCategoryText: { fontSize: 15, fontWeight: "700", color: "#84593C", textAlign: "center" },
 
   placeCard: {
     flexDirection: "row",
@@ -377,6 +936,10 @@ const styles = StyleSheet.create({
     padding: 10,
     borderWidth: 1,
     borderColor: "#F0E4D3",
+  },
+  foodItemsList: {
+    paddingHorizontal: 15,
+    gap: 12,
   },
   placeImage: { width: 70, height: 70, borderRadius: 14 },
   placeInfo: { flex: 1, marginLeft: 12, justifyContent: "center" },
@@ -399,13 +962,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   backBtn: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
-    marginTop: 8,
+    gap: 6,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    borderRadius: 24,
+    marginTop: 30,
+    marginRight: 20,
+  },
+  backBtnText: {
+    fontSize: 14,
+    fontWeight: "700",
+    color: "#FF8C00",
   },
   heroBottom: {
     paddingBottom: 24,
