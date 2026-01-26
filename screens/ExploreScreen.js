@@ -401,16 +401,19 @@ const ExploreScreen = () => {
                       <Text style={styles.backBtnText}>Back</Text>
                       <Ionicons name="arrow-forward" size={20} color="#FF8C00" />
                     </TouchableOpacity>
-
-                    <View style={[styles.heroBottom, { alignSelf: 'flex-start', width: '100%' }]}>
-                      <View style={[styles.crowdStatus, { backgroundColor: "#FF8C00" }]}>
-                        <Text style={styles.crowdStatusText}>FOOD PLACE</Text>
-                      </View>
-                      <Text style={styles.placeName}>{selectedFoodItem.name}</Text>
-                      <Text style={styles.placeHook}>{selectedFoodItem.description}</Text>
-                    </View>
                   </SafeAreaView>
                 </ImageBackground>
+
+                {/* FOOD ITEM NAME & DESCRIPTION */}
+                <View style={[styles.heroBottom, { paddingHorizontal: 20, paddingVertical: 16, backgroundColor: "#FEFBF6" }]}>
+                  <View style={[styles.crowdStatus, { backgroundColor: "#FF8C00" }]}>
+                    <Text style={styles.crowdStatusText}>FOOD PLACE</Text>
+                  </View>
+                  <View style={styles.detailsNameBox}>
+                    <Text style={styles.detailsPlaceName}>{selectedFoodItem.name}</Text>
+                    <Text style={styles.detailsPlaceHook}>{selectedFoodItem.description}</Text>
+                  </View>
+                </View>
 
                 {/* INFO TILES */}
                 <View style={styles.content}>
@@ -558,16 +561,19 @@ const ExploreScreen = () => {
                       <Text style={styles.backBtnText}>Back</Text>
                       <Ionicons name="arrow-forward" size={20} color="#FF8C00" />
                     </TouchableOpacity>
-
-                    <View style={[styles.heroBottom, { alignSelf: 'flex-start', width: '100%' }]}>
-                      <View style={[styles.crowdStatus, { backgroundColor: "#FF8C00" }]}>
-                        <Text style={styles.crowdStatusText}>MARKETPLACE</Text>
-                      </View>
-                      <Text style={styles.placeName}>{selectedMarketItem.name}</Text>
-                      <Text style={styles.placeHook}>{selectedMarketItem.description}</Text>
-                    </View>
                   </SafeAreaView>
                 </ImageBackground>
+
+                {/* MARKET ITEM NAME & DESCRIPTION */}
+                <View style={[styles.heroBottom, { paddingHorizontal: 20, paddingVertical: 16, backgroundColor: "#FEFBF6" }]}>
+                  <View style={[styles.crowdStatus, { backgroundColor: "#FF8C00" }]}>
+                    <Text style={styles.crowdStatusText}>MARKETPLACE</Text>
+                  </View>
+                  <View style={styles.detailsNameBox}>
+                    <Text style={styles.detailsPlaceName}>{selectedMarketItem.name}</Text>
+                    <Text style={styles.detailsPlaceHook}>{selectedMarketItem.description}</Text>
+                  </View>
+                </View>
 
                 {/* INFO TILES */}
                 <View style={styles.content}>
@@ -654,7 +660,7 @@ const ExploreScreen = () => {
                   {/* ACTION BUTTONS */}
                   <View style={styles.actionButtons}>
                     <TouchableOpacity 
-                      style={[styles.navigateBtn, { backgroundColor: "#FF8C00" }]}
+                      style={styles.navigateBtn}
                       onPress={() => handleNavigate(selectedMarketItem.navigateCoordinates)}
                     >
                       <Ionicons name="navigate" size={20} color="#FFF" />
@@ -715,16 +721,19 @@ const ExploreScreen = () => {
                       <Text style={styles.backBtnText}>Back</Text>
                       <Ionicons name="arrow-forward" size={20} color="#FF8C00" />
                     </TouchableOpacity>
-
-                    <View style={[styles.heroBottom, { alignSelf: 'flex-start', width: '100%' }]}>
-                      <View style={[styles.crowdStatus, { backgroundColor: "#FF8C00" }]}>
-                        <Text style={styles.crowdStatusText}>FESTIVAL</Text>
-                      </View>
-                      <Text style={styles.placeName}>{selectedFestivalItem.name}</Text>
-                      <Text style={styles.placeHook}>{selectedFestivalItem.description}</Text>
-                    </View>
                   </SafeAreaView>
                 </ImageBackground>
+
+                {/* FESTIVAL ITEM NAME & DESCRIPTION */}
+                <View style={[styles.heroBottom, { paddingHorizontal: 20, paddingVertical: 16, backgroundColor: "#FEFBF6" }]}>
+                  <View style={[styles.crowdStatus, { backgroundColor: "#FF8C00" }]}>
+                    <Text style={styles.crowdStatusText}>FESTIVAL</Text>
+                  </View>
+                  <View style={styles.detailsNameBox}>
+                    <Text style={styles.detailsPlaceName}>{selectedFestivalItem.name}</Text>
+                    <Text style={styles.detailsPlaceHook}>{selectedFestivalItem.description}</Text>
+                  </View>
+                </View>
 
                 {/* INFO TILES */}
                 <View style={styles.content}>
@@ -819,7 +828,7 @@ const ExploreScreen = () => {
                   {/* ACTION BUTTONS */}
                   <View style={styles.actionButtons}>
                     <TouchableOpacity 
-                      style={[styles.navigateBtn, { backgroundColor: "#FF8C00" }]}
+                      style={styles.navigateBtn}
                       onPress={() => handleNavigate(selectedFestivalItem.navigateCoordinates)}
                     >
                       <Ionicons name="navigate" size={20} color="#FFF" />
@@ -946,6 +955,18 @@ const styles = StyleSheet.create({
   placeName: { fontSize: 16, fontWeight: "700", color: "#2D241E" },
   placeHook: { fontSize: 12, color: "#84593C", marginTop: 4 },
 
+  // Details Modal Name/Description Box
+  detailsNameBox: {
+    backgroundColor: "#FFF9F1",
+    borderWidth: 1.5,
+    borderColor: "#F0E4D3",
+    borderRadius: 14,
+    padding: 16,
+    marginBottom: 8,
+  },
+  detailsPlaceName: { fontSize: 26, fontWeight: "800", color: "#2D241E", letterSpacing: -0.5, lineHeight: 34 },
+  detailsPlaceHook: { fontSize: 14, color: "#84593C", marginTop: 8, fontWeight: "500", lineHeight: 20 },
+
   // FOOD DETAILS MODAL STYLES (Heritage-like UI)
   detailsModalContainer: {
     flex: 1,
@@ -994,7 +1015,7 @@ const styles = StyleSheet.create({
   },
   content: {
     backgroundColor: "#FEFBF6",
-    paddingTop: 20,
+    paddingTop: 8,
   },
   infoGrid: {
     flexDirection: "row",
