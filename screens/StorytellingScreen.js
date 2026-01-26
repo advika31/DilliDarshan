@@ -16,7 +16,7 @@ import { Audio } from "expo-av";
 import { Card } from "../components/Card";
 import { getPlaceById } from "../constants/places";
 
-const API_BASE = "http://192.168.1.7:8000";
+const API_BASE = "http://192.168.1.28:8000";
 
 export default function StorytellingScreen() {
   const route = useRoute();
@@ -24,7 +24,7 @@ export default function StorytellingScreen() {
 
   const place = getPlaceById(placeId);
 
-  const [storyMode, setStoryMode] = useState("immersive");
+  const [storyMode, setStoryMode] = useState("factual");
   const [language, setLanguage] = useState("English");
 
   const [storyContent, setStoryContent] = useState("");
@@ -62,7 +62,7 @@ export default function StorytellingScreen() {
     const { sound: newSound } = await Audio.Sound.createAsync(
       { uri: `${API_BASE}/${audioUrl}` },
       { shouldPlay: false },
-      onPlaybackStatusUpdate
+      onPlaybackStatusUpdate,
     );
 
     setSound(newSound);
@@ -71,7 +71,12 @@ export default function StorytellingScreen() {
   const togglePlay = async () => {
     if (!sound) return;
 
-    if (isPlaying) {
+    const status = await sound.getStatusAsync();
+
+    if (status.didJustFinish) {
+      await sound.setPositionAsync(0);
+      await sound.playAsync();
+    } else if (isPlaying) {
       await sound.pauseAsync();
     } else {
       await sound.playAsync();
@@ -95,11 +100,15 @@ export default function StorytellingScreen() {
         }),
       });
 
+      if (!storyRes.ok) {
+        throw new Error("Failed to generate story");
+      }
+
       const storyData = await storyRes.json();
       setStoryContent(storyData.story);
       setHasGenerated(true);
 
-      // if (language !== "English") return;
+      const cacheKey = `${place.id}_${storyMode}_${language}`;
 
       const voiceRes = await fetch(`${API_BASE}/story/voice`, {
         method: "POST",
@@ -107,12 +116,12 @@ export default function StorytellingScreen() {
         body: JSON.stringify({
           story: storyData.story,
           language,
+          cache_key: cacheKey,
         }),
       });
 
       const voiceData = await voiceRes.json();
       await loadAudio(voiceData.audio_url);
-
     } catch (err) {
       console.error(err);
       setStoryContent("Failed to generate story.");
@@ -141,11 +150,13 @@ export default function StorytellingScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-
         {/* IMAGE */}
         <View style={styles.playerSection}>
           <View style={styles.imageCircleWrapper}>
-            <Image source={{ uri: place.image }} style={styles.monumentCircle} />
+            <Image
+              source={{ uri: place.image }}
+              style={styles.monumentCircle}
+            />
           </View>
           <Text style={styles.monumentName}>{place.name}</Text>
 
@@ -204,7 +215,7 @@ export default function StorytellingScreen() {
         {/* LANGUAGE */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Story Language</Text>
-          {["English", "Hindi", "Hinglish"].map((lang) => (
+          {["English", "Hindi", "Tamil", "Marathi"].map((lang) => (
             <TouchableOpacity
               key={lang}
               style={[
@@ -231,7 +242,6 @@ export default function StorytellingScreen() {
             {loading ? "Generating…" : "Generate Story"}
           </Text>
         </TouchableOpacity>
-
       </ScrollView>
     </SafeAreaView>
   );

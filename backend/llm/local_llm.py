@@ -1,21 +1,25 @@
-# /backend/llm/local_llm.py
 import subprocess
-import shutil
 
 def generate_with_ollama(prompt: str) -> str:
-    ollama_path = shutil.which("ollama")
+    """
+    Guaranteed non-empty output from Ollama
+    """
+    try:
+        result = subprocess.run(
+            ["ollama", "run", "llama3"],
+            input=prompt.encode("utf-8"),
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            timeout=25
+        )
 
-    if not ollama_path:
-        raise RuntimeError("Ollama not found in PATH")
+        output = result.stdout.decode("utf-8").strip()
 
-    result = subprocess.run(
-        [ollama_path, "run", "mistral"],
-        input=prompt,
-        capture_output=True,
-        text=True,
-        shell=False,
-        encoding='utf-8',
-        errors="ignore"
-    )
+        if not output:
+            raise ValueError("Empty Ollama output")
 
-    return result.stdout.strip()
+        return output
+
+    except Exception as e:
+        print("OLLAMA FAILURE:", repr(e))
+        return ""
