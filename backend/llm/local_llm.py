@@ -1,25 +1,33 @@
-import subprocess
+# backend/llm/local_llm.py
+import requests
+
+OLLAMA_URL = "http://localhost:11434/api/generate"
+MODEL = "llama3"
 
 def generate_with_ollama(prompt: str) -> str:
-    """
-    Guaranteed non-empty output from Ollama
-    """
     try:
-        result = subprocess.run(
-            ["ollama", "run", "llama3"],
-            input=prompt.encode("utf-8"),
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            timeout=25
+        payload = {
+            "model": MODEL,
+            "prompt": prompt,
+            "stream": False,
+            "options": {
+                "temperature": 0.4,
+                "num_predict": 220
+            }
+        }
+
+        response = requests.post(
+            OLLAMA_URL,
+            json=payload,
+            timeout=40
         )
 
-        output = result.stdout.decode("utf-8").strip()
+        response.raise_for_status()
+        data = response.json()
 
-        if not output:
-            raise ValueError("Empty Ollama output")
-
-        return output
+        output = data.get("response", "").strip()
+        return output if output else ""
 
     except Exception as e:
-        print("OLLAMA FAILURE:", repr(e))
+        print("⚠️ OLLAMA HTTP FAILURE:", repr(e))
         return ""

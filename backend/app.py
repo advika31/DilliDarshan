@@ -1,32 +1,25 @@
-import os
-import json
-import faiss
-import numpy as np
+import os, json, faiss, numpy as np
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from sentence_transformers import SentenceTransformer
 from fastapi.staticfiles import StaticFiles
 
 from llm.local_llm import generate_with_ollama
-from tts.multilingual_tts import generate_multilingual_audio
 from utils.translate import translate
+from tts.multilingual_tts import generate_multilingual_audio
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
-index = faiss.read_index("rag/monuments.index")
+MODEL = SentenceTransformer("all-MiniLM-L6-v2")
+INDEX = faiss.read_index("rag/monuments.index")
 
-with open("rag/metadata.json", encoding="utf-8") as f:
-    METADATA = json.load(f)
+with open("rag/chunk_meta.json", encoding="utf-8") as f:
+    CHUNKS = json.load(f)
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-AUDIO_DIR = "static/audio"
-os.makedirs(AUDIO_DIR, exist_ok=True)
-
 class StoryRequest(BaseModel):
     placeId: str
-    placeName: str
-    mode: str
+    mode: str       
     language: str
 
 class VoiceRequest(BaseModel):
@@ -34,57 +27,71 @@ class VoiceRequest(BaseModel):
     language: str
     cache_key: str
 
+
+def retrieve_chunks(placeId: str, k=4):
+    results = [c["text"] for c in CHUNKS if c["placeId"] == placeId]
+    return results[:k]
+
+
 @app.post("/story/generate")
 def generate_story(req: StoryRequest):
-    print("STORY REQUEST:", req)
+    chunks = retrieve_chunks(req.placeId)
 
-    query = f"{req.placeName} monument Delhi"
-    embedding = model.encode([query])
+    if not chunks:
+        raise HTTPException(404, "No content found for place")
 
-    _, I = index.search(np.array(embedding), k=1)
-    idx = int(I[0][0])
+    context = "\n".join(chunks)
 
-    base_content = METADATA[idx]["content"]
+    if req.mode == "factual":
+        prompt = f"""
+You are an official Delhi Tourism historian.
 
-    prompt = (
-        f"Write a {req.mode} tour description.\n"
-        f"Limit to 80 words.\n"
-        f"Facts only.\n\n"
-        f"{base_content}"
-    )
+Rewrite the content below into a clear, factual, third-person description.
+Maintain accuracy.
+No imagination.
+No added facts.
+~140 words.
 
-    story_en = generate_with_ollama(prompt)
-
-    if not story_en.strip():
-        print("Using fallback content")
-        story_en = base_content[:500]
-
-    if req.language == "English":
-        final_story = story_en
-    elif req.language == "Hindi":
-        final_story = translate(story_en, "hi")
-    elif req.language == "Tamil":
-        final_story = translate(story_en, "ta")
-    elif req.language == "Marathi":
-        final_story = translate(story_en, "mr")
+CONTENT:
+{context}
+"""
     else:
-        final_story = story_en
+        prompt = f"""
+You are a Delhi walking-tour narrator.
 
-    return {"story": final_story}
+Using ONLY the content below, create an immersive visitor experience.
+Second-person narration.
+Smooth transitions.
+Do NOT add facts, dates, or names.
+~200 words.
+
+CONTENT:
+{context}
+"""
+
+    story_en = generate_with_ollama(prompt).strip()
+
+    if not story_en:
+        print("⚠️ Ollama failed, using structured fallback")
+        story_en = context
+
+    if req.language != "English":
+        lang_map = {"Hindi": "hi", "Tamil": "ta", "Marathi": "mr"}
+        story = translate(story_en, lang_map[req.language])
+    else:
+        story = story_en
+
+    return {"story": story}
 
 
 @app.post("/story/voice")
 def generate_voice(req: VoiceRequest):
-    if not req.story.strip():
-        raise HTTPException(422, "Empty story")
+    audio_path = f"static/audio/{req.cache_key}.mp3"
 
-    filename = f"{req.cache_key}.mp3"
-    path = os.path.join(AUDIO_DIR, filename)
+    if os.path.exists(audio_path):
+        return {"audio_url": audio_path}
 
-    if os.path.exists(path):
-        return {"audio_url": f"static/audio/{filename}"}
+    temp = generate_multilingual_audio(req.story, req.language)
+    os.rename(temp, audio_path)
 
-    temp_audio = generate_multilingual_audio(req.story, req.language)
-    os.rename(temp_audio, path)
-
-    return {"audio_url": f"static/audio/{filename}"}
+    return {"audio_url": audio_path}

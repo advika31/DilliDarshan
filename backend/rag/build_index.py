@@ -4,18 +4,30 @@ import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+MODEL = SentenceTransformer("all-MiniLM-L6-v2")
 
-with open("rag/metadata.json") as f:
-    metadata = json.load(f)
+with open("data/monuments.json", encoding="utf-8") as f:
+    monuments = json.load(f)
 
-texts = [item["content"] for item in metadata]
-embeddings = model.encode(texts, convert_to_numpy=True)
+texts = []
+chunk_meta = []
 
-dim = embeddings.shape[1]
-index = faiss.IndexFlatL2(dim)
+for monument in monuments:
+    texts.append(monument["content"])
+    chunk_meta.append({
+        "id": monument["id"],
+        "name": monument["name"],
+        "content": monument["content"]
+    })
+
+embeddings = MODEL.encode(texts, convert_to_numpy=True)
+
+index = faiss.IndexFlatL2(embeddings.shape[1])
 index.add(embeddings)
 
 faiss.write_index(index, "rag/monuments.index")
 
-print("✅ FAISS index rebuilt with dim:", dim)
+with open("rag/chunk_meta.json", "w", encoding="utf-8") as f:
+    json.dump(chunk_meta, f, ensure_ascii=False, indent=2)
+
+print(f"✅ Indexed {len(texts)} monuments correctly")
