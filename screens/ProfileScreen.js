@@ -107,12 +107,11 @@ const ProfileScreen = () => {
             variant="outline"
             title="View Tutorial Again"
             onPress={handleResetTutorial}
-            style={styles.tutorialBtn} 
+            style={styles.tutorialBtn}
           />
           <Text style={styles.versionText}>DilliDarshan v1.2.0</Text>
         </View>
 
-        {/* Extra spacer for scroll */}
         <View style={{ height: 40 }} />
       </ScrollView>
     </SafeAreaView>
@@ -201,13 +200,13 @@ const styles = StyleSheet.create({
   menuLabel: { flex: 1, fontSize: 15, fontWeight: "600", color: "#2D241E" },
   footer: {
     paddingHorizontal: 25,
-    paddingVertical: 40, 
+    paddingVertical: 40,
     alignItems: "center",
     width: "100%",
   },
   tutorialBtn: {
     marginTop: 10,
-    width: "100%", 
+    width: "100%",
   },
   versionText: {
     marginTop: 20,

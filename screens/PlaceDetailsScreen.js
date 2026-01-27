@@ -12,7 +12,6 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
-import { usePoints } from "../context/PointsContext";
 import { Card } from "../components/Card";
 import { getPlaceById } from "../constants/places";
 
@@ -20,7 +19,6 @@ const PlaceDetailsScreen = () => {
   const route = useRoute();
   const navigation = useNavigation();
   const { placeId } = route.params;
-  const { points } = usePoints();
 
   const place = getPlaceById(placeId);
 
@@ -106,9 +104,6 @@ const PlaceDetailsScreen = () => {
                 <Text style={styles.storySub}>
                   Immersive audio stories & historical facts.
                 </Text>
-              </View>
-              <View style={styles.pointsReq}>
-                <Text style={styles.pointsReqText}>20 pts</Text>
               </View>
             </View>
           </Card>
@@ -302,13 +297,6 @@ const styles = StyleSheet.create({
   storyInfo: { flex: 1, marginLeft: 15 },
   storyTitle: { fontSize: 16, fontWeight: "800", color: "#2D241E" },
   storySub: { fontSize: 12, color: "#84593C", marginTop: 2 },
-  pointsReq: {
-    backgroundColor: "#FEF3C7",
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: 10,
-  },
-  pointsReqText: { color: "#92400E", fontWeight: "800", fontSize: 11 },
   transportCard: {
     padding: 20,
     backgroundColor: "#FFF",

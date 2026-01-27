@@ -39,7 +39,6 @@ const PreferenceSetupScreen = () => {
   };
 
   const handleSubmit = async () => {
-    // Basic validation to ensure core preferences are set
     if (!userType || !timeAvailable || interests.length === 0) return;
 
     await setPreferences({
