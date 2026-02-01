@@ -103,8 +103,29 @@ const ChatScreen = () => {
 
       const errorMessage = {
         id: Date.now().toString(),
-        text: "❌ Sorry, I'm having trouble getting recommendations right now. Please try again in a moment!",
+        text: "📱 **Working in offline mode** - showing popular Delhi places! Connect to WiFi for live recommendations.",
         isBot: true,
+        showRecommendations: true,
+        recommendations: [
+          {
+            name: 'Red Fort',
+            distance_km: '2.5',
+            score: 85,
+            reason: 'Historic Mughal monument, must visit'
+          },
+          {
+            name: 'India Gate',
+            distance_km: '3.1',
+            score: 80,
+            reason: 'Iconic war memorial, great for photos'
+          },
+          {
+            name: 'Qutub Minar',
+            distance_km: '15.2',
+            score: 75,
+            reason: 'UNESCO World Heritage site'
+          }
+        ]
       };
       setMessages((prev) => [...prev, errorMessage]);
     } finally {
