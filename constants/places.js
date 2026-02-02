@@ -2,7 +2,7 @@ export const PLACES = [
   {
     id: '1',
     name: 'Red Fort',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Red_Fort_in_Delhi.jpg/400px-Red_Fort_in_Delhi.jpg',
+    image: 'https://media.istockphoto.com/id/520840182/photo/red-fort-lal-qila-with-indian-flag-delhi-india.jpg?s=612x612&w=0&k=20&c=pOIkOX7dnJh2zwJhF9HrknY7kwYZtDgOd1n98wkHCKQ=',
     culturalHook: 'The magnificent seat of Mughal power and Indian independence',
     crowdLevel: 'high',
     category: 'Heritage',
@@ -28,7 +28,7 @@ export const PLACES = [
   {
     id: '2',
     name: 'Qutub Minar',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Qutub_Minar.jpg/400px-Qutub_Minar.jpg',
+    image: 'https://media.istockphoto.com/id/452352771/photo/qutub-minar.jpg?s=612x612&w=0&k=20&c=jq31gkNYB11R0M4_YCMXcFAGlEsW4khdNgWH9S2GSoI=',
     culturalHook: 'Delhi\'s tallest minaret and UNESCO World Heritage Site',
     crowdLevel: 'medium',
     category: 'Heritage',
@@ -54,7 +54,7 @@ export const PLACES = [
   {
     id: '3',
     name: 'Humayun\'s Tomb',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Humayun_Tomb_Delhi.jpg/400px-Humayun_Tomb_Delhi.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Humayun_Tomb_Delhi.jpg/400px-Humayun_Tomb_Delhi.jpghttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ9VIWPqiOKxETdivf8BIFu9dm5eam0dYWVA&s',
     culturalHook: 'The garden tomb that inspired the Taj Mahal',
     crowdLevel: 'low',
     category: 'Heritage',

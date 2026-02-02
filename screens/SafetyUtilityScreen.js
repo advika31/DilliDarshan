@@ -40,31 +40,29 @@ const SafetyUtilityScreen = () => {
     });
   };
 
-  // 🌐 Fetch nearby services from backend
+  //🌐 Fetch nearby services from backend
+
   const fetchNearbyServices = async (lat, lng) => {
-    try {
-      console.log("Calling backend with:", lat, lng);
+  try {
+    console.log("Calling backend with:", lat, lng);
 
-      const hospitalRes = await fetch(
-        `${BASE_URL}/emergency/nearby?lat=${lat}&lng=${lng}&type=hospital&radius=5000`
-      );
-      const policeRes = await fetch(
-        `${BASE_URL}/emergency/nearby?lat=${lat}&lng=${lng}&type=police&radius=5000`
-      );
+    const res = await fetch(
+      `${BASE_URL}/emergency/nearby?lat=${lat}&lng=${lng}`
+    );
 
-      const hospitals = await hospitalRes.json();
-      const police = await policeRes.json();
+    const data = await res.json();
 
-      console.log("Hospitals:", hospitals);
-      console.log("Police:", police);
+    console.log("Combined services:", data);
 
-      setServices([...hospitals, ...police]);
-    } catch (err) {
-      console.log("API error:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
+    // ✅ backend already merged
+    setServices(data.results);
+
+  } catch (err) {
+    console.log("API error:", err);
+  } finally {
+    setLoading(false);
+  }
+};
 
   // 🔄 On screen load
   useEffect(() => {
@@ -125,15 +123,15 @@ const SafetyUtilityScreen = () => {
 
           {!loading &&
             services.map((item, index) => (
-              <ServiceItem
-                key={item._id || index}
-                icon={item.type === "hospital" ? "medkit" : "business"}
-                title={item.name}
-                lat={item.location.coordinates[1]}
-                lng={item.location.coordinates[0]}
-              />
-            ))}
-        </Card>
+            <ServiceItem
+              key={index}
+              icon={item.type === "police" ? "shield-outline" : "medkit-outline"}
+              title={item.name}
+              lat={item.lat}
+              lng={item.lng}
+            />
+          ))}
+                  </Card>
       </ScrollView>
     </SafeAreaView>
   );
@@ -151,7 +149,7 @@ const ServiceItem = ({ icon, title, lat, lng }) => {
         <Ionicons name={icon} size={20} color="#FF8C00" />
       </View>
 
-      <View style={styles.col}>
+       <View style={styles.col}>
         <Text style={styles.serviceName}>{title}</Text>
         <Text style={styles.serviceDist}>Tap to navigate</Text>
       </View>

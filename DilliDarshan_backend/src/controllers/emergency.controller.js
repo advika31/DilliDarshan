@@ -1,24 +1,40 @@
-import emergencyService from "../services/emergency.service.js";
+import { findNearbyHybrid } from "../services/emergency.service.js";
 
 export const getNearbyEmergencyPlaces = async (req, res) => {
   try {
-    const { lat, lng, type, radius } = req.query;
+    const { lat, lng } = req.query;
 
-    if (!lat || !lng || !type) {
+    if (!lat || !lng) {
       return res.status(400).json({
-        message: "lat, lng and type are required"
+        error: "lat and lng are required"
       });
     }
 
-    const places = await emergencyService.findNearby({
+    const coords = {
       lat: Number(lat),
-      lng: Number(lng),
-      type,
-      radius: Number(radius)
+      lng: Number(lng)
+    };
+
+    // ✅ fetch both
+    const hospitals = await findNearbyHybrid({
+      ...coords,
+      type: "hospital"
     });
 
-    res.json(places);
+    const police = await findNearbyHybrid({
+      ...coords,
+      type: "police"
+    });
+
+    const combined = [...hospitals, ...police];
+
+    res.json({
+      count: combined.length,
+      results: combined
+    });
+
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error("Emergency controller error:", err.message);
+    res.status(500).json({ error: "Failed to fetch emergency places" });
   }
 };
