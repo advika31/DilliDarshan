@@ -1,4 +1,4 @@
-import os, json, faiss, numpy as np, uuid
+import os, json, faiss, numpy as np, uuid, math, requests
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from sentence_transformers import SentenceTransformer
@@ -26,6 +26,10 @@ class VoiceRequest(BaseModel):
     story: str
     language: str
     cache_key: str
+
+class EmergencyRequest(BaseModel):
+    lat: float
+    lng: float
 
 
 def retrieve_chunks(placeId: str, k=4):
@@ -116,3 +120,124 @@ def generate_voice(req: VoiceRequest):
     os.rename(temp, audio_path)
 
     return {"audio_url": audio_path}
+
+
+@app.post("/emergency/nearby")
+def get_nearby_emergency_services(req: EmergencyRequest):
+    """
+    Get nearby emergency services (hospitals, police stations) for given coordinates.
+    Uses OpenStreetMap Overpass API for real-time data with proper distance calculation.
+    """
+    lat, lng = req.lat, req.lng
+    
+    # Define bounding box (approximately 20km radius for better coverage)
+    radius = 0.2  # Roughly 20km
+    bbox = f"{lat-radius},{lng-radius},{lat+radius},{lng+radius}"
+    
+    # Query for hospitals and police stations
+    overpass_query = f"""
+    [out:json][timeout:25];
+    (
+      node["amenity"="hospital"]({bbox});
+      node["amenity"="police"]({bbox});
+      way["amenity"="hospital"]({bbox});
+      way["amenity"="police"]({bbox});
+      relation["amenity"="hospital"]({bbox});
+      relation["amenity"="police"]({bbox});
+    );
+    out geom;
+    """
+    
+    try:
+        # Call OpenStreetMap Overpass API
+        response = requests.post(
+            "https://overpass-api.de/api/interpreter",
+            data=overpass_query,
+            timeout=10
+        )
+        
+        if response.status_code == 200:
+            data = response.json()
+            services = []
+            
+            for element in data.get("elements", []):
+                if element.get("type") == "node":
+                    tags = element.get("tags", {})
+                    name = tags.get("name", "Unknown")
+                    amenity = tags.get("amenity", "")
+                    
+                    if amenity in ["hospital", "police"]:
+                        service_lat = element.get("lat")
+                        service_lng = element.get("lon")
+                        
+                        # Calculate actual distance using Haversine formula
+                        distance_km = calculate_distance(lat, lng, service_lat, service_lng)
+                        
+                        services.append({
+                            "lat": service_lat,
+                            "lng": service_lng,
+                            "name": name,
+                            "source": "osm",
+                            "type": amenity,
+                            "distance_km": round(distance_km, 2)
+                        })
+            
+            # Sort by distance and return nearest 10
+            services.sort(key=lambda x: x["distance_km"])
+            
+            # If no real-time data found, fall back to mock
+            if not services:
+                return get_mock_emergency_services(lat, lng)
+            
+            return {"results": services[:10]}  # Return 10 nearest services
+            
+        else:
+            # API call failed, use mock data
+            return get_mock_emergency_services(lat, lng)
+            
+    except Exception as e:
+        print(f"Error fetching real-time emergency services: {e}")
+        # Fallback to mock data
+        return get_mock_emergency_services(lat, lng)
+
+
+def calculate_distance(lat1, lon1, lat2, lon2):
+    """Calculate distance between two coordinates using Haversine formula."""
+    R = 6371  # Earth's radius in kilometers
+    
+    lat1_rad = math.radians(lat1)
+    lat2_rad = math.radians(lat2)
+    delta_lat = math.radians(lat2 - lat1)
+    delta_lon = math.radians(lon2 - lon1)
+    
+    a = (math.sin(delta_lat/2)**2 + 
+         math.cos(lat1_rad) * math.cos(lat2_rad) * math.sin(delta_lon/2)**2)
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
+    
+    return R * c
+
+
+def get_mock_emergency_services(lat, lng):
+    """Fallback mock emergency services data for Delhi area."""
+    mock_services = [
+        {"lat": 28.6139, "lng": 77.2090, "name": "AIIMS Delhi", "source": "mock", "type": "hospital"},
+        {"lat": 28.6396, "lng": 77.2735, "name": "Safdarjung Hospital", "source": "mock", "type": "hospital"},
+        {"lat": 28.6333, "lng": 77.2174, "name": "LNJP Hospital", "source": "mock", "type": "hospital"},
+        {"lat": 28.6494703, "lng": 77.2265741, "name": "Delhi Police Headquarters", "source": "mock", "type": "police"},
+        {"lat": 28.6890673, "lng": 77.2215343, "name": "Civil Lines Police Station", "source": "mock", "type": "police"},
+        {"lat": 28.6448, "lng": 77.2167, "name": "Kashmir Gate Police Station", "source": "mock", "type": "police"},
+    ]
+    
+    # Calculate distances and filter within 20km
+    nearby_services = []
+    for service in mock_services:
+        distance_km = calculate_distance(lat, lng, service["lat"], service["lng"])
+        if distance_km <= 20:  # Within 20km
+            service_with_distance = service.copy()
+            service_with_distance["distance_km"] = round(distance_km, 2)
+            nearby_services.append(service_with_distance)
+    
+    # Sort by distance
+    nearby_services.sort(key=lambda x: x["distance_km"])
+    
+    return {"results": nearby_services}

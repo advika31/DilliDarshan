@@ -12,10 +12,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
-<<<<<<< HEAD
 import { usePoints } from "../context/PointsContext";
-=======
->>>>>>> advika/advika
 import { Card } from "../components/Card";
 import { getPlaceById } from "../constants/places";
 
@@ -23,30 +20,24 @@ const PlaceDetailsScreen = () => {
   const route = useRoute();
   const navigation = useNavigation();
   const { placeId } = route.params;
-<<<<<<< HEAD
   const { points } = usePoints();
 
   const place = getPlaceById(placeId);
 
   const handleTicketBooking = async () => {
-  if (!place.bookingUrl) {
-    alert("This place does not require ticket booking.");
-    return;
-  }
+    if (!place.bookingUrl) {
+      alert("This place does not require ticket booking.");
+      return;
+    }
 
-  const supported = await Linking.canOpenURL(place.bookingUrl);
-  if (supported) {
-    await Linking.openURL(place.bookingUrl);
-  } else {
-    alert("Unable to open the official booking website.");
-  }
-};
+    const supported = await Linking.canOpenURL(place.bookingUrl);
+    if (supported) {
+      await Linking.openURL(place.bookingUrl);
+    } else {
+      alert("Unable to open the official booking website.");
+    }
+  };
 
-=======
-
-  const place = getPlaceById(placeId);
-
->>>>>>> advika/advika
   if (!place)
     return (
       <View style={styles.container}>
@@ -58,8 +49,8 @@ const PlaceDetailsScreen = () => {
     place.crowdLevel === "low"
       ? "#10b981"
       : place.crowdLevel === "medium"
-      ? "#f59e0b"
-      : "#ef4444";
+        ? "#f59e0b"
+        : "#ef4444";
 
   return (
     <View style={styles.container}>
@@ -130,12 +121,9 @@ const PlaceDetailsScreen = () => {
                   Immersive audio stories & historical facts.
                 </Text>
               </View>
-<<<<<<< HEAD
               <View style={styles.pointsReq}>
                 <Text style={styles.pointsReqText}>20 pts</Text>
               </View>
-=======
->>>>>>> advika/advika
             </View>
           </Card>
 
@@ -215,7 +203,6 @@ const PlaceDetailsScreen = () => {
           <Text style={styles.navBtnText}>Navigate</Text>
         </TouchableOpacity>
         <TouchableOpacity
-<<<<<<< HEAD
           style={[
             styles.bookBtn,
             !place.bookingUrl && { backgroundColor: "#D1D5DB" }
@@ -226,14 +213,6 @@ const PlaceDetailsScreen = () => {
             {place.bookingUrl ? "Book Tickets" : "Free Entry"}
           </Text>
         </TouchableOpacity>
-
-=======
-          style={styles.bookBtn}
-          onPress={() => Linking.openURL("https://asi.paygov.org.in")}
-        >
-          <Text style={styles.bookBtnText}>Book Tickets</Text>
-        </TouchableOpacity>
->>>>>>> advika/advika
       </View>
     </View>
   );
@@ -342,7 +321,6 @@ const styles = StyleSheet.create({
   storyInfo: { flex: 1, marginLeft: 15 },
   storyTitle: { fontSize: 16, fontWeight: "800", color: "#2D241E" },
   storySub: { fontSize: 12, color: "#84593C", marginTop: 2 },
-<<<<<<< HEAD
   pointsReq: {
     backgroundColor: "#FEF3C7",
     paddingHorizontal: 10,
@@ -350,8 +328,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   pointsReqText: { color: "#92400E", fontWeight: "800", fontSize: 11 },
-=======
->>>>>>> advika/advika
   transportCard: {
     padding: 20,
     backgroundColor: "#FFF",

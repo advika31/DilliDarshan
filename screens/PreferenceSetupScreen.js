@@ -39,10 +39,7 @@ const PreferenceSetupScreen = () => {
   };
 
   const handleSubmit = async () => {
-<<<<<<< HEAD
     // Basic validation to ensure core preferences are set
-=======
->>>>>>> advika/advika
     if (!userType || !timeAvailable || interests.length === 0) return;
 
     await setPreferences({
@@ -74,7 +71,7 @@ const PreferenceSetupScreen = () => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>I am a...</Text>
           <View style={styles.typeRow}>
-            <TouchableOpacity 
+            <TouchableOpacity
               style={[styles.typeBtn, userType === 'tourist' && styles.typeBtnActive]}
               onPress={() => setUserType('tourist')}
             >
@@ -84,7 +81,7 @@ const PreferenceSetupScreen = () => {
               <Text style={[styles.typeText, userType === 'tourist' && styles.typeTextActive]}>Tourist</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity 
+            <TouchableOpacity
               style={[styles.typeBtn, userType === 'local' && styles.typeBtnActive]}
               onPress={() => setUserType('local')}
             >
@@ -106,10 +103,10 @@ const PreferenceSetupScreen = () => {
                 style={[styles.chip, interests.includes(opt.id) && styles.chipActive]}
                 onPress={() => toggleInterest(opt.id)}
               >
-                <Ionicons 
-                  name={opt.icon} 
-                  size={18} 
-                  color={interests.includes(opt.id) ? '#FFF' : '#84593C'} 
+                <Ionicons
+                  name={opt.icon}
+                  size={18}
+                  color={interests.includes(opt.id) ? '#FFF' : '#84593C'}
                   style={{ marginRight: 8 }}
                 />
                 <Text style={[styles.chipText, interests.includes(opt.id) && styles.chipTextActive]}>
@@ -193,10 +190,10 @@ const PreferenceSetupScreen = () => {
         </TouchableOpacity>
 
         <View style={styles.footer}>
-          <Button 
-            title="Create My Guide" 
+          <Button
+            title="Create My Guide"
             disabled={!userType || !timeAvailable || interests.length === 0}
-            onPress={handleSubmit} 
+            onPress={handleSubmit}
           />
         </View>
       </ScrollView>
@@ -217,9 +214,9 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   typeRow: { flexDirection: 'row', gap: 15 },
-  typeBtn: { 
-    flex: 1, backgroundColor: '#FFF', borderRadius: 24, padding: 20, 
-    alignItems: 'center', borderWidth: 1, borderColor: '#F0E4D3' 
+  typeBtn: {
+    flex: 1, backgroundColor: '#FFF', borderRadius: 24, padding: 20,
+    alignItems: 'center', borderWidth: 1, borderColor: '#F0E4D3'
   },
   typeBtnActive: { backgroundColor: '#FFF9F1', borderColor: '#FF8C00', borderWidth: 2 },
   iconCircle: { width: 50, height: 50, borderRadius: 25, backgroundColor: '#FFF2E0', justifyContent: 'center', alignItems: 'center', marginBottom: 10 },
@@ -228,10 +225,10 @@ const styles = StyleSheet.create({
   typeTextActive: { color: '#FF8C00' },
 
   chipContainer: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
-  chip: { 
-    flexDirection: 'row', alignItems: 'center', backgroundColor: '#FFF', 
-    paddingHorizontal: 16, paddingVertical: 12, borderRadius: 16, 
-    borderWidth: 1, borderColor: '#F0E4D3' 
+  chip: {
+    flexDirection: 'row', alignItems: 'center', backgroundColor: '#FFF',
+    paddingHorizontal: 16, paddingVertical: 12, borderRadius: 16,
+    borderWidth: 1, borderColor: '#F0E4D3'
   },
   chipActive: { backgroundColor: '#FF8C00', borderColor: '#FF8C00' },
   chipText: { fontSize: 14, fontWeight: '600', color: '#84593C' },
@@ -250,7 +247,7 @@ const styles = StyleSheet.create({
   activeChoice: { borderColor: "#FF8C00", backgroundColor: "#FFF2E0" },
   choiceText: { color: "#84593C", fontWeight: "700", fontSize: 13 },
   activeChoiceText: { color: "#FF8C00" },
-  
+
   accessRow: {
     flexDirection: "row",
     alignItems: "center",

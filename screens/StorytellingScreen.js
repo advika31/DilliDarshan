@@ -17,8 +17,9 @@ import { Audio } from "expo-av";
 import { Card } from "../components/Card";
 import { getPlaceById } from "../constants/places";
 import { usePoints } from "../context/PointsContext";
+import { BASE_URL } from "../constants/api";
 
-const API_BASE = "http://192.168.1.56:8000";
+const API_BASE = BASE_URL;
 const STORY_COST = 20;
 
 export default function StorytellingScreen() {
@@ -42,6 +43,7 @@ export default function StorytellingScreen() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [position, setPosition] = useState(0);
   const [duration, setDuration] = useState(1);
+  const [audioAvailable, setAudioAvailable] = useState(true);
 
   const progressPercent = (position / duration) * 100;
 
@@ -111,32 +113,49 @@ export default function StorytellingScreen() {
   };
 
   const loadAudio = async (audioUrl) => {
-    if (sound) {
-      await sound.unloadAsync();
-      setSound(null);
+    try {
+      setAudioAvailable(true);
+      if (sound) {
+        await sound.unloadAsync();
+        setSound(null);
+      }
+
+      const { sound: newSound } = await Audio.Sound.createAsync(
+        { uri: `${API_BASE}/${audioUrl}` },
+        { shouldPlay: false },
+        onPlaybackStatusUpdate,
+      );
+
+      setSound(newSound);
+    } catch (error) {
+      console.error("Audio loading error:", error);
+      setAudioAvailable(false);
+      // Don't crash the app if audio fails to load
+      // Alert.alert("Audio Error", "Could not load audio. The story text is still available.");
     }
-
-    const { sound: newSound } = await Audio.Sound.createAsync(
-      { uri: `${API_BASE}/${audioUrl}` },
-      { shouldPlay: false },
-      onPlaybackStatusUpdate,
-    );
-
-    setSound(newSound);
   };
 
   const togglePlay = async () => {
-    if (!sound) return;
+    if (!sound || !audioAvailable) {
+      Alert.alert("Audio Not Available", "Audio is currently unavailable. The story text is still available for reading.");
+      return;
+    }
 
-    const status = await sound.getStatusAsync();
+    try {
+      const status = await sound.getStatusAsync();
 
-    if (status.didJustFinish) {
-      await sound.setPositionAsync(0);
-      await sound.playAsync();
-    } else if (isPlaying) {
-      await sound.pauseAsync();
-    } else {
-      await sound.playAsync();
+      if (status.didJustFinish) {
+        await sound.setPositionAsync(0);
+        await sound.playAsync();
+      } else if (isPlaying) {
+        await sound.pauseAsync();
+      } else {
+        await sound.playAsync();
+      }
+    } catch (error) {
+      console.error("Audio playback error:", error);
+      setAudioAvailable(false);
+      Alert.alert("Playback Error", "Audio playback failed. Please try generating the story again.");
     }
   };
 
@@ -146,6 +165,14 @@ export default function StorytellingScreen() {
     setStoryContent("");
 
     try {
+      console.log("Generating story with API:", `${API_BASE}/story/generate`);
+      console.log("Request data:", {
+        placeId: String(place.id),
+        placeName: place.name,
+        mode: storyMode,
+        language,
+      });
+
       const storyRes = await fetch(`${API_BASE}/story/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -157,15 +184,27 @@ export default function StorytellingScreen() {
         }),
       });
 
+      console.log("Story response status:", storyRes.status);
+
       if (!storyRes.ok) {
-        throw new Error("Failed to generate story");
+        const errorText = await storyRes.text();
+        console.error("Story generation failed:", errorText);
+        throw new Error(`Story generation failed: ${storyRes.status} - ${errorText}`);
       }
 
       const storyData = await storyRes.json();
+      console.log("Story data received:", storyData);
+
+      if (!storyData.story) {
+        throw new Error("No story content received from server");
+      }
+
       setStoryContent(storyData.story);
       setHasGenerated(true);
 
       const cacheKey = `${place.id}_${storyMode}_${language}`;
+
+      console.log("Generating voice with cache key:", cacheKey);
 
       const voiceRes = await fetch(`${API_BASE}/story/voice`, {
         method: "POST",
@@ -177,13 +216,51 @@ export default function StorytellingScreen() {
         }),
       });
 
+      console.log("Voice response status:", voiceRes.status);
+
+      if (!voiceRes.ok) {
+        const errorText = await voiceRes.text();
+        console.error("Voice generation failed:", errorText);
+        // Don't throw error here - story text is still available
+        setAudioAvailable(false);
+        return;
+      }
+
       const voiceData = await voiceRes.json();
-      await loadAudio(voiceData.audio_url);
+      if (voiceData.audio_url) {
+        await loadAudio(voiceData.audio_url);
+      } else {
+        console.warn("No audio URL returned from voice generation");
+        setAudioAvailable(false);
+      }
     } catch (err) {
-      console.error(err);
-      setStoryContent("Failed to generate story.");
+      console.error("Full error details:", err);
+
+      // Fallback to a simple template when backend is unavailable
+      const fallbackStory = generateFallbackStory(place.name, storyMode);
+      setStoryContent(fallbackStory);
+      setHasGenerated(true);
+      setAudioAvailable(false);
+
+      // Show a subtle message that this is a fallback
+      setTimeout(() => {
+        Alert.alert(
+          "Backend Unavailable",
+          "Using offline story mode. For full AI-generated stories, please ensure the backend server is running.",
+          [{ text: "OK", style: "default" }]
+        );
+      }, 1000);
     } finally {
       setLoading(false);
+    }
+  };
+
+  // Fallback story generator when backend is unavailable
+  const generateFallbackStory = (placeName, mode) => {
+    if (mode === "factual") {
+      return `${placeName} is one of Delhi's most historic landmarks. This magnificent structure showcases the incredible architectural heritage of the city, with intricate designs and craftsmanship that have stood the test of time. Visitors can explore the rich history and cultural significance that makes this place a must-visit destination in Delhi. The monument serves as a testament to the city's glorious past and continues to inspire awe in all who visit.`;
+    } else {
+      return `As you stand before ${placeName}, imagine the echoes of centuries past whispering through its corridors. Picture the artisans who carefully carved each detail, their hands guided by generations of tradition. You can almost feel the presence of the people who walked these grounds before you - emperors, poets, and ordinary citizens whose stories are etched into every stone. Take a moment to let the atmosphere transport you to another time, where history comes alive around you.`;
     }
   };
 
@@ -251,6 +328,12 @@ export default function StorytellingScreen() {
 
             {/* AUDIO */}
             <View style={styles.audioSection}>
+              {!audioAvailable && (
+                <View style={styles.audioWarning}>
+                  <Ionicons name="warning" size={16} color="#F59E0B" />
+                  <Text style={styles.audioWarningText}>Audio unavailable - story text only</Text>
+                </View>
+              )}
               <View style={styles.progressBar}>
                 <View
                   style={[styles.progressFill, { width: `${progressPercent}%` }]}
@@ -258,9 +341,9 @@ export default function StorytellingScreen() {
               </View>
 
               <TouchableOpacity
-                style={[styles.playBtn, !hasGenerated && { opacity: 0.5 }]}
+                style={[styles.playBtn, (!hasGenerated || !audioAvailable) && { opacity: 0.5 }]}
                 onPress={togglePlay}
-                disabled={!hasGenerated}
+                disabled={!hasGenerated || !audioAvailable}
               >
                 <Ionicons
                   name={isPlaying ? "pause" : "play"}
@@ -394,6 +477,21 @@ const styles = StyleSheet.create({
   toggleTextActive: { color: "#FF8C00" },
 
   audioSection: { marginTop: 30, alignItems: "center" },
+  audioWarning: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#FEF3C7",
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 8,
+    marginBottom: 10,
+  },
+  audioWarningText: {
+    color: "#92400E",
+    fontSize: 12,
+    fontWeight: "600",
+    marginLeft: 6,
+  },
   progressBar: {
     height: 4,
     backgroundColor: "#F0E4D3",

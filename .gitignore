@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 .env
-=======
->>>>>>> advika/advika
 node_modules/
 .expo/
 .expo-shared/
@@ -21,10 +18,7 @@ web-build/
 # IDE
 .vscode/
 .idea/
-<<<<<<< HEAD
 
 
-=======
 backend/venv
 backend/__pycache__
->>>>>>> advika/advika

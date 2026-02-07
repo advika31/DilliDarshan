@@ -45,10 +45,17 @@ const SafetyUtilityScreen = () => {
   const fetchNearbyServices = async (lat, lng) => {
     try {
       console.log("Calling backend with:", lat, lng);
-      console.log("Full URL:", `${BASE_URL}/emergency/nearby?lat=${lat}&lng=${lng}`);
+      console.log("Full URL:", `${BASE_URL}/emergency/nearby`);
 
       const res = await fetch(
-        `${BASE_URL}/emergency/nearby?lat=${lat}&lng=${lng}`
+        `${BASE_URL}/emergency/nearby`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ lat, lng }),
+        }
       );
 
       console.log("Response status:", res.status);
@@ -201,7 +208,7 @@ const SafetyUtilityScreen = () => {
   );
 };
 
-const ServiceItem = ({ icon, title, lat, lng }) => {
+const ServiceItem = ({ icon, title, lat, lng, distance_km }) => {
   const handleNavigate = () => {
     const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
     Linking.openURL(url);
@@ -215,7 +222,9 @@ const ServiceItem = ({ icon, title, lat, lng }) => {
 
       <View style={styles.col}>
         <Text style={styles.serviceName}>{title}</Text>
-        <Text style={styles.serviceDist}>Tap to navigate</Text>
+        <Text style={styles.serviceDist}>
+          {distance_km ? `${distance_km} km away` : 'Tap to navigate'}
+        </Text>
       </View>
 
       <TouchableOpacity style={styles.navCircle} onPress={handleNavigate}>

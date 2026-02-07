@@ -176,23 +176,63 @@ All points are stored locally.
 
 ## 🚀 Installation & Running Locally
 
-### 1. Install dependencies
+### Frontend (React Native/Expo)
 
+#### 1. Install dependencies
 ```bash
 npm install
 ```
 
-### 2. Start Expo
-
+#### 2. Start Expo development server
 ```bash
 npx expo start
 ```
 
-### 3. Run the app
-
+#### 3. Run the app
 * Press `i` → iOS Simulator
 * Press `a` → Android Emulator
 * Or scan QR with **Expo Go** on a physical device
+
+---
+
+### Backend (Choose one)
+
+#### Option 1: Python FastAPI Backend (Recommended)
+```bash
+# Navigate to backend directory
+cd backend
+
+# Install Python dependencies
+pip install -r requirements.txt
+
+# Start the FastAPI server
+uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+```
+
+#### Option 2: Node.js Backend
+```bash
+# Navigate to Node.js backend directory  
+cd DilliDarshan_backend
+
+# Install dependencies
+npm install
+
+# Start the server
+npm run dev
+```
+
+#### Quick Start (Python Backend)
+```bash
+# Use the provided startup script
+./start_backend.sh
+```
+
+---
+
+### Running Full App
+1. Start the backend first (runs on port 8000 or 3000)
+2. Start the frontend (runs on port 8081)
+3. Both services must run simultaneously for full functionality
 
 ---
 

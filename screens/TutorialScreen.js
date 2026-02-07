@@ -1,9 +1,5 @@
 // screens/TutorialScreen.js
-<<<<<<< HEAD
-import React, { useState } from 'react';
-=======
 import React, { useState, useRef } from 'react';
->>>>>>> advika/advika
 import {
   View,
   Text,
@@ -46,12 +42,6 @@ const TUTORIAL_STEPS = [
 const TutorialScreen = () => {
   const navigation = useNavigation();
   const [currentStep, setCurrentStep] = useState(0);
-<<<<<<< HEAD
-
-  const handleNext = () => {
-    if (currentStep < TUTORIAL_STEPS.length - 1) {
-      setCurrentStep(currentStep + 1);
-=======
   const scrollViewRef = useRef(null);
 
   const handleNext = () => {
@@ -61,7 +51,6 @@ const TutorialScreen = () => {
       if (scrollViewRef.current) {
         scrollViewRef.current.scrollTo({ x: nextStep * width, animated: true });
       }
->>>>>>> advika/advika
     } else {
       navigation.navigate('PreferenceSetup');
     }
@@ -80,10 +69,7 @@ const TutorialScreen = () => {
 
       {/* CONTENT SLIDER */}
       <ScrollView
-<<<<<<< HEAD
-=======
         ref={scrollViewRef}
->>>>>>> advika/advika
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
@@ -133,34 +119,34 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#FEFBF6' },
   header: { padding: 20, alignItems: 'flex-end' },
   skipText: { color: '#84593C', fontSize: 16, fontWeight: '700' },
-  
+
   scrollView: { flex: 1 },
   stepContainer: { width, padding: 40, alignItems: 'center', justifyContent: 'center' },
-  
-  iconPorthole: { 
-    width: 180, 
-    height: 180, 
-    borderRadius: 90, 
-    alignItems: 'center', 
-    justifyContent: 'center', 
+
+  iconPorthole: {
+    width: 180,
+    height: 180,
+    borderRadius: 90,
+    alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 50,
     borderWidth: 2,
     borderColor: '#F0E4D3',
     borderStyle: 'dashed'
   },
-  
-  title: { 
-    fontSize: 28, 
-    fontWeight: '800', 
-    color: '#2D241E', 
-    textAlign: 'center', 
+
+  title: {
+    fontSize: 28,
+    fontWeight: '800',
+    color: '#2D241E',
+    textAlign: 'center',
     marginBottom: 20,
     letterSpacing: -0.5
   },
-  description: { 
-    fontSize: 16, 
-    color: '#84593C', 
-    textAlign: 'center', 
+  description: {
+    fontSize: 16,
+    color: '#84593C',
+    textAlign: 'center',
     lineHeight: 26,
     fontWeight: '500'
   },
