@@ -17,6 +17,10 @@ with open("rag/chunk_meta.json", encoding="utf-8") as f:
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
+@app.get("/")
+def health_check():
+    return {"status": "healthy", "service": "dillidarshan-backend"}
+
 class StoryRequest(BaseModel):
     placeId: str
     mode: str       
