@@ -1,0 +1,102 @@
+[
+  {
+    "id": "1",
+    "name": "Red Fort",
+    "content": "Built by Mughal emperor Shah Jahan in 1648, the Red Fort served as the main residence of the Mughal emperors for nearly 200 years. Constructed from red sandstone, it is a UNESCO World Heritage Site and a symbol of India’s independence."
+  },
+  {
+    "id": "2",
+    "name": "Qutub Minar",
+    "content": "Qutub Minar was built in 1193 by Qutb-ud-din Aibak and rises to a height of 73 meters. It is the first Islamic monument in Delhi and part of a UNESCO World Heritage Site, known for its intricate carvings and the nearby Iron Pillar."
+  },
+  {
+    "id": "3",
+    "name": "Humayun's Tomb",
+    "content": "Built between 1565 and 1572, Humayun’s Tomb was commissioned by Empress Bega Begum. It is the first garden tomb in India and inspired the design of the Taj Mahal. The monument is a UNESCO World Heritage Site."
+  },
+  {
+    "id": "4",
+    "name": "India Gate",
+    "content": "India Gate is a war memorial built between 1921 and 1931 to commemorate over 90,000 Indian soldiers who died during World War I. It stands as a major national symbol in the heart of New Delhi."
+  },
+  {
+    "id": "5",
+    "name": "Lotus Temple",
+    "content": "Completed in 1986, the Lotus Temple is a Baháʼí House of Worship famous for its lotus-shaped architecture. Open to people of all religions, it symbolizes peace, unity, and harmony."
+  },
+  {
+    "id": "6",
+    "name": "Safdarjung Tomb",
+    "content": "Built in 1754, Safdarjung Tomb is the last major garden tomb of the Mughal era. It was constructed as the mausoleum of Safdarjung, the Nawab of Awadh, and reflects the declining Mughal architectural style."
+  },
+  {
+    "id": "7",
+    "name": "Purana Qila",
+    "content": "Purana Qila is an ancient fort believed to stand on the site of Indraprastha, dating back over 5,000 years. The present structure was built by Sher Shah Suri and showcases early Mughal military architecture."
+  },
+  {
+    "id": "8",
+    "name": "Agrasen ki Baoli",
+    "content": "Agrasen ki Baoli is a 14th-century stepwell known for its symmetrical design and mysterious atmosphere. It is believed to have been built by Maharaja Agrasen and served as a water reservoir in ancient Delhi."
+  },
+  {
+    "id": "9",
+    "name": "Jama Masjid",
+    "content": "Built between 1644 and 1656 by Shah Jahan, Jama Masjid is the largest mosque in India. Constructed from red sandstone and marble, it remains a major center of worship and architectural grandeur."
+  },
+  {
+    "id": "10",
+    "name": "Raj Ghat",
+    "content": "Raj Ghat is the memorial where Mahatma Gandhi was cremated on January 31, 1948. The simple black marble platform represents his ideals of simplicity and peace."
+  },
+  {
+    "id": "11",
+    "name": "Zafar Mahal",
+    "content": "Zafar Mahal was built in the 1840s as the summer palace of Bahadur Shah Zafar, the last Mughal emperor. It reflects the final phase of Mughal architecture and historical decline."
+  },
+  {
+    "id": "12",
+    "name": "Salimgarh Fort",
+    "content": "Salimgarh Fort was built in 1545 by Salim Shah Suri. Later used as a prison during the Mughal and British periods, it played a significant role in Delhi’s military and political history."
+  },
+  {
+    "id": "13",
+    "name": "Feroz Shah Kotla",
+    "content": "Constructed in 1354 by Feroz Shah Tughlaq, Feroz Shah Kotla is a 14th-century fortress. It houses a 3rd-century BC Ashokan Pillar, reflecting Delhi’s layered historical legacy."
+  },
+  {
+    "id": "14",
+    "name": "Jantar Mantar",
+    "content": "Jantar Mantar was built in 1724 by Maharaja Jai Singh II as an astronomical observatory. It contains massive stone instruments used to study celestial movements."
+  },
+  {
+    "id": "15",
+    "name": "Gurudwara Bangla Sahib",
+    "content": "Gurudwara Bangla Sahib was built in 1783 to commemorate the visit of Guru Harkrishan Sahib. It is one of the most important Sikh shrines, known for its golden dome and community kitchen."
+  },
+  {
+    "id": "16",
+    "name": "ISKCON Temple",
+    "content": "Built in 1998, the ISKCON Temple in Delhi is dedicated to Lord Krishna. It is a modern religious complex featuring a museum, cultural exhibits, and spiritual programs."
+  },
+  {
+    "id": "17",
+    "name": "Akshardham Temple",
+    "content": "Opened in 2005, Akshardham Temple is a massive Hindu temple complex showcasing Indian art, culture, and spirituality. It was built in just five years by thousands of artisans."
+  },
+  {
+    "id": "18",
+    "name": "Lodi Gardens",
+    "content": "Lodi Gardens is a historic park containing tombs from the 15th and 16th centuries. It houses monuments of the Lodi dynasty and is a popular green space in central Delhi."
+  },
+  {
+    "id": "19",
+    "name": "National Museum",
+    "content": "Established in 1949, the National Museum in Delhi houses over 200,000 artifacts spanning 5,000 years of Indian history, including Indus Valley, Buddhist, and Mughal collections."
+  },
+  {
+    "id": "20",
+    "name": "National Gallery of Modern Art",
+    "content": "Founded in 1954, the National Gallery of Modern Art is India’s premier modern art museum. Located in Jaipur House, it features works by leading modern and contemporary Indian artists."
+  }
+]

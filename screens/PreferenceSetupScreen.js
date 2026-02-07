@@ -39,7 +39,10 @@ const PreferenceSetupScreen = () => {
   };
 
   const handleSubmit = async () => {
+<<<<<<< HEAD
     // Basic validation to ensure core preferences are set
+=======
+>>>>>>> advika/advika
     if (!userType || !timeAvailable || interests.length === 0) return;
 
     await setPreferences({

@@ -107,12 +107,19 @@ const ProfileScreen = () => {
             variant="outline"
             title="View Tutorial Again"
             onPress={handleResetTutorial}
+<<<<<<< HEAD
             style={styles.tutorialBtn} 
+=======
+            style={styles.tutorialBtn}
+>>>>>>> advika/advika
           />
           <Text style={styles.versionText}>DilliDarshan v1.2.0</Text>
         </View>
 
+<<<<<<< HEAD
         {/* Extra spacer for scroll */}
+=======
+>>>>>>> advika/advika
         <View style={{ height: 40 }} />
       </ScrollView>
     </SafeAreaView>
@@ -201,13 +208,21 @@ const styles = StyleSheet.create({
   menuLabel: { flex: 1, fontSize: 15, fontWeight: "600", color: "#2D241E" },
   footer: {
     paddingHorizontal: 25,
+<<<<<<< HEAD
     paddingVertical: 40, 
+=======
+    paddingVertical: 40,
+>>>>>>> advika/advika
     alignItems: "center",
     width: "100%",
   },
   tutorialBtn: {
     marginTop: 10,
+<<<<<<< HEAD
     width: "100%", 
+=======
+    width: "100%",
+>>>>>>> advika/advika
   },
   versionText: {
     marginTop: 20,

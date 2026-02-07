@@ -1,5 +1,9 @@
 // screens/TutorialScreen.js
+<<<<<<< HEAD
 import React, { useState } from 'react';
+=======
+import React, { useState, useRef } from 'react';
+>>>>>>> advika/advika
 import {
   View,
   Text,
@@ -42,10 +46,22 @@ const TUTORIAL_STEPS = [
 const TutorialScreen = () => {
   const navigation = useNavigation();
   const [currentStep, setCurrentStep] = useState(0);
+<<<<<<< HEAD
 
   const handleNext = () => {
     if (currentStep < TUTORIAL_STEPS.length - 1) {
       setCurrentStep(currentStep + 1);
+=======
+  const scrollViewRef = useRef(null);
+
+  const handleNext = () => {
+    if (currentStep < TUTORIAL_STEPS.length - 1) {
+      const nextStep = currentStep + 1;
+      setCurrentStep(nextStep);
+      if (scrollViewRef.current) {
+        scrollViewRef.current.scrollTo({ x: nextStep * width, animated: true });
+      }
+>>>>>>> advika/advika
     } else {
       navigation.navigate('PreferenceSetup');
     }
@@ -64,6 +80,10 @@ const TutorialScreen = () => {
 
       {/* CONTENT SLIDER */}
       <ScrollView
+<<<<<<< HEAD
+=======
+        ref={scrollViewRef}
+>>>>>>> advika/advika
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}

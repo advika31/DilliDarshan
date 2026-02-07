@@ -14,7 +14,10 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+<<<<<<< HEAD
 import { usePoints } from "../context/PointsContext";
+=======
+>>>>>>> advika/advika
 
 const QUICK_ACTIONS = [
   "What should I do next?",
@@ -25,7 +28,10 @@ const QUICK_ACTIONS = [
 
 const ChatScreen = () => {
   const navigation = useNavigation();
+<<<<<<< HEAD
   const { addPoints } = usePoints();
+=======
+>>>>>>> advika/advika
   const [inputText, setInputText] = useState("");
   const flatListRef = useRef(null);
 
@@ -71,7 +77,10 @@ const ChatScreen = () => {
     if (!text.trim()) return;
     const userMessage = { id: Date.now().toString(), text, isBot: false };
     setMessages((prev) => [...prev, userMessage]);
+<<<<<<< HEAD
     addPoints(5, "Chat interaction");
+=======
+>>>>>>> advika/advika
 
     setTimeout(() => {
       const botResponse = generateBotResponse(text);
