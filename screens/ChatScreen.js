@@ -26,10 +26,7 @@ const QUICK_ACTIONS = [
 
 const ChatScreen = () => {
   const navigation = useNavigation();
-<<<<<<< HEAD
   const { addPoints } = usePoints();
-=======
->>>>>>> advika/advika
   const [inputText, setInputText] = useState("");
   const flatListRef = useRef(null);
 
@@ -75,10 +72,7 @@ const ChatScreen = () => {
     if (!text.trim()) return;
     const userMessage = { id: Date.now().toString(), text, isBot: false };
     setMessages((prev) => [...prev, userMessage]);
-<<<<<<< HEAD
     addPoints(5, "Chat interaction");
-=======
->>>>>>> advika/advika
 
     setTimeout(() => {
       const botResponse = generateBotResponse(text);
