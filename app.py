@@ -1,10 +1,16 @@
-import sys
+from fastapi import FastAPI
+import uvicorn
 import os
-sys.path.append('backend')
 
-# Import and run the backend app
-from backend.app import app
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "DilliDarshan Backend is running!", "status": "active"}
+
+@app.get("/health")
+def health_check():
+    return {"status": "healthy"}
 
 if __name__ == "__main__":
-    import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
