@@ -15,7 +15,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { usePoints } from "../context/PointsContext";
-import { getNextAction } from "../api/nextAction";
 
 const QUICK_ACTIONS = [
   "What should I do next?",
