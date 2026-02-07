@@ -16,9 +16,9 @@ import { Audio } from "expo-av";
 
 import { Card } from "../components/Card";
 import { getPlaceById } from "../constants/places";
-import { usePoints } from "../context/PointsContext"; 
+import { usePoints } from "../context/PointsContext";
 
-const API_BASE = "http://192.168.1.28:8000";
+const API_BASE = "http://192.168.1.56:8000";
 const STORY_COST = 20;
 
 export default function StorytellingScreen() {
@@ -82,10 +82,12 @@ export default function StorytellingScreen() {
         "Not Enough Points",
         `You need ${STORY_COST} points to unlock this story. You currently have ${points} points.\n\nTip: Contribute to the community to earn more!`,
         [
-          {text: "Contribute", onPress: () => {
-            navigation.navigate("Contribution");
-          }},
-          {text: "Cancel", style: "cancel" }
+          {
+            text: "Contribute", onPress: () => {
+              navigation.navigate("Contribution");
+            }
+          },
+          { text: "Cancel", style: "cancel" }
         ]
 
       );
@@ -207,7 +209,7 @@ export default function StorytellingScreen() {
             <Text style={styles.lockedDesc}>
               Unlock immersive AI-narrated stories and hidden history facts about {place.name}.
             </Text>
-            
+
             <View style={styles.costBadge}>
               <Text style={styles.costText}>Cost: {STORY_COST} Points</Text>
             </View>

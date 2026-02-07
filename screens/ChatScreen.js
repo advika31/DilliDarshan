@@ -14,10 +14,8 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-<<<<<<< HEAD
 import { usePoints } from "../context/PointsContext";
-=======
->>>>>>> advika/advika
+import { getNextAction } from "../api/nextAction";
 
 const QUICK_ACTIONS = [
   "What should I do next?",
