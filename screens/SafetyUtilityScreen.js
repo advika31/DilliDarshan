@@ -18,7 +18,7 @@ import { Card } from "../components/Card";
 import { BASE_URL } from "../constants/api";
 
 const SafetyUtilityScreen = () => {
-  
+
   console.log("✅ SafetyUtilityScreen rendered");
 
   const [location, setLocation] = useState(null);
@@ -43,26 +43,35 @@ const SafetyUtilityScreen = () => {
   //🌐 Fetch nearby services from backend
 
   const fetchNearbyServices = async (lat, lng) => {
-  try {
-    console.log("Calling backend with:", lat, lng);
+    try {
+      console.log("Calling backend with:", lat, lng);
+      console.log("Full URL:", `${BASE_URL}/emergency/nearby?lat=${lat}&lng=${lng}`);
 
-    const res = await fetch(
-      `${BASE_URL}/emergency/nearby?lat=${lat}&lng=${lng}`
-    );
+      const res = await fetch(
+        `${BASE_URL}/emergency/nearby?lat=${lat}&lng=${lng}`
+      );
 
-    const data = await res.json();
+      console.log("Response status:", res.status);
 
-    console.log("Combined services:", data);
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
 
-    // ✅ backend already merged
-    setServices(data.results);
+      const data = await res.json();
 
-  } catch (err) {
-    console.log("API error:", err);
-  } finally {
-    setLoading(false);
-  }
-};
+      console.log("Combined services:", data);
+
+      // ✅ backend already merged
+      setServices(data.results || []);
+
+    } catch (err) {
+      console.log("API error:", err.message);
+      console.log("Full error:", err);
+      setServices([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // 🔄 On screen load
   useEffect(() => {
@@ -78,12 +87,22 @@ const SafetyUtilityScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-    
+
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
         <View style={styles.header}>
-          <Text style={styles.title}>Safety & Utilities</Text>
-          <Text style={styles.subtitle}>24/7 Support for a secure journey</Text>
+          <View>
+            <Text style={styles.title}>Safety & Utilities</Text>
+            <Text style={styles.subtitle}>24/7 Support for a secure journey</Text>
+          </View>
+          <TouchableOpacity
+            style={styles.refreshBtn}
+            onPress={() => location && fetchNearbyServices(location.lat, location.lng)}
+            disabled={!location || loading}
+          >
+            <Ionicons name="refresh" size={20} color="#FF8C00" />
+            <Text style={styles.refreshBtnText}>Refresh</Text>
+          </TouchableOpacity>
         </View>
 
         {/* EMERGENCY QUICK DIAL */}
@@ -121,17 +140,62 @@ const SafetyUtilityScreen = () => {
             </Text>
           )}
 
-          {!loading &&
-            services.map((item, index) => (
-            <ServiceItem
-              key={index}
-              icon={item.type === "police" ? "shield-outline" : "medkit-outline"}
-              title={item.name}
-              lat={item.lat}
-              lng={item.lng}
-            />
-          ))}
-                  </Card>
+          {!loading && services.length > 0 && (
+            <>
+              {/* HOSPITALS SECTION */}
+              <View style={styles.categorySection}>
+                <View style={styles.categoryHeader}>
+                  <View style={styles.categoryHeaderLeft}>
+                    <Ionicons name="medkit-outline" size={20} color="#2563eb" />
+                    <Text style={styles.categoryTitle}>Hospitals</Text>
+                  </View>
+                  <View style={styles.countBadge}>
+                    <Text style={styles.countText}>
+                      {services.filter(item => item.type === "hospital").length}
+                    </Text>
+                  </View>
+                </View>
+                {services
+                  .filter(item => item.type === "hospital")
+                  .map((item, index) => (
+                    <ServiceItem
+                      key={`hospital-${index}`}
+                      icon="medkit-outline"
+                      title={item.name}
+                      lat={item.lat}
+                      lng={item.lng}
+                    />
+                  ))}
+              </View>
+
+              {/* POLICE STATIONS SECTION */}
+              <View style={styles.categorySection}>
+                <View style={styles.categoryHeader}>
+                  <View style={styles.categoryHeaderLeft}>
+                    <Ionicons name="shield-outline" size={20} color="#dc2626" />
+                    <Text style={styles.categoryTitle}>Police Stations</Text>
+                  </View>
+                  <View style={styles.countBadge}>
+                    <Text style={styles.countText}>
+                      {services.filter(item => item.type === "police").length}
+                    </Text>
+                  </View>
+                </View>
+                {services
+                  .filter(item => item.type === "police")
+                  .map((item, index) => (
+                    <ServiceItem
+                      key={`police-${index}`}
+                      icon="shield-outline"
+                      title={item.name}
+                      lat={item.lat}
+                      lng={item.lng}
+                    />
+                  ))}
+              </View>
+            </>
+          )}
+        </Card>
       </ScrollView>
     </SafeAreaView>
   );
@@ -149,7 +213,7 @@ const ServiceItem = ({ icon, title, lat, lng }) => {
         <Ionicons name={icon} size={20} color="#FF8C00" />
       </View>
 
-       <View style={styles.col}>
+      <View style={styles.col}>
         <Text style={styles.serviceName}>{title}</Text>
         <Text style={styles.serviceDist}>Tap to navigate</Text>
       </View>
@@ -164,7 +228,67 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#FEFBF6" },
   scrollContent: { padding: 20 },
 
-  header: { marginBottom: 25 },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 20,
+  },
+
+  refreshBtn: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#FFF2E0",
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 8,
+  },
+
+  refreshBtnText: {
+    marginLeft: 6,
+    fontSize: 14,
+    fontWeight: "600",
+    color: "#FF8C00",
+  },
+
+  categorySection: {
+    marginBottom: 20,
+  },
+
+  categoryHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 12,
+    paddingBottom: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: "#E5E7EB",
+  },
+
+  categoryHeaderLeft: {
+    flexDirection: "row",
+    alignItems: "center",
+    flex: 1,
+  },
+
+  countBadge: {
+    backgroundColor: "#F3F4F6",
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+
+  countText: {
+    fontSize: 12,
+    fontWeight: "600",
+    color: "#6B7280",
+  },
+
+  categoryTitle: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#2D241E",
+    marginLeft: 8,
+  },
   title: { fontSize: 28, fontWeight: "800", color: "#2D241E" },
   subtitle: { fontSize: 15, color: "#84593C", marginTop: 4, fontWeight: "500" },
 
